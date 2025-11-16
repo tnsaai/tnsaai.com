@@ -9,7 +9,7 @@ const papers = [
     title: 'Introducing Rishi (AAR-1): TNSA\'s First Automated AI Researcher',
     description: 'Meet Rishi, TNSA\'s pioneering Automated AI Researcher, relentlessly working to achieve SuperIntelligence.',
     href: '/company/news/rishi-aar-1-tnsas-first-automated-ai-researcher',
-    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/tnsa-risihi.png',
+    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/tnsa-risihi%20(1).png',
     showTitle: false,
     imageFit: 'contain',
   },
