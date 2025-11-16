@@ -10,6 +10,8 @@ interface FlightCardProps {
   imageAlt?: string;
   href?: string;
   variant?: 'large' | 'medium' | 'default';
+  showTitle?: boolean;
+  imageFit?: 'cover' | 'contain';
 }
 
 export const FlightCard = ({
@@ -21,7 +23,9 @@ export const FlightCard = ({
   imageUrl = "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=2070&auto=format&fit=crop",
   imageAlt = "Card image",
   href,
-  variant = 'default'
+  variant = 'default',
+  showTitle = true,
+  imageFit = 'cover'
 }: FlightCardProps) => {
 
   const handleButtonClick = () => {
@@ -47,19 +51,21 @@ export const FlightCard = ({
       <img
         src={imageUrl}
         alt={imageAlt}
-        className="w-full h-full object-cover absolute inset-0"
+        className={`w-full h-full object-${imageFit} absolute inset-0`}
       />
 
       {/* Content */}
-      <div className={`absolute inset-0 flex p-8 z-10 ${
-        isLarge ? 'items-start justify-end' : 'items-center justify-center'
-      }`}>
-        <h2 className={`font-normal text-white ${
-          isLarge ? 'text-5xl' : 'text-4xl'
+      {showTitle && (
+        <div className={`absolute inset-0 flex p-8 z-10 ${
+          isLarge ? 'items-start justify-end' : 'items-center justify-center'
         }`}>
-          {title}
-        </h2>
-      </div>
+          <h2 className={`font-normal text-white ${
+            isLarge ? 'text-5xl' : 'text-4xl'
+          }`}>
+            {title}
+          </h2>
+        </div>
+      )}
 
       {/* Hover Button */}
       <div className="absolute bottom-8 right-8 z-20 opacity-0 group-hover:opacity-100 transition-opacity">

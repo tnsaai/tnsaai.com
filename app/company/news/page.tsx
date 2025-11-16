@@ -6,6 +6,14 @@ import { FlightCard } from '@/components/ui/flight-card'
 
 const papers = [
   {
+    title: 'Introducing Rishi (AAR-1): TNSA\'s First Automated AI Researcher',
+    description: 'Meet Rishi, TNSA\'s pioneering Automated AI Researcher, relentlessly working to achieve SuperIntelligence.',
+    href: '/company/news/rishi-aar-1-tnsas-first-automated-ai-researcher',
+    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/tnsa-risihi.png',
+    showTitle: false,
+    imageFit: 'contain',
+  },
+  {
     title: 'NGen4 Atom Chat Launch',
     description: 'Introducing TNSA\'s most massive model - 10X larger than our biggest open-weight model NGen3 10B.',
     href: '/company/news/ngen4-atom-chat-launch',
@@ -75,6 +83,10 @@ export default function NewsPage() {
                 imageUrl={paper.backgroundImage}
                 imageAlt={paper.title}
                 href={paper.href}
+                // @ts-ignore
+                showTitle={paper.showTitle}
+                // @ts-ignore
+                imageFit={paper.imageFit}
               />
             ))}
           </div>
