@@ -2,14 +2,29 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import BenchmarkChart from '@/components/ui/BenchmarkChart'
-import BenchmarkTables from '@/components/ui/BenchmarkTables'
+import { BenchmarkNGen3Reasoning } from '@/components/ui/BenchmarkNGen3'
+import { BenchmarkTable } from '@/components/ui/BenchmarkTable'
+import { BenchmarkAdvancedText, BenchmarkAdvancedLogic, BenchmarkAdvancedCoding, BenchmarkVisionMultimodal } from '@/components/ui/BenchmarkAdvanced'
 
 export default function NGen35MaxChatPage() {
+  const textBenchmarkRows = [
+    { category: 'Knowledge', benchmark: 'MMLU-Pro', value: 75.8, competitorValue: 81.2 },
+    { category: 'Reasoning', benchmark: 'GPQA', value: 71.2, competitorValue: 68.4 },
+    { category: 'Reasoning', benchmark: 'AIME 25', value: 89.1, competitorValue: 70.9 },
+    { category: 'Coding', benchmark: 'LiveCodeBench', value: 62.5, competitorValue: 57.4 },
+    { category: 'Alignment', benchmark: 'Arena-Hard v2', value: 41.8, competitorValue: 36.3 },
+  ]
+
+  const visionBenchmarkRows = [
+    { category: 'STEM', benchmark: 'MMMU (Val)', value: 75.6, competitorValue: 74.1 },
+    { category: 'Math', benchmark: 'MathVista', value: 83.2, competitorValue: 81.4 },
+    { category: 'OCR', benchmark: 'DocVQA', value: 95.6, competitorValue: 95.3 },
+    { category: 'Video', benchmark: 'MVBench', value: 74.7, competitorValue: 69.0 },
+  ]
+
   return (
     <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
       <div className="mx-auto max-w-4xl px-6">
-        {/* Date and Title */}
         <div className="text-center">
           <p className="text-sm text-gray-500">Nov 2025</p>
           <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>
@@ -17,7 +32,6 @@ export default function NGen35MaxChatPage() {
           </h1>
         </div>
 
-        {/* Image */}
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
             src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/mymind-tZCrFpSNiIQ-unsplash.jpg"
@@ -29,7 +43,6 @@ export default function NGen35MaxChatPage() {
         </div>
       </div>
 
-      {/* Paper Content */}
       <div className="bg-white">
         <div className="mx-auto max-w-4xl px-6">
           <div className="mb-16">
@@ -41,10 +54,34 @@ export default function NGen35MaxChatPage() {
             </p>
           </div>
 
+          <div className="space-y-24 mb-24">
+            <BenchmarkNGen3Reasoning />
+            <BenchmarkAdvancedText />
+            <BenchmarkAdvancedLogic />
+            <BenchmarkAdvancedCoding />
+            <BenchmarkVisionMultimodal />
+          </div>
+
           <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Benchmark Performance.</h2>
-            <BenchmarkChart />
-            <BenchmarkTables />
+            <BenchmarkTable title="The Text, Reasoning & Coding Benchmarks" rows={textBenchmarkRows} />
+          </div>
+
+          <div className="mb-24">
+            <BenchmarkTable title="The Vision & Multimodal Benchmarks" rows={visionBenchmarkRows} />
+          </div>
+
+          <div className="mb-16">
+            <h2 className="text-2xl text-gray-900 mb-4">Context & Specs.</h2>
+            <div className="grid grid-cols-2 gap-8 text-base text-gray-700">
+              <div>
+                <p className="font-medium text-black">Context Length</p>
+                <p>262,144 Tokens</p>
+              </div>
+              <div>
+                <p className="font-medium text-black">Multimodal</p>
+                <p>Native Support</p>
+              </div>
+            </div>
           </div>
 
           <div className="mb-16">
@@ -56,6 +93,7 @@ export default function NGen35MaxChatPage() {
               <li>Enterprise-grade alignment and instruction following</li>
             </ul>
           </div>
+
 
           <div className="mb-16">
             <h2 className="text-2xl text-gray-900 mb-4">Pricing.</h2>

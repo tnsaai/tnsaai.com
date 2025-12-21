@@ -38,7 +38,7 @@ export const FlightCard = ({
   const isMedium = variant === 'medium';
 
   return (
-    <div 
+    <div
       className="bg-white overflow-hidden relative cursor-pointer group"
       style={{
         width: isLarge ? '1028px' : isMedium ? '679px' : '329px',
@@ -51,17 +51,15 @@ export const FlightCard = ({
       <img
         src={imageUrl}
         alt={imageAlt}
-        className={`w-full h-full object-${imageFit} absolute inset-0`}
+        className={`w-full h-full object-${imageFit} absolute inset-0 transition-transform duration-500 group-hover:scale-110`}
       />
 
       {/* Content */}
       {showTitle && (
-        <div className={`absolute inset-0 flex p-8 z-10 ${
-          isLarge ? 'items-start justify-end' : 'items-center justify-center'
-        }`}>
-          <h2 className={`font-normal text-white ${
-            isLarge ? 'text-5xl' : 'text-4xl'
+        <div className={`absolute inset-0 flex p-8 z-10 ${isLarge ? 'items-start justify-end' : 'items-center justify-center'
           }`}>
+          <h2 className={`font-normal text-white ${isLarge ? 'text-5xl' : 'text-4xl'
+            }`}>
             {title}
           </h2>
         </div>
@@ -69,7 +67,7 @@ export const FlightCard = ({
 
       {/* Hover Button */}
       <div className="absolute bottom-8 right-8 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
-        <div className="bg-white rounded-full flex items-center justify-center" style={{width: '167px', height: '50px'}}>
+        <div className="bg-white rounded-full flex items-center justify-center" style={{ width: '167px', height: '50px' }}>
           <span className="text-sm font-medium text-black">{buttonText}</span>
         </div>
       </div>

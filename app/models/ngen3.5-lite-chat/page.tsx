@@ -3,7 +3,16 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
+import { BenchmarkTable } from '@/components/ui/BenchmarkTable'
+
 export default function NGen35LiteChatPage() {
+  const benchmarkRows = [
+    { category: 'Knowledge', benchmark: 'MMLU-Pro', value: 70.4, competitorValue: 81.2 },
+    { category: 'Knowledge', benchmark: 'MMLU-Redux', value: 83.7, competitorValue: '—' },
+    { category: 'Reasoning', benchmark: 'GPQA', value: 55.9, competitorValue: 68.4 },
+    { category: 'Reasoning', benchmark: 'AIME 25', value: 65.6, competitorValue: 70.9 },
+  ]
+
   return (
     <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
       <div className="mx-auto max-w-4xl px-6">
@@ -31,6 +40,9 @@ export default function NGen35LiteChatPage() {
               NGen 3.5 Lite provides efficient and fast conversational AI capabilities, optimized for applications requiring quick response times and cost-effective deployment while maintaining strong performance.
             </p>
           </div>
+
+          <BenchmarkTable rows={benchmarkRows} />
+
 
           <div className="mb-16">
             <h2 className="text-2xl text-gray-900 mb-4">Key Capabilities.</h2>

@@ -25,14 +25,15 @@ export default function ModelsPage() {
 
           <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
             <FlightCard
-              title="NGen4 Atom Chat"
+              title="NGen 4 Mini"
               subtitle="Conversational AI"
               category="100B+ params"
               price="$2.00/1K tokens"
               buttonText="Know More"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/craig-melville-iv-8WY0khgE-unsplash.jpg"
-              imageAlt="NGen4 Atom Chat Model"
-              href="/models/ngen4-atom-chat"
+              imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/b541dce9d4e61765fc0e23374f20194bb5b69b33/ngen4-mini.svg"
+              imageAlt="NGen 4 Mini Model"
+              href="/models/ngen4-mini"
+              showTitle={false}
             />
           </div>
         </div>
@@ -222,7 +223,7 @@ export default function ModelsPage() {
               imageAlt="NGen 3.9 Lite Model"
               href="/models/ngen3.9-lite-chat"
             />
-            
+
             <FlightCard
               title="NGen 3.9 Pro"
               subtitle="Strong contextual and logical understanding"
@@ -598,7 +599,7 @@ export default function ModelsPage() {
       {/* CTA Section */}
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-[40px] flex flex-col items-center justify-center" style={{width: '100%', maxWidth: '1028px', height: '575px', margin: '0 auto'}}>
+          <div className="bg-gray-50 rounded-[40px] flex flex-col items-center justify-center" style={{ width: '100%', maxWidth: '1028px', height: '575px', margin: '0 auto' }}>
             <h2 className="text-5xl font-normal text-center mb-8 text-black">
               Start building with TNSA today!
             </h2>

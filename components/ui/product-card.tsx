@@ -31,13 +31,13 @@ export const ProductCard = ({
     };
 
     return (
-        <div className="w-full max-w-[390px] bg-white rounded-[2.5rem] shadow-2xl p-4">
+        <div className="w-full max-w-[390px] bg-white rounded-[2.5rem] shadow-2xl p-4 group cursor-pointer transition-all duration-300">
             {/* Image Container */}
             <div className="relative w-full aspect-square rounded-[2rem] overflow-hidden mb-4">
                 <img
                     src={imageUrl}
                     alt={imageAlt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
             </div>
 

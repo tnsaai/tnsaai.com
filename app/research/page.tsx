@@ -6,6 +6,13 @@ import { FlightCard } from '@/components/ui/flight-card'
 
 const papers = [
   {
+    title: 'Tri-Flux Attention',
+    date: '20 Dec 2025',
+    description: 'Breaking the Linear Complexity Barrier via Symmetric Trigonometric State Spaces.',
+    href: '/research/tri-flux-attention',
+    backgroundImage: 'https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/pexels-diva-32403296.jpg',
+  },
+  {
     title: 'Quantum-Based Language Models',
     date: '6 Nov 2025',
     description: 'A comprehensive survey of quantum computing principles applied to language models.',
@@ -98,7 +105,7 @@ export default function ResearchPage() {
               Explore our latest research papers and publications.
             </p>
           </div>
-          
+
           <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
             {papers.map((paper) => (
               <FlightCard
