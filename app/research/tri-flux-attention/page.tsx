@@ -121,7 +121,7 @@ export default function TriFluxAttentionPage() {
                             <BlockMath math="S_t = S_{t-1} + V_t K_t^T" />
                         </div>
                         <p className="mb-10 text-justify">
-                            This results in a non-symmetric matrix requiring <InlineMath math="d^2" /> storage. We hypothesize that the distinction between the "address" (K) and the "content" (V) is computationally redundant. TFA unifies these into a single Memory basis <InlineMath math="m_t" />.
+                            This results in a non-symmetric matrix requiring <InlineMath math="d^2" /> storage. We hypothesize that the distinction between the &quot;address&quot; (K) and the &quot;content&quot; (V) is computationally redundant. TFA unifies these into a single Memory basis <InlineMath math="m_t" />.
                         </p>
 
                         <h3 className="text-2xl text-black font-semibold mt-16 mb-6">2.2 Symmetric Projection Logic</h3>
@@ -137,7 +137,7 @@ export default function TriFluxAttentionPage() {
 
                         <h3 className="text-2xl text-black font-semibold mt-16 mb-6">2.3 The Trigonometric Phase Gate (<InlineMath math="\alpha" />)</h3>
                         <p className="mb-8 text-justify">
-                            Purely additive symmetric updates lead to state saturation and the inability to "erase" information. TNSA introduces the Trigonometric Phase Gate <InlineMath math="\alpha_t" />, utilizing the cosine of a learned phase angle <InlineMath math="\theta" />:
+                            Purely additive symmetric updates lead to state saturation and the inability to &quot;erase&quot; information. TNSA introduces the Trigonometric Phase Gate <InlineMath math="\alpha_t" />, utilizing the cosine of a learned phase angle <InlineMath math="\theta" />:
                         </p>
                         <div className="my-12 flex flex-col gap-8">
                             <BlockMath math="\theta_t = \pi \cdot \tanh(x_t W_{\theta}) \quad (2)" />
