@@ -22,10 +22,30 @@ export default function NGen4MiniPage() {
     return (
         <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
             <div className="mx-auto max-w-4xl px-6">
-                {/* Date and Title */}
+                {/* Date, Title & Authors */}
                 <div className="text-center">
-                    <p className="text-sm text-gray-500">29 November, 2025</p>
-                    <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>NGen 4 Mini</h1>
+                    <p className="text-sm text-gray-500 uppercase tracking-widest mb-4">Model • 29 November, 2025</p>
+                    <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>NGen 4 Mini</h1>
+
+                    <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-gray-600 mb-8 font-medium">
+                        <span>Thishyaketh¹</span>
+                        <span>Rishi¹</span>
+                        <span>Aryavardhan²</span>
+                        <span>Devansh²</span>
+                        <span>Amala³</span>
+                        <span>Neelansh³</span>
+                        <span>Kritarth⁴</span>
+                    </div>
+
+                    <div className="text-sm text-gray-500 mb-8">
+                        <span><sup>1</sup> AI Research</span>
+                        <span className="mx-4">|</span>
+                        <span><sup>2</sup> Safety & Alignment</span>
+                        <span className="mx-4">|</span>
+                        <span><sup>3</sup> Indian Applied Intelligence</span>
+                        <span className="mx-4">|</span>
+                        <span><sup>4</sup> Interpretability</span>
+                    </div>
                 </div>
 
                 {/* Image */}
@@ -47,7 +67,7 @@ export default function NGen4MiniPage() {
                     <div className="mb-16">
                         <h2 className="text-2xl text-gray-900 mb-4">Overview.</h2>
                         <p className="text-base text-gray-700 leading-relaxed">
-                            NGen 4 Mini represents a massive leap in model scale and conversational capability. Built as a non-reasoning large language model, it&apos;s designed specifically for natural, engaging conversations and content generation at unprecedented scale. At 10X the size of TNSA&apos;s biggest open-weight model NGen3 10B, NGen 4 Mini delivers exceptional performance in dialogue, creative writing, and general language understanding with massive-scale AI capabilities.
+                            NGen 4 Mini represents a major step forward in reasoning and conversational capability. Built as a reasoning model, it&apos;s designed for advanced reasoning, problem solving, and natural, engaging conversations and content generation at scale. At 10X the size of TNSA&apos;s biggest open-weight model NGen3 10B, NGen 4 Mini delivers exceptional performance in dialogue, creative writing, and general language understanding with robust reasoning abilities.
                         </p>
                     </div>
 
@@ -69,14 +89,10 @@ export default function NGen4MiniPage() {
 
                     <div className="mb-16">
                         <h2 className="text-2xl text-gray-900 mb-4">Context & Specs.</h2>
-                        <div className="grid grid-cols-2 gap-8 text-base text-gray-700">
+                        <div className="grid grid-cols-1 gap-8 text-base text-gray-700">
                             <div>
                                 <p className="font-medium text-black">Context Length</p>
                                 <p>128,000 Tokens</p>
-                            </div>
-                            <div>
-                                <p className="font-medium text-black">Model Size</p>
-                                <p>100B+ Parameters</p>
                             </div>
                         </div>
                     </div>
@@ -84,10 +100,10 @@ export default function NGen4MiniPage() {
                     <div className="mb-16">
                         <h2 className="text-2xl text-gray-900 mb-4">Key Capabilities.</h2>
                         <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
-                            <li>100B+ parameter transformer architecture optimized for conversational AI</li>
-                            <li>32K token context window for extended dialogue and content generation</li>
+                            <li>Transformer architecture optimized for reasoning and conversational AI</li>
+                            <li>128K token context window for extended dialogue and content generation</li>
                             <li>10X scale of TNSA&apos;s biggest open-weight model NGen3 10B</li>
-                            <li>Exceptional performance in natural dialogue and creative writing</li>
+                            <li>Exceptional performance in problem solving, natural dialogue, and creative writing</li>
                         </ul>
                     </div>
 
@@ -97,6 +113,34 @@ export default function NGen4MiniPage() {
                         <p className="text-base text-gray-700 leading-relaxed">
                             $2.00 per 1K tokens
                         </p>
+                    </div>
+
+                    <div className="mb-16">
+                        <h2 className="text-2xl text-gray-900 mb-4">Research.</h2>
+                        <div className="grid grid-cols-1 gap-6 text-base text-gray-700">
+                            <div>
+                                <p className="font-medium text-black">AI Research</p>
+                                <p>Thishyaketh<sup>1</sup>, Rishi<sup>1</sup></p>
+                            </div>
+                            <div>
+                                <p className="font-medium text-black">Safety & Alignment</p>
+                                <p>Aryavardhan<sup>2</sup>, Devansh<sup>2</sup></p>
+                            </div>
+                            <div>
+                                <p className="font-medium text-black">Indian Applied Intelligence</p>
+                                <p>Amala<sup>3</sup>, Neelansh<sup>3</sup></p>
+                            </div>
+                            <div>
+                                <p className="font-medium text-black">Interpretability</p>
+                                <p>Kritarth<sup>4</sup></p>
+                            </div>
+                            <div className="text-sm text-gray-500 mt-4">
+                                <p><sup>1</sup> AI Research</p>
+                                <p><sup>2</sup> Safety & Alignment</p>
+                                <p><sup>3</sup> Indian Applied Intelligence</p>
+                                <p><sup>4</sup> Interpretability</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="flex justify-center" style={{ marginBottom: '77px' }}>

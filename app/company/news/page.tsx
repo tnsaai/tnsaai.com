@@ -70,7 +70,17 @@ export default function NewsPage() {
               Stay updated with our latest announcements and developments.
             </p>
           </div>
-          
+
+          <div className="mb-8">
+            <div className="rounded-lg bg-zinc-50 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-sm text-gray-700">Featured: Explore our latest research and tools.</div>
+              <div className="flex gap-3">
+                <Link href="/research/tri-flux-attention" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50">Tri‑Flux Attention</Link>
+                <Link href="/company/news/rishi-aar-1-tnsas-first-automated-ai-researcher" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50">Meet Rishi</Link>
+              </div>
+            </div>
+          </div>
+
           <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
             {papers.map((paper) => (
               <FlightCard

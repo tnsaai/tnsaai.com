@@ -43,7 +43,7 @@ export default function TriFluxAttentionPage() {
 
                     {/* ABSTRACT */}
                     <section id="abstract">
-                        <h2 className="text-3xl text-black font-semibold mb-8 border-b border-zinc-100 pb-4">Abstract.</h2>
+                        <h2 className="text-2xl text-black font-semibold mb-8 border-b border-zinc-100 pb-4">Abstract.</h2>
                         <div className="space-y-6 text-justify">
                             <p>
                                 The scaling of Foundational Large Language Models (LLMs) is currently constrained by a fundamental architectural trade-off known as the <strong>Attention Trilemma</strong>: models must choose between parallelizable training, constant-time inference, or high-fidelity associative recall. Standard Transformers (MHA/GQA) offer parallel training but suffer from <InlineMath math="O(N^2)" /> linear scaling during decoding, creating the “Memory Wall.” Conversely, Recurrent Neural Networks (RNNs) offer <InlineMath math="O(1)" /> inference but are bound by the “Sequential Wall” during training.
@@ -56,12 +56,12 @@ export default function TriFluxAttentionPage() {
 
                     {/* INTRODUCTION */}
                     <section id="introduction">
-                        <h2 className="text-3xl text-black font-semibold mt-24 mb-8">1 Introduction</h2>
+                        <h2 className="text-2xl text-black font-semibold mt-24 mb-8">1 Introduction</h2>
                         <p className="mb-6">
                             The Generative AI revolution, powered by the Transformer architecture, has reached a critical juncture where the physical limits of hardware memory bandwidth intersect with the algorithmic requirements of long-context reasoning. The Scaled Dot-Product Attention (SDPA) mechanism, while effective at capturing long-range dependencies, requires a global scan of the entire prefix history for every new token generated. This <InlineMath math="O(N)" /> dependency creates a non-negotiable latency penalty that scales with the sequence length, eventually rendering models unusable for real-time applications involving large documents or codebases.
                         </p>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">1.1 The Thought Experiment</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">1.1 The Thought Experiment</h3>
                         <p className="mb-6 text-justify">
                             Consider the geometric redundancy present in standard attention mechanisms. The projected matrices for Query, Key, and Value are typically represented as rectangular or square matrices, even though the effective interaction space exhibits inherent symmetry. From a linear-algebraic perspective, symmetric interactions do not require full matrix storage; only the upper (or lower) triangular region is sufficient to encode the complete state. This motivates the question: if attention interactions are fundamentally symmetric, can the representational space itself be constrained to a triangular manifold without loss of expressivity?
                         </p>
@@ -69,12 +69,12 @@ export default function TriFluxAttentionPage() {
                             Extending this intuition, one may view attention not as discrete Q–K–V lookups, but as a continuous state evolution over a geometric surface. Trigonometric functions such as cosine can be interpreted as phase-controlled gates, allowing signed accumulation and correction within this triangular state. Under this view, separate Key and Value matrices become redundant, and their roles can be unified into a single symmetric memory basis, while the Query acts as a directional probe over the formed triangular state. This thought experiment suggests that attention efficiency can be improved by enforcing symmetry at the representational level rather than optimizing rectangular matrix operations post hoc.
                         </p>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">1.2 The Crisis of the Memory Wall</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">1.2 The Crisis of the Memory Wall</h3>
                         <p className="text-justify mb-8">
                             For a standard Foundational Model, the serving cost is dominated by the Key-Value (KV) cache. At a sequence length of 1,000,000 tokens, even optimized Grouped-Query Attention (GQA) architectures require gigabytes of dedicated VRAM per user session. On high-density inference nodes, this results in extremely low concurrency and massive economic overhead. Architectures that attempt to mitigate this via compression, such as Multi-Head Latent Attention (MLA), still require a linear compute scan during decoding, which eventually saturates the memory bus of modern GPUs.
                         </p>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">1.3 The TNSA Contribution</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">1.3 The TNSA Contribution</h3>
                         <p className="text-justify mb-8">
                             At TNSA (India), we have re-engineered the attention mechanism from the perspective of holographic state integration rather than discrete retrieval. Our proposed Tri-Flux Attention (TFA) provides a resolution to the Attention Trilemma by enforcing Matrix Symmetry as a first-class citizen of the architecture. By unifying address (Key) and content (Value) into a single Basis Vector, and utilizing trigonometric phase angles to control the polarity of memory updates, TFA achieves the theoretical limit of serving efficiency: zero memory growth over time.
                         </p>
@@ -111,9 +111,9 @@ export default function TriFluxAttentionPage() {
 
                     {/* THEORETICAL FRAMEWORK */}
                     <section id="theory">
-                        <h2 className="text-3xl text-black font-semibold mt-32 mb-8 uppercase tracking-tight">2 Theoretical Framework: The Unified State Space</h2>
+                        <h2 className="text-2xl text-black font-semibold mt-32 mb-8 uppercase tracking-tight">2 Theoretical Framework: The Unified State Space</h2>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">2.1 The Redundancy of Asymmetry</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">2.1 The Redundancy of Asymmetry</h3>
                         <p className="mb-8">
                             In standard attention, <InlineMath math="K \in R^d" /> and <InlineMath math="V \in R^d" /> are distinct projections. During a recurrent update, the state <InlineMath math="S" /> evolves as:
                         </p>
@@ -124,7 +124,7 @@ export default function TriFluxAttentionPage() {
                             This results in a non-symmetric matrix requiring <InlineMath math="d^2" /> storage. We hypothesize that the distinction between the &quot;address&quot; (K) and the &quot;content&quot; (V) is computationally redundant. TFA unifies these into a single Memory basis <InlineMath math="m_t" />.
                         </p>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">2.2 Symmetric Projection Logic</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">2.2 Symmetric Projection Logic</h3>
                         <p className="mb-8 text-justify">
                             Given an input embedding <InlineMath math="x_t \in R^D" />, TFA projects it into a latent space using a fused linear layer:
                         </p>
@@ -135,7 +135,7 @@ export default function TriFluxAttentionPage() {
                             The update term becomes the outer product <InlineMath math="\Delta S = m_t m_t^T" />. By the fundamental properties of linear algebra, <InlineMath math="\Delta S" /> is a Rank-1 symmetric matrix (<InlineMath math="S_{ij} = S_{ji}" />). Consequently, the accumulated state <InlineMath math="S" /> remains symmetric for all <InlineMath math="t" />.
                         </p>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">2.3 The Trigonometric Phase Gate (<InlineMath math="\alpha" />)</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">2.3 The Trigonometric Phase Gate (<InlineMath math="\alpha" />)</h3>
                         <p className="mb-8 text-justify">
                             Purely additive symmetric updates lead to state saturation and the inability to &quot;erase&quot; information. TNSA introduces the Trigonometric Phase Gate <InlineMath math="\alpha_t" />, utilizing the cosine of a learned phase angle <InlineMath math="\theta" />:
                         </p>
@@ -147,7 +147,7 @@ export default function TriFluxAttentionPage() {
                             This gate provides a geometric switch for the model to perform signed updates. If <InlineMath math="\alpha \approx -1" />, the model performs information correction by subtracting the memory basis from the holographic manifold, a critical capability for multi-step reasoning and fact correction.
                         </p>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">2.4 Gate-Corrected Associative Scan (GCAS)</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">2.4 Gate-Corrected Associative Scan (GCAS)</h3>
                         <p className="mb-8 text-justify">
                             To prevent the magnitude drift common in linear attention models, we introduce the Holographic Normalizer <InlineMath math="Z_t" />, which tracks the running density of integrated information. To maintain mathematical identity between training and inference, <InlineMath math="Z" /> must decay at the exact same rate as <InlineMath math="S" />:
                         </p>
@@ -164,7 +164,7 @@ export default function TriFluxAttentionPage() {
 
                     {/* ALGORITHMS */}
                     <section id="algorithms">
-                        <h2 className="text-3xl text-black font-semibold mt-32 mb-8">3 The Universal Dual-Form Algorithms</h2>
+                        <h2 className="text-2xl text-black font-semibold mt-32 mb-8">3 The Universal Dual-Form Algorithms</h2>
                         <p className="mb-10">
                             TFA is uniquely designed to operate in two mathematically identical forms: the Parallel Scan (for pre-training) and the Recurrent Step (for serving).
                         </p>
@@ -196,7 +196,7 @@ export default function TriFluxAttentionPage() {
                             </p>
                         </div>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">3.1 Algorithm 1: Flash-Flux (Parallel Training)</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">3.1 Algorithm 1: Flash-Flux (Parallel Training)</h3>
                         <p className="mb-10 text-justify">
                             Flash-Flux linearizes the recurrence into an associative parallel scan. This allows <InlineMath math="O(N)" /> compute with <InlineMath math="O(\log N)" /> parallel depth on the GPU.
                         </p>
@@ -207,7 +207,7 @@ export default function TriFluxAttentionPage() {
                             This formulation ensures that TFA training matches the throughput of hardware-optimized Flash Attention-2 kernels.
                         </p>
 
-                        <h3 className="text-2xl text-black font-semibold mt-24 mb-10">3.2 Algorithm 2: Tri-Flux (Recurrent Inference)</h3>
+                        <h3 className="text-xl text-black font-semibold mt-24 mb-10">3.2 Algorithm 2: Tri-Flux (Recurrent Inference)</h3>
                         <p className="mb-10">During generation, the model collapses into a bit-perfect <InlineMath math="O(1)" /> step.</p>
 
                         <div className="bg-[#fafafa] rounded-[3rem] p-12 md:p-20 border border-zinc-100 shadow-sm overflow-x-auto mb-20">
@@ -228,9 +228,9 @@ export default function TriFluxAttentionPage() {
 
                     {/* HARDWARE */}
                     <section id="hardware">
-                        <h2 className="text-3xl text-black font-semibold mt-32 mb-8">4 Hardware-Aware Co-Design</h2>
+                        <h2 className="text-2xl text-black font-semibold mt-32 mb-8">4 Hardware-Aware Co-Design</h2>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">4.1 Triangular Storage Mapping</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">4.1 Triangular Storage Mapping</h3>
                         <p className="mb-10 text-justify">
                             Since <InlineMath math="S" /> is symmetric, storing the full <InlineMath math="d \times d" /> matrix is redundant. TNSA implements a custom CUDA kernel that maps the state to a Triangular Array. We only store indices where <InlineMath math="i \le j" />.
                         </p>
@@ -268,7 +268,7 @@ export default function TriFluxAttentionPage() {
                             </p>
                         </div>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">4.2 Matrix-Free Sparse Retrieval</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">4.2 Matrix-Free Sparse Retrieval</h3>
                         <p className="mb-10 text-justify">
                             To prevent <InlineMath math="O(d^2)" /> materialization during training on long sequences, we utilize a Matrix-Free Retrieval kernel. This kernel computes the product <InlineMath math="y = qS" /> directly from the triangular indices, maintaining an <InlineMath math="O(1)" /> workspace per sequence step and preventing OOM failures at context lengths exceeding 100k tokens.
                         </p>
@@ -276,17 +276,17 @@ export default function TriFluxAttentionPage() {
 
                     {/* EVALUATION */}
                     <section id="evaluation">
-                        <h2 className="text-3xl text-black font-semibold mt-32 mb-8">5 Empirical Evaluation on Tesla T4</h2>
+                        <h2 className="text-2xl text-black font-semibold mt-32 mb-8">5 Empirical Evaluation on Tesla T4</h2>
                         <p className="mb-10">
                             We benchmarked TFA against Multi-Head Attention (MHA), Grouped-Query Attention (GQA), and Multi-Head Latent Attention (MLA) on a generic NVIDIA Tesla T4 (16GB).
                         </p>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">5.1 Training Throughput Scaling</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">5.1 Training Throughput Scaling</h3>
                         <p className="mb-10 text-justify">
                             Standard Transformers exhibit a quadratic collapse in Tokens/Sec as context grows. TFA demonstrates linear scaling, reaching a peak of 1.27 Million tokens/sec at 16k context and maintaining 1.18 Million tokens/sec at 131k context.
                         </p>
 
-                        <h3 className="text-2xl text-black font-semibold mt-16 mb-6">5.2 The 1-Million Token Inference Test</h3>
+                        <h3 className="text-xl text-black font-semibold mt-16 mb-6">5.2 The 1-Million Token Inference Test</h3>
                         <p className="mb-10 text-justify">
                             TFA achieved the theoretical limit of context-invariant inference, outperforming architectures which crash with OOM at this threshold.
                         </p>
@@ -355,7 +355,7 @@ export default function TriFluxAttentionPage() {
                             </div>
                         </div>
 
-                        <h3 className="text-2xl text-black font-semibold mt-24 mb-6">5.3 Mathematical Parity Verification</h3>
+                        <h3 className="text-xl text-black font-semibold mt-24 mb-6">5.3 Mathematical Parity Verification</h3>
                         <p className="mb-10 text-justify">
                             Using real text from the TinyShakespeare corpus, we measured the discrepancy between the parallel training form and the recurrent inference form.
                         </p>
@@ -396,7 +396,7 @@ export default function TriFluxAttentionPage() {
 
                     {/* DISCUSSION */}
                     <section id="discussion">
-                        <h2 className="text-3xl text-black font-semibold mt-32 mb-8">6 Discussion</h2>
+                        <h2 className="text-2xl text-black font-semibold mt-32 mb-8">6 Discussion</h2>
                         <p className="text-justify mb-8">
                             The results definitively prove that TNSA TFA has solved the ”Memory Wall.” By shifting the serving bottleneck from Memory-Bound (HBM bandwidth) to Compute-Bound (Tensor Core math), we enable infinite-context Foundational Models to run on commodity hardware. The lower validation loss observed (2.15 vs 2.24) suggests that the Trigonometric Phase Gate provides a superior inductive bias for linguistic periodicities compared to standard Softmax attention. Future work will explore scaling TFA to 65B parameter regimes and multi-modal symmetric states.
                         </p>
@@ -404,7 +404,7 @@ export default function TriFluxAttentionPage() {
 
                     {/* CONCLUSION */}
                     <section id="conclusion">
-                        <h2 className="text-3xl text-black font-semibold mt-32 mb-8 uppercase">7 Conclusion</h2>
+                        <h2 className="text-2xl text-black font-semibold mt-32 mb-8 uppercase">7 Conclusion</h2>
                         <p className="text-justify mb-10">
                             Tri-Flux Attention represents a fundamental resolution to the trilemma of sequence modeling. By identifies symmetry as the key to efficiency and trigonometry as the key to expressivity, TNSA (India) has built the universal engine for the next generation of AI. We have broken the Memory Wall, proving that a single Tesla T4 can serve a 1-Million token context with sub-millisecond responsiveness.
                         </p>

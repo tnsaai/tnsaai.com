@@ -48,7 +48,7 @@ export default function RishiNewsPost() {
             </p>
           </div>
 
-          <div className="mb-16">
+          <div id="rishi-workspace" className="mb-16">
             <h2 className="text-2xl text-gray-900 mb-4">Equipped for Discovery</h2>
             <p className="text-base text-gray-700 leading-relaxed">
               To facilitate its research, Rishi has access to its own dedicated codebase and workspace where it can work, experiment, and document its findings. All its files, including thinking logs, generated algorithms, and research documents, are meticulously organized in its `rishi_workspace/`. It is equipped with a vast array of tools for web search, research, and algorithm generation, giving it the same powerful capabilities as our ngen3.9-pro-agentic model. Critically, Rishi leverages TNSA’s closed-source ARCH-X Framework, a powerful platform for AI development. TNSA also provides an open-source variant of this framework, OpenArch-X, to the broader research community.
@@ -58,7 +58,7 @@ export default function RishiNewsPost() {
           <div className="mb-16">
             <h2 className="text-2xl text-gray-900 mb-4">The Future of AI Research</h2>
             <p className="text-base text-gray-700 leading-relaxed">
-              Rishi is more than just a tool; it is a tireless researcher working alongside our human experts. Its launch represents a fundamental shift in how AI research is conducted, paving the way for breakthroughs that will shape the future of technology and intelligence. By automating the research process, we can explore more ideas, iterate faster, and unlock new frontiers in AI.
+              Rishi is more than just a tool; it is a tireless researcher working alongside our human experts. Its launch represents a fundamental shift in how AI research is conducted, paving the way for breakthroughs that will shape the future of technology and intelligence. By automating the research process, we can explore more ideas, iterate faster, and unlock new frontiers in AI. TNSA plans to add many more automated researchers to build a complete AI research team made of AI agents that operate alongside our human researchers. See the <Link href="/research/tri-flux-attention" className="underline font-medium">Tri-Flux Attention paper</Link> and <Link href="#rishi-workspace" className="underline font-medium">Rishi&apos;s workspace</Link> for details and references.
             </p>
           </div>
 
