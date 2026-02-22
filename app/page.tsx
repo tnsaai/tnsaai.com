@@ -195,7 +195,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-20">
             <h2 className="text-3xl font-normal text-gray-900 mb-4">Research.</h2>
-            <p className="text-lg text-gray-500 font-normal">Pushing the boundaries of what's possible with artificial intelligence.</p>
+            <p className="text-lg text-gray-500 font-normal">Pushing the boundaries of what&apos;s possible with artificial intelligence.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
