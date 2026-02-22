@@ -364,7 +364,7 @@ export function BenchmarkBase({
       </CardContent>
 
       <CardFooter className="flex-col items-start gap-2 text-sm px-0 pt-6">
-        <div className="flex gap-2 leading-none font-medium text-black">
+        <div className="flex gap-2 leading-none text-black">
           New massive-scale benchmarks released <TrendingUp className="h-4 w-4" />
         </div>
         <div className="text-gray-500 leading-none">

@@ -1,10 +1,14 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400'],
+  variable: '--font-poppins'
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://tnsaai.com'),
@@ -31,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={spaceGrotesk.className}>
+      <body className={poppins.className}>
         <Header />
         <main className="min-h-screen">
           {children}

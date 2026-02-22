@@ -21,47 +21,33 @@ export default function ProductsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Making AI accessible to all humanity</p>
           </div>
 
-          <div className="overflow-x-auto md:overflow-x-visible -mx-6 px-6 md:mx-0 md:px-0">
-            <div className="flex md:flex-wrap md:justify-center gap-5 min-w-max md:min-w-0">
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="TNSA Platform"
-                  subtitle="API Platform"
-                  category="Enterprise Ready"
-                  price="Free Tier"
-                  buttonText="Explore platform"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/muhammad-ridwan-imam-fajar-meqxXc9zPGI-unsplash.jpg"
-                  imageAlt="TNSA Platform"
-                  href="/products/platform"
-                />
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <FlightCard
+              title="TNSA Platform"
+              subtitle="The unified API platform for building world-class AI applications."
+              category="Production"
+              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/muhammad-ridwan-imam-fajar-meqxXc9zPGI-unsplash.jpg"
+              imageAlt="TNSA Platform"
+              href="/products/platform"
+            />
 
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="GensChat"
-                  subtitle="Conversational AI"
-                  category="India's Own Model"
-                  price="Free"
-                  buttonText="Try GensChat"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/omid-armin-Nsn9FY4JGMs-unsplash.jpg"
-                  imageAlt="GensChat"
-                  href="/products/genchat"
-                />
-              </div>
+            <FlightCard
+              title="GensChat"
+              subtitle="Our flagship conversational AI experience, powered by NGen models."
+              category="Chat"
+              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/omid-armin-Nsn9FY4JGMs-unsplash.jpg"
+              imageAlt="GensChat"
+              href="/products/genchat"
+            />
 
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="EdgeChat"
-                  subtitle="Offline AI"
-                  category="Network-Free"
-                  price="Coming Soon"
-                  buttonText="Learn more"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/martin-de-arriba-J6kz1RK_kFc-unsplash.jpg"
-                  imageAlt="EdgeChat"
-                  href="/products/edgechat"
-                />
-              </div>
-            </div>
+            <FlightCard
+              title="EdgeChat"
+              subtitle="Full-scale privacy with locally-running AI models for offline use."
+              category="Privacy"
+              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/martin-de-arriba-J6kz1RK_kFc-unsplash.jpg"
+              imageAlt="EdgeChat"
+              href="/products/edgechat"
+            />
           </div>
         </div>
       </div>
@@ -73,47 +59,36 @@ export default function ProductsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Integrate AI into your applications</p>
           </div>
 
-          <div className="overflow-x-auto md:overflow-x-visible -mx-6 px-6 md:mx-0 md:px-0">
-            <div className="flex md:flex-wrap md:justify-center gap-5 min-w-max md:min-w-0">
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="Text Generation API"
-                  subtitle="Language Models"
-                  category="Multiple Models"
-                  price="Pay per use"
-                  buttonText="Try API"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-artempodrez-7233329.jpg"
-                  imageAlt="Text Generation API"
-                  href="https://platform.tnsaai.com"
-                />
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-6xl mx-auto">
+            <FlightCard
+              title="Text Generation API"
+              subtitle="Integrate our frontier language models into your apps."
+              category="API"
+              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-artempodrez-7233329.jpg"
+              imageAlt="Text Generation API"
+              href="https://platform.tnsaai.com"
+              layout="horizontal"
+            />
 
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="Image Generation API"
-                  subtitle="Visual AI"
-                  category="High-Quality Images"
-                  price="Pay per image"
-                  buttonText="Try API"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-artempodrez-7233314.jpg"
-                  imageAlt="Image Generation API"
-                  href="https://platform.tnsaai.com"
-                />
-              </div>
+            <FlightCard
+              title="Image Generation API"
+              subtitle="Generate high-fidelity visual assets on demand."
+              category="API"
+              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-artempodrez-7233314.jpg"
+              imageAlt="Image Generation API"
+              href="https://platform.tnsaai.com"
+              layout="horizontal"
+            />
 
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="Voice Interaction API"
-                  subtitle="Speech AI"
-                  category="Natural Voices"
-                  price="Pay per minute"
-                  buttonText="Try API"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-y-0ThkdUKIk-unsplash.jpg"
-                  imageAlt="Voice Interaction API"
-                  href="https://platform.tnsaai.com"
-                />
-              </div>
-            </div>
+            <FlightCard
+              title="Voice Interaction API"
+              subtitle="Natural, real-time speech-to-text and text-to-speech."
+              category="API"
+              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-y-0ThkdUKIk-unsplash.jpg"
+              imageAlt="Voice Interaction API"
+              href="https://platform.tnsaai.com"
+              layout="horizontal"
+            />
           </div>
         </div>
       </div>
@@ -125,97 +100,57 @@ export default function ProductsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Custom AI solutions for your business needs</p>
           </div>
 
-          <div className="overflow-x-auto md:overflow-x-visible -mx-6 px-6 md:mx-0 md:px-0">
-            <div className="flex md:flex-wrap md:justify-center gap-5 min-w-max md:min-w-0">
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="Custom Fine-Tuning"
-                  subtitle="Domain-Specific Training"
-                  category="Enterprise Service"
-                  price="Custom Quote"
-                  buttonText="Learn more"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/susan-wilkinson-6YNPuJ3Ybac-unsplash.jpg"
-                  imageAlt="Custom Fine-Tuning"
-                  href="/enterprises/fine-tuning"
-                />
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-6xl mx-auto">
+            <FlightCard
+              title="Custom Fine-Tuning"
+              subtitle="Domain-specific model optimization for unique business needs."
+              category="Service"
+              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/susan-wilkinson-6YNPuJ3Ybac-unsplash.jpg"
+              imageAlt="Custom Fine-Tuning"
+              href="/enterprises/fine-tuning"
+              layout="horizontal"
+            />
 
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="Pre-Training Services"
-                  subtitle="Custom Model Architecture"
-                  category="Enterprise Service"
-                  price="Custom Quote"
-                  buttonText="Learn more"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/brandon-stecz-9rX32anLiVA-unsplash.jpg"
-                  imageAlt="Pre-Training Services"
-                  href="/enterprises/pre-training"
-                />
-              </div>
+            <FlightCard
+              title="Infrastructure Support"
+              subtitle="Enterprise-grade deployment across cloud and on-premise."
+              category="Service"
+              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-eva-bronzini-7605542.jpg"
+              imageAlt="Infrastructure Support"
+              href="/enterprises/infrastructure"
+              layout="horizontal"
+            />
 
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="Infrastructure Support"
-                  subtitle="Cloud & On-Premise"
-                  category="Enterprise Service"
-                  price="Custom Quote"
-                  buttonText="Learn more"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-eva-bronzini-7605542.jpg"
-                  imageAlt="Infrastructure Support"
-                  href="/enterprises/infrastructure"
-                />
-              </div>
+            <FlightCard
+              title="AI Consulting"
+              subtitle="Strategic roadmap development and AI implementation guides."
+              category="Service"
+              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-alexant-16738884.jpg"
+              imageAlt="AI Consulting"
+              href="/enterprises/consulting"
+              layout="horizontal"
+            />
 
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="AI Consulting"
-                  subtitle="Strategy Development"
-                  category="Enterprise Service"
-                  price="Custom Quote"
-                  buttonText="Learn more"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-alexant-16738884.jpg"
-                  imageAlt="AI Consulting"
-                  href="/enterprises/consulting"
-                />
-              </div>
-
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="Data Engineering"
-                  subtitle="Pipeline Design"
-                  category="Enterprise Service"
-                  price="Custom Quote"
-                  buttonText="Learn more"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-karola-g-4046791.jpg"
-                  imageAlt="Data Engineering"
-                  href="/enterprises/data-engineering"
-                />
-              </div>
-
-              <div className="w-[329px] flex-shrink-0 md:w-auto md:flex-shrink">
-                <FlightCard
-                  title="Model Deployment"
-                  subtitle="Production Scaling"
-                  category="Enterprise Service"
-                  price="Custom Quote"
-                  buttonText="Learn more"
-                  imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-karola-g-4046757.jpg"
-                  imageAlt="Model Deployment"
-                  href="/enterprises/deployment"
-                />
-              </div>
-            </div>
+            <FlightCard
+              title="Data Engineering"
+              subtitle="Robust pipeline design for scaling AI workloads."
+              category="Service"
+              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-karola-g-4046791.jpg"
+              imageAlt="Data Engineering"
+              href="/enterprises/data-engineering"
+              layout="horizontal"
+            />
           </div>
         </div>
       </div>
 
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-[40px] flex flex-col items-center justify-center" style={{width: '100%', maxWidth: '1028px', height: '575px', margin: '0 auto'}}>
-            <h2 className="text-5xl font-normal text-center mb-8 text-black">
+          <div className="bg-gray-50 rounded-[48px] flex flex-col items-center justify-center p-8 md:p-16 min-h-[450px] text-center max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-normal mb-10 text-black max-w-2xl leading-tight">
               Start building with TNSA today!
             </h2>
-            <Link href="https://platform.tnsaai.com" className="px-8 py-3 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
+            <Link href="https://platform.tnsaai.com" className="px-10 py-4 text-sm text-white bg-black rounded-full hover:bg-gray-900 transition-all font-normal">
               API Platform
             </Link>
           </div>

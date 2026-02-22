@@ -67,19 +67,18 @@ export default function DevelopersPage() {
               Everything you need to build with TNSA AI
             </p>
           </div>
-          
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-6xl mx-auto">
             {resources.map((resource) => (
               <FlightCard
                 key={resource.title}
                 title={resource.title}
                 subtitle={resource.description}
                 category={resource.category}
-                price="Free Access"
-                buttonText="View Docs"
                 imageUrl={resource.imageUrl}
                 imageAlt={resource.title}
                 href={resource.href}
+                layout="horizontal"
               />
             ))}
           </div>

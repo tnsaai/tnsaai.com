@@ -6,7 +6,7 @@ const Page = () => {
     <div className="bg-gray-900 text-white min-h-screen">
       <main className="container mx-auto px-4 lg:px-6 py-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h1 className="text-4xl md:text-5xl tracking-tight">
             NGen 3.5/3.9 Model Benchmarks
           </h1>
           <p className="mt-4 text-lg text-gray-400">
@@ -16,7 +16,7 @@ const Page = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">NGen3 Speed Comparison</h2>
+            <h2 className="text-2xl mb-4">NGen3 Speed Comparison</h2>
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-700">
                 <thead className="bg-gray-700">
@@ -56,7 +56,7 @@ const Page = () => {
           </div>
 
           <div className="bg-gray-800 p-6 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Pricing (Per 1,000 Tokens)</h2>
+            <h2 className="text-2xl mb-4">Pricing (Per 1,000 Tokens)</h2>
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-700">
                 <thead className="bg-gray-700">
@@ -104,86 +104,86 @@ const Page = () => {
         </div>
 
         <div className="bg-gray-800 p-6 rounded-lg mb-12">
-            <h2 className="text-2xl font-bold mb-4">Quality / Cost Ratios</h2>
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-700">
-                <thead className="bg-gray-700">
-                  <tr>
-                    <th className="px-4 py-2 text-left">RANK</th>
-                    <th className="px-4 py-2 text-left">MODEL</th>
-                    <th className="px-4 py-2">AVG QUALITY (Q)</th>
-                    <th className="px-4 py-2">COST PER 1M (₹)</th>
-                    <th className="px-4 py-2">REPORTED QCR (×1,000)</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-600">
-                  <tr>
-                    <td className="px-4 py-2 text-center">1</td>
-                    <td className="px-4 py-2">NGen 3.5 Pro</td>
-                    <td className="px-4 py-2 text-center">67.26</td>
-                    <td className="px-4 py-2 text-center">395</td>
-                    <td className="px-4 py-2 text-center">170.3</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-2 text-center">2</td>
-                    <td className="px-4 py-2">NGen 3.9 Pro</td>
-                    <td className="px-4 py-2 text-center">69.93</td>
-                    <td className="px-4 py-2 text-center">415</td>
-                    <td className="px-4 py-2 text-center">168.5</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-2 text-center">3</td>
-                    <td className="px-4 py-2">NGen 3.5 Max</td>
-                    <td className="px-4 py-2 text-center">74.54</td>
-                    <td className="px-4 py-2 text-center">985</td>
-                    <td className="px-4 py-2 text-center">75.7</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-2 text-center">4</td>
-                    <td className="px-4 py-2">NGen 3.9 Max V3</td>
-                    <td className="px-4 py-2 text-center">78.15</td>
-                    <td className="px-4 py-2 text-center">1,040</td>
-                    <td className="px-4 py-2 text-center">75.1</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <h2 className="text-2xl mb-4">Quality / Cost Ratios</h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-700">
+              <thead className="bg-gray-700">
+                <tr>
+                  <th className="px-4 py-2 text-left">RANK</th>
+                  <th className="px-4 py-2 text-left">MODEL</th>
+                  <th className="px-4 py-2">AVG QUALITY (Q)</th>
+                  <th className="px-4 py-2">COST PER 1M (₹)</th>
+                  <th className="px-4 py-2">REPORTED QCR (×1,000)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-600">
+                <tr>
+                  <td className="px-4 py-2 text-center">1</td>
+                  <td className="px-4 py-2">NGen 3.5 Pro</td>
+                  <td className="px-4 py-2 text-center">67.26</td>
+                  <td className="px-4 py-2 text-center">395</td>
+                  <td className="px-4 py-2 text-center">170.3</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-2 text-center">2</td>
+                  <td className="px-4 py-2">NGen 3.9 Pro</td>
+                  <td className="px-4 py-2 text-center">69.93</td>
+                  <td className="px-4 py-2 text-center">415</td>
+                  <td className="px-4 py-2 text-center">168.5</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-2 text-center">3</td>
+                  <td className="px-4 py-2">NGen 3.5 Max</td>
+                  <td className="px-4 py-2 text-center">74.54</td>
+                  <td className="px-4 py-2 text-center">985</td>
+                  <td className="px-4 py-2 text-center">75.7</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-2 text-center">4</td>
+                  <td className="px-4 py-2">NGen 3.9 Max V3</td>
+                  <td className="px-4 py-2 text-center">78.15</td>
+                  <td className="px-4 py-2 text-center">1,040</td>
+                  <td className="px-4 py-2 text-center">75.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div className="bg-gray-800 p-6 rounded-lg mb-12">
-            <h2 className="text-2xl font-bold mb-4">Client Insights</h2>
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-700">
-                <thead className="bg-gray-700">
-                  <tr>
-                    <th className="px-4 py-2 text-left">Model Tier</th>
-                    <th className="px-4 py-2 text-left">Ideal Use Case</th>
-                    <th className="px-4 py-2 text-left">Key Strength</th>
-                    <th className="px-4 py-2 text-left">Operational Note</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-600">
-                  <tr>
-                    <td className="px-4 py-2">NGen 3.5 Pro</td>
-                    <td className="px-4 py-2">General-purpose chat, low-cost deployment</td>
-                    <td className="px-4 py-2">Highest efficiency</td>
-                    <td className="px-4 py-2">Best ROI for token-based workloads</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-2">NGen 3.9 Pro</td>
-                    <td className="px-4 py-2">Knowledge, reasoning-intensive</td>
-                    <td className="px-4 py-2">Near-top accuracy</td>
-                    <td className="px-4 py-2">Slightly higher cost, higher precision</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-2">NGen 3.9 Max V3</td>
-                    <td className="px-4 py-2">Enterprise-grade, long-context, multilingual</td>
-                    <td className="px-4 py-2">Stability + reasoning</td>
-                    <td className="px-4 py-2">SLA-focused deployments</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <h2 className="text-2xl mb-4">Client Insights</h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-700">
+              <thead className="bg-gray-700">
+                <tr>
+                  <th className="px-4 py-2 text-left">Model Tier</th>
+                  <th className="px-4 py-2 text-left">Ideal Use Case</th>
+                  <th className="px-4 py-2 text-left">Key Strength</th>
+                  <th className="px-4 py-2 text-left">Operational Note</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-600">
+                <tr>
+                  <td className="px-4 py-2">NGen 3.5 Pro</td>
+                  <td className="px-4 py-2">General-purpose chat, low-cost deployment</td>
+                  <td className="px-4 py-2">Highest efficiency</td>
+                  <td className="px-4 py-2">Best ROI for token-based workloads</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-2">NGen 3.9 Pro</td>
+                  <td className="px-4 py-2">Knowledge, reasoning-intensive</td>
+                  <td className="px-4 py-2">Near-top accuracy</td>
+                  <td className="px-4 py-2">Slightly higher cost, higher precision</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-2">NGen 3.9 Max V3</td>
+                  <td className="px-4 py-2">Enterprise-grade, long-context, multilingual</td>
+                  <td className="px-4 py-2">Stability + reasoning</td>
+                  <td className="px-4 py-2">SLA-focused deployments</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
       </main>

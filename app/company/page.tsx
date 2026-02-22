@@ -21,60 +21,55 @@ export default function CompanyPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Learn more about our mission and values</p>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <FlightCard
               title="About Us"
               subtitle="Our Story"
               category="Company"
-              price="Learn More"
-              buttonText="Read more"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-diva-30441220.jpg"
               imageAlt="About Us"
               href="/about"
+              layout="horizontal"
             />
 
             <FlightCard
               title="AI Safety"
               subtitle="Responsible AI"
               category="Safety"
-              price="Learn More"
-              buttonText="Read more"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-eugene-golovesov-1810803-16152015.jpg"
               imageAlt="AI Safety"
               href="/safety"
+              layout="horizontal"
             />
 
             <FlightCard
               title="News"
               subtitle="Latest Updates"
               category="News & Press"
-              price="Stay Updated"
-              buttonText="View news"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-mustang-2179483.jpg"
               imageAlt="News"
               href="/company/news"
+              layout="horizontal"
             />
 
             <FlightCard
               title="Careers"
               subtitle="Join Our Team"
               category="Opportunities"
-              price="We're Hiring"
-              buttonText="View openings"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-anniroenkae-3418400.jpg"
               imageAlt="Careers"
               href="/company/careers"
+              layout="horizontal"
             />
 
             <FlightCard
               title="Contact"
               subtitle="Get in Touch"
               category="Support"
-              price="Reach Out"
-              buttonText="Contact us"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-anniroenkae-4175054.jpg"
               imageAlt="Contact"
               href="/company/contact"
+              layout="horizontal"
             />
           </div>
         </div>
@@ -82,7 +77,7 @@ export default function CompanyPage() {
 
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-[40px] flex flex-col items-center justify-center" style={{width: '100%', maxWidth: '1028px', height: '575px', margin: '0 auto'}}>
+          <div className="bg-gray-50 rounded-[40px] flex flex-col items-center justify-center" style={{ width: '100%', maxWidth: '1028px', height: '575px', margin: '0 auto' }}>
             <h2 className="text-5xl font-normal text-center mb-8 text-black">
               Join us in shaping the future of AI
             </h2>

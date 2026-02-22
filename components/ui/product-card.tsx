@@ -43,7 +43,7 @@ export const ProductCard = ({
 
             {/* Title and Subtitle */}
             <div className="mb-3">
-                <h2 className="text-[2rem] font-bold text-gray-900 mb-0.5 leading-none">
+                <h2 className="text-[2rem] text-gray-900 mb-0.5 leading-none">
                     {title}
                 </h2>
                 <p className="text-gray-400 text-[15px]">{subtitle}</p>
@@ -55,14 +55,14 @@ export const ProductCard = ({
                     <div className="flex items-center gap-2 text-gray-700">
                         <Tag className="w-[17px] h-[17px] text-gray-400" />
                         <span className="text-[15px] font-normal">
-                            from <span className="font-bold text-gray-900">{price}</span>
+                            from <span className="text-gray-900">{price}</span>
                         </span>
                     </div>
                 )}
                 {category && (
                     <div className="flex items-center gap-2 text-gray-700">
                         <Cpu className="w-[17px] h-[17px] text-gray-400" />
-                        <span className="text-[15px] font-semibold text-gray-900">{category}</span>
+                        <span className="text-[15px] text-gray-900">{category}</span>
                     </div>
                 )}
             </div>
@@ -71,7 +71,7 @@ export const ProductCard = ({
             <div>
                 <button
                     onClick={handleButtonClick}
-                    className="w-full bg-[#1a1a1a] hover:bg-gray-800 text-white font-medium text-[15px] py-[15px] px-8 rounded-full transition-all"
+                    className="w-full bg-[#1a1a1a] hover:bg-gray-800 text-white text-[15px] py-[15px] px-8 rounded-full transition-all"
                 >
                     {buttonText}
                 </button>

@@ -23,21 +23,21 @@ export default function ModelsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Massive scale non-reasoning models for conversational AI</p>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr max-w-4xl">
             <FlightCard
               title="NGen 4 Mini"
-              subtitle="Conversational AI"
-              category="100B+ params"
-              price="$2.00/1K tokens"
-              buttonText="Know More"
+              subtitle="Conversational AI. 100B+ params. High performance, low latency."
+              category="Pioneer"
               imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/b541dce9d4e61765fc0e23374f20194bb5b69b33/ngen4-mini.svg"
               imageAlt="NGen 4 Mini Model"
               href="/models/ngen4-mini"
               showTitle={false}
+              imageFit="contain"
             />
           </div>
         </div>
       </div>
+
 
       {/* NGen 3.5 Series Models Section */}
       <div className="bg-white py-24 sm:py-32">
@@ -47,33 +47,27 @@ export default function ModelsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Advanced conversational models with enhanced capabilities</p>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
             <FlightCard
               title="NGen 3.5 Max"
-              subtitle="Maximum performance and capability"
+              subtitle="Maximum performance and capability for complex reasoning."
               category="Chat"
-              price="₹1.00 input / ₹1.50 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/mymind-tZCrFpSNiIQ-unsplash.jpg"
               imageAlt="NGen 3.5 Max Model"
               href="/models/ngen3.5-max-chat"
             />
             <FlightCard
               title="NGen 3.5 Pro"
-              subtitle="Professional-grade conversational AI"
+              subtitle="Professional-grade conversational AI for advanced workflows."
               category="Chat"
-              price="₹0.60 input / ₹0.90 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/blur-1721080_1280.jpg"
               imageAlt="NGen 3.5 Pro Model"
               href="/models/ngen3.5-pro-chat"
             />
             <FlightCard
               title="NGen 3.5 Lite"
-              subtitle="Efficient and fast conversational model"
+              subtitle="Efficient and fast conversational model for real-time use."
               category="Chat"
-              price="₹0.30 input / ₹0.45 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/milad-fakurian-iFu2HILEng8-unsplash.jpg"
               imageAlt="NGen 3.5 Lite Model"
               href="/models/ngen3.5-lite-chat"
@@ -90,13 +84,11 @@ export default function ModelsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Next-generation multimodal models with breakthrough performance</p>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr max-w-4xl">
             <FlightCard
               title="NGen3.1-Pro Multimodal"
-              subtitle="Handles image and text inputs"
+              subtitle="Handles image and text inputs with breakthrough performance."
               category="Multimodal"
-              price="₹0.42 input / ₹0.58 + ₹1.66/image output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-efren-ftz-365656346-14433444.jpg"
               imageAlt="NGen3.1-Pro Multimodal Model"
               href="/models/ngen3.1-pro"
@@ -113,23 +105,19 @@ export default function ModelsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Real-time multimodal and audio processing capabilities</p>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr">
             <FlightCard
-              title="NGen-Realtime-Omni Multimodal"
-              subtitle="Text, audio, and image in real-time"
+              title="NGen-Realtime-Omni"
+              subtitle="Text, audio, and image in real-time."
               category="Omni"
-              price="₹1.25 input / ₹1.66 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/dirk-lach-fSgF4pEQEY8-unsplash.jpg"
               imageAlt="NGen-Realtime-Omni Multimodal Model"
               href="/models/ngen-realtime-omni-multimodal"
             />
             <FlightCard
               title="NGen-Realtime-Omni-Audio"
-              subtitle="Real-time audio processing and understanding"
+              subtitle="Real-time audio processing and understanding."
               category="Omni"
-              price="₹1.66 per minute"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-VDgrUrFfad8-unsplash.jpg"
               imageAlt="NGen-Realtime-Omni-Audio Model"
               href="/models/ngen-realtime-omni-audio-audio"
@@ -146,23 +134,19 @@ export default function ModelsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Advanced audio processing and text-to-speech capabilities</p>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr">
             <FlightCard
               title="AudioTextSpeech-Pro"
-              subtitle="Professional-grade text-to-speech synthesis"
+              subtitle="Professional-grade text-to-speech synthesis with natural prosody."
               category="Audio"
-              price="₹1.00 per minute"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/boliviainteligente-AwuBx2ocy34-unsplash.jpg"
               imageAlt="AudioTextSpeech-Pro Model"
               href="/models/audiotextspeech-pro-audio"
             />
             <FlightCard
               title="AudioTextSpeech-1"
-              subtitle="Basic text-to-speech for simple applications"
+              subtitle="Basic text-to-speech for simple applications and notifications."
               category="Audio"
-              price="₹0.33 per minute"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/steve-johnson-w6e5uRHgGNo-unsplash.jpg"
               imageAlt="AudioTextSpeech-1 Model"
               href="/models/audiotextspeech-1-audio"
@@ -179,23 +163,19 @@ export default function ModelsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Advanced image generation capabilities</p>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr">
             <FlightCard
               title="IGen-1 Nano"
-              subtitle="512×512, fast and efficient"
+              subtitle="512×512, fast and efficient for rapid prototyping."
               category="Image"
-              price="₹0.83 per image"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/codioful-formerly-gradienta-EHOFLSDlmSE-unsplash.jpg"
               imageAlt="IGen-1 Nano Model"
               href="/models/igen-1-nano-image"
             />
             <FlightCard
               title="IGen-1"
-              subtitle="Up to 4K resolution with advanced editing features"
+              subtitle="Up to 4K resolution with advanced editing and prompt adherence."
               category="Image"
-              price="₹2.50 per image"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/muhammad-ridwan-imam-fajar-_ZCinpPTL_g-unsplash.jpg"
               imageAlt="IGen-1 Model"
               href="/models/igen-1-image"
@@ -212,13 +192,11 @@ export default function ModelsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Latest generation conversational AI models</p>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
             <FlightCard
               title="NGen 3.9 Lite"
-              subtitle="Fast & efficient for basic chat applications"
+              subtitle="Fast & efficient for basic chat and low-latency interaction."
               category="Chat"
-              price="₹0.10 input / ₹0.12 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/milad-fakurian-iFu2HILEng8-unsplash.jpg"
               imageAlt="NGen 3.9 Lite Model"
               href="/models/ngen3.9-lite-chat"
@@ -226,53 +204,17 @@ export default function ModelsPage() {
 
             <FlightCard
               title="NGen 3.9 Pro"
-              subtitle="Strong contextual and logical understanding"
+              subtitle="Strong contextual and logical understanding for professional use."
               category="Chat"
-              price="₹0.33 input / ₹0.50 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/blur-1721080_1280.jpg"
               imageAlt="NGen 3.9 Pro Model"
               href="/models/ngen3.9-pro-chat"
             />
 
             <FlightCard
-              title="NGen 3.9 Lite 2006 Preview"
-              subtitle="Preview version with latest experimental features"
-              category="Chat"
-              price="₹0.08 input / ₹0.10 output"
-              buttonText="Know More"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/vincent-maufay-MWj1zsf5yjM-unsplash.jpg"
-              imageAlt="NGen 3.9 Lite 2006 Preview Model"
-              href="/models/ngen3.9-lite-2006-preview-chat"
-            />
-            <FlightCard
-              title="NGen 3.9 Pro 2406 Preview"
-              subtitle="Preview version with enhanced capabilities"
-              category="Chat"
-              price="₹0.25 input / ₹0.37 output"
-              buttonText="Know More"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/vincent-maufay-tfo-l7oHZcw-unsplash.jpg"
-              imageAlt="NGen 3.9 Pro 2406 Preview Model"
-              href="/models/ngen3.9-pro-2406-preview-chat"
-            />
-
-            <FlightCard
-              title="NGen 3.9 Max V2 128K Preview"
-              subtitle="Handles long documents and books"
-              category="Chat"
-              price="₹0.66 input / ₹1.00 output"
-              buttonText="Know More"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/mymind-tZCrFpSNiIQ-unsplash.jpg"
-              imageAlt="NGen 3.9 Max V2 128K Preview Model"
-              href="/models/ngen3.9-max-v2-128k-preview-chat"
-            />
-
-            <FlightCard
               title="NGen 3.9 Max"
-              subtitle="Stable enterprise version for production workloads"
+              subtitle="Stable enterprise version for large-scale production workloads."
               category="Chat"
-              price="₹0.83 input / ₹1.25 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/and-machines-FvjBNfAdTYE-unsplash.jpg"
               imageAlt="NGen 3.9 Max Model"
               href="/models/ngen3.9-max-stable-v3-chat"
@@ -288,33 +230,27 @@ export default function ModelsPage() {
             <h2 className="text-3xl tracking-tight text-gray-900 mb-4 sm:text-4xl">NGen 3 Models.</h2>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
             <FlightCard
               title="NGen 3 10B"
-              subtitle="Frontier Model"
+              subtitle="Frontier Model for advanced reasoning and large-scale applications."
               category="10B params"
-              price="$0.80/1K tokens"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-4c4mrsZwsnA-unsplash.jpg"
               imageAlt="NGen 3 10B Model"
               href="/models/ngen3-10b"
             />
             <FlightCard
               title="NGen 3 7B"
-              subtitle="Foundational Model"
+              subtitle="Foundational Model balancing power and speed."
               category="7B params"
-              price="$0.60/1K tokens"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/codioful-formerly-gradienta-4VgbJyqALXM-unsplash.jpg"
               imageAlt="NGen 3 7B Model"
               href="/models/ngen3-7b"
             />
             <FlightCard
               title="NGen 3 3B"
-              subtitle="Accessible AI"
+              subtitle="Accessible AI for general-purpose chat and assistance."
               category="3B params"
-              price="$0.40/1K tokens"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/vincent-maufay-H6ZAtlBReSk-unsplash.jpg"
               imageAlt="NGen 3 3B Model"
               href="/models/ngen3-3b"
@@ -322,30 +258,24 @@ export default function ModelsPage() {
 
             <FlightCard
               title="NGen 3 140M"
-              subtitle="Compact"
+              subtitle="Compact model for efficient on-device processing."
               category="140M params"
-              price="$0.05/1K tokens"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/ikhlas-EWimyN-lBmQ-unsplash.jpg"
               imageAlt="NGen 3 140M Model"
               href="/models/ngen3-140m"
             />
             <FlightCard
               title="NGen 3 140M V2"
-              subtitle="Enhanced"
+              subtitle="Enhanced compact model with improved instruction following."
               category="140M params"
-              price="$0.06/1K tokens"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/ikhlas-mSZLRc6tp60-unsplash.jpg"
               imageAlt="NGen 3 140M V2 Model"
               href="/models/ngen3-140m-v2"
             />
             <FlightCard
               title="NGen 3 90M"
-              subtitle="Smart"
+              subtitle="Smart micro-model for simple text transformations."
               category="90M params"
-              price="$0.04/1K tokens"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/sean-sinclair-C_NJKfnTR5A-unsplash.jpg"
               imageAlt="NGen 3 90M Model"
               href="/models/ngen3-90m"
@@ -353,30 +283,24 @@ export default function ModelsPage() {
 
             <FlightCard
               title="NGen 3 15M"
-              subtitle="Micro"
+              subtitle="Micro-scale intelligence for highly constrained environments."
               category="15M params"
-              price="$0.01/1K tokens"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/asif-aether-UmflEuFW7Cg-unsplash.jpg"
               imageAlt="NGen 3 15M Model"
               href="/models/ngen3-15m"
             />
             <FlightCard
               title="NGen 3 15M Embed"
-              subtitle="Embedding"
-              category="Vector Search"
-              price="$0.01/1K tokens"
-              buttonText="Know More"
+              subtitle="Specialized vector search and embedding model."
+              category="Search"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/boliviainteligente-EYnO1knx_8w-unsplash.jpg"
               imageAlt="NGen 3 15M Embed Model"
               href="/models/ngen3-15m-embed"
             />
             <FlightCard
               title="NGen 3 140M Instruct"
-              subtitle="Instruction-Tuned"
-              category="Task-Focused"
-              price="$0.05/1K tokens"
-              buttonText="Know More"
+              subtitle="Task-focused model optimized for direct instructions."
+              category="Instruct"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/steve-johnson-Ynv62BMTaWg-unsplash.jpg"
               imageAlt="NGen 3 140M Instruct Model"
               href="/models/ngen3-140m-instruct"
@@ -384,40 +308,24 @@ export default function ModelsPage() {
 
             <FlightCard
               title="NGen3-7B-0625 Chat"
-              subtitle="High-efficiency conversational model"
+              subtitle="High-efficiency conversational model with modern tuning."
               category="Chat"
-              price="₹0.42 input / ₹0.58 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/codioful-formerly-gradienta-9ZLLxhNCQxg-unsplash.jpg"
               imageAlt="NGen3-7B-0625 Chat Model"
               href="/models/ngen3-7b-0625-chat"
             />
             <FlightCard
-              title="NGen3-7B-0525-Preview Chat"
-              subtitle="Preview version of 7B parameter model"
-              category="Chat"
-              price="₹0.33 input / ₹0.50 output"
-              buttonText="Know More"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/ryunosuke-kikuno-lwvuKVgT4AU-unsplash.jpg"
-              imageAlt="NGen3-7B-0525-Preview Chat Model"
-              href="/models/ngen3-7b-0525-preview-chat"
-            />
-            <FlightCard
               title="NGen3-1B Chat"
-              subtitle="Compact 1B parameter model for edge deployment"
+              subtitle="Compact 1B parameter model for high-speed edge deployment."
               category="Chat"
-              price="₹0.20 input / ₹0.30 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-zYWPpB1Tmco-unsplash.jpg"
               imageAlt="NGen3-1B Chat Model"
               href="/models/ngen3-1b-chat"
             />
             <FlightCard
               title="NGen3-1B-it Chat"
-              subtitle="Instruction-tuned variant for better task performance"
+              subtitle="Instruction-tuned variant for superior task performance."
               category="Chat"
-              price="₹0.25 input / ₹0.35 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/codioful-formerly-gradienta-Y6qcZ_VWEpU-unsplash.jpg"
               imageAlt="NGen3-1B-it Chat Model"
               href="/models/ngen3-1b-it-chat"
@@ -433,33 +341,27 @@ export default function ModelsPage() {
             <h2 className="text-3xl tracking-tight text-gray-900 mb-4 sm:text-4xl">NGen 2 Models.</h2>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
             <FlightCard
               title="NGen 2 170M"
-              subtitle="Gen-2 Core"
-              category="170M params"
-              price="$0.03/1K tokens"
-              buttonText="Know More"
+              subtitle="Gen-2 Core for lightweight language tasks."
+              category="Core"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/nicholas-ergemla-NIZvtxMVjWk-unsplash.jpg"
               imageAlt="NGen 2 170M Model"
               href="/models/ngen2-170m"
             />
             <FlightCard
               title="NGen 2 30M"
-              subtitle="Compact Core"
-              category="30M params"
-              price="$0.02/1K tokens"
-              buttonText="Know More"
+              subtitle="Compact Core for on-device processing."
+              category="Core"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/nenad-novakovic-wnePSp6CT2U-unsplash.jpg"
               imageAlt="NGen 2 30M Model"
               href="/models/ngen2-30m"
             />
             <FlightCard
               title="NGen 2 15M"
-              subtitle="Micro-Scale"
-              category="15M params"
-              price="$0.01/1K tokens"
-              buttonText="Know More"
+              subtitle="Micro-Scale for extremely constrained environments."
+              category="Core"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/sean-fahrenbruch-g95tsUeCohM-unsplash.jpg"
               imageAlt="NGen 2 15M Model"
               href="/models/ngen2-15m"
@@ -475,33 +377,27 @@ export default function ModelsPage() {
             <h2 className="text-3xl tracking-tight text-gray-900 mb-4 sm:text-4xl">Stellar - 2.</h2>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
             <FlightCard
               title="Stellar Large"
-              subtitle="Stellar Scale"
-              category="Enterprise Ready"
-              price="$1.20/1K tokens"
-              buttonText="Know More"
+              subtitle="Stellar Scale for enterprise-grade reasoning."
+              category="Enterprise"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-artempodrez-7233314.jpg"
               imageAlt="Stellar Large Model"
               href="/models/stellar-large"
             />
             <FlightCard
               title="Stellar Mini"
-              subtitle="Compact Power"
-              category="Smart Reasoning"
-              price="$0.30/1K tokens"
-              buttonText="Know More"
+              subtitle="Compact Power with smart reasoning capabilities."
+              category="Pro"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/boliviainteligente-16SyukXEJbk-unsplash.jpg"
               imageAlt="Stellar Mini Model"
               href="/models/stellar-mini"
             />
             <FlightCard
               title="Stellar Nano"
-              subtitle="Ultra-Compact"
-              category="Edge-Native"
-              price="$0.15/1K tokens"
-              buttonText="Know More"
+              subtitle="Ultra-Compact edge-native intelligence."
+              category="Edge"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/boliviainteligente-UrOeJ0cLXAw-unsplash.jpg"
               imageAlt="Stellar Nano Model"
               href="/models/stellar-nano"
@@ -518,53 +414,43 @@ export default function ModelsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Specialized models for search, research, code, and agent coordination</p>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
             <FlightCard
               title="WebSearch-1"
-              subtitle="Real-time web search with source citations"
+              subtitle="Real-time web search with source citations."
               category="Search"
-              price="₹0.16 per query"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-y-0ThkdUKIk-unsplash.jpg"
               imageAlt="WebSearch-1 Model"
               href="/models/websearch-1-search"
             />
             <FlightCard
               title="Scientist-1"
-              subtitle="Specialized for scientific research and analysis"
+              subtitle="Specialized for scientific research and analysis."
               category="Research"
-              price="₹0.50 per query"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/eslam-ahmed-Z5eWc8EaMms-unsplash.jpg"
               imageAlt="Scientist-1 Model"
               href="/models/scientist-1-research"
             />
             <FlightCard
               title="Code-1"
-              subtitle="Supports 30+ programming languages with advanced debugging"
+              subtitle="Supports 30+ programming languages with advanced debugging."
               category="Code"
-              price="₹0.42 input / ₹0.58 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/codioful-formerly-gradienta-DbFgNw3QshA-unsplash.jpg"
               imageAlt="Code-1 Model"
               href="/models/code-1-code"
             />
             <FlightCard
               title="MultiAgent-1"
-              subtitle="Coordinates multiple AI agents for complex tasks"
+              subtitle="Coordinates multiple AI agents for complex tasks."
               category="Agent"
-              price="₹0.83 input / ₹1.25 output"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/boliviainteligente-UrOeJ0cLXAw-unsplash.jpg"
               imageAlt="MultiAgent-1 Model"
               href="/models/multiagent-1-agent"
             />
             <FlightCard
               title="AGent*"
-              subtitle="Autonomous strategic agent"
+              subtitle="Autonomous strategic agent for complex decision making."
               category="Agent"
-              price="$2.50/1K tokens"
-              buttonText="Know More"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-llx7NBeA89U-unsplash.jpg"
               imageAlt="AGent* Model"
               href="/models/agent-star"
@@ -581,13 +467,11 @@ export default function ModelsPage() {
             <p className="text-lg text-gray-900 sm:text-xl">Pioneer foundation models that started it all</p>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr max-w-4xl">
             <FlightCard
               title="NGen 1"
-              subtitle="Pioneer foundation model"
-              category="Foundation"
-              price="$0.02/1K tokens"
-              buttonText="Know More"
+              subtitle="Pioneer foundation model that started it all."
+              category="Legacy"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-DcfqG9rmc8A-unsplash.jpg"
               imageAlt="NGen 1 Model"
               href="/models/ngen1"
@@ -599,11 +483,11 @@ export default function ModelsPage() {
       {/* CTA Section */}
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-[40px] flex flex-col items-center justify-center" style={{ width: '100%', maxWidth: '1028px', height: '575px', margin: '0 auto' }}>
-            <h2 className="text-5xl font-normal text-center mb-8 text-black">
+          <div className="bg-gray-50 rounded-[48px] flex flex-col items-center justify-center p-8 md:p-16 min-h-[450px] text-center max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-normal mb-10 text-black max-w-2xl leading-tight">
               Start building with TNSA today!
             </h2>
-            <Link href="https://platform.tnsaai.com" className="px-8 py-3 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
+            <Link href="https://platform.tnsaai.com" className="px-10 py-4 text-sm text-white bg-black rounded-full hover:bg-gray-900 transition-all font-normal">
               API Platform
             </Link>
           </div>

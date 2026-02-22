@@ -19,28 +19,26 @@ export default function Header() {
   return (
     <header className="fixed top-4 sm:top-6 left-0 right-0 z-50 px-3 sm:px-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between lg:justify-center gap-2 sm:gap-3">
-        <nav className="bg-white shadow-sm border border-gray-100 flex items-center justify-center w-20 h-12 sm:w-28 sm:h-[60px] rounded-full sm:rounded-[40px]">
+        <nav className="bg-white border border-gray-100 flex items-center justify-center w-20 h-12 sm:w-28 sm:h-[60px] rounded-full sm:rounded-[40px]">
           <Link href="/">
             <Image src="/TNSA.svg" alt="TNSA" width={60} height={30} className="w-10 sm:w-[60px]" />
           </Link>
         </nav>
 
-        <nav className="hidden lg:flex bg-white shadow-sm border border-gray-100" style={{width: '594px', height: '60px', borderRadius: '40px', padding: '5px 7px'}}>
-          <div className="flex items-center justify-between w-full">
-            <div className="flex items-center" style={{gap: '17px', paddingLeft: '50px'}}>
-              {navigation.map((item) => (
-                <Link key={item.name} href={item.href} className="text-sm text-black hover:text-gray-600">
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-            <Link href="https://platform.tnsaai.com" className="flex items-center justify-center text-sm text-white bg-black hover:bg-gray-900" style={{width: '102px', height: '50px', borderRadius: '40px'}}>
-              Login
-            </Link>
+        <nav className="hidden lg:flex bg-white border border-gray-100 h-[60px] rounded-[40px] px-2 py-1 items-center justify-between min-w-[500px] max-w-2xl">
+          <div className="flex items-center gap-6 px-10">
+            {navigation.map((item) => (
+              <Link key={item.name} href={item.href} className="text-sm text-black hover:text-gray-600 transition-colors">
+                {item.name}
+              </Link>
+            ))}
           </div>
+          <Link href="https://platform.tnsaai.com" className="flex items-center justify-center text-sm text-white bg-black hover:bg-gray-900 w-[102px] h-[50px] rounded-[40px] transition-colors">
+            Login
+          </Link>
         </nav>
 
-        <button type="button" className="lg:hidden bg-white rounded-full p-2 sm:p-3 shadow-sm border border-gray-100" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
+        <button type="button" className="lg:hidden bg-white rounded-full p-2 sm:p-3 border border-gray-100" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
           <Bars3Icon className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
         </button>
       </div>
@@ -60,7 +58,7 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-              <Link href="https://platform.tnsaai.com" className="mt-4 px-6 py-3 text-sm font-medium text-white bg-black rounded-full text-center hover:bg-gray-900" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="https://platform.tnsaai.com" className="mt-4 px-6 py-3 text-sm text-white bg-black rounded-full text-center hover:bg-gray-900" onClick={() => setMobileMenuOpen(false)}>
                 Login
               </Link>
             </div>

@@ -140,7 +140,7 @@ const ChartTooltipContent = React.forwardRef<
 
             if (labelFormatter) {
                 return (
-                    <div className={cn("font-medium", labelClassName)}>
+                    <div className={labelClassName}>
                         {labelFormatter(value, payload)}
                     </div>
                 )
@@ -150,7 +150,7 @@ const ChartTooltipContent = React.forwardRef<
                 return null
             }
 
-            return <div className={cn("font-medium", labelClassName)}>{value}</div>
+            return <div className={labelClassName}>{value}</div>
         }, [
             label,
             labelFormatter,
@@ -231,7 +231,7 @@ const ChartTooltipContent = React.forwardRef<
                                                 </span>
                                             </div>
                                             {item.value !== undefined && (
-                                                <span className="font-mono font-medium tabular-nums text-zinc-900">
+                                                <span className="font-mono tabular-nums text-zinc-900">
                                                     {item.value.toLocaleString()}
                                                 </span>
                                             )}

@@ -75,28 +75,25 @@ export default function NewsPage() {
             <div className="rounded-lg bg-zinc-50 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-gray-700">Featured: Explore our latest research and tools.</div>
               <div className="flex gap-3">
-                <Link href="/research/tri-flux-attention" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50">Tri‑Flux Attention</Link>
-                <Link href="/company/news/rishi-aar-1-tnsas-first-automated-ai-researcher" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50">Meet Rishi</Link>
+                <Link href="/research/tri-flux-attention" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-sm hover:bg-gray-50">Tri‑Flux Attention</Link>
+                <Link href="/company/news/rishi-aar-1-tnsas-first-automated-ai-researcher" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-sm hover:bg-gray-50">Meet Rishi</Link>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center" style={{ gap: '20px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-6xl mx-auto">
             {papers.map((paper) => (
               <FlightCard
                 key={paper.title}
                 title={paper.title}
                 subtitle={paper.description}
                 category="News"
-                price="Free Access"
-                buttonText="Read More"
                 imageUrl={paper.backgroundImage}
                 imageAlt={paper.title}
                 href={paper.href}
-                // @ts-ignore
+                layout="horizontal"
                 showTitle={paper.showTitle}
-                // @ts-ignore
-                imageFit={paper.imageFit}
+                imageFit={paper.imageFit as any}
               />
             ))}
           </div>

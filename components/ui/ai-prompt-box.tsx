@@ -120,7 +120,7 @@ const DialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
-    className={cn("text-lg font-semibold leading-none tracking-tight text-white", className)}
+    className={cn("text-lg leading-none tracking-tight text-white", className)}
     {...props}
   />
 ));
@@ -147,7 +147,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         className={cn(
-          "inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
           variantClasses[variant],
           sizeClasses[size],
           className
@@ -268,7 +268,7 @@ interface PromptInputContextType {
 const PromptInputContext = React.createContext<PromptInputContextType>({
   isLoading: false,
   value: "",
-  setValue: () => {},
+  setValue: () => { },
   maxHeight: 240,
   onSubmit: undefined,
   disabled: false,
@@ -391,7 +391,7 @@ const PromptInputTextarea: React.FC<PromptInputTextareaProps & React.ComponentPr
   );
 };
 
-interface PromptInputActionsProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface PromptInputActionsProps extends React.HTMLAttributes<HTMLDivElement> { }
 const PromptInputActions: React.FC<PromptInputActionsProps> = ({ children, className, ...props }) => (
   <div className={cn("flex items-center gap-2", className)} {...props}>
     {children}
@@ -444,7 +444,7 @@ interface PromptInputBoxProps {
   className?: string;
 }
 export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref: React.Ref<HTMLDivElement>) => {
-  const { onSend = () => {}, isLoading = false, placeholder = "Talk to GensChat", className } = props;
+  const { onSend = () => { }, isLoading = false, placeholder = "Talk to GensChat", className } = props;
   const [input, setInput] = React.useState("");
   const [files, setFiles] = React.useState<File[]>([]);
   const [filePreviews, setFilePreviews] = React.useState<{ [key: string]: string }>({});
@@ -614,10 +614,10 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
               showSearch
                 ? "Search the web..."
                 : showThink
-                ? "Think deeply..."
-                : showCanvas
-                ? "Create on canvas..."
-                : placeholder
+                  ? "Think deeply..."
+                  : showCanvas
+                    ? "Create on canvas..."
+                    : placeholder
             }
             className="text-base"
           />
@@ -772,10 +772,10 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
               isLoading
                 ? "Stop generation"
                 : isRecording
-                ? "Stop recording"
-                : hasContent
-                ? "Send message"
-                : "Voice message"
+                  ? "Stop recording"
+                  : hasContent
+                    ? "Send message"
+                    : "Voice message"
             }
           >
             <Button
@@ -786,8 +786,8 @@ export const PromptInputBox = React.forwardRef((props: PromptInputBoxProps, ref:
                 isRecording
                   ? "bg-red-500/20 hover:bg-red-500/30 text-red-400 hover:text-red-300 border border-red-500/30"
                   : hasContent
-                  ? "bg-white hover:bg-white/80 text-black"
-                  : "bg-white/20 hover:bg-white/30 text-white border border-white/30 shadow-[0_0_8px_rgba(255,255,255,0.2)]"
+                    ? "bg-white hover:bg-white/80 text-black"
+                    : "bg-white/20 hover:bg-white/30 text-white border border-white/30 shadow-[0_0_8px_rgba(255,255,255,0.2)]"
               )}
               onClick={() => {
                 if (isRecording) setIsRecording(false);
