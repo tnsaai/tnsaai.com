@@ -6,6 +6,18 @@ import { FlightCard } from '@/components/ui/flight-card'
 
 const papers = [
   {
+    title: 'Open-Sourcing NGen-4-K2-1T-Thinking: 1T Param Indic-First LLM',
+    description: 'TNSA is open-sourcing a 1 Trillion parameter Indic-first LLM under Apache 2.0, pushing multilingual intelligence at unprecedented scale.',
+    href: '/company/news/ngen-4-k2-1t-thinking-open-source',
+    backgroundImage: '/TV - 4.svg',
+  },
+  {
+    title: 'Introducing IGen-1: Advanced Image Generation',
+    description: 'IGen-1 delivers professional-grade image generation with up to 4K resolution and advanced editing capabilities.',
+    href: '/models/igen-1-image',
+    backgroundImage: 'https://igen.tnsaai.com/images/igen1/igen1-7.png',
+  },
+  {
     title: 'Introducing Rishi (AAR-1): TNSA\'s First Automated AI Researcher',
     description: 'Meet Rishi, TNSA\'s pioneering Automated AI Researcher, relentlessly working to achieve SuperIntelligence.',
     href: '/company/news/rishi-aar-1-tnsas-first-automated-ai-researcher',
@@ -76,7 +88,7 @@ export default function NewsPage() {
               <div className="text-sm text-gray-700">Featured: Explore our latest research and tools.</div>
               <div className="flex gap-3">
                 <Link href="/research/tri-flux-attention" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-sm hover:bg-gray-50">Tri‑Flux Attention</Link>
-                <Link href="/company/news/rishi-aar-1-tnsas-first-automated-ai-researcher" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-sm hover:bg-gray-50">Meet Rishi</Link>
+                <Link href="/company/news/ngen-4-k2-1t-thinking-open-source" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-sm hover:bg-gray-50">NGen-4-K2-1T</Link>
               </div>
             </div>
           </div>

@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* Hero section */}
-      <div className="bg-white min-h-[85vh] flex items-center justify-center pt-24 pb-12">
+      <div className="bg-white min-h-[60vh] flex items-center justify-center pt-24 pb-6">
         <div className="w-full max-w-4xl px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-normal mb-12 text-black leading-tight">
             Building Super-Intelligence.
@@ -45,25 +45,42 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-white py-32">
+      {/* Featured Banner Section */}
+      <div className="bg-white pb-12">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Link href="/company/news/ngen-4-k2-1t-thinking-open-source" className="block relative w-full aspect-[21/9] md:aspect-[24/7] overflow-hidden rounded-[40px] group">
+            <Image
+              src="/TV - 4.svg"
+              alt="The New Era of Intelligence: NGen-4-K2 and IGen 1"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 text-white">
+              <p className="text-sm font-medium mb-2 opacity-90">Featured Release</p>
+              <h2 className="text-2xl md:text-4xl font-normal">Open-Sourcing NGen-4-K2-1T-Thinking</h2>
+            </div>
+          </Link>
+        </div>
+      </div>
+
+      <div className="bg-white py-16 border-t border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-            {/* Large Feature Card - Spans 2 columns and 2 rows on desktop */}
-            <div className="md:col-span-2 md:row-span-2 h-full">
+            {/* Row 1: IGen 1 (Featured) + NGen 3.1 Pro */}
+            <div className="md:col-span-2">
               <FlightCard
                 title="IGen 1"
                 subtitle="The future of creative intelligence. High-fidelity image synthesis and logical reasoning across multiple modalities."
                 category="Creative Intelligence"
                 date="Feb 20, 2026"
-                imageUrl="https://igen.tnsaai.com/images/igen1/igen1-7.png"
+                imageUrl="/new-embeddings-models-and-api-updates 1.png"
                 imageAlt="IGen 1"
                 href="/models/igen-1-image"
-                className="h-full"
                 layout="featured"
               />
             </div>
-
-            {/* Stacked Small Cards on the right */}
             <FlightCard
               title="NGen 3.1 Pro"
               subtitle="Optimized for production reliability and breakthrough performance."
@@ -73,6 +90,20 @@ export default function Home() {
               imageAlt="NGen 3.1 Pro"
               href="/models/ngen3.1-pro"
             />
+
+            {/* Row 2: NGen 4 Mini (Horizontal) + NGen 3.5 Series */}
+            <div className="md:col-span-2">
+              <FlightCard
+                title="NGen 4 Mini"
+                subtitle="Advanced reasoning and natural dialogue at scale. The perfect balance of performance and efficiency."
+                category="Reasoning"
+                imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/b541dce9d4e61765fc0e23374f20194bb5b69b33/ngen4-mini.svg"
+                imageAlt="NGen 4 Mini"
+                href="/models/ngen4-mini"
+                layout="horizontal"
+                className="h-full"
+              />
+            </div>
             <FlightCard
               title="NGen 3.5 series"
               subtitle="The peak of performance with real-time optimization."
@@ -81,6 +112,41 @@ export default function Home() {
               imageAlt="NGen 3.5 series"
               href="/models"
             />
+
+            {/* Row 3: Agent Star + Scientist 1 */}
+            <div className="md:col-span-2">
+              <FlightCard
+                title="NGen 3.9 Max V3"
+                subtitle="Our flagship production model for enterprise AI. Excelling in complex reasoning, coding, and knowledge-intensive tasks."
+                category="Frontier"
+                imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/and-machines-FvjBNfAdTYE-unsplash.jpg"
+                imageAlt="NGen 3.9 Max V3"
+                href="/models/ngen3.9-max-stable-v3-chat"
+                layout="horizontal"
+                className="h-full"
+              />
+            </div>
+            <FlightCard
+              title="Scientist 1"
+              subtitle="Accelerating scientific discovery with automated hypothesis generation."
+              category="Research"
+              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/abstral-official-kzTYEGMY4N0-unsplash.jpg"
+              imageAlt="Scientist 1"
+              href="/models/scientist-1-research"
+            />
+
+            {/* Row 4: NGen 3 140M V2 (Full Width) */}
+            <div className="md:col-span-3">
+              <FlightCard
+                title="NGen 3 140M V2"
+                subtitle="Small but mighty. An enhanced 140 million parameter model optimized for peak efficiency and edge deployment without compromising on intelligence."
+                category="Standard"
+                imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/ikhlas-mSZLRc6tp60-unsplash.jpg"
+                imageAlt="NGen 3 140M V2"
+                href="/models/ngen3-140m-v2"
+                layout="horizontal"
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16 max-w-6xl mx-auto">
@@ -125,7 +191,23 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16 max-w-6xl mx-auto">
             <FlightCard
-              title="Introducing Rishi (AAR-1): TNSA's First Automated AI Researcher"
+              title="Open-Sourcing NGen-4-K2-1T-Thinking: 1Param Indic-First LLM"
+              category="Open Source"
+              date="Feb 23, 2026"
+              imageUrl="/TV - 4.svg"
+              layout="horizontal"
+              href="/company/news/ngen-4-k2-1t-thinking-open-source"
+            />
+            <FlightCard
+              title="Introducing IGen-1: Advanced Image Generation"
+              category="News"
+              date="Feb 20, 2026"
+              imageUrl="https://igen.tnsaai.com/images/igen1/igen1-7.png"
+              layout="horizontal"
+              href="/models/igen-1-image"
+            />
+            <FlightCard
+              title={"Introducing Rishi (AAR-1): TNSA\u0027s First Automated AI Researcher"}
               category="News"
               date="Feb 15, 2026"
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/tnsa-risihi%20(1).png"
@@ -140,22 +222,6 @@ export default function Home() {
               imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-zaksheuskaya-709412-1568607.jpg"
               layout="horizontal"
               href="/company/news/ngen4-atom-chat-launch"
-            />
-            <FlightCard
-              title="TNSA X Microsoft & Google TPU Research Cloud"
-              category="Partnership"
-              date="Feb 10, 2026"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-steve-1509534.jpg"
-              layout="horizontal"
-              href="/company/news/tnsa-x-microsoft-for-startups-tnsa-x-google-tpu-research-cloud"
-            />
-            <FlightCard
-              title="TNSA API & GensChat are Live"
-              category="News"
-              date="Jan 28, 2026"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-diva-34592788.jpg"
-              layout="horizontal"
-              href="/company/news/tnsa-api-is-live-genschats-is-live"
             />
           </div>
         </div>

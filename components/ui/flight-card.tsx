@@ -56,15 +56,15 @@ export const FlightCard = ({
         "relative overflow-hidden flex-shrink-0 transition-transform duration-500",
         isHorizontal ? "w-40 md:w-52 h-full" : "w-full rounded-[24px] bg-gray-50",
         !isFeatured && !isHorizontal && (isLarge ? "aspect-video" : "aspect-[4/3]"),
-        isFeatured && "aspect-[3/1] md:aspect-[3/1]",
+        isFeatured && "aspect-[2/1] md:aspect-[21/9]",
         "group-hover:opacity-90"
       )}>
         <img
           src={imageUrl}
           alt={imageAlt}
           className={cn(
-            "w-full h-full object-cover transition-transform duration-700 group-hover:scale-105",
-            imageFit === 'contain' && "p-8"
+            "w-full h-full transition-transform duration-700 group-hover:scale-105",
+            imageFit === 'contain' ? "object-contain p-8" : "object-cover"
           )}
         />
       </div>

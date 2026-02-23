@@ -119,12 +119,12 @@ export default function ResearchPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr max-w-7xl mx-auto">
             {papers.map((paper, index) => {
-              // Layout plan (11 papers, 3 cols, every row = 3):
+              // Layout plan (12 papers, 3 cols, every row = 3):
               // Row 1: [0]=1  [1]=2         => 1+2=3
               // Row 2: [2]=1  [3]=1  [4]=1   => 1+1+1=3
               // Row 3: [5]=2  [6]=1          => 2+1=3
               // Row 4: [7]=1  [8]=1  [9]=1   => 1+1+1=3
-              // Row 5: [10]=3                => 3=3
+              // Row 5: [10]=1 [11]=2         => 1+2=3
 
               let spanClass = "md:col-span-1";
               let layout: "vertical" | "horizontal" | "featured" = "vertical";
@@ -135,9 +135,9 @@ export default function ResearchPage() {
               } else if (index === 5) {
                 spanClass = "md:col-span-2";
                 layout = "horizontal";
-              } else if (index === 10) {
-                spanClass = "md:col-span-3";
-                layout = "featured";
+              } else if (index === 11) {
+                spanClass = "md:col-span-2";
+                layout = "horizontal";
               }
 
               return (
