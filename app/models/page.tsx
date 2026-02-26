@@ -34,6 +34,16 @@ export default function ModelsPage() {
               showTitle={false}
               imageFit="contain"
             />
+            <FlightCard
+              title="NGen 4 Pro"
+              subtitle="Frontier non-reasoning model. Massive scale, exceptional capabilities."
+              category="Pioneer"
+              imageUrl="/ngen4-pro.png"
+              imageAlt="NGen 4 Pro Model"
+              href="/models/ngen4-pro"
+              showTitle={false}
+              imageFit="cover"
+            />
           </div>
         </div>
       </div>

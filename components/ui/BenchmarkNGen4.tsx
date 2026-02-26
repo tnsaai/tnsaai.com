@@ -10,6 +10,7 @@ export function BenchmarkNGen4Reasoning() {
             title="NGen 4 Reasoning & Knowledge"
             description="Zero-shot performance of the current NGen 4 flagship series."
         >
+            <Bar dataKey="ngen4pro" fill="var(--color-ngen4pro)" radius={4} />
             <Bar dataKey="ngen4mini" fill="var(--color-ngen4mini)" radius={4} />
             <Bar dataKey="o3" fill="var(--color-o3)" radius={4} />
             <Bar dataKey="o3mini" fill="var(--color-o3mini)" radius={4} />
@@ -30,6 +31,7 @@ export function BenchmarkNGen4Coding() {
             isElo={false}
             yAxisLabel="Accuracy (%)"
         >
+            <Bar dataKey="ngen4pro" fill="var(--color-ngen4pro)" radius={4} />
             <Bar dataKey="ngen4mini" fill="var(--color-ngen4mini)" radius={4} />
             <Bar dataKey="o3" fill="var(--color-o3)" radius={4} />
             <Bar dataKey="o3mini" fill="var(--color-o3mini)" radius={4} />

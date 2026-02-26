@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { BenchmarkNGen4Reasoning, BenchmarkNGen4Coding } from '@/components/ui/BenchmarkNGen4'
 import { BenchmarkTable } from '@/components/ui/BenchmarkTable'
-import { BenchmarkAdvancedText, BenchmarkAdvancedLogic, BenchmarkAdvancedCoding } from '@/components/ui/BenchmarkAdvanced'
+import { BenchmarkAdvancedText, BenchmarkAdvancedLogic, BenchmarkAdvancedCoding, BenchmarkVisionMultimodal } from '@/components/ui/BenchmarkAdvanced'
 
 export default function NGen4MiniPage() {
     const textBenchmarkRows = [
@@ -65,10 +65,31 @@ export default function NGen4MiniPage() {
             <div className="bg-white">
                 <div className="mx-auto max-w-4xl px-6">
                     <div className="mb-16">
-                        <h2 className="text-2xl text-gray-900 mb-4">Overview.</h2>
                         <p className="text-base text-gray-700 leading-relaxed">
-                            NGen 4 Mini represents a major step forward in reasoning and conversational capability. Built as a reasoning model, it&apos;s designed for advanced reasoning, problem solving, and natural, engaging conversations and content generation at scale. At 10X the size of TNSA&apos;s biggest open-weight model NGen3 10B, NGen 4 Mini delivers exceptional performance in dialogue, creative writing, and general language understanding with robust reasoning abilities.
+                            NGen 4 Mini represents a major step forward in reasoning and conversational capability. Built with an advanced thinking-mode architecture, it deliverers exceptional performance in dialogue, creative writing, and general language understanding. By integrating breakthroughs in early-fusion multimodal learning and efficient Mixture-of-Experts (MoE), NGen 4 Mini provides frontier intelligence at massive scale.
                         </p>
+                    </div>
+
+                    <div className="mb-16">
+                        <h2 className="text-2xl text-gray-900 mb-6">NGen 4 Mini Highlights.</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                            <div>
+                                <h3 className="text-lg font-medium text-black mb-2">Unified Vision-Language Foundation</h3>
+                                <p className="text-sm text-gray-700 leading-relaxed">Early fusion training on multimodal tokens enables high-fidelity visual understanding and reasoning across diverse modalities.</p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-medium text-black mb-2">Efficient Hybrid Architecture</h3>
+                                <p className="text-sm text-gray-700 leading-relaxed">Leverages sparse Mixture-of-Experts (MoE) to deliver exceptional throughput and minimal latency for high-traffic applications.</p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-medium text-black mb-2">Thinking Mode Enabled</h3>
+                                <p className="text-sm text-gray-700 leading-relaxed">Designed for deep reasoning, the model operates in a thinking mode by default to solve complex logical and mathematical problems.</p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-medium text-black mb-2">Global Accessibility</h3>
+                                <p className="text-sm text-gray-700 leading-relaxed">Optimized for over 200 languages, providing nuanced cultural understanding and world-class linguistic performance.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="space-y-24 mb-24">
@@ -77,6 +98,7 @@ export default function NGen4MiniPage() {
                         <BenchmarkAdvancedText />
                         <BenchmarkAdvancedLogic />
                         <BenchmarkAdvancedCoding />
+                        <BenchmarkVisionMultimodal />
                     </div>
 
                     <div className="mb-16">
@@ -111,8 +133,31 @@ export default function NGen4MiniPage() {
                     <div className="mb-16">
                         <h2 className="text-2xl text-gray-900 mb-4">Pricing.</h2>
                         <p className="text-base text-gray-700 leading-relaxed">
-                            $2.00 per 1K tokens
+                            $2.00 per 1M tokens
                         </p>
+                    </div>
+
+                    <div className="mb-16">
+                        <h2 className="text-2xl text-gray-900 mb-4">Serving & Best Practices.</h2>
+                        <div className="space-y-6 text-base text-gray-700 leading-relaxed">
+                            <p>
+                                NGen 4 Mini operates in thinking mode by default, generating thinking content signifyed by <code className="bg-gray-100 px-1 rounded">&lt;think&gt;</code> tags. For production workloads, we recommend dedicated serving engines like SGLang, KTransformers, or vLLM to ensure optimal performance.
+                            </p>
+
+                            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 italic text-sm">
+                                <p className="font-medium text-black not-italic mb-3">Recommended Sampling Parameters:</p>
+                                <ul className="space-y-2">
+                                    <li><span className="font-medium">Thinking Mode (General):</span> temperature=1.0, top_p=0.95, presence_penalty=1.5</li>
+                                    <li><span className="font-medium">Thinking Mode (Coding):</span> temperature=0.6, top_p=0.95, presence_penalty=0.0</li>
+                                    <li><span className="font-medium">Instruct (Non-Thinking) Mode:</span> temperature=0.7, top_p=0.8, presence_penalty=1.5</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 className="text-lg font-medium text-black mb-2">Adequate Output Length</h3>
+                                <p>We recommend using an output length of 32,768 tokens for most queries. For competitions or high-complexity problems, consider setting the max output length to 81,920 tokens to allow sufficient thinking space.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="mb-16">

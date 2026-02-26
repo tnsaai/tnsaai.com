@@ -92,26 +92,26 @@ export default function Home() {
             />
 
             {/* Row 2: NGen 4 Mini (Horizontal) + NGen 3.5 Series */}
+            <FlightCard
+              title="NGen 4 Mini"
+              subtitle="Advanced reasoning and natural dialogue at scale. The perfect balance of performance and efficiency."
+              category="Reasoning"
+              imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/b541dce9d4e61765fc0e23374f20194bb5b69b33/ngen4-mini.svg"
+              imageAlt="NGen 4 Mini"
+              href="/models/ngen4-mini"
+            />
             <div className="md:col-span-2">
               <FlightCard
-                title="NGen 4 Mini"
-                subtitle="Advanced reasoning and natural dialogue at scale. The perfect balance of performance and efficiency."
-                category="Reasoning"
-                imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/b541dce9d4e61765fc0e23374f20194bb5b69b33/ngen4-mini.svg"
-                imageAlt="NGen 4 Mini"
-                href="/models/ngen4-mini"
+                title="NGen 4 Pro"
+                subtitle="Frontier non-reasoning model. Massive scale, exceptional capabilities and tool-use."
+                category="Frontier"
+                imageUrl="/ngen4-pro.png"
+                imageAlt="NGen 4 Pro Model"
+                href="/models/ngen4-pro"
                 layout="horizontal"
                 className="h-full"
               />
             </div>
-            <FlightCard
-              title="NGen 3.5 series"
-              subtitle="The peak of performance with real-time optimization."
-              category="Omni-Model"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-falling4utah-1934846.jpg"
-              imageAlt="NGen 3.5 series"
-              href="/models"
-            />
 
             {/* Row 3: Agent Star + Scientist 1 */}
             <div className="md:col-span-2">

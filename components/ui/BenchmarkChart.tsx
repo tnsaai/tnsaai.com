@@ -22,6 +22,7 @@ import {
 export const benchmarkData = [
   {
     name: 'MMLU',
+    ngen4pro: 94.2,
     ngen4mini: 93.0,
     ngen39max: 81.8,
     ngen39pro: 77.2,
@@ -36,6 +37,7 @@ export const benchmarkData = [
   },
   {
     name: 'GPQA Diamond',
+    ngen4pro: 84.5,
     ngen4mini: 82.0,
     ngen39max: 73.8,
     ngen39pro: 63.1,
@@ -50,6 +52,7 @@ export const benchmarkData = [
   },
   {
     name: 'Humanity\'s Last Exam',
+    ngen4pro: 26.8,
     ngen4mini: 24.0,
     ngen39max: 21.4,
     ngen39pro: 18.2,
@@ -64,6 +67,7 @@ export const benchmarkData = [
   },
   {
     name: 'AIME 2025',
+    ngen4pro: 100.0,
     ngen4mini: 100.0,
     ngen39max: 88.3,
     ngen39pro: 72.6,
@@ -78,6 +82,7 @@ export const benchmarkData = [
   },
   {
     name: 'SWE-Bench Verified',
+    ngen4pro: 71.2,
     ngen4mini: 63.7,
     ngen39max: 0.0,
     ngen39pro: 0.0,
@@ -93,6 +98,10 @@ export const benchmarkData = [
 ]
 
 export const chartConfig = {
+  ngen4pro: {
+    label: "NGen 4 Pro",
+    color: "#2563eb",
+  },
   ngen4mini: {
     label: "NGen 4 Mini",
     color: "#3b82f6",

@@ -7,6 +7,8 @@ import { BenchmarkBase } from "./BenchmarkChart"
 export const textReasoningData = [
     {
         name: 'MMLU-Pro',
+        ngen4pro: 88.6,
+        ngen4mini: 85.2,
         ngen39max: 81.8,
         ngen39pro: 77.2,
         qwen3_30b: 78.5,
@@ -20,6 +22,8 @@ export const textReasoningData = [
     },
     {
         name: 'MMLU-Redux',
+        ngen4pro: 95.8,
+        ngen4mini: 94.5,
         ngen39max: 93.1,
         ngen39pro: 90.4,
         qwen3_30b: 89.5,
@@ -30,6 +34,8 @@ export const textReasoningData = [
     },
     {
         name: 'GPQA',
+        ngen4pro: 84.5,
+        ngen4mini: 82.0,
         ngen39max: 73.8,
         ngen39pro: 63.1,
         qwen3_30b: 65.8,
@@ -41,6 +47,8 @@ export const textReasoningData = [
     },
     {
         name: 'SuperGPQA',
+        ngen4pro: 68.4,
+        ngen4mini: 64.1,
         ngen39max: 55.8,
         ngen39pro: 49.7,
         qwen3_30b: 51.8,
@@ -54,6 +62,8 @@ export const textReasoningData = [
 export const logicMathData = [
     {
         name: 'AIME 25',
+        ngen4pro: 100.0,
+        ngen4mini: 100.0,
         ngen39max: 88.3,
         ngen39pro: 72.6,
         qwen3_30b: 70.9,
@@ -64,6 +74,8 @@ export const logicMathData = [
     },
     {
         name: 'HMMT 25',
+        ngen4pro: 82.5,
+        ngen4mini: 76.4,
         ngen39max: 61.5,
         ngen39pro: 48.1,
         qwen3_30b: 49.8,
@@ -74,6 +86,8 @@ export const logicMathData = [
     },
     {
         name: 'LiveBench',
+        ngen4pro: 89.2,
+        ngen4mini: 84.5,
         ngen39max: 77.8,
         ngen39pro: 69.6,
         qwen3_30b: 74.3,
@@ -88,6 +102,8 @@ export const logicMathData = [
 export const codingDataAdvanced = [
     {
         name: 'LiveCodeBench',
+        ngen4pro: 76.5,
+        ngen4mini: 68.2,
         ngen39max: 61.2,
         ngen39pro: 54.4,
         qwen3_30b: 57.4,
@@ -100,6 +116,8 @@ export const codingDataAdvanced = [
     },
     {
         name: 'CFEval',
+        ngen4pro: 2240.0,
+        ngen4mini: 2110.0,
         ngen39max: 1952.0,
         ngen39pro: 1771.0,
         qwen3_30b: 1940.0,
@@ -110,6 +128,8 @@ export const codingDataAdvanced = [
     },
     {
         name: 'OJBench',
+        ngen4pro: 34.2,
+        ngen4mini: 28.1,
         ngen39max: 23.9,
         ngen39pro: 22.1,
         qwen3_30b: 20.7,
@@ -124,6 +144,8 @@ export const codingDataAdvanced = [
 export const visionData = [
     {
         name: 'MMMU (Val)',
+        ngen4pro: 82.4,
+        ngen4mini: 78.1,
         ngen35max: 75.6,
         ngen35pro: 73.4,
         gemini25_flash: 73.4,
@@ -131,6 +153,8 @@ export const visionData = [
     },
     {
         name: 'MathVista',
+        ngen4pro: 88.7,
+        ngen4mini: 85.3,
         ngen35max: 83.2,
         ngen35pro: 79.7,
         gemini25_flash: 72.8,
@@ -138,6 +162,8 @@ export const visionData = [
     },
     {
         name: 'AI2D',
+        ngen4pro: 97.8,
+        ngen4mini: 96.2,
         ngen35max: 95.5,
         ngen35pro: 90.1,
         gemini25_flash: 85.7,
@@ -145,6 +171,8 @@ export const visionData = [
     },
     {
         name: 'DocVQA',
+        ngen4pro: 98.1,
+        ngen4mini: 96.8,
         ngen35max: 95.6,
         ngen35pro: 90.3,
         gemini25_flash: 92.5,
@@ -157,8 +185,10 @@ export function BenchmarkAdvancedText() {
         <BenchmarkBase
             data={textReasoningData}
             title="Advanced Text & Reasoning"
-            description="Comparing NGen 3.9/3.5 Max and Pro against Qwen3, DeepSeek, and Llama 4."
+            description="Comparing NGen 4 and NGen 3 series against Qwen3, DeepSeek, and Llama 4."
         >
+            <Bar dataKey="ngen4pro" fill="var(--color-ngen4pro)" radius={4} />
+            <Bar dataKey="ngen4mini" fill="var(--color-ngen4mini)" radius={4} />
             <Bar dataKey="ngen39max" fill="var(--color-ngen39max)" radius={4} />
             <Bar dataKey="ngen39pro" fill="var(--color-ngen39pro)" radius={4} />
             <Bar dataKey="ngen35max" fill="var(--color-ngen35max)" radius={4} />
@@ -176,6 +206,8 @@ export function BenchmarkAdvancedLogic() {
             title="Logic & Mathematical Reasoning"
             description="Frontier performance on AIME 25 and HMMT 25 benchmarks."
         >
+            <Bar dataKey="ngen4pro" fill="var(--color-ngen4pro)" radius={4} />
+            <Bar dataKey="ngen4mini" fill="var(--color-ngen4mini)" radius={4} />
             <Bar dataKey="ngen39max" fill="var(--color-ngen39max)" radius={4} />
             <Bar dataKey="ngen35max" fill="var(--color-ngen35max)" radius={4} />
             <Bar dataKey="qwen3_4b_2507" fill="var(--color-qwen3_4b_2507)" radius={4} />
@@ -191,6 +223,8 @@ export function BenchmarkAdvancedCoding() {
             title="Advanced Engineering & Coding"
             description="Comparative analysis on LiveCodeBench and CFEval."
         >
+            <Bar dataKey="ngen4pro" fill="var(--color-ngen4pro)" radius={4} />
+            <Bar dataKey="ngen4mini" fill="var(--color-ngen4mini)" radius={4} />
             <Bar dataKey="ngen39max" fill="var(--color-ngen39max)" radius={4} />
             <Bar dataKey="ngen35max" fill="var(--color-ngen35max)" radius={4} />
             <Bar dataKey="deepseekr1" fill="var(--color-deepseekr1)" radius={4} />
@@ -204,8 +238,10 @@ export function BenchmarkVisionMultimodal() {
         <BenchmarkBase
             data={visionData}
             title="Vision & Multimodal Intelligence"
-            description="NGen 3.5 series compared with Gemini 2.5 Flash and GPT-5 Nano."
+            description="NGen 4 and NGen 3.5 series compared with Gemini 2.5 Flash and GPT-5 Nano."
         >
+            <Bar dataKey="ngen4pro" fill="var(--color-ngen4pro)" radius={4} />
+            <Bar dataKey="ngen4mini" fill="var(--color-ngen4mini)" radius={4} />
             <Bar dataKey="ngen35max" fill="var(--color-ngen35max)" radius={4} />
             <Bar dataKey="ngen35pro" fill="var(--color-ngen35pro)" radius={4} />
             <Bar dataKey="gemini25_flash" fill="var(--color-gemini25_flash)" radius={4} />
