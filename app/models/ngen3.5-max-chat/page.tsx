@@ -34,7 +34,7 @@ export default function NGen35MaxChatPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/mymind-tZCrFpSNiIQ-unsplash.jpg"
+            src="/ngen3.5-max.png"
             alt="NGen 3.5 Max"
             fill
             priority

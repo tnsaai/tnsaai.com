@@ -14,7 +14,7 @@ export default function NGen3140MInstructPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/steve-johnson-Ynv62BMTaWg-unsplash.jpg"
+            src="/ngen3-140mit.png"
             alt="NGen 3 140M Instruct"
             fill
             priority

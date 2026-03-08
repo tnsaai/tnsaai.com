@@ -35,7 +35,7 @@ export default function NGen35ProChatPage() {
 
                 <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
                     <Image
-                        src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/blur-1721080_1280.jpg"
+                        src="/ngen3.5-pro.png"
                         alt="NGen 3.5 Pro"
                         fill
                         priority

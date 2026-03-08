@@ -14,7 +14,7 @@ export default function NGen390MPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/sean-sinclair-C_NJKfnTR5A-unsplash.jpg"
+            src="/ngen3-90m.png"
             alt="NGen 3 90M"
             fill
             priority

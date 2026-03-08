@@ -14,7 +14,7 @@ export default function NGen37B0625ChatPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/codioful-formerly-gradienta-9ZLLxhNCQxg-unsplash.jpg"
+            src="/ngen3-7b-0625.png"
             alt="NGen 3 7B 0625"
             fill
             priority

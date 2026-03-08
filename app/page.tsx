@@ -68,82 +68,83 @@ export default function Home() {
       <div className="bg-white py-16 border-t border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-            {/* Row 1: IGen 1 (Featured) + NGen 3.1 Pro */}
+            {/* Row 1: NGen 4 Pro (Featured) + NGen 4 K2 1T */}
+            <div className="md:col-span-2">
+              <FlightCard
+                title="NGen 4 Pro"
+                subtitle="Frontier reasoning model. Massive scale, exceptional capabilities and tool-use."
+                category="Frontier"
+                date="Feb 26, 2026"
+                imageUrl="/ngen4-pro.png"
+                imageAlt="NGen 4 Pro"
+                href="/models/ngen4-pro"
+                layout="featured"
+              />
+            </div>
+            <FlightCard
+              title="NGen 4 K2 1T"
+              subtitle="The pinnacle of scale. 1 Trillion parameters of unparalleled generalized intelligence."
+              category="Pioneer"
+              date="Feb 23, 2026"
+              imageUrl="/ngen4-k2-1t.png"
+              imageAlt="NGen 4 K2 1T"
+              href="/models/ngen4-k2-1t"
+            />
+
+            {/* Row 2: NGen 4 Blaze + NGen 4 Mini */}
+            <FlightCard
+              title="NGen 4 Blaze"
+              subtitle="Advanced intelligence mapped for extreme speed and reasoning."
+              category="Reasoning"
+              imageUrl="/ngen4-blaze.png"
+              imageAlt="NGen 4 Blaze"
+              href="/models/ngen4-blaze"
+            />
+            <div className="md:col-span-2">
+              <FlightCard
+                title="NGen 4 Mini"
+                subtitle="Advanced reasoning and natural dialogue at scale. The perfect balance of performance and efficiency."
+                category="Reasoning"
+                imageUrl="/ngen4-mini.png"
+                imageAlt="NGen 4 Mini"
+                href="/models/ngen4-mini"
+                layout="horizontal"
+                className="h-full"
+              />
+            </div>
+
+            {/* Row 3: NGen 4 Flash + IGen 1 */}
             <div className="md:col-span-2">
               <FlightCard
                 title="IGen 1"
-                subtitle="The future of creative intelligence. High-fidelity image synthesis and logical reasoning across multiple modalities."
+                subtitle="The future of creative intelligence. High-fidelity image synthesis and logical reasoning."
                 category="Creative Intelligence"
                 date="Feb 20, 2026"
                 imageUrl="/new-embeddings-models-and-api-updates 1.png"
                 imageAlt="IGen 1"
                 href="/models/igen-1-image"
-                layout="featured"
-              />
-            </div>
-            <FlightCard
-              title="NGen 3.1 Pro"
-              subtitle="Optimized for production reliability and breakthrough performance."
-              category="Pro Model"
-              date="Feb 13, 2026"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-efren-ftz-365656346-14433444.jpg"
-              imageAlt="NGen 3.1 Pro"
-              href="/models/ngen3.1-pro"
-            />
-
-            {/* Row 2: NGen 4 Mini (Horizontal) + NGen 3.5 Series */}
-            <FlightCard
-              title="NGen 4 Mini"
-              subtitle="Advanced reasoning and natural dialogue at scale. The perfect balance of performance and efficiency."
-              category="Reasoning"
-              imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/b541dce9d4e61765fc0e23374f20194bb5b69b33/ngen4-mini.svg"
-              imageAlt="NGen 4 Mini"
-              href="/models/ngen4-mini"
-            />
-            <div className="md:col-span-2">
-              <FlightCard
-                title="NGen 4 Pro"
-                subtitle="Frontier non-reasoning model. Massive scale, exceptional capabilities and tool-use."
-                category="Frontier"
-                imageUrl="/ngen4-pro.png"
-                imageAlt="NGen 4 Pro Model"
-                href="/models/ngen4-pro"
-                layout="horizontal"
-                className="h-full"
-              />
-            </div>
-
-            {/* Row 3: Agent Star + Scientist 1 */}
-            <div className="md:col-span-2">
-              <FlightCard
-                title="NGen 3.9 Max V3"
-                subtitle="Our flagship production model for enterprise AI. Excelling in complex reasoning, coding, and knowledge-intensive tasks."
-                category="Frontier"
-                imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/and-machines-FvjBNfAdTYE-unsplash.jpg"
-                imageAlt="NGen 3.9 Max V3"
-                href="/models/ngen3.9-max-stable-v3-chat"
                 layout="horizontal"
                 className="h-full"
               />
             </div>
             <FlightCard
-              title="Scientist 1"
-              subtitle="Accelerating scientific discovery with automated hypothesis generation."
-              category="Research"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/abstral-official-kzTYEGMY4N0-unsplash.jpg"
-              imageAlt="Scientist 1"
-              href="/models/scientist-1-research"
+              title="NGen 4 Flash"
+              subtitle="High-speed non-reasoning model uniquely designed for instant responses."
+              category="Speed"
+              imageUrl="/ngen4-flash.png"
+              imageAlt="NGen 4 Flash"
+              href="/models/ngen4-flash"
             />
 
-            {/* Row 4: NGen 3 140M V2 (Full Width) */}
+            {/* Row 4: NGen 4 Lite (Full Width) */}
             <div className="md:col-span-3">
               <FlightCard
-                title="NGen 3 140M V2"
-                subtitle="Small but mighty. An enhanced 140 million parameter model optimized for peak efficiency and edge deployment without compromising on intelligence."
-                category="Standard"
-                imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/ikhlas-mSZLRc6tp60-unsplash.jpg"
-                imageAlt="NGen 3 140M V2"
-                href="/models/ngen3-140m-v2"
+                title="NGen 4 Lite"
+                subtitle="A fast and efficient reasoning model optimized for real-world interactions and rapid response times."
+                category="Efficiency"
+                imageUrl="/ngen4-lite.png"
+                imageAlt="NGen 4 Lite"
+                href="/models/ngen4-lite"
                 layout="horizontal"
               />
             </div>
@@ -154,7 +155,7 @@ export default function Home() {
               title="NGen 3 Series"
               subtitle="Our most efficient production models, designed for scale and reliability."
               category="Standard"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-4c4mrsZwsnA-unsplash.jpg"
+              imageUrl="/ngen3-10b.png"
               imageAlt="NGen 3 Series"
               href="/models"
               layout="vertical"

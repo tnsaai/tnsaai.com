@@ -20,27 +20,67 @@ export default function ModelsPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-3xl tracking-tight text-gray-900 mb-4 sm:text-4xl">NGen 4 Models.</h2>
-            <p className="text-lg text-gray-900 sm:text-xl">Massive scale non-reasoning models for conversational AI</p>
+            <p className="text-lg text-gray-900 sm:text-xl">Massive scale reasoning models for conversational AI</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr max-w-4xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
             <FlightCard
               title="NGen 4 Mini"
               subtitle="Conversational AI. 100B+ params. High performance, low latency."
               category="Pioneer"
-              imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/b541dce9d4e61765fc0e23374f20194bb5b69b33/ngen4-mini.svg"
+              imageUrl="/ngen4-mini.png"
               imageAlt="NGen 4 Mini Model"
               href="/models/ngen4-mini"
               showTitle={false}
-              imageFit="contain"
+              imageFit="cover"
+            />
+            <FlightCard
+              title="NGen 4 Lite"
+              subtitle="Fast and efficient conversational model."
+              category="Pioneer"
+              imageUrl="/ngen4-lite.png"
+              imageAlt="NGen 4 Lite Model"
+              href="/models/ngen4-lite"
+              showTitle={false}
+              imageFit="cover"
+            />
+            <FlightCard
+              title="NGen 4 Flash"
+              subtitle="High-speed non-reasoning model for instant responses."
+              category="Pioneer"
+              imageUrl="/ngen4-flash.png"
+              imageAlt="NGen 4 Flash Model"
+              href="/models/ngen4-flash"
+              showTitle={false}
+              imageFit="cover"
+            />
+            <FlightCard
+              title="NGen 4 Blaze"
+              subtitle="Advanced intelligence mapped for extreme speed and reasoning."
+              category="Pioneer"
+              imageUrl="/ngen4-blaze.png"
+              imageAlt="NGen 4 Blaze Model"
+              href="/models/ngen4-blaze"
+              showTitle={false}
+              imageFit="cover"
             />
             <FlightCard
               title="NGen 4 Pro"
-              subtitle="Frontier non-reasoning model. Massive scale, exceptional capabilities."
+              subtitle="Frontier reasoning model. Massive scale, exceptional capabilities."
               category="Pioneer"
               imageUrl="/ngen4-pro.png"
               imageAlt="NGen 4 Pro Model"
               href="/models/ngen4-pro"
+              showTitle={false}
+              imageFit="cover"
+            />
+            <FlightCard
+              title="NGen 4 K2 1T"
+              subtitle="The pinnacle of scale. 1 Trillion parameters."
+              category="Pioneer"
+              imageUrl="/ngen4-k2-1t.png"
+              imageAlt="NGen 4 K2 1T Model"
+              href="/models/ngen4-k2-1t"
               showTitle={false}
               imageFit="cover"
             />
@@ -62,7 +102,7 @@ export default function ModelsPage() {
               title="NGen 3.5 Max"
               subtitle="Maximum performance and capability for complex reasoning."
               category="Chat"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/mymind-tZCrFpSNiIQ-unsplash.jpg"
+              imageUrl="/ngen3.5-max.png"
               imageAlt="NGen 3.5 Max Model"
               href="/models/ngen3.5-max-chat"
             />
@@ -70,7 +110,7 @@ export default function ModelsPage() {
               title="NGen 3.5 Pro"
               subtitle="Professional-grade conversational AI for advanced workflows."
               category="Chat"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/blur-1721080_1280.jpg"
+              imageUrl="/ngen3.5-pro.png"
               imageAlt="NGen 3.5 Pro Model"
               href="/models/ngen3.5-pro-chat"
             />
@@ -78,7 +118,7 @@ export default function ModelsPage() {
               title="NGen 3.5 Lite"
               subtitle="Efficient and fast conversational model for real-time use."
               category="Chat"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/milad-fakurian-iFu2HILEng8-unsplash.jpg"
+              imageUrl="/ngen3.5-lite.png"
               imageAlt="NGen 3.5 Lite Model"
               href="/models/ngen3.5-lite-chat"
             />
@@ -99,7 +139,7 @@ export default function ModelsPage() {
               title="NGen3.1-Pro Multimodal"
               subtitle="Handles image and text inputs with breakthrough performance."
               category="Multimodal"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-efren-ftz-365656346-14433444.jpg"
+              imageUrl="/ngen3.1-pro.png"
               imageAlt="NGen3.1-Pro Multimodal Model"
               href="/models/ngen3.1-pro"
             />
@@ -207,7 +247,7 @@ export default function ModelsPage() {
               title="NGen 3.9 Lite"
               subtitle="Fast & efficient for basic chat and low-latency interaction."
               category="Chat"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/milad-fakurian-iFu2HILEng8-unsplash.jpg"
+              imageUrl="/ngen3.9-lite.png"
               imageAlt="NGen 3.9 Lite Model"
               href="/models/ngen3.9-lite-chat"
             />
@@ -216,7 +256,7 @@ export default function ModelsPage() {
               title="NGen 3.9 Pro"
               subtitle="Strong contextual and logical understanding for professional use."
               category="Chat"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/blur-1721080_1280.jpg"
+              imageUrl="/ngen3.9-pro.png"
               imageAlt="NGen 3.9 Pro Model"
               href="/models/ngen3.9-pro-chat"
             />
@@ -225,7 +265,7 @@ export default function ModelsPage() {
               title="NGen 3.9 Max"
               subtitle="Stable enterprise version for large-scale production workloads."
               category="Chat"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/and-machines-FvjBNfAdTYE-unsplash.jpg"
+              imageUrl="/ngen3.9-max.png"
               imageAlt="NGen 3.9 Max Model"
               href="/models/ngen3.9-max-stable-v3-chat"
             />
@@ -245,7 +285,7 @@ export default function ModelsPage() {
               title="NGen 3 10B"
               subtitle="Frontier Model for advanced reasoning and large-scale applications."
               category="10B params"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-4c4mrsZwsnA-unsplash.jpg"
+              imageUrl="/ngen3-10b.png"
               imageAlt="NGen 3 10B Model"
               href="/models/ngen3-10b"
             />
@@ -253,7 +293,7 @@ export default function ModelsPage() {
               title="NGen 3 7B"
               subtitle="Foundational Model balancing power and speed."
               category="7B params"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/codioful-formerly-gradienta-4VgbJyqALXM-unsplash.jpg"
+              imageUrl="/ngen3-7b.png"
               imageAlt="NGen 3 7B Model"
               href="/models/ngen3-7b"
             />
@@ -261,7 +301,7 @@ export default function ModelsPage() {
               title="NGen 3 3B"
               subtitle="Accessible AI for general-purpose chat and assistance."
               category="3B params"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/vincent-maufay-H6ZAtlBReSk-unsplash.jpg"
+              imageUrl="/ngen3-3b.png"
               imageAlt="NGen 3 3B Model"
               href="/models/ngen3-3b"
             />
@@ -270,7 +310,7 @@ export default function ModelsPage() {
               title="NGen 3 140M"
               subtitle="Compact model for efficient on-device processing."
               category="140M params"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/ikhlas-EWimyN-lBmQ-unsplash.jpg"
+              imageUrl="/ngen3-140m.png"
               imageAlt="NGen 3 140M Model"
               href="/models/ngen3-140m"
             />
@@ -278,7 +318,7 @@ export default function ModelsPage() {
               title="NGen 3 140M V2"
               subtitle="Enhanced compact model with improved instruction following."
               category="140M params"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/ikhlas-mSZLRc6tp60-unsplash.jpg"
+              imageUrl="/ngen3-140mv2.png"
               imageAlt="NGen 3 140M V2 Model"
               href="/models/ngen3-140m-v2"
             />
@@ -286,7 +326,7 @@ export default function ModelsPage() {
               title="NGen 3 90M"
               subtitle="Smart micro-model for simple text transformations."
               category="90M params"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/sean-sinclair-C_NJKfnTR5A-unsplash.jpg"
+              imageUrl="/ngen3-90m.png"
               imageAlt="NGen 3 90M Model"
               href="/models/ngen3-90m"
             />
@@ -295,7 +335,7 @@ export default function ModelsPage() {
               title="NGen 3 15M"
               subtitle="Micro-scale intelligence for highly constrained environments."
               category="15M params"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/asif-aether-UmflEuFW7Cg-unsplash.jpg"
+              imageUrl="/ngen3-15m.png"
               imageAlt="NGen 3 15M Model"
               href="/models/ngen3-15m"
             />
@@ -303,7 +343,7 @@ export default function ModelsPage() {
               title="NGen 3 15M Embed"
               subtitle="Specialized vector search and embedding model."
               category="Search"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/boliviainteligente-EYnO1knx_8w-unsplash.jpg"
+              imageUrl="/ngen3-15m-embd.png"
               imageAlt="NGen 3 15M Embed Model"
               href="/models/ngen3-15m-embed"
             />
@@ -311,7 +351,7 @@ export default function ModelsPage() {
               title="NGen 3 140M Instruct"
               subtitle="Task-focused model optimized for direct instructions."
               category="Instruct"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/steve-johnson-Ynv62BMTaWg-unsplash.jpg"
+              imageUrl="/ngen3-140mit.png"
               imageAlt="NGen 3 140M Instruct Model"
               href="/models/ngen3-140m-instruct"
             />
@@ -320,7 +360,7 @@ export default function ModelsPage() {
               title="NGen3-7B-0625 Chat"
               subtitle="High-efficiency conversational model with modern tuning."
               category="Chat"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/codioful-formerly-gradienta-9ZLLxhNCQxg-unsplash.jpg"
+              imageUrl="/ngen3-7b-0625.png"
               imageAlt="NGen3-7B-0625 Chat Model"
               href="/models/ngen3-7b-0625-chat"
             />
@@ -328,7 +368,7 @@ export default function ModelsPage() {
               title="NGen3-1B Chat"
               subtitle="Compact 1B parameter model for high-speed edge deployment."
               category="Chat"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-zYWPpB1Tmco-unsplash.jpg"
+              imageUrl="/ngen3-1b.png"
               imageAlt="NGen3-1B Chat Model"
               href="/models/ngen3-1b-chat"
             />
@@ -336,7 +376,7 @@ export default function ModelsPage() {
               title="NGen3-1B-it Chat"
               subtitle="Instruction-tuned variant for superior task performance."
               category="Chat"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/codioful-formerly-gradienta-Y6qcZ_VWEpU-unsplash.jpg"
+              imageUrl="/ngen3-1bit.png"
               imageAlt="NGen3-1B-it Chat Model"
               href="/models/ngen3-1b-it-chat"
             />
@@ -356,7 +396,7 @@ export default function ModelsPage() {
               title="NGen 2 170M"
               subtitle="Gen-2 Core for lightweight language tasks."
               category="Core"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/nicholas-ergemla-NIZvtxMVjWk-unsplash.jpg"
+              imageUrl="/ngen2-170m.png"
               imageAlt="NGen 2 170M Model"
               href="/models/ngen2-170m"
             />
@@ -364,7 +404,7 @@ export default function ModelsPage() {
               title="NGen 2 30M"
               subtitle="Compact Core for on-device processing."
               category="Core"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/nenad-novakovic-wnePSp6CT2U-unsplash.jpg"
+              imageUrl="/ngen2-30m.png"
               imageAlt="NGen 2 30M Model"
               href="/models/ngen2-30m"
             />
@@ -372,7 +412,7 @@ export default function ModelsPage() {
               title="NGen 2 15M"
               subtitle="Micro-Scale for extremely constrained environments."
               category="Core"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/sean-fahrenbruch-g95tsUeCohM-unsplash.jpg"
+              imageUrl="/ngen2-15m.png"
               imageAlt="NGen 2 15M Model"
               href="/models/ngen2-15m"
             />
@@ -482,7 +522,7 @@ export default function ModelsPage() {
               title="NGen 1"
               subtitle="Pioneer foundation model that started it all."
               category="Legacy"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/alexander-x-DcfqG9rmc8A-unsplash.jpg"
+              imageUrl="/ngen1.png"
               imageAlt="NGen 1 Model"
               href="/models/ngen1"
             />

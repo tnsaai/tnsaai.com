@@ -14,7 +14,7 @@ export default function NGen31BITChatPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/codioful-formerly-gradienta-Y6qcZ_VWEpU-unsplash.jpg"
+            src="/ngen3-1bit.png"
             alt="NGen 3 1B IT"
             fill
             priority

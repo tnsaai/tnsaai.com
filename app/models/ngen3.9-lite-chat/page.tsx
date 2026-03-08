@@ -14,7 +14,7 @@ export default function NGen39LiteChatPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/milad-fakurian-iFu2HILEng8-unsplash.jpg"
+            src="/ngen3.9-lite.png"
             alt="NGen 3.9 Lite"
             fill
             priority

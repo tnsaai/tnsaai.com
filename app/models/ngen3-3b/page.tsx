@@ -14,7 +14,7 @@ export default function NGen33BPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/vincent-maufay-H6ZAtlBReSk-unsplash.jpg"
+            src="/ngen3-3b.png"
             alt="NGen 3 3B"
             fill
             priority

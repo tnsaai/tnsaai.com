@@ -51,7 +51,7 @@ export default function NGen4MiniPage() {
                 {/* Image */}
                 <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
                     <Image
-                        src="https://raw.githubusercontent.com/tnsaai/images-urls/b541dce9d4e61765fc0e23374f20194bb5b69b33/ngen4-mini.svg"
+                        src="/ngen4-mini.png"
                         alt="NGen 4 Mini"
                         fill
                         priority

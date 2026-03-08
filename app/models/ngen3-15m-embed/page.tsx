@@ -14,7 +14,7 @@ export default function NGen315MEmbedPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/boliviainteligente-EYnO1knx_8w-unsplash.jpg"
+            src="/ngen3-15m-embd.png"
             alt="NGen 3 15M Embed"
             fill
             priority

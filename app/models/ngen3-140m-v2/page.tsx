@@ -14,7 +14,7 @@ export default function NGen3140MV2Page() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/ikhlas-mSZLRc6tp60-unsplash.jpg"
+            src="/ngen3-140mv2.png"
             alt="NGen 3 140M V2"
             fill
             priority

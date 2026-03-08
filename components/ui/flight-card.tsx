@@ -11,7 +11,7 @@ interface FlightCardProps {
   variant?: 'large' | 'default';
   layout?: 'vertical' | 'horizontal' | 'featured';
   showTitle?: boolean;
-  imageFit?: 'cover' | 'contain';
+  imageFit?: 'cover' | 'contain' | 'contain-no-pad';
   className?: string;
 }
 
@@ -45,7 +45,7 @@ export const FlightCard = ({
     <div
       className={cn(
         "group cursor-pointer transition-all duration-300 h-full",
-        isHorizontal ? "flex flex-row gap-6 items-stretch rounded-[24px] bg-gray-50 overflow-hidden" : "flex flex-col",
+        isHorizontal ? "flex flex-col md:flex-row gap-0 md:gap-8 items-stretch rounded-[24px] bg-gray-50 overflow-hidden" : "flex flex-col",
         isFeatured ? "w-full" : "w-full",
         className
       )}
@@ -54,7 +54,7 @@ export const FlightCard = ({
       {/* Image Container */}
       <div className={cn(
         "relative overflow-hidden flex-shrink-0 transition-transform duration-500",
-        isHorizontal ? "w-40 md:w-52 h-full" : "w-full rounded-[24px] bg-gray-50",
+        isHorizontal ? "w-full md:w-[45%] lg:w-[40%] min-h-[200px]" : "w-full rounded-[24px] bg-gray-50",
         !isFeatured && !isHorizontal && (isLarge ? "aspect-video" : "aspect-[4/3]"),
         isFeatured && "aspect-[2/1] md:aspect-[21/9]",
         "group-hover:opacity-90"
@@ -63,8 +63,8 @@ export const FlightCard = ({
           src={imageUrl}
           alt={imageAlt}
           className={cn(
-            "w-full h-full transition-transform duration-700 group-hover:scale-105",
-            imageFit === 'contain' ? "object-contain p-8" : "object-cover"
+            "w-full h-full absolute inset-0 transition-transform duration-700 group-hover:scale-105",
+            imageFit === 'contain' ? "object-contain p-8" : imageFit === 'contain-no-pad' ? "object-contain" : "object-cover object-center"
           )}
         />
       </div>
@@ -72,7 +72,7 @@ export const FlightCard = ({
       {/* Content Area */}
       <div className={cn(
         "flex flex-col transition-all duration-300 min-w-0",
-        isHorizontal ? "flex-grow gap-1 justify-center py-6 pr-6" : "mt-4 gap-2 px-1"
+        isHorizontal ? "flex-grow gap-2 justify-center py-8 px-6 md:pl-0 md:pr-8 md:py-10" : "mt-4 gap-2 px-1"
       )}>
         <div className="flex items-center gap-3">
           {category && (

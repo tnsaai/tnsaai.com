@@ -35,7 +35,7 @@ export default function NGen39MaxStableV3ChatPage() {
 
                 <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
                     <Image
-                        src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/and-machines-FvjBNfAdTYE-unsplash.jpg"
+                        src="/ngen3.9-max.png"
                         alt="NGen 3.9 Max"
                         fill
                         priority
