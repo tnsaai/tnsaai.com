@@ -6,6 +6,12 @@ import { FlightCard } from '@/components/ui/flight-card'
 
 const papers = [
   {
+    title: 'NGen 4 System Card',
+    description: 'A comprehensive overview of the architecture, training methodologies, and benchmark evaluations for the NGen 4 model series.',
+    href: '/company/news/ngen-4-system-card',
+    backgroundImage: '/ngen4.png',
+  },
+  {
     title: 'Open-Sourcing NGen-4-K2-1T-Thinking: 1T Param Indic-First LLM',
     description: 'TNSA is open-sourcing a 1 Trillion parameter Indic-first LLM under Apache 2.0, pushing multilingual intelligence at unprecedented scale.',
     href: '/company/news/ngen-4-k2-1t-thinking-open-source',

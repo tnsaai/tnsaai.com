@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { NGen4SystemCard } from '@/components/ui/NGen4SystemCard'
 
 export default function NGen4FlashPage() {
     return (
@@ -32,19 +33,16 @@ export default function NGen4FlashPage() {
                         </p>
                     </div>
 
-                    <div className="mb-16">
-                        <h2 className="text-2xl text-gray-900 mb-4">Context & Specs.</h2>
-                        <div className="grid grid-cols-1 gap-8 text-base text-gray-700">
-                            <div>
-                                <p className="font-medium text-black">Context Length</p>
-                                <p>128,000 Tokens</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className="flex justify-center" style={{ marginBottom: '77px' }}>
+
+                    <NGen4SystemCard />
+
+                    <div className="flex flex-wrap justify-center gap-4" style={{ marginBottom: '77px' }}>
                         <Link href="https://platform.tnsaai.com" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
                             Try on API Platform →
+                        </Link>
+                        <Link href="/NGen-4-System-Card.pdf" target="_blank" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
+                            Read Model Card
                         </Link>
                     </div>
                 </div>

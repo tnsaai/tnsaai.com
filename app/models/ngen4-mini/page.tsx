@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { BenchmarkNGen4Reasoning, BenchmarkNGen4Coding } from '@/components/ui/BenchmarkNGen4'
 import { BenchmarkTable } from '@/components/ui/BenchmarkTable'
 import { BenchmarkAdvancedText, BenchmarkAdvancedLogic, BenchmarkAdvancedCoding, BenchmarkVisionMultimodal } from '@/components/ui/BenchmarkAdvanced'
+import { NGen4SystemCard } from '@/components/ui/NGen4SystemCard'
 
 export default function NGen4MiniPage() {
     const textBenchmarkRows = [
@@ -188,9 +189,14 @@ export default function NGen4MiniPage() {
                         </div>
                     </div>
 
-                    <div className="flex justify-center" style={{ marginBottom: '77px' }}>
+                    <NGen4SystemCard />
+
+                    <div className="flex flex-wrap justify-center gap-4" style={{ marginBottom: '77px' }}>
                         <Link href="https://platform.tnsaai.com" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
                             Try on API Platform →
+                        </Link>
+                        <Link href="/NGen-4-System-Card.pdf" target="_blank" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
+                            Read Model Card
                         </Link>
                     </div>
 
