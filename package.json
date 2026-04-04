@@ -24,6 +24,7 @@
     "react-dom": "^18",
     "react-katex": "^3.1.0",
     "recharts": "^3.3.0",
+    "shaders": "^2.5.89",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^3.3.0",
     "unicornstudio-react": "^1.4.31"

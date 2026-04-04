@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { PromptBox } from '@/components/ui/prompt-box'
 import { FlightCard } from '@/components/ui/flight-card'
+import { Shader, Aurora, FloatingParticles } from 'shaders/react'
 
 export default function Home() {
   const handleSendMessage = (prompt: string) => {
@@ -14,9 +15,44 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-transparent relative">
+      <div className="absolute inset-0 h-[100vh] -z-10 overflow-hidden pointer-events-none">
+        <Shader className="w-full h-full">
+          <Aurora
+            colorA="#a533f8"
+            colorB="#223dee"
+            colorC="#1694e8"
+            colorSpace="linear"
+            balance={80}
+            intensity={140}
+            curtainCount={4}
+            speed={5}
+            waviness={50}
+            rayDensity={20}
+            height={120}
+            center={{ x: 0.5, y: 0.8 }}
+            seed={0}
+          />
+          <FloatingParticles
+            particleColor="#ffffff"
+            randomness={0.25}
+            particleSize={1}
+            particleSoftness={0}
+            count={5}
+            particleDensity={3}
+            speed={0.25}
+            angle={90}
+            twinkle={0.5}
+            speedVariance={0.3}
+            angleVariance={30}
+          />
+        </Shader>
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-white to-transparent" />
+      </div>
+
       {/* Hero section */}
-      <div className="bg-white min-h-[60vh] flex items-center justify-center pt-24 pb-6">
+      <div className="bg-transparent min-h-screen flex items-center justify-center pt-52 pb-20">
         <div className="w-full max-w-4xl px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-normal mb-12 text-black leading-tight">
             Building Super-Intelligence.
@@ -29,24 +65,26 @@ export default function Home() {
           />
 
           <div className="flex items-center justify-center gap-3 md:gap-4 flex-wrap">
-            <Link href="https://platform.tnsaai.com" className="px-6 py-2.5 text-sm text-black bg-white border border-gray-100 rounded-full hover:bg-gray-50 transition-all">
+            <Link href="https://platform.tnsaai.com" className="px-6 py-2.5 text-sm text-black bg-white/50 backdrop-blur-sm border border-gray-100 rounded-full hover:bg-gray-50 transition-all">
               API Platform
             </Link>
-            <Link href="https://chat.tnsaai.com" className="px-6 py-2.5 text-sm text-black bg-white border border-gray-100 rounded-full hover:bg-gray-50 transition-all">
+            <Link href="https://chat.tnsaai.com" className="px-6 py-2.5 text-sm text-black bg-white/50 backdrop-blur-sm border border-gray-100 rounded-full hover:bg-gray-50 transition-all">
               GensChat
             </Link>
-            <Link href="/models" className="px-6 py-2.5 text-sm text-black bg-white border border-gray-100 rounded-full hover:bg-gray-50 transition-all">
+            <Link href="/models" className="px-6 py-2.5 text-sm text-black bg-white/50 backdrop-blur-sm border border-gray-100 rounded-full hover:bg-gray-50 transition-all">
               Models
             </Link>
-            <Link href="/research" className="px-6 py-2.5 text-sm text-black bg-white border border-gray-100 rounded-full hover:bg-gray-50 transition-all">
+            <Link href="/research" className="px-6 py-2.5 text-sm text-black bg-white/50 backdrop-blur-sm border border-gray-100 rounded-full hover:bg-gray-50 transition-all">
               Research
             </Link>
           </div>
         </div>
       </div>
 
+      <div className="h-[150px] bg-gradient-to-b from-transparent to-white" />
+
       {/* Featured Banner Section */}
-      <div className="bg-white pb-12">
+      <div className="bg-white pb-32 pt-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Link href="/company/news/ngen-4-k2-1t-thinking-open-source" className="block relative w-full aspect-[21/9] md:aspect-[24/7] overflow-hidden rounded-[40px] group">
             <Image
@@ -65,7 +103,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-white py-16 border-t border-gray-100">
+      <div className="bg-white/10 backdrop-blur-md py-16 border-t border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
             {/* Row 1: NGen 4 Pro (Featured) + NGen 4 K2 1T */}
@@ -109,6 +147,7 @@ export default function Home() {
                 imageAlt="NGen 4 Mini"
                 href="/models/ngen4-mini"
                 layout="horizontal"
+                imageFit="contain"
                 className="h-full"
               />
             </div>
