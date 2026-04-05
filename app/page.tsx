@@ -106,7 +106,18 @@ export default function Home() {
       <div className="bg-white/10 backdrop-blur-md py-16 border-t border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-            {/* Row 1: NGen 4 Pro (Featured) + NGen 4 K2 1T */}
+            <div className="md:col-span-3">
+              <FlightCard
+                title="NGen-4"
+                subtitle="General frontier intelligence with balanced reasoning, coding, multilingual, and multimodal performance."
+                category="Frontier"
+                imageUrl="/ngen4.png"
+                imageAlt="NGen-4"
+                href="/models/ngen4"
+                layout="horizontal"
+              />
+            </div>
+            {/* Row 1: NGen 4 Pro (Featured) + NGen-4-OW-1T-Thinking */}
             <div className="md:col-span-2">
               <FlightCard
                 title="NGen 4 Pro"
@@ -120,13 +131,13 @@ export default function Home() {
               />
             </div>
             <FlightCard
-              title="NGen 4 K2 1T"
-              subtitle="The pinnacle of scale. 1 Trillion parameters of unparalleled generalized intelligence."
-              category="Pioneer"
+              title="NGen-4-OW-1T-Thinking"
+              subtitle="Flagship open-weight reasoning model at trillion-parameter scale."
+              category="Open Weights"
               date="Feb 23, 2026"
               imageUrl="/ngen4-k2-1t.png"
-              imageAlt="NGen 4 K2 1T"
-              href="/models/ngen4-k2-1t"
+              imageAlt="NGen-4-OW-1T-Thinking"
+              href="/models/ngen4-ow-1t-thinking"
             />
 
             {/* Row 2: NGen 4 Blaze + NGen 4 Mini */}

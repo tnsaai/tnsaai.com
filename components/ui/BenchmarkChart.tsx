@@ -98,13 +98,33 @@ export const benchmarkData = [
 ]
 
 export const chartConfig = {
+  ngen4: {
+    label: "NGen-4",
+    color: "#111827",
+  },
   ngen4pro: {
     label: "NGen 4 Pro",
     color: "#2563eb",
   },
+  gpt5: {
+    label: "GPT-5",
+    color: "#f59ca0",
+  },
+  sonnet45: {
+    label: "Sonnet 4.5",
+    color: "#ffd095",
+  },
+  gemini3_flash: {
+    label: "Gemini 3 Flash",
+    color: "#8ee9b5",
+  },
   ngen4mini: {
     label: "NGen 4 Mini",
     color: "#3b82f6",
+  },
+  ngen4lite: {
+    label: "NGen 4 Lite",
+    color: "#ef4444",
   },
   ngen39max: {
     label: "NGen 3.9 Max",
@@ -134,6 +154,30 @@ export const chartConfig = {
     label: "Qwen3 4B (2507)",
     color: "#c4b5fd",
   },
+  qwen3_next_80b_a3b_thinking: {
+    label: "Qwen3-Next-80B-A3B-Thinking",
+    color: "#cfc2bd",
+  },
+  qwen3_30b_a3b_thinking: {
+    label: "Qwen3-30B-A3B-Thinking",
+    color: "#9ec0df",
+  },
+  qwen3_vl_30b_a3b: {
+    label: "Qwen3-VL-30B-A3B",
+    color: "#ee9a9a",
+  },
+  qwen35_9b: {
+    label: "Qwen 3.5 9B",
+    color: "#84cc16",
+  },
+  qwen35_122b: {
+    label: "Qwen3.5-122B",
+    color: "#8b5cf6",
+  },
+  qwen35_35b: {
+    label: "Qwen3.5-35B",
+    color: "#b794f4",
+  },
   llama33_70b: {
     label: "Llama 3.3 70B",
     color: "#f59e0b",
@@ -150,9 +194,49 @@ export const chartConfig = {
     label: "Gemini 2.5 Flash-Lite",
     color: "#10b981",
   },
+  gemini31_pro: {
+    label: "Gemini 3.1 Pro",
+    color: "#14b8a6",
+  },
   gpt5_nano: {
-    label: "GPT-5 Nano High",
+    label: "GPT-5 Nano",
     color: "#34d399",
+  },
+  gpt54: {
+    label: "GPT-5.4",
+    color: "#059669",
+  },
+  gpt54_nano: {
+    label: "GPT-5.4 Nano",
+    color: "#71d86b",
+  },
+  gpt5mini: {
+    label: "GPT-5 Mini",
+    color: "#aec6d4",
+  },
+  gpt5_nano_2025_08_07: {
+    label: "GPT-5-Nano-2025-08-07",
+    color: "#a9d69c",
+  },
+  gemini25_flash_lite: {
+    label: "Gemini-2.5-Flash-Lite",
+    color: "#c7c7c7",
+  },
+  gemini3_flash_lite: {
+    label: "Gemini 3 Flash Lite",
+    color: "#7ec8e3",
+  },
+  claude45haiku: {
+    label: "Claude Haiku",
+    color: "#ffb347",
+  },
+  claude_opus_46: {
+    label: "Claude Opus 4.6",
+    color: "#f97316",
+  },
+  claude_sonnet_45: {
+    label: "Claude Sonnet 4.5",
+    color: "#fb923c",
   },
   o3: {
     label: "OpenAI o3",
@@ -174,9 +258,33 @@ export const chartConfig = {
     label: "gpt-oss-20b",
     color: "#a5b4fc",
   },
+  glm5: {
+    label: "GLM-5",
+    color: "#0ea5e9",
+  },
+  deepseek_v32: {
+    label: "DeepSeek-V3.2",
+    color: "#06b6d4",
+  },
   deepseekr1: {
     label: "DeepSeek R1 0528",
     color: "#06b6d4",
+  },
+  kimi_k25: {
+    label: "Kimi K2.5",
+    color: "#22c55e",
+  },
+  qwen3_vl_235b: {
+    label: "Qwen 3 VL 235B",
+    color: "#a8a0eb",
+  },
+  sarvam_105b: {
+    label: "Sarvam 105B",
+    color: "#84cc16",
+  },
+  minimax_m27: {
+    label: "MiniMax M2.7",
+    color: "#64748b",
   },
 } satisfies ChartConfig
 
@@ -196,6 +304,17 @@ export function BenchmarkBase({
   children: React.ReactNode
 }) {
   const chartId = `benchmark-chart-${title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`
+  const seriesOrder = React.Children.toArray(children).flatMap((child) => {
+    if (!React.isValidElement(child)) return []
+    const dataKey = child.props?.dataKey
+    return typeof dataKey === 'string' ? [dataKey] : []
+  })
+  const seriesCount = Math.max(
+    1,
+    seriesOrder.length || (data.length > 0 ? Object.keys(data[0]).filter((key) => key !== 'name').length : 0)
+  )
+  const perCategoryWidth = Math.max(150, seriesCount * 28)
+  const chartWidth = Math.max(980, data.length * perCategoryWidth)
 
   const downloadChart = () => {
     const container = document.getElementById(chartId)
@@ -241,8 +360,13 @@ export function BenchmarkBase({
     }))
 
     // Only show legend items that have data in this chart
-    const dataKeys = data.length > 0 ? Object.keys(data[0]).filter(k => k !== 'name') : []
+    const dataKeys = seriesOrder.length > 0
+      ? seriesOrder
+      : data.length > 0
+        ? Object.keys(data[0]).filter(k => k !== 'name')
+        : []
     const relevantLegend = legendItems.filter(item => dataKeys.includes(item.key))
+    relevantLegend.sort((a, b) => dataKeys.indexOf(a.key) - dataKeys.indexOf(b.key))
 
     // Create a new SVG with extra space for legend
     const legendHeight = Math.ceil(relevantLegend.length / 4) * 24 + 40
@@ -331,31 +455,35 @@ export function BenchmarkBase({
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="px-0 relative">
-        <div id={chartId}>
-          <ChartContainer id="benchmark-performance-chart-container" config={chartConfig} className="min-h-[400px] w-full">
-            <BarChart accessibilityLayer data={data}>
-              <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis
-                dataKey="name"
-                tickLine={false}
-                tickMargin={10}
-                axisLine={false}
-                tick={{ fill: '#666', fontSize: 12 }}
-              />
-              <YAxis
-                label={{ value: yAxisLabel, angle: -90, position: 'insideLeft', offset: 10, fill: '#666', fontSize: 12 }}
-                tickLine={false}
-                axisLine={false}
-                tick={{ fill: '#666', fontSize: 12 }}
-                domain={isElo ? [0, 3000] : [0, 100]}
-              />
-              <ChartTooltip
-                cursor={false}
-                content={<ChartTooltipContent />}
-              />
-              {children}
-            </BarChart>
-          </ChartContainer>
+        <div className="overflow-x-auto pb-2">
+          <div className="flex min-w-full justify-center">
+            <div id={chartId} style={{ width: `${chartWidth}px` }}>
+              <ChartContainer id="benchmark-performance-chart-container" config={chartConfig} className="h-[340px] w-full aspect-auto">
+                <BarChart accessibilityLayer data={data} barCategoryGap="8%" barGap={3} maxBarSize={34}>
+                  <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#f0f0f0" />
+                  <XAxis
+                    dataKey="name"
+                    tickLine={false}
+                    tickMargin={10}
+                    axisLine={false}
+                    tick={{ fill: '#666', fontSize: 12 }}
+                  />
+                  <YAxis
+                    label={{ value: yAxisLabel, angle: -90, position: 'insideLeft', offset: 10, fill: '#666', fontSize: 12 }}
+                    tickLine={false}
+                    axisLine={false}
+                    tick={{ fill: '#666', fontSize: 12 }}
+                    domain={isElo ? [0, 3000] : [0, 100]}
+                  />
+                  <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent />}
+                  />
+                  {children}
+                </BarChart>
+              </ChartContainer>
+            </div>
+          </div>
         </div>
 
         <div className="absolute top-0 right-0 w-12 h-12 flex items-center justify-center">

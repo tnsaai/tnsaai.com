@@ -1,0 +1,26 @@
+- dataset:
+    id: Idavidrein/gpqa
+    task_id: diamond
+  value: 90.1
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4-pro
+    name: TNSA NGen-4 Pro Evaluations
+
+- dataset:
+    id: openai/gsm8k
+    task_id: gsm8k
+  value: 99.2
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4-pro
+    name: TNSA NGen-4 Pro Evaluations
+
+- dataset:
+    id: SWE-bench/SWE-bench_Verified
+    task_id: swe_bench_%_resolved
+  value: 72.1
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4-pro
+    name: TNSA NGen-4 Pro Evaluations

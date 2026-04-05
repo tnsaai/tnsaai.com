@@ -1,70 +1,53 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
-import { NGen4SystemCard } from '@/components/ui/NGen4SystemCard'
+import Link from 'next/link'
+import { ModelMetaBadge } from '@/components/ui/ModelMetaBadge'
+import { NGen4ModelEvaluations } from '@/components/ui/NGen4ModelEvaluations'
+import { NGen4TeamSection } from '@/components/ui/NGen4TeamSection'
 
 export default function NGen4ProPage() {
     return (
-        <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
+        <div className="min-h-screen bg-white" style={{ paddingTop: '186px' }}>
             <div className="mx-auto max-w-4xl px-6">
-                {/* Date, Title & Authors */}
                 <div className="text-center">
-                    <p className="text-sm text-gray-500 uppercase tracking-widest mb-4">Model • 26 February, 2026</p>
-                    <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>NGen 4 Pro</h1>
-
-                    <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-gray-600 mb-8 font-medium">
-                        <span>Thishyaketh¹</span>
-                        <span>Rishi¹</span>
-                        <span>Aryavardhan²</span>
-                        <span>Devansh²</span>
-                        <span>Amala³</span>
-                        <span>Neelansh³</span>
-                        <span>Kritarth⁴</span>
-                    </div>
-
-                    <div className="text-sm text-gray-500 mb-8">
-                        <span><sup>1</sup> AI Research</span>
-                        <span className="mx-4">|</span>
-                        <span><sup>2</sup> Safety & Alignment</span>
-                        <span className="mx-4">|</span>
-                        <span><sup>3</sup> Indian Applied Intelligence</span>
-                        <span className="mx-4">|</span>
-                        <span><sup>4</sup> Interpretability</span>
-                    </div>
+                    <ModelMetaBadge label={'Model \u2022 26 February, 2026'} />
+                    <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>
+                        NGen 4 Pro
+                    </h1>
                 </div>
 
-                {/* Hero Banner */}
-                <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/500]">
+                <div className="relative mx-auto mb-16 aspect-[1028/500] w-full max-w-[1028px]">
                     <Image
                         src="/ngen4-pro.png"
                         alt="NGen 4 Pro Banner"
                         fill
                         priority
-                        className="object-cover rounded-[40px]"
+                        className="rounded-[40px] object-cover"
                     />
                 </div>
+
             </div>
 
-            {/* Content Section */}
             <div className="bg-white pb-32">
-                <div className="mx-auto max-w-4xl px-6">
-                    <div className="mb-24">
-                        <p className="text-lg text-gray-700 leading-relaxed font-light">
+                <div className="mx-auto max-w-[1380px] px-6">
+                    <div className="mx-auto mb-24 max-w-4xl">
+                        <p className="text-lg font-light leading-relaxed text-gray-700">
                             NGen 4 Pro is our flagship frontier model, representing a significant leap forward in super-intelligence. By integrating breakthroughs in early-fusion multimodal learning, Mixture-of-Experts (MoE) efficiency, and massive-scale reinforcement learning, NGen 4 Pro empowers developers and enterprises with unprecedented reasoning, coding, and creative capabilities.
                         </p>
                     </div>
 
-
-
-                    <NGen4SystemCard />
+                    <NGen4ModelEvaluations model="pro" />
 
                     <div className="flex justify-center" style={{ marginBottom: '77px' }}>
-                        <Link href="https://platform.tnsaai.com" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-                            Try on API Platform →
+                        <Link href="https://platform.tnsaai.com" className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-gray-100">
+                            {'Try on API Platform \u2192'}
                         </Link>
                     </div>
 
+                    <div className="mx-auto max-w-5xl">
+                        <NGen4TeamSection />
+                    </div>
                 </div>
             </div>
         </div>

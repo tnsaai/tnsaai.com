@@ -1,0 +1,8 @@
+- dataset:
+    id: Idavidrein/gpqa
+    task_id: diamond
+  value: 85.0
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4-mini
+    name: TNSA NGen-4 Mini Evaluations

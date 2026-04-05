@@ -25,6 +25,16 @@ export default function ModelsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
             <FlightCard
+              title="NGen-4"
+              subtitle="General frontier model with strong reasoning, coding, multilingual, and multimodal performance."
+              category="Frontier"
+              imageUrl="/ngen4.png"
+              imageAlt="NGen-4 Model"
+              href="/models/ngen4"
+              showTitle={false}
+              imageFit="cover"
+            />
+            <FlightCard
               title="NGen 4 Mini"
               subtitle="Conversational AI. 100B+ params. High performance, low latency."
               category="Pioneer"
@@ -74,13 +84,66 @@ export default function ModelsPage() {
               showTitle={false}
               imageFit="cover"
             />
+          </div>
+        </div>
+      </div>
+
+      {/* NGen 4 OW Series Section */}
+      <div className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-16">
+            <h2 className="text-3xl tracking-tight text-gray-900 mb-4 sm:text-4xl">NGen-4-OW Series.</h2>
+            <p className="text-lg text-gray-900 sm:text-xl">Open-weight thinking models distilled from NGen-4 Pro on the NGen-4-OW architecture</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
             <FlightCard
-              title="NGen 4 K2 1T"
-              subtitle="The pinnacle of scale. 1 Trillion parameters."
-              category="Pioneer"
-              imageUrl="/ngen4-k2-1t.png"
-              imageAlt="NGen 4 K2 1T Model"
-              href="/models/ngen4-k2-1t"
+              title="NGen-4-OW-1T-Thinking"
+              subtitle="Flagship open-weight reasoning model at trillion-parameter scale."
+              category="Open Weights"
+              imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/ngen4ow1t.png"
+              imageAlt="NGen-4-OW-1T-Thinking"
+              href="/models/ngen4-ow-1t-thinking"
+              showTitle={false}
+              imageFit="cover"
+            />
+            <FlightCard
+              title="NGen-4-OW-400B-Thinking"
+              subtitle="High-capacity open-weight model for deep reasoning and structured thinking."
+              category="Open Weights"
+              imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/ngen4ow400b.png"
+              imageAlt="NGen-4-OW-400B-Thinking"
+              href="/models/ngen4-ow-400b-thinking"
+              showTitle={false}
+              imageFit="cover"
+            />
+            <FlightCard
+              title="NGen-4-OW-120B-Thinking"
+              subtitle="Efficient open-weight reasoning tier with strong frontier-style thinking."
+              category="Open Weights"
+              imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/ngen4ow120b.png"
+              imageAlt="NGen-4-OW-120B-Thinking"
+              href="/models/ngen4-ow-120b-thinking"
+              showTitle={false}
+              imageFit="cover"
+            />
+            <FlightCard
+              title="NGen-4-OW-30B-Thinking"
+              subtitle="Mid-scale open-weight thinking model for accessible experimentation."
+              category="Open Weights"
+              imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/ngen4ow30b.png"
+              imageAlt="NGen-4-OW-30B-Thinking"
+              href="/models/ngen4-ow-30b-thinking"
+              showTitle={false}
+              imageFit="cover"
+            />
+            <FlightCard
+              title="NGen-4-OW-4B-Thinking"
+              subtitle="Compact open-weight reasoning model for lightweight deployments."
+              category="Open Weights"
+              imageUrl="https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/ngen4ow4b.png"
+              imageAlt="NGen-4-OW-4B-Thinking"
+              href="/models/ngen4-ow-4b-thinking"
               showTitle={false}
               imageFit="cover"
             />

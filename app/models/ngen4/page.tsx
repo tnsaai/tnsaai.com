@@ -3,52 +3,58 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ModelMetaBadge } from '@/components/ui/ModelMetaBadge'
-import { NGen4SystemCard } from '@/components/ui/NGen4SystemCard'
+import { NGen4IntelligencePriceChart } from '@/components/ui/NGen4IntelligencePriceChart'
+import { NGen4ModelEvaluations } from '@/components/ui/NGen4ModelEvaluations'
 import { NGen4TeamSection } from '@/components/ui/NGen4TeamSection'
 
-export default function NGen4BlazePage() {
+export default function NGen4Page() {
     return (
         <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
             <div className="mx-auto max-w-4xl px-6">
                 <div className="text-center">
                     <ModelMetaBadge label="Model" />
-                    <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>
-                        NGen 4 Blaze
-                    </h1>
+                    <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>NGen-4</h1>
                 </div>
 
-                <div className="relative mx-auto mb-16 aspect-[1028/560] w-full max-w-[1028px]">
+                <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
                     <Image
-                        src="/ngen4-blaze.png"
-                        alt="NGen 4 Blaze"
+                        src="/ngen4.png"
+                        alt="NGen-4"
                         fill
                         priority
                         unoptimized={true}
-                        className="rounded-[40px] object-cover"
+                        className="object-cover rounded-[40px]"
                     />
                 </div>
+
             </div>
 
             <div className="bg-white">
-                <div className="mx-auto max-w-4xl px-6">
-                    <div className="mb-16">
+                <div className="mx-auto max-w-[1380px] px-6">
+                    <div className="mx-auto mb-16 max-w-4xl">
                         <p className="text-base text-gray-700 leading-relaxed text-center">
-                            NGen 4 Blaze introduces advanced intelligence mapped for extreme speed and reasoning. Seamlessly pairing analytical depth with instantaneous generation, it paves the way for a revolutionary reasoning workflow.
+                            NGen-4 is the general frontier model tier for broad intelligence workloads, bringing together strong reasoning, coding, agentic execution, multilingual understanding, and multimodal performance in a single benchmark profile.
                         </p>
                     </div>
 
-                    <NGen4SystemCard />
+                    <div className="mb-20">
+                        <NGen4IntelligencePriceChart />
+                    </div>
+
+                    <NGen4ModelEvaluations model="ngen4" />
 
                     <div className="flex flex-wrap justify-center gap-4" style={{ marginBottom: '77px' }}>
                         <Link href="https://platform.tnsaai.com" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-                            {'Try on API Platform ->'}
+                            {'Try on API Platform \u2192'}
                         </Link>
                         <Link href="/NGen-4-System-Card.pdf" target="_blank" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
                             Read Model Card
                         </Link>
                     </div>
 
-                    <NGen4TeamSection />
+                    <div className="mx-auto max-w-5xl">
+                        <NGen4TeamSection />
+                    </div>
                 </div>
             </div>
         </div>
