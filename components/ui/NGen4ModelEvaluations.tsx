@@ -26,12 +26,12 @@ type ModelSpec = {
 
 const proGeneralBenchmarksData: BenchmarkPoint[] = [
     { name: 'IFBench / IFEval', ngen4pro: 95.3, gpt5: 94.1, sonnet45: 96.0, gemini3_flash: 94.5, kimi_k25: 79.2, qwen3_vl_235b: 81.6 },
-    { name: 'GPQA Diamond', ngen4pro: 90.1, gpt5: 87.2, sonnet45: 92.5, gemini3_flash: 91.0, kimi_k25: 87.6, qwen3_vl_235b: 83.2 },
+    { name: 'GPQA Diamond', ngen4pro: 91.1, gpt5: 87.2, sonnet45: 92.5, gemini3_flash: 91.0, kimi_k25: 87.6, qwen3_vl_235b: 83.2 },
     { name: 'HMMT Feb 2025', ngen4pro: 92.5, gpt5: 95.0, sonnet45: 94.8, gemini3_flash: 94.0, kimi_k25: 92.8, qwen3_vl_235b: 81.5 },
     { name: 'MMMLU', ngen4pro: 93.2, gpt5: 91.3, sonnet45: 94.5, gemini3_flash: 95.2, kimi_k25: 87.1, qwen3_vl_235b: 89.7 },
     { name: 'BFCL V4', ngen4pro: 69.9, gpt5: 80.8, sonnet45: 75.0, gemini3_flash: 74.8, kimi_k25: 78.0, qwen3_vl_235b: 28.8 },
     { name: 'BrowseComp', ngen4pro: 64.8, gpt5: 72.0, sonnet45: 68.6, gemini3_flash: 66.0, kimi_k25: 72.8, qwen3_vl_235b: 62.0 },
-    { name: 'SWE-bench Verified', ngen4pro: 72.1, gpt5: 74.0, sonnet45: 78.5, gemini3_flash: 74.0, kimi_k25: 76.6, qwen3_vl_235b: 36.1 },
+    { name: 'SWE-bench Verified', ngen4pro: 77.3, gpt5: 74.0, sonnet45: 78.5, gemini3_flash: 74.0, kimi_k25: 76.6, qwen3_vl_235b: 36.1 },
     { name: 'Terminal-Bench 2', ngen4pro: 42.3, gpt5: 60.0, sonnet45: 53.0, gemini3_flash: 46.0, kimi_k25: 55.8, qwen3_vl_235b: 18.7 },
     { name: 'MMMU-Pro', ngen4pro: 79.3, gpt5: 84.0, sonnet45: 68.4, gemini3_flash: 82.3, kimi_k25: 74.0, qwen3_vl_235b: 69.3 },
     { name: 'ERQA', ngen4pro: 68.5, gpt5: 74.0, sonnet45: 45.0, gemini3_flash: 52.0, kimi_k25: 58.0, qwen3_vl_235b: 52.5 },
@@ -551,7 +551,7 @@ const ngen4KnowledgeData: BenchmarkPoint[] = [
     },
     {
         name: 'GPQA Diamond',
-        ngen4: 80.5,
+        ngen4: 90.1,
         gemini31_pro: 80.1,
         gpt54: 80.1,
         claude_opus_46: 80.1,

@@ -1,7 +1,63 @@
 - dataset:
+    id: allenai/IFBench
+    task_id: ifbench
+  value: 67.5
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4-mini
+    name: TNSA NGen-4 Mini Evaluations
+- dataset:
     id: Idavidrein/gpqa
     task_id: diamond
   value: 85.0
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4-mini
+    name: TNSA NGen-4 Mini Evaluations
+- dataset:
+    id: MathArena/hmmt_feb_2025
+    task_id: hmmt_feb_25
+  value: 87.0
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4-mini
+    name: TNSA NGen-4 Mini Evaluations
+- dataset:
+    id: opencompass/MMMLU
+    task_id: mmmlu
+  value: 84.0
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4-mini
+    name: TNSA NGen-4 Mini Evaluations
+- dataset:
+    id: MMMU/MMMU-Pro
+    task_id: mmmu_pro
+  value: 72.5
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4-mini
+    name: TNSA NGen-4 Mini Evaluations
+- dataset:
+    id: erqa/erqa
+    task_id: erqa
+  value: 58.5
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4-mini
+    name: TNSA NGen-4 Mini Evaluations
+- dataset:
+    id: OpenBMB/OmniDocBench
+    task_id: omnidocbench_v15
+  value: 90.5
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4-mini
+    name: TNSA NGen-4 Mini Evaluations
+- dataset:
+    id: Video-MME/Video-MME
+    task_id: video_mme_w_sub
+  value: 87.5
   date: '2026-04-05'
   source:
     url: https://tnsaai.com/models/ngen4-mini

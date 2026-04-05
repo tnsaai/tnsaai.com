@@ -6,7 +6,30 @@
   source:
     url: https://tnsaai.com/models/ngen4
     name: TNSA NGen-4 Evaluations
-
+- dataset:
+    id: HuggingFaceFW/MMLU-Redux-2.0-Generative
+    task_id: mmlu_redux
+  value: 98.0
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: ceval/ceval-exam
+    task_id: ceval
+  value: 94.7
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: m-a-p/SuperGPQA
+    task_id: supergpqa
+  value: 66.6
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
 - dataset:
     id: Idavidrein/gpqa
     task_id: diamond
@@ -15,11 +38,242 @@
   source:
     url: https://tnsaai.com/models/ngen4
     name: TNSA NGen-4 Evaluations
-
 - dataset:
-    id: openai/gsm8k
-    task_id: gsm8k
-  value: 99.2
+    id: wis-intel/ifeval
+    task_id: ifeval
+  value: 96.5
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: allenai/IFBench
+    task_id: ifbench
+  value: 73.7
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: ScaleAI/MultiChallenge
+    task_id: multichallenge
+  value: 63.0
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: ArtificialAnalysis/AA-LCR
+    task_id: aa_lcr
+  value: 61.4
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: THUDM/LongBench-v2
+    task_id: longbench_v2
+  value: 62.0
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: SWE-bench/SWE-bench_Verified
+    task_id: swe_bench_%_resolved
+  value: 72.7
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: yoonholee/terminalbench-trajectories
+    task_id: terminalbench
+  value: 42.5
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: livecodebench/code_generation_lite
+    task_id: livecodebench
+  value: 78.3
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: opencompass/OJBench
+    task_id: ojbench
+  value: 37.8
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: ByteDance/FullStackBench
+    task_id: fullstack_en
+  value: 61.0
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: ByteDance/FullStackBench
+    task_id: fullstack_zh
+  value: 57.8
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: gorilla-llm/Berkeley-Function-Calling-Leaderboard
+    task_id: bfcl_v4
+  value: 70.7
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: evalscope/tau2-bench-data
+    task_id: tau2
+  value: 85.3
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: VITA-MLLM/VITA-Bench
+    task_id: vita
+  value: 33.5
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: DeepPlanning/DeepPlanning
+    task_id: deepplanning
+  value: 24.0
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: smolagents/browse_comp
+    task_id: browsecomp
+  value: 64.1
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: ByteDance-Seed/WideSearch
+    task_id: widesearch
+  value: 60.0
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: opencompass/MMMLU
+    task_id: mmmlu
+  value: 89.5
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: TIGER-Lab/MMLU-ProX
+    task_id: mmlu_prox
+  value: 85.1
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: CohereForAI/Global-PIQA
+    task_id: global_piqa
+  value: 90.9
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: AI2/PolyMATH
+    task_id: polymath
+  value: 67.6
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: wmt24/wmt24
+    task_id: wmt24pp
+  value: 80.1
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: MMMU/MMMU
+    task_id: mmmu
+  value: 85.5
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: MMMU/MMMU-Pro
+    task_id: mmmu_pro
+  value: 78.9
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: MathVision/MathVision
+    task_id: mathvision
+  value: 88.1
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: AI4Math/MathVista
+    task_id: mathvista
+  value: 90.5
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: xai-org/RealWorldQA
+    task_id: realworldqa
+  value: 88.3
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: echo840/OCRBench
+    task_id: ocrbench
+  value: 95.5
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: erqa/erqa
+    task_id: erqa
+  value: 68.0
+  date: '2026-04-05'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: Video-MME/Video-MME
+    task_id: video_mme
+  value: 90.9
   date: '2026-04-05'
   source:
     url: https://tnsaai.com/models/ngen4
