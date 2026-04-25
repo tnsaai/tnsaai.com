@@ -270,7 +270,7 @@ export default function Header() {
               ))}
               {searchResults.length === 0 && (
                 <div className="py-12 border-t border-gray-100">
-                  <p className="text-[24px] text-gray-400 font-light">No results found for "{searchQuery}"</p>
+                  <p className="text-[24px] text-gray-400 font-light">No results found for &quot;{searchQuery}&quot;</p>
                 </div>
               )}
             </div>

@@ -208,7 +208,7 @@ export default function SafetyPage() {
           <div className="text-center mb-12">
             <h2 className="text-[36px] font-medium tracking-tight">An engineering loop</h2>
             <p className="mx-auto mt-4 max-w-[600px] text-gray-600 leading-7">
-              Safety isn't a final step. It's a continuous engineering cycle of training, testing, and alignment that powers every release of NGen 4.
+              Safety isn&apos;t a final step. It&apos;s a continuous engineering cycle of training, testing, and alignment that powers every release of NGen 4.
             </p>
           </div>
           <PipelineDiagram />
