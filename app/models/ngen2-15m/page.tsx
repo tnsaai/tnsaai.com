@@ -5,36 +5,36 @@ import Image from 'next/image'
 
 export default function NGen215MPage() {
   return (
-    <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-      <div className="mx-auto max-w-4xl px-6">
+    <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
+      <div className="mx-auto max-w-3xl px-6">
         <div className="text-center">
           <p className="text-sm text-gray-500">January 2025</p>
-          <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>NGen 2 15M</h1>
+          <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '48px' }}>NGen 2 15M</h1>
         </div>
 
-        <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
+        <div className="relative w-full max-w-[860px] mx-auto mb-12 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/sean-fahrenbruch-g95tsUeCohM-unsplash.jpg"
+            src="/model-images/ngen2-15m.png"
             alt="NGen 2 15M"
             fill
             priority
-            className="object-cover rounded-[40px]"
+            className="object-cover rounded-[10px]"
           />
         </div>
       </div>
 
       <div className="bg-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Overview.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Overview.</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">
               NGen 2 15M is a Micro-Scale research model with 15 million parameters, developed for exploring ultra-efficient AI architectures and minimal resource deployment.
             </p>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Key Capabilities.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Key Capabilities.</h2>
+            <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2">
               <li>15 million parameter research model</li>
               <li>Micro-Scale architecture</li>
               <li>Open research model</li>
@@ -42,9 +42,9 @@ export default function NGen215MPage() {
             </ul>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Availability.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Availability.</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">
               Research model - Not available for API use
             </p>
           </div>

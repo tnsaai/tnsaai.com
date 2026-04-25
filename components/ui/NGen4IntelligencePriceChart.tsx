@@ -159,7 +159,7 @@ function ScatterPointLabel(props: {
                 x={labelX}
                 y={labelY}
                 textAnchor={textAnchor}
-                className="fill-zinc-700 text-[13px] font-medium"
+                className="fill-zinc-700 text-[12px] font-medium"
             >
                 {payload.name}
             </text>
@@ -167,7 +167,7 @@ function ScatterPointLabel(props: {
                 x={labelX}
                 y={labelY + 19}
                 textAnchor={textAnchor}
-                className="fill-zinc-500 text-[12px]"
+                className="fill-zinc-500 text-[11px]"
             >
                 {payload.intelligence.toFixed(1)}
             </text>
@@ -176,27 +176,29 @@ function ScatterPointLabel(props: {
 }
 
 export function NGen4IntelligencePriceChart() {
-    const chartWidth = 1280
+    const chartWidth = 1100
 
     return (
         <Card className="w-full border-none bg-white shadow-none">
             <CardHeader className="px-0 text-center">
-                <CardTitle className="text-4xl font-semibold text-zinc-800">Intelligence vs Price Analysis</CardTitle>
-                <CardDescription className="text-lg text-zinc-500">
+                <CardTitle className="text-xl font-semibold text-zinc-800">Intelligence vs Price Analysis</CardTitle>
+                <CardDescription className="text-sm text-zinc-500">
                     Top-tier models breaking into the Frontier Zone.
                 </CardDescription>
             </CardHeader>
             <CardContent className="px-0">
                 <div className="overflow-x-auto pb-2">
-                    <div style={{ width: `${chartWidth}px` }}>
+                    <div style={{ width: `${chartWidth}px`, minWidth: `${chartWidth}px` }}>
                         <ChartContainer
                             id="ngen4-intelligence-price-analysis"
                             config={scatterChartConfig}
-                            className="h-[620px] w-full aspect-auto"
+                            className="h-[460px] w-full"
                         >
                             <ScatterChart
                                 accessibilityLayer
-                                margin={{ top: 24, right: 120, bottom: 42, left: 24 }}
+                                width={chartWidth}
+                                height={460}
+                                margin={{ top: 20, right: 104, bottom: 38, left: 24 }}
                             >
                                 <CartesianGrid vertical={false} stroke="#eef2f7" />
                                 <ReferenceArea
@@ -211,7 +213,7 @@ export function NGen4IntelligencePriceChart() {
                                         value: 'Frontier Zone',
                                         position: 'insideTopLeft',
                                         fill: '#cfd6df',
-                                        fontSize: 18,
+                                        fontSize: 14,
                                         fontWeight: 600,
                                     }}
                                 />
@@ -229,13 +231,13 @@ export function NGen4IntelligencePriceChart() {
                                     }}
                                     tickLine={false}
                                     axisLine={false}
-                                    tick={{ fill: '#9ca3af', fontSize: 13 }}
+                                    tick={{ fill: '#9ca3af', fontSize: 12 }}
                                     label={{
                                         value: 'Average Cost per 1M Tokens (INR, Log Scale)',
                                         position: 'insideBottom',
                                         offset: -10,
                                         fill: '#8b8f97',
-                                        fontSize: 13,
+                                        fontSize: 12,
                                     }}
                                 />
                                 <YAxis
@@ -245,14 +247,14 @@ export function NGen4IntelligencePriceChart() {
                                     ticks={[75, 77.5, 80, 82.5, 85, 87.5, 90, 92.5]}
                                     tickLine={false}
                                     axisLine={false}
-                                    tick={{ fill: '#9ca3af', fontSize: 13 }}
+                                    tick={{ fill: '#9ca3af', fontSize: 12 }}
                                     label={{
                                         value: 'MMLU-Pro Intelligence',
                                         angle: -90,
                                         position: 'insideLeft',
                                         offset: -6,
                                         fill: '#8b8f97',
-                                        fontSize: 13,
+                                        fontSize: 12,
                                     }}
                                 />
                                 <ChartTooltip cursor={false} content={<ScatterTooltip />} />

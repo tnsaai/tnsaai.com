@@ -8,31 +8,31 @@ import { NGen4TeamSection } from '@/components/ui/NGen4TeamSection'
 
 export default function NGen4LitePage() {
     return (
-        <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-            <div className="mx-auto max-w-4xl px-6">
+        <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
+            <div className="mx-auto max-w-3xl px-6">
                 <div className="text-center">
                     <ModelMetaBadge label="Model" />
-                    <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>
+                    <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>
                         NGen 4 Lite
                     </h1>
                 </div>
 
-                <div className="relative mx-auto mb-16 aspect-[1028/560] w-full max-w-[1028px]">
+                <div className="relative mx-auto mb-12 aspect-[1028/560] w-full max-w-[860px]">
                     <Image
-                        src="/ngen4-lite.png"
+                        src="/model-images/ngen4-lite.png"
                         alt="NGen 4 Lite"
                         fill
                         priority
                         unoptimized={true}
-                        className="rounded-[40px] object-cover"
+                        className="rounded-[10px] object-cover"
                     />
                 </div>
             </div>
 
             <div className="bg-white">
-                <div className="mx-auto max-w-4xl px-6">
-                    <div className="mb-16">
-                        <p className="text-base text-gray-700 leading-relaxed text-center">
+                <div className="mx-auto max-w-3xl px-6">
+                    <div className="mb-12">
+                        <p className="text-sm text-gray-700 leading-relaxed text-center">
                             NGen 4 Lite is a fast and efficient reasoning model optimized for real-world interactions. With rapid response times and consistent reliability, it acts as a lightweight cornerstone for modern AI applications.
                         </p>
                     </div>

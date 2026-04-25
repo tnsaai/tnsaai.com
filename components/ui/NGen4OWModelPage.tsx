@@ -202,11 +202,11 @@ const conclusionParagraphs = [
 ]
 
 function SectionTitle({ children }: { children: ReactNode }) {
-    return <h2 className="mb-5 text-3xl font-medium text-black">{children}</h2>
+    return <h2 className="mb-5 text-xl font-medium text-black">{children}</h2>
 }
 
 function SubsectionTitle({ children }: { children: ReactNode }) {
-    return <h3 className="mb-3 text-xl font-medium text-black">{children}</h3>
+    return <h3 className="mb-3 text-base font-medium text-black">{children}</h3>
 }
 
 export function NGen4OWModelPage({
@@ -218,42 +218,30 @@ export function NGen4OWModelPage({
     finalDisclaimer,
 }: NGen4OWModelPageProps) {
     return (
-        <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-            <div className="mx-auto max-w-4xl px-6">
+        <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
+            <div className="mx-auto max-w-3xl px-6">
                 <div className="text-center">
                     <ModelMetaBadge label="Model / Open Weights" />
-                    <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>
+                    <h1 className="text-2xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>
                         {title}
                     </h1>
                 </div>
 
-                <div className="relative mx-auto mb-10 aspect-[1028/560] w-full max-w-[1028px]">
+                <div className="relative mx-auto mb-10 aspect-[1028/560] w-full max-w-[860px]">
                     <Image
                         src={imageSrc}
                         alt={imageAlt}
                         fill
                         priority
                         unoptimized={true}
-                        className="rounded-[40px] object-cover"
+                        className="rounded-[10px] object-cover"
                     />
                 </div>
             </div>
 
             <div className="bg-white">
-                <div className="mx-auto max-w-4xl px-6">
-                    <div className="mb-10 flex flex-wrap justify-center gap-3">
-                        <span className="rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-gray-600">
-                            MIT
-                        </span>
-                        <span className="rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-gray-600">
-                            transformers
-                        </span>
-                        <span className="rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-gray-600">
-                            gated access
-                        </span>
-                    </div>
-
-                    <div className="mb-16 rounded-[32px] border border-gray-200 bg-white p-7">
+                <div className="mx-auto max-w-3xl px-6">
+                    <div className="mb-12 rounded-[32px] border border-gray-200 bg-white p-7">
                         <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-gray-500">
                             Important Architectural & Release Note
                         </p>
@@ -264,9 +252,9 @@ export function NGen4OWModelPage({
                         </div>
                     </div>
 
-                    <div className="mb-20 flex flex-wrap justify-center gap-4">
+                    <div className="mb-12 flex flex-wrap justify-center gap-4">
                         <Link href={huggingFaceUrl} target="_blank" rel="noreferrer" className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-gray-100">
-                            Hugging Face Repo
+                            Download from Hugging Face
                         </Link>
                         <Link href="https://tnsaai.com/NGen-4-System-Card.pdf" target="_blank" rel="noreferrer" className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-gray-100">
                             NGen-4 System Card
@@ -276,7 +264,7 @@ export function NGen4OWModelPage({
                     <div className="space-y-16">
                         <section>
                             <SectionTitle>1 Introduction</SectionTitle>
-                            <div className="space-y-5 text-base leading-8 text-gray-700">
+                            <div className="space-y-5 text-sm leading-8 text-gray-700">
                                 {sharedIntroParagraphs.map((paragraph) => (
                                     <p key={paragraph}>{paragraph}</p>
                                 ))}
@@ -307,7 +295,7 @@ export function NGen4OWModelPage({
                             <div className="mt-10 space-y-8">
                                 <div>
                                     <SubsectionTitle>1.1 Model Data</SubsectionTitle>
-                                    <div className="space-y-3 text-base leading-8 text-gray-700">
+                                    <div className="space-y-3 text-sm leading-8 text-gray-700">
                                         <p><strong>Inputs:</strong> NGen 4 allows input of Text, Images, and Videos (Audio only with GensChat) under a massive Context window of 256K Tokens (i.e., 262,144 Tokens).</p>
                                         <p><strong>Output:</strong> Currently Text-only, but we are actively working on adding more output modalities. It can output up to 32K Tokens (including its chain-of-thought reasoning).</p>
                                     </div>
@@ -315,7 +303,7 @@ export function NGen4OWModelPage({
 
                                 <div>
                                     <SubsectionTitle>1.2 Instruct Mode</SubsectionTitle>
-                                    <div className="space-y-5 text-base leading-8 text-gray-700">
+                                    <div className="space-y-5 text-sm leading-8 text-gray-700">
                                         <p>In early variants of the NGen 3 Models (90M and 140M), we included a special Instruct mode which allowed the model to process instruction-following and conversational tasks more effectively. Architecturally, under the NGen3ForCausalLMv1 framework, this was achieved by routing activations through an extra dense projection layer just before the final language modeling head. While this feature showed great promise in separating foundational knowledge from user alignment, it remained experimental and did not make it into the final NGen 3 production releases. However, the insights gained from these early checkpoints laid the essential groundwork for the NGen 4 series.</p>
                                         <p>It is important to note that while NGen 3 utilized this simple dense layer approach, the NGen 4 series completely departs from the v1 implementation, employing a newly engineered, distinct architectural variant to drive its production-ready Instruct and Reasoning modes.</p>
                                     </div>
@@ -329,7 +317,7 @@ export function NGen4OWModelPage({
                                 {sharedTrainingSections.map((section) => (
                                     <div key={section.title}>
                                         <SubsectionTitle>{section.title}</SubsectionTitle>
-                                        <div className="space-y-5 text-base leading-8 text-gray-700">
+                                        <div className="space-y-5 text-sm leading-8 text-gray-700">
                                             {section.paragraphs.map((paragraph) => (
                                                 <p key={paragraph}>{paragraph}</p>
                                             ))}
@@ -341,20 +329,20 @@ export function NGen4OWModelPage({
 
                         <section>
                             <SectionTitle>3 Benchmark Evaluations</SectionTitle>
-                            <p className="mb-8 text-base leading-8 text-gray-700">
+                            <p className="mb-8 text-sm leading-8 text-gray-700">
                                 To ensure maximum transparency, TNSA conducted all performance evaluations using the exact benchmarking protocols established by the Qwen 3 team (identical prompt templates, scoring heuristics, and data contamination checks).
                             </p>
 
                             <div className="space-y-10">
                                 <div>
                                     <SubsectionTitle>3.1 NGen 4 Pro Evaluation Results</SubsectionTitle>
-                                    <p className="mb-6 text-base leading-8 text-gray-700">
+                                    <p className="mb-6 text-sm leading-8 text-gray-700">
                                         The following tables detail the frontier performance of the NGen 4 Pro model across varying domains.
                                     </p>
                                     <div className="space-y-8">
                                         {proBenchmarkBlocks.map((block) => (
                                             <div key={block.title} className="rounded-[28px] border border-gray-200 bg-gray-50 p-6">
-                                                <h4 className="mb-4 text-lg font-medium text-black">{block.title}</h4>
+                                                <h4 className="mb-4 text-sm font-medium text-black">{block.title}</h4>
                                                 <div className="space-y-2 text-sm leading-7 text-gray-700">
                                                     {block.content.map((line) => (
                                                         <p key={line}>{line}</p>
@@ -367,7 +355,7 @@ export function NGen4OWModelPage({
 
                                 <div>
                                     <SubsectionTitle>3.2 NGen 4 Mini Evaluation Results</SubsectionTitle>
-                                    <div className="space-y-3 text-base leading-8 text-gray-700">
+                                    <div className="space-y-3 text-sm leading-8 text-gray-700">
                                         {miniCapabilityBullets.map((line) => (
                                             <p key={line}>{line}</p>
                                         ))}
@@ -376,7 +364,7 @@ export function NGen4OWModelPage({
 
                                 <div>
                                     <SubsectionTitle>3.3 NGen 4 Lite Evaluation Results</SubsectionTitle>
-                                    <p className="mb-5 text-base leading-8 text-gray-700">
+                                    <p className="mb-5 text-sm leading-8 text-gray-700">
                                         NGen 4 Lite is positioned as the smallest reasoning-capable tier in the NGen 4 family. The following data highlights the benchmark performance of NGen-4 Lite against industry peers (Early 2026).
                                     </p>
                                     <div className="rounded-[28px] border border-gray-200 bg-gray-50 p-6 text-sm leading-7 text-gray-700">
@@ -390,7 +378,7 @@ export function NGen4OWModelPage({
 
                         <section>
                             <SectionTitle>4 Conclusion</SectionTitle>
-                            <div className="space-y-5 text-base leading-8 text-gray-700">
+                            <div className="space-y-5 text-sm leading-8 text-gray-700">
                                 {conclusionParagraphs.map((paragraph) => (
                                     <p key={paragraph}>{paragraph}</p>
                                 ))}
@@ -401,7 +389,7 @@ export function NGen4OWModelPage({
                             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-gray-500">
                                 Final Disclaimer
                             </p>
-                            <p className="text-base leading-8 text-gray-700">
+                            <p className="text-sm leading-8 text-gray-700">
                                 {finalDisclaimer}
                             </p>
                         </section>
@@ -409,7 +397,7 @@ export function NGen4OWModelPage({
 
                     <div className="mt-20 flex flex-wrap justify-center gap-4">
                         <Link href={huggingFaceUrl} target="_blank" rel="noreferrer" className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-gray-100">
-                            Hugging Face Repo
+                            Download from Hugging Face
                         </Link>
                         <Link href="https://tnsaai.com/NGen-4-System-Card.pdf" target="_blank" rel="noreferrer" className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-gray-100">
                             NGen-4 System Card

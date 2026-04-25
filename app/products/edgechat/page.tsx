@@ -14,11 +14,11 @@ export default function EdgeChatPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/martin-de-arriba-J6kz1RK_kFc-unsplash.jpg"
+            src="/edgechat.png"
             alt="EdgeChat"
             fill
             priority
-            className="object-cover rounded-[40px]"
+            className="object-cover rounded-[10px]"
           />
         </div>
       </div>

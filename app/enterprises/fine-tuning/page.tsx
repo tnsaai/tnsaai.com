@@ -14,7 +14,7 @@ export default function FineTuningPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/susan-wilkinson-6YNPuJ3Ybac-unsplash.jpg"
+            src="/fine-tuning.png"
             alt="Custom Fine-Tuning"
             fill
             priority

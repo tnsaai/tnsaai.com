@@ -5,36 +5,36 @@ import Image from 'next/image'
 
 export default function AudioTextSpeech1Page() {
   return (
-    <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-      <div className="mx-auto max-w-4xl px-6">
+    <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
+      <div className="mx-auto max-w-3xl px-6">
         <div className="text-center">
           <p className="text-sm text-gray-500">January 2025</p>
-          <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>AudioTextSpeech-1</h1>
+          <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '48px' }}>AudioTextSpeech-1</h1>
         </div>
 
-        <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
+        <div className="relative w-full max-w-[860px] mx-auto mb-12 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/steve-johnson-w6e5uRHgGNo-unsplash.jpg"
+            src="/model-images/audio-text-speech-1.png"
             alt="AudioTextSpeech-1"
             fill
             priority
-            className="object-cover rounded-[40px]"
+            className="object-cover rounded-[10px]"
           />
         </div>
       </div>
 
       <div className="bg-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Overview.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Overview.</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">
               AudioTextSpeech-1 provides basic text-to-speech capabilities for simple applications. Cost-effective solution for converting text to natural-sounding speech with support for common use cases and languages.
             </p>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Key Capabilities.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Key Capabilities.</h2>
+            <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2">
               <li>Basic text-to-speech synthesis</li>
               <li>Natural-sounding voice output</li>
               <li>Cost-effective solution for simple applications</li>
@@ -42,16 +42,16 @@ export default function AudioTextSpeech1Page() {
             </ul>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Applications.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Applications.</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">
               Ideal for basic voice notifications, simple voice assistants, text-to-speech for accessibility features, and cost-effective audio content generation.
             </p>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Pricing.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Pricing.</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">
               ₹0.33 per minute
             </p>
           </div>

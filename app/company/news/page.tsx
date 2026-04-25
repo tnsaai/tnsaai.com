@@ -2,14 +2,13 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { FlightCard } from '@/components/ui/flight-card'
 
 const papers = [
   {
     title: 'NGen 4 System Card',
     description: 'A comprehensive overview of the architecture, training methodologies, and benchmark evaluations for the NGen 4 model series.',
     href: '/company/news/ngen-4-system-card',
-    backgroundImage: '/ngen4.png',
+    backgroundImage: '/ngen4-sys-card.png',
   },
   {
     title: 'Open-Sourcing NGen-4-K2-1T-Thinking: 1T Param Indic-First LLM',
@@ -28,7 +27,6 @@ const papers = [
     description: 'Meet Rishi, TNSA\'s pioneering Automated AI Researcher, relentlessly working to achieve SuperIntelligence.',
     href: '/company/news/rishi-aar-1-tnsas-first-automated-ai-researcher',
     backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/tnsa-risihi%20(1).png',
-    showTitle: false,
     imageFit: 'contain',
   },
   {
@@ -69,54 +67,102 @@ const papers = [
   },
 ]
 
+function Label({ children }: { children: string }) {
+  return (
+    <span className="mt-2 inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-[8px] leading-4 text-black">
+      {children}
+    </span>
+  )
+}
+
+function NewsCard({ paper, priority = false }: { paper: any; priority?: boolean }) {
+  return (
+    <Link href={paper.href} className="group block">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-100">
+        <Image
+          src={paper.backgroundImage}
+          alt={paper.title}
+          fill
+          priority={priority}
+          quality={100}
+          className={`rounded-[10px] transition-transform duration-500 group-hover:scale-105 ${paper.imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
+          sizes="(min-width: 1200px) 300px, (min-width: 768px) 33vw, calc(100vw - 40px)"
+        />
+      </div>
+      <h3 className="mt-3 text-[18px] font-normal leading-tight text-black transition-colors group-hover:text-gray-500">
+        {paper.title}
+      </h3>
+      <Label>News</Label>
+      {paper.description ? (
+        <p className="mt-3 max-w-[340px] text-[12px] leading-5 text-gray-500">{paper.description}</p>
+      ) : null}
+    </Link>
+  )
+}
+
 export default function NewsPage() {
   return (
-    <div className="bg-white">
-      <div className="bg-white pb-16 flex items-center justify-center" style={{ paddingTop: '222px' }}>
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <h1 className="text-5xl font-normal tracking-tight font-sans text-black sm:text-6xl lg:text-7xl">
-            News.
+    <main className="min-h-screen bg-[#FFFFFF] text-black">
+      <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+        <div className="mx-auto max-w-[920px] px-5">
+          <p className="mb-4 text-[12px] font-normal text-gray-500">Explore News</p>
+          <h1 className="text-[44px] font-normal leading-tight tracking-normal text-black md:text-[64px]">
+            News
           </h1>
         </div>
-      </div>
+      </section>
 
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-3xl tracking-tight text-gray-900 mb-4 sm:text-4xl">Latest Updates.</h2>
-            <p className="text-lg text-gray-900 sm:text-xl">
-              Stay updated with our latest announcements and developments.
-            </p>
-          </div>
-
-          <div className="mb-8">
-            <div className="rounded-lg bg-zinc-50 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-sm text-gray-700">Featured: Explore our latest research and tools.</div>
-              <div className="flex gap-3">
-                <Link href="/research/tri-flux-attention" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-sm hover:bg-gray-50">Tri‑Flux Attention</Link>
-                <Link href="/company/news/ngen-4-k2-1t-thinking-open-source" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-sm hover:bg-gray-50">NGen-4-K2-1T</Link>
-              </div>
+      <div className="mx-auto max-w-[920px] px-5 pb-28">
+        <div className="mb-12">
+          <div className="rounded-lg bg-gray-50 p-4 flex flex-col sm:flex-row items-center justify-between gap-4 border border-gray-100">
+            <div className="text-[13px] text-gray-700">Featured: Explore our latest research and tools.</div>
+            <div className="flex gap-3">
+              <Link href="/research/tri-flux-attention" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-[12px] text-black transition-colors hover:bg-gray-50">Tri‑Flux Attention</Link>
+              <Link href="/company/news/ngen-4-k2-1t-thinking-open-source" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-[12px] text-black transition-colors hover:bg-gray-50">NGen-4-K2-1T</Link>
             </div>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-6xl mx-auto">
-            {papers.map((paper) => (
-              <FlightCard
+        <section className="border-t border-gray-100 py-12 first:border-t-0 first:pt-0">
+          <div className="mb-12">
+            <h2 className="text-[24px] font-normal leading-tight text-black">Latest Updates</h2>
+            <p className="mt-3 text-[15px] text-gray-500">Stay updated with our latest announcements and developments.</p>
+          </div>
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {papers.map((paper, index) => (
+              <NewsCard
                 key={paper.title}
-                title={paper.title}
-                subtitle={paper.description}
-                category="News"
-                imageUrl={paper.backgroundImage}
-                imageAlt={paper.title}
-                href={paper.href}
-                layout="horizontal"
-                showTitle={paper.showTitle}
-                imageFit={paper.imageFit as any}
+                paper={paper}
+                priority={index < 3}
               />
             ))}
           </div>
-        </div>
+        </section>
+
+        <section className="mt-20 overflow-hidden rounded-lg">
+          <div className="relative min-h-[360px]">
+            <Image
+              src="/india.png"
+              alt="Start building with TNSA today"
+              fill
+              quality={100}
+              className="object-cover rounded-[10px]"
+              sizes="(min-width: 1024px) 920px, calc(100vw - 40px)"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-[10px]" />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-10">
+              <h2 className="max-w-[560px] text-[32px] font-normal leading-tight md:text-[44px]">
+                Start building with TNSA today
+              </h2>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <Link href="https://platform.tnsaai.com" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-white px-4 text-[12px] text-black transition-colors hover:bg-gray-100">
+                  API Platform
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
+    </main>
   )
 }

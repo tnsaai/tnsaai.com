@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { NGen3SystemCardLink } from '@/components/ui/NGen3SystemCardLink'
 import { BenchmarkNGen3Reasoning } from '@/components/ui/BenchmarkNGen3'
 import { BenchmarkTable } from '@/components/ui/BenchmarkTable'
 import { BenchmarkAdvancedText, BenchmarkAdvancedLogic, BenchmarkAdvancedCoding } from '@/components/ui/BenchmarkAdvanced'
@@ -24,55 +25,79 @@ export default function NGen39MaxStableV3ChatPage() {
     ]
 
     return (
-        <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-            <div className="mx-auto max-w-4xl px-6">
+        <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
+            <div className="mx-auto max-w-3xl px-6">
                 <div className="text-center">
                     <p className="text-sm text-gray-500">Dec 2025</p>
-                    <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>
+                    <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '48px' }}>
                         NGen 3.9 Max
                     </h1>
                 </div>
 
-                <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
+                <div className="relative w-full max-w-[860px] mx-auto mb-12 aspect-[1028/560]">
                     <Image
-                        src="/ngen3.9-max.png"
+                        src="/model-images/ngen3.9-max.png"
                         alt="NGen 3.9 Max"
                         fill
                         priority
-                        className="object-cover rounded-[40px]"
+                        className="object-cover rounded-[10px]"
                     />
                 </div>
+
+        <div className="mb-12 flex justify-center">
+          <NGen3SystemCardLink />
+        </div>
             </div>
 
             <div className="bg-white">
-                <div className="mx-auto max-w-4xl px-6">
-                    <div className="mb-16">
-                        <h2 className="text-2xl text-gray-900 mb-4">Overview.</h2>
-                        <p className="text-base text-gray-700 leading-relaxed">
+                <div className="mx-auto max-w-3xl px-6">
+                    <div className="mb-12">
+                        <h2 className="text-xl text-gray-900 mb-4">Overview.</h2>
+                        <p className="text-sm text-gray-700 leading-relaxed">
                             NGen 3.9 Max (Stable V3) is our flagship production model for enterprise conversational AI.
                             It brings the highest level of performance, reliability, and capability to production workloads,
                             excelling in complex reasoning, coding, and knowledge-intensive tasks.
                         </p>
                     </div>
 
-                    <div className="space-y-24 mb-24">
+                    <div className="mb-12">
+                        <h2 className="text-xl text-gray-900 mb-4">Snapshots.</h2>
+                        <div className="divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white">
+                            <div className="flex items-center justify-between gap-4 px-5 py-4">
+                                <div>
+                                    <p className="text-sm font-normal text-black">NGen 3.9 Max Stable V3</p>
+                                    <p className="mt-1 text-sm text-gray-500">Production flagship snapshot.</p>
+                                </div>
+                                <span className="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-[11px] text-black">Current</span>
+                            </div>
+                            <div className="flex items-center justify-between gap-4 px-5 py-4">
+                                <div>
+                                    <p className="text-sm font-normal text-black">NGen 3.9 Max V2 128K Preview</p>
+                                    <p className="mt-1 text-sm text-gray-500">Long-context preview snapshot.</p>
+                                </div>
+                                <span className="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-[11px] text-black">Snapshot</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="space-y-16 mb-12">
                         <BenchmarkNGen3Reasoning />
                         <BenchmarkAdvancedText />
                         <BenchmarkAdvancedLogic />
                         <BenchmarkAdvancedCoding />
                     </div>
 
-                    <div className="mb-16">
+                    <div className="mb-12">
                         <BenchmarkTable title="The Text, Reasoning & Coding Benchmarks" rows={textBenchmarkRows} />
                     </div>
 
-                    <div className="mb-24">
+                    <div className="mb-12">
                         <BenchmarkTable title="The Vision & Multimodal Benchmarks" rows={visionBenchmarkRows} />
                     </div>
 
-                    <div className="mb-16">
-                        <h2 className="text-2xl text-gray-900 mb-4">Context & Specs.</h2>
-                        <div className="grid grid-cols-2 gap-8 text-base text-gray-700">
+                    <div className="mb-12">
+                        <h2 className="text-xl text-gray-900 mb-4">Context & Specs.</h2>
+                        <div className="grid grid-cols-2 gap-8 text-sm text-gray-700">
                             <div>
                                 <p className="font-medium text-black">Context Length</p>
                                 <p>262,144 Tokens</p>
@@ -84,9 +109,9 @@ export default function NGen39MaxStableV3ChatPage() {
                         </div>
                     </div>
 
-                    <div className="mb-16">
-                        <h2 className="text-2xl text-gray-900 mb-4">Key Capabilities.</h2>
-                        <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
+                    <div className="mb-12">
+                        <h2 className="text-xl text-gray-900 mb-4">Key Capabilities.</h2>
+                        <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2">
                             <li>Maximum production stability and reliability</li>
                             <li>SOTA performance in reasoning and knowledge</li>
                             <li>Advanced multimodal understanding and vision</li>
@@ -95,9 +120,9 @@ export default function NGen39MaxStableV3ChatPage() {
                     </div>
 
 
-                    <div className="mb-16">
-                        <h2 className="text-2xl text-gray-900 mb-4">Pricing.</h2>
-                        <p className="text-base text-gray-700 leading-relaxed">
+                    <div className="mb-12">
+                        <h2 className="text-xl text-gray-900 mb-4">Pricing.</h2>
+                        <p className="text-sm text-gray-700 leading-relaxed">
                             ₹0.83 input / ₹1.25 output per 1K tokens
                         </p>
                     </div>

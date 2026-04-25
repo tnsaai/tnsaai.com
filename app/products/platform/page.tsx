@@ -14,11 +14,11 @@ export default function TNSAPlatformPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/muhammad-ridwan-imam-fajar-meqxXc9zPGI-unsplash.jpg"
+            src="/tnsa-platform.png"
             alt="TNSA Platform"
             fill
             priority
-            className="object-cover rounded-[40px]"
+            className="object-cover rounded-[10px]"
           />
         </div>
       </div>

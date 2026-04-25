@@ -1,92 +1,145 @@
 'use client'
 
 import Link from 'next/link'
-import { FlightCard } from '@/components/ui/flight-card'
+import Image from 'next/image'
+
+const companyLinks = [
+  {
+    title: 'About Us',
+    subtitle: 'Learn about our mission to build superintelligence for India.',
+    category: 'Company',
+    imageUrl: '/about.png',
+    imageAlt: 'About Us',
+    href: '/about',
+  },
+  {
+    title: 'AI Safety',
+    subtitle: 'Our approach to responsible AI development and deployment.',
+    category: 'Safety',
+    imageUrl: '/ai-safety.png',
+    imageAlt: 'AI Safety',
+    href: '/safety',
+  },
+  {
+    title: 'News',
+    subtitle: 'Latest news, announcements, and research updates.',
+    category: 'News & Press',
+    imageUrl: '/news.png',
+    imageAlt: 'News',
+    href: '/company/news',
+  },
+  {
+    title: 'Careers',
+    subtitle: 'Join us in shaping the future of AI. View open roles.',
+    category: 'Opportunities',
+    imageUrl: '/Careers.png',
+    imageAlt: 'Careers',
+    href: '/company/careers',
+  },
+  {
+    title: 'Contact',
+    subtitle: 'Get in touch with the TNSA team.',
+    category: 'Support',
+    imageUrl: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-anniroenkae-4175054.jpg',
+    imageAlt: 'Contact',
+    href: '/company/contact',
+  },
+  {
+    title: 'Developers',
+    subtitle: 'Documentation, API guides, and resources for building with TNSA.',
+    category: 'Resources',
+    imageUrl: '/developers.png',
+    imageAlt: 'Developers',
+    href: '/developers',
+  },
+]
+
+function Label({ children }: { children: string }) {
+  return (
+    <span className="mt-2 inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-[8px] leading-4 text-black">
+      {children}
+    </span>
+  )
+}
+
+function CompanyCard({ link, priority = false }: { link: any; priority?: boolean }) {
+  return (
+    <Link href={link.href} className="group block">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-100">
+        <Image
+          src={link.imageUrl}
+          alt={link.imageAlt}
+          fill
+          priority={priority}
+          quality={100}
+          className="object-cover rounded-[10px] transition-transform duration-500 group-hover:scale-105"
+          sizes="(min-width: 1200px) 300px, (min-width: 768px) 33vw, calc(100vw - 40px)"
+        />
+      </div>
+      <h3 className="mt-3 text-[18px] font-normal leading-tight text-black transition-colors group-hover:text-gray-500">
+        {link.title}
+      </h3>
+      <Label>{link.category}</Label>
+      {link.subtitle ? (
+        <p className="mt-3 max-w-[340px] text-[12px] leading-5 text-gray-500">{link.subtitle}</p>
+      ) : null}
+    </Link>
+  )
+}
 
 export default function CompanyPage() {
   return (
-    <div className="bg-white min-h-screen">
-      <div className="bg-white pb-16 flex items-center justify-center" style={{ paddingTop: '222px' }}>
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <h1 className="text-5xl font-normal tracking-tight font-sans text-black sm:text-6xl lg:text-7xl">
-            Company.
+    <main className="min-h-screen bg-[#FFFFFF] text-black">
+      <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+        <div className="mx-auto max-w-[920px] px-5">
+          <p className="mb-4 text-[12px] font-normal text-gray-500">Explore Company</p>
+          <h1 className="text-[44px] font-normal leading-tight tracking-normal text-black md:text-[64px]">
+            Company
           </h1>
         </div>
-      </div>
+      </section>
 
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-3xl tracking-tight text-gray-900 mb-4 sm:text-4xl">About TNSA.</h2>
-            <p className="text-lg text-gray-900 sm:text-xl">Learn more about our mission and values</p>
+      <div className="mx-auto max-w-[920px] px-5 pb-28">
+        <section className="border-t border-gray-100 py-12 first:border-t-0 first:pt-0">
+          <div className="mb-12">
+            <h2 className="text-[24px] font-normal leading-tight text-black">About TNSA</h2>
+            <p className="mt-3 text-[15px] text-gray-500">Learn more about our mission and values.</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <FlightCard
-              title="About Us"
-              subtitle="Our Story"
-              category="Company"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-diva-30441220.jpg"
-              imageAlt="About Us"
-              href="/about"
-              layout="horizontal"
-            />
-
-            <FlightCard
-              title="AI Safety"
-              subtitle="Responsible AI"
-              category="Safety"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-eugene-golovesov-1810803-16152015.jpg"
-              imageAlt="AI Safety"
-              href="/safety"
-              layout="horizontal"
-            />
-
-            <FlightCard
-              title="News"
-              subtitle="Latest Updates"
-              category="News & Press"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-mustang-2179483.jpg"
-              imageAlt="News"
-              href="/company/news"
-              layout="horizontal"
-            />
-
-            <FlightCard
-              title="Careers"
-              subtitle="Join Our Team"
-              category="Opportunities"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-anniroenkae-3418400.jpg"
-              imageAlt="Careers"
-              href="/company/careers"
-              layout="horizontal"
-            />
-
-            <FlightCard
-              title="Contact"
-              subtitle="Get in Touch"
-              category="Support"
-              imageUrl="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-anniroenkae-4175054.jpg"
-              imageAlt="Contact"
-              href="/company/contact"
-              layout="horizontal"
-            />
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {companyLinks.map((link, index) => (
+              <CompanyCard
+                key={link.title}
+                link={link}
+                priority={index < 3}
+              />
+            ))}
           </div>
-        </div>
-      </div>
+        </section>
 
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-[40px] flex flex-col items-center justify-center" style={{ width: '100%', maxWidth: '1028px', height: '575px', margin: '0 auto' }}>
-            <h2 className="text-5xl font-normal text-center mb-8 text-black">
-              Join us in shaping the future of AI
-            </h2>
-            <Link href="/company/careers" className="px-8 py-3 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-              View Careers
-            </Link>
+        <section className="mt-20 overflow-hidden rounded-lg">
+          <div className="relative min-h-[360px]">
+            <Image
+              src="/india.png"
+              alt="Join us in shaping the future of AI"
+              fill
+              quality={100}
+              className="object-cover rounded-[10px]"
+              sizes="(min-width: 1024px) 920px, calc(100vw - 40px)"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-[10px]" />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-10">
+              <h2 className="max-w-[560px] text-[32px] font-normal leading-tight md:text-[44px]">
+                Join us in shaping the future of AI
+              </h2>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <Link href="/company/careers" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-white px-4 text-[12px] text-black transition-colors hover:bg-gray-100">
+                  View Careers
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
   )
 }

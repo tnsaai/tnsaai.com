@@ -5,36 +5,36 @@ import Image from 'next/image'
 
 export default function StellarMiniPage() {
   return (
-    <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-      <div className="mx-auto max-w-4xl px-6">
+    <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
+      <div className="mx-auto max-w-3xl px-6">
         <div className="text-center">
           <p className="text-sm text-gray-500">January 2025</p>
-          <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>Stellar Mini</h1>
+          <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '48px' }}>Stellar Mini</h1>
         </div>
 
-        <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
+        <div className="relative w-full max-w-[860px] mx-auto mb-12 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/boliviainteligente-16SyukXEJbk-unsplash.jpg"
+            src="/model-images/image-banner.jpg"
             alt="Stellar Mini"
             fill
             priority
-            className="object-cover rounded-[40px]"
+            className="object-cover rounded-[10px]"
           />
         </div>
       </div>
 
       <div className="bg-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Overview.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Overview.</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">
               Stellar Mini delivers compact power with smart reasoning capabilities, offering efficient performance for a wide range of analytical applications.
             </p>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Key Capabilities.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Key Capabilities.</h2>
+            <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2">
               <li>Compact power with smart reasoning</li>
               <li>Efficient performance</li>
               <li>Balanced capabilities</li>
@@ -42,9 +42,9 @@ export default function StellarMiniPage() {
             </ul>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Pricing.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Pricing.</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">
               $0.30 per 1K tokens
             </p>
           </div>

@@ -14,7 +14,7 @@ export default function NGen4SystemCardNewsPost() {
 
                 <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/500]">
                     <Image
-                        src="/ngen4.png"
+                        src="/ngen4-sys-card.png"
                         alt="NGen 4 Banner"
                         fill
                         priority

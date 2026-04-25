@@ -2,38 +2,63 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { NGen3SystemCardLink } from '@/components/ui/NGen3SystemCardLink'
 
 export default function NGen39LiteChatPage() {
   return (
-    <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-      <div className="mx-auto max-w-4xl px-6">
+    <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
+      <div className="mx-auto max-w-3xl px-6">
         <div className="text-center">
           <p className="text-sm text-gray-500">September 2025</p>
-          <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>NGen 3.9 Lite</h1>
+          <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '48px' }}>NGen 3.9 Lite</h1>
         </div>
 
-        <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
+        <div className="relative w-full max-w-[860px] mx-auto mb-12 aspect-[1028/560]">
           <Image
-            src="/ngen3.9-lite.png"
+            src="/model-images/ngen3.9-lite.png"
             alt="NGen 3.9 Lite"
             fill
             priority
-            className="object-cover rounded-[40px]"
+            className="object-cover rounded-[10px]"
           />
+        </div>
+
+        <div className="mb-12 flex justify-center">
+          <NGen3SystemCardLink />
         </div>
       </div>
 
       <div className="bg-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Overview.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Overview.</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">
               NGen 3.9 Lite is a fast and efficient conversational model optimized for basic chat applications, delivering rapid responses with cost-effective pricing.
             </p>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Benchmark Performance.</h2>
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Snapshots.</h2>
+            <div className="divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white">
+              <div className="flex items-center justify-between gap-4 px-5 py-4">
+                <div>
+                  <p className="text-sm font-normal text-black">NGen 3.9 Lite Chat</p>
+                  <p className="mt-1 text-sm text-gray-500">Stable lightweight chat snapshot.</p>
+                </div>
+                <span className="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-[11px] text-black">Current</span>
+              </div>
+              <div className="flex items-center justify-between gap-4 px-5 py-4">
+                <div>
+                  <p className="text-sm font-normal text-black">NGen 3.9 Lite 2006 Preview</p>
+                  <p className="mt-1 text-sm text-gray-500">Preview snapshot for fast experimentation.</p>
+                </div>
+                <span className="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-[11px] text-black">Snapshot</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Benchmark Performance.</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm border-collapse text-gray-900">
                 <thead>
@@ -141,9 +166,9 @@ export default function NGen39LiteChatPage() {
             </div>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Key Capabilities.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Key Capabilities.</h2>
+            <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2">
               <li>Fast response times for seamless user experience</li>
               <li>Lightweight design optimized for efficiency</li>
               <li>40K token context length with 32K max generation</li>
@@ -151,9 +176,9 @@ export default function NGen39LiteChatPage() {
             </ul>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Pricing.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Pricing.</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">
               ₹0.10 input / ₹0.12 output per 1K tokens
             </p>
           </div>

@@ -9,21 +9,21 @@ import { NGen4TeamSection } from '@/components/ui/NGen4TeamSection'
 
 export default function NGen4Page() {
     return (
-        <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-            <div className="mx-auto max-w-4xl px-6">
+        <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
+            <div className="mx-auto max-w-3xl px-6">
                 <div className="text-center">
                     <ModelMetaBadge label="Model" />
-                    <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>NGen-4</h1>
+                    <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>NGen-4</h1>
                 </div>
 
-                <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
+                <div className="relative w-full max-w-[860px] mx-auto mb-12 aspect-[1028/560]">
                     <Image
-                        src="/ngen4.png"
+                        src="/model-images/ngen4.png"
                         alt="NGen-4"
                         fill
                         priority
                         unoptimized={true}
-                        className="object-cover rounded-[40px]"
+                        className="object-cover rounded-[10px]"
                     />
                 </div>
 
@@ -31,13 +31,13 @@ export default function NGen4Page() {
 
             <div className="bg-white">
                 <div className="mx-auto max-w-[1380px] px-6">
-                    <div className="mx-auto mb-16 max-w-4xl">
-                        <p className="text-base text-gray-700 leading-relaxed text-center">
+                    <div className="mx-auto mb-12 max-w-3xl">
+                        <p className="text-sm text-gray-700 leading-relaxed text-center">
                             NGen-4 is the general frontier model tier for broad intelligence workloads, bringing together strong reasoning, coding, agentic execution, multilingual understanding, and multimodal performance in a single benchmark profile.
                         </p>
                     </div>
 
-                    <div className="mb-20">
+                    <div className="mb-12">
                         <NGen4IntelligencePriceChart />
                     </div>
 

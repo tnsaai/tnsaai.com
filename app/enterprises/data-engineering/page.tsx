@@ -14,7 +14,7 @@ export default function DataEngineeringPage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-karola-g-4046791.jpg"
+            src="/data-engineering.png"
             alt="Data Engineering"
             fill
             priority

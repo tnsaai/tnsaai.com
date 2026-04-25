@@ -1,0 +1,32 @@
+- dataset:
+    id: TIGER-Lab/MMLU-Pro
+    task_id: mmlu_pro
+  value: 89.6
+  date: '2026-04-06'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: Idavidrein/gpqa
+    task_id: diamond
+  value: 90.1
+  date: '2026-04-06'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: SWE-bench/SWE-bench_Verified
+    task_id: swe_bench_%_resolved
+  value: 72.7
+  date: '2026-04-06'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations
+- dataset:
+    id: harborframework/terminal-bench-2.0
+    task_id: terminal_bench
+  value: 42.5
+  date: '2026-04-06'
+  source:
+    url: https://tnsaai.com/models/ngen4
+    name: TNSA NGen-4 Evaluations

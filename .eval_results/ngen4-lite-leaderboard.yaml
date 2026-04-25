@@ -1,0 +1,16 @@
+- dataset:
+    id: TIGER-Lab/MMLU-Pro
+    task_id: mmlu_pro
+  value: 83.2
+  date: '2026-04-06'
+  source:
+    url: https://tnsaai.com/models/ngen4-lite
+    name: TNSA NGen-4 Lite Evaluations
+- dataset:
+    id: Idavidrein/gpqa
+    task_id: diamond
+  value: 80.5
+  date: '2026-04-06'
+  source:
+    url: https://tnsaai.com/models/ngen4-lite
+    name: TNSA NGen-4 Lite Evaluations

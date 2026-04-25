@@ -1,7 +1,7 @@
 "use client"
 
 import { TrendingUp, Download } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import React from "react"
 
 import {
@@ -314,7 +314,7 @@ export function BenchmarkBase({
     seriesOrder.length || (data.length > 0 ? Object.keys(data[0]).filter((key) => key !== 'name').length : 0)
   )
   const perCategoryWidth = Math.max(150, seriesCount * 28)
-  const chartWidth = Math.max(980, data.length * perCategoryWidth)
+  const chartWidth = Math.max(860, data.length * perCategoryWidth)
 
   const downloadChart = () => {
     const container = document.getElementById(chartId)
@@ -451,15 +451,22 @@ export function BenchmarkBase({
   return (
     <Card className="w-full bg-white border-none shadow-none relative group">
       <CardHeader className="px-0">
-        <CardTitle className="text-2xl font-normal text-black">{title}</CardTitle>
+        <CardTitle className="text-xl font-normal text-black">{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="px-0 relative">
-        <div className="overflow-x-auto pb-2">
-          <div className="flex min-w-full justify-center">
-            <div id={chartId} style={{ width: `${chartWidth}px` }}>
-              <ChartContainer id="benchmark-performance-chart-container" config={chartConfig} className="h-[340px] w-full aspect-auto">
-                <BarChart accessibilityLayer data={data} barCategoryGap="8%" barGap={3} maxBarSize={34}>
+        <div className="overflow-x-auto overflow-y-hidden pb-3">
+          <div id={chartId} style={{ width: `${chartWidth}px`, minWidth: `${chartWidth}px` }}>
+              <ChartContainer id={chartId} config={chartConfig} className="h-[320px] w-full min-w-full">
+                <BarChart
+                  accessibilityLayer
+                  width={chartWidth}
+                  height={320}
+                  data={data}
+                  barCategoryGap="8%"
+                  barGap={3}
+                  maxBarSize={34}
+                >
                   <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#f0f0f0" />
                   <XAxis
                     dataKey="name"
@@ -482,7 +489,6 @@ export function BenchmarkBase({
                   {children}
                 </BarChart>
               </ChartContainer>
-            </div>
           </div>
         </div>
 

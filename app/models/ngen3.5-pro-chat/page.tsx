@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { NGen3SystemCardLink } from '@/components/ui/NGen3SystemCardLink'
 import { BenchmarkNGen3Reasoning } from '@/components/ui/BenchmarkNGen3'
 import { BenchmarkTable } from '@/components/ui/BenchmarkTable'
 import { BenchmarkAdvancedText, BenchmarkAdvancedLogic, BenchmarkAdvancedCoding, BenchmarkVisionMultimodal } from '@/components/ui/BenchmarkAdvanced'
@@ -24,37 +25,41 @@ export default function NGen35ProChatPage() {
     ]
 
     return (
-        <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-            <div className="mx-auto max-w-4xl px-6">
+        <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
+            <div className="mx-auto max-w-3xl px-6">
                 <div className="text-center">
                     <p className="text-sm text-gray-500">Nov 2025</p>
-                    <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>
+                    <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '48px' }}>
                         NGen 3.5 Pro
                     </h1>
                 </div>
 
-                <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
+                <div className="relative w-full max-w-[860px] mx-auto mb-12 aspect-[1028/560]">
                     <Image
-                        src="/ngen3.5-pro.png"
+                        src="/model-images/ngen3.5-pro.png"
                         alt="NGen 3.5 Pro"
                         fill
                         priority
-                        className="object-cover rounded-[40px]"
+                        className="object-cover rounded-[10px]"
                     />
                 </div>
+
+        <div className="mb-12 flex justify-center">
+          <NGen3SystemCardLink />
+        </div>
             </div>
 
             <div className="bg-white">
-                <div className="mx-auto max-w-4xl px-6">
-                    <div className="mb-16">
-                        <h2 className="text-2xl text-gray-900 mb-4">Overview.</h2>
-                        <p className="text-base text-gray-700 leading-relaxed">
+                <div className="mx-auto max-w-3xl px-6">
+                    <div className="mb-12">
+                        <h2 className="text-xl text-gray-900 mb-4">Overview.</h2>
+                        <p className="text-sm text-gray-700 leading-relaxed">
                             NGen 3.5 Pro is a professional-grade conversational AI balanced for speed and capability.
                             It provides high-quality reasoning and coding performance while maintaining efficiency for enterprise workflows.
                         </p>
                     </div>
 
-                    <div className="space-y-24 mb-24">
+                    <div className="space-y-16 mb-12">
                         <BenchmarkNGen3Reasoning />
                         <BenchmarkAdvancedText />
                         <BenchmarkAdvancedLogic />
@@ -62,17 +67,17 @@ export default function NGen35ProChatPage() {
                         <BenchmarkVisionMultimodal />
                     </div>
 
-                    <div className="mb-24">
+                    <div className="mb-12">
                         <BenchmarkTable title="Text Performance Benchmarks" rows={textBenchmarkRows} />
                     </div>
 
-                    <div className="mb-24">
+                    <div className="mb-12">
                         <BenchmarkTable title="Vision Performance Benchmarks" rows={visionBenchmarkRows} />
                     </div>
 
-                    <div className="mb-16">
-                        <h2 className="text-2xl text-gray-900 mb-4">Context & Specs.</h2>
-                        <div className="grid grid-cols-2 gap-8 text-base text-gray-700">
+                    <div className="mb-12">
+                        <h2 className="text-xl text-gray-900 mb-4">Context & Specs.</h2>
+                        <div className="grid grid-cols-2 gap-8 text-sm text-gray-700">
                             <div>
                                 <p className="font-medium text-black">Context Length</p>
                                 <p>262,144 Tokens</p>
@@ -84,9 +89,9 @@ export default function NGen35ProChatPage() {
                         </div>
                     </div>
 
-                    <div className="mb-16">
-                        <h2 className="text-2xl text-gray-900 mb-4">Key Capabilities.</h2>
-                        <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
+                    <div className="mb-12">
+                        <h2 className="text-xl text-gray-900 mb-4">Key Capabilities.</h2>
+                        <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2">
                             <li>Balanced performance for professional applications</li>
                             <li>Strong reasoning and logical understanding</li>
                             <li>High-speed responses for real-time interactions</li>
@@ -95,9 +100,9 @@ export default function NGen35ProChatPage() {
                     </div>
 
 
-                    <div className="mb-16">
-                        <h2 className="text-2xl text-gray-900 mb-4">Pricing.</h2>
-                        <p className="text-base text-gray-700 leading-relaxed">
+                    <div className="mb-12">
+                        <h2 className="text-xl text-gray-900 mb-4">Pricing.</h2>
+                        <p className="text-sm text-gray-700 leading-relaxed">
                             ₹0.60 input / ₹0.90 output per 1K tokens
                         </p>
                     </div>

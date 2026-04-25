@@ -1266,14 +1266,14 @@ export function NGen4ModelEvaluations({ model }: { model: SupportedModel }) {
     const spec = modelSpecs[model]
 
     return (
-        <section className="mb-24 pt-20 border-t border-gray-100">
-            <div className="mb-12">
+        <section className="mb-12 pt-12 border-t border-gray-100">
+            <div className="mb-8">
                 <p className="text-sm text-gray-500 uppercase tracking-[0.24em] mb-4">Model Evaluations</p>
-                <h2 className="text-4xl font-normal text-black mb-4">{spec.title}</h2>
-                <p className="max-w-3xl text-base text-gray-700 leading-relaxed">{spec.description}</p>
+                <h2 className="text-2xl font-normal text-black mb-3">{spec.title}</h2>
+                <p className="max-w-3xl text-sm text-gray-700 leading-relaxed">{spec.description}</p>
             </div>
 
-            <div className="space-y-20">
+            <div className="space-y-12">
                 {spec.charts.map((chart) => (
                     <BenchmarkBase
                         key={chart.title}

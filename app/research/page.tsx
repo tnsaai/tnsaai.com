@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { FlightCard } from '@/components/ui/flight-card'
 
 const papers = [
   {
@@ -93,71 +92,66 @@ const papers = [
     backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/muhammad-ridwan-imam-fajar-meqxXc9zPGI-unsplash.jpg',
     category: 'Intelligence',
   },
-];
+]
+
+function Label({ children }: { children: string }) {
+  return (
+    <span className="mt-2 inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-[8px] leading-4 text-black">
+      {children}
+    </span>
+  )
+}
+
+function ResearchCard({ paper, priority = false }: { paper: any; priority?: boolean }) {
+  return (
+    <Link href={paper.href} className="group block">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-100">
+        <Image
+          src={paper.backgroundImage}
+          alt={paper.title}
+          fill
+          priority={priority}
+          quality={100}
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(min-width: 1200px) 300px, (min-width: 768px) 33vw, calc(100vw - 40px)"
+        />
+      </div>
+      <h3 className="mt-3 text-[18px] font-normal leading-tight text-black transition-colors group-hover:text-gray-500">
+        {paper.title}
+      </h3>
+      <Label>{paper.category}</Label>
+      {paper.description ? (
+        <p className="mt-3 max-w-[340px] text-[12px] leading-5 text-gray-500">{paper.description}</p>
+      ) : null}
+    </Link>
+  )
+}
 
 export default function ResearchPage() {
   return (
-    <div className="bg-white">
-      {/* Hero section */}
-      <div className="bg-white pb-16 flex items-center justify-center" style={{ paddingTop: '222px' }}>
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <h1 className="text-5xl font-normal tracking-tight font-sans text-black sm:text-6xl lg:text-7xl">
-            Research.
+    <main className="min-h-screen bg-[#FFFFFF] text-black">
+      <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+        <div className="mx-auto max-w-[920px] px-5">
+          <p className="mb-4 text-[12px] font-normal text-gray-500">Explore Research</p>
+          <h1 className="text-[44px] font-normal leading-tight tracking-normal text-black md:text-[64px]">
+            Research Index
           </h1>
         </div>
-      </div>
+      </section>
 
-      {/* Papers List */}
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-3xl tracking-tight text-gray-900 mb-4 sm:text-4xl">Our Research.</h2>
-            <p className="text-lg text-gray-900 sm:text-xl">
-              Explore our latest research papers and publications.
-            </p>
+      <div className="mx-auto max-w-[920px] px-5 pb-28">
+        <section className="border-t border-gray-100 py-12 first:border-t-0 first:pt-0">
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {papers.map((paper, index) => (
+              <ResearchCard
+                key={paper.title}
+                paper={paper}
+                priority={index < 3}
+              />
+            ))}
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr max-w-7xl mx-auto">
-            {papers.map((paper, index) => {
-              // Layout plan (12 papers, 3 cols, every row = 3):
-              // Row 1: [0]=1  [1]=2         => 1+2=3
-              // Row 2: [2]=1  [3]=1  [4]=1   => 1+1+1=3
-              // Row 3: [5]=2  [6]=1          => 2+1=3
-              // Row 4: [7]=1  [8]=1  [9]=1   => 1+1+1=3
-              // Row 5: [10]=1 [11]=2         => 1+2=3
-
-              let spanClass = "md:col-span-1";
-              let layout: "vertical" | "horizontal" | "featured" = "vertical";
-
-              if (index === 1) {
-                spanClass = "md:col-span-2";
-                layout = "horizontal";
-              } else if (index === 5) {
-                spanClass = "md:col-span-2";
-                layout = "horizontal";
-              } else if (index === 11) {
-                spanClass = "md:col-span-2";
-                layout = "horizontal";
-              }
-
-              return (
-                <div key={paper.title} className={spanClass}>
-                  <FlightCard
-                    title={paper.title}
-                    subtitle={paper.description}
-                    category={paper.category}
-                    date={paper.date}
-                    imageUrl={paper.backgroundImage}
-                    imageAlt={paper.title}
-                    href={paper.href}
-                    layout={layout}
-                  />
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
   )
 }

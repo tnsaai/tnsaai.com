@@ -14,7 +14,7 @@ export default function InfrastructurePage() {
 
         <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
           <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-eva-bronzini-7605542.jpg"
+            src="/infra-support.png"
             alt="Infrastructure Support"
             fill
             priority

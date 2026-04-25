@@ -2,39 +2,44 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { NGen3SystemCardLink } from '@/components/ui/NGen3SystemCardLink'
 
 export default function NGen310BPage() {
   return (
-    <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-      <div className="mx-auto max-w-4xl px-6">
+    <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
+      <div className="mx-auto max-w-3xl px-6">
         <div className="text-center">
           <p className="text-sm text-gray-500">January 2025</p>
-          <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>NGen 3 10B</h1>
+          <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '48px' }}>NGen 3 10B</h1>
         </div>
 
-        <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
+        <div className="relative w-full max-w-[860px] mx-auto mb-12 aspect-[1028/560]">
           <Image
-            src="/ngen3-10b.png"
+            src="/model-images/ngen3-10b.png"
             alt="NGen 3 10B"
             fill
             priority
-            className="object-cover rounded-[40px]"
+            className="object-cover rounded-[10px]"
           />
+        </div>
+
+        <div className="mb-12 flex justify-center">
+          <NGen3SystemCardLink />
         </div>
       </div>
 
       <div className="bg-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Overview.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Overview.</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">
               NGen 3 10B is a frontier model with 10 billion parameters, delivering powerful AI capabilities for complex tasks and advanced applications.
             </p>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Key Capabilities.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Key Capabilities.</h2>
+            <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2">
               <li>10 billion parameter frontier model</li>
               <li>Advanced reasoning and problem-solving</li>
               <li>High-performance language understanding</li>
@@ -42,9 +47,9 @@ export default function NGen310BPage() {
             </ul>
           </div>
 
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Pricing.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+          <div className="mb-12">
+            <h2 className="text-xl text-gray-900 mb-4">Pricing.</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">
               $0.80 per 1K tokens
             </p>
           </div>
