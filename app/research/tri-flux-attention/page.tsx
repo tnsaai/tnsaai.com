@@ -9,37 +9,46 @@ import { Download } from 'lucide-react';
 
 export default function TriFluxAttentionPage() {
     return (
-        <div className="bg-white min-h-screen font-sans" style={{ paddingTop: '186px' }}>
+        <main className="min-h-screen bg-[#FFFFFF] font-sans text-black">
 
-            {/* 1. HEADER SECTION */}
-            <div className="mx-auto max-w-4xl px-6">
-                <div className="text-center">
-                    <p className="text-sm text-gray-500 uppercase tracking-widest mb-4">Research Paper • December 20, 2025</p>
-                    <h1 className="text-5xl md:text-6xl font-normal text-black leading-tight tracking-tight px-4" style={{ marginTop: '0px', marginBottom: '72px' }}>
+            <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+            <div className="mx-auto max-w-[920px] px-5">
+                <div>
+                    <p className="mb-4 text-[12px] font-normal text-gray-500">December 20, 2025</p>
+                    <p className="mb-4 text-[12px] font-normal text-black">Research Paper</p>
+                    <h1 className="max-w-[880px] text-[40px] font-normal leading-tight tracking-normal text-black md:text-[58px]">
                         Tri-Flux Attention: Breaking the Linear Complexity Barrier via Symmetric Trigonometric State Spaces
                     </h1>
 
-                    <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-gray-600 mb-20 font-medium">
-                        <span>Thishyaketh Abimalla¹</span>
-                        <span>Dr. Amala Abimalla¹</span>
-                        <span>Rishi¹</span>
-                        <span>Gemini 3 Pro²</span>
+                    <p className="mt-5 max-w-[700px] text-[18px] font-normal leading-7 text-gray-500">A TNSA architecture paper proposing symmetric trigonometric state spaces for O(N) parallel training and O(1) recurrent inference.</p>
+                    <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-gray-100 pt-5 text-[12px] text-gray-500">
+                        <span className="text-black">Authors</span>
+                        <span>Thishyaketh Abimalla</span>
+                        <span>Dr. Amala Abimalla</span>
+                        <span>Rishi</span>
+                        <span>Gemini 3 Pro</span>
                     </div>
                 </div>
+            </div>
+            </section>
 
-                {/* 2. HERO IMAGE */}
-                <div className="relative w-full max-w-[1028px] mx-auto mb-24 aspect-[16/9] md:aspect-[21/9]">
+            <div className="mx-auto max-w-[920px] px-5 pb-28">
+                <section className="border-t border-gray-100 pb-12 pt-0 first:border-t-0">
+                    <div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-gray-100">
                     <Image
-                        src="https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/pexels-diva-32403296.jpg"
-                        alt="Scientific Visualization"
+                        src="/tri-flux-attention.png"
+                        alt="Tri-Flux Attention"
                         fill
                         priority
-                        className="object-cover rounded-[48px]"
+                        quality={100}
+                        className="object-cover"
+                        sizes="(min-width: 1024px) 920px, calc(100vw - 40px)"
                     />
-                </div>
+                    </div>
+                </section>
 
-                {/* 3. FULL PAPER CONTENT */}
-                <div className="space-y-20 pb-40 text-[18px] text-gray-700 leading-[1.8]">
+                <section className="border-t border-gray-100 py-12">
+                <div className="space-y-16 text-[14px] leading-7 text-gray-700">
 
                     {/* ABSTRACT */}
                     <section id="abstract">
@@ -210,7 +219,7 @@ export default function TriFluxAttentionPage() {
                         <h3 className="text-xl text-black font-semibold mt-24 mb-10">3.2 Algorithm 2: Tri-Flux (Recurrent Inference)</h3>
                         <p className="mb-10">During generation, the model collapses into a bit-perfect <InlineMath math="O(1)" /> step.</p>
 
-                        <div className="bg-[#fafafa] rounded-[3rem] p-12 md:p-20 border border-zinc-100 shadow-sm overflow-x-auto mb-20">
+                        <div className="mb-20 overflow-x-auto rounded-lg border border-gray-200 bg-[#fafafa] p-6 shadow-sm md:p-10">
                             <div className="font-sans font-bold text-sm mb-12 uppercase tracking-widest text-zinc-400">Algorithm 1: Tri-Flux Recurrent Update (O(1) Serving)</div>
                             <div className="space-y-6 font-serif text-lg">
                                 <div className="flex gap-8"><span className="text-zinc-300 font-mono text-sm pt-1">1:</span> <InlineMath math="\text{procedure GenerateNextToken}(x_t, S_{t-1}, Z_{t-1})" /></div>
@@ -291,37 +300,39 @@ export default function TriFluxAttentionPage() {
                             TFA achieved the theoretical limit of context-invariant inference, outperforming architectures which crash with OOM at this threshold.
                         </p>
 
-                        <div className="relative group bg-white border border-zinc-100 rounded-[48px] overflow-hidden shadow-[0_32px_80px_-16px_rgba(0,0,0,0.08)] my-16">
-                            <table className="w-full text-left text-[15px]">
-                                <thead className="bg-zinc-50 border-b border-zinc-100">
+                        <div className="relative group my-16 overflow-hidden rounded-lg border border-gray-200 bg-white">
+                            <div className="overflow-x-auto">
+                            <table className="w-full min-w-[760px] text-left text-[14px]">
+                                <thead className="border-b border-gray-100 bg-gray-50">
                                     <tr>
-                                        <th className="px-10 py-8 font-bold text-black uppercase tracking-widest text-[11px]">Metric (@ 1M Tokens)</th>
-                                        <th className="px-10 py-8 font-bold text-zinc-400 uppercase tracking-widest text-[11px]">GQA (Llama 3)</th>
-                                        <th className="px-10 py-8 font-bold text-zinc-400 uppercase tracking-widest text-[11px]">MLA (DeepSeek)</th>
-                                        <th className="px-10 py-8 font-bold text-black uppercase tracking-widest text-[11px] text-right">TNSA (TFA)</th>
+                                        <th className="px-6 py-5 text-[11px] font-semibold uppercase tracking-widest text-black">Metric (@ 1M Tokens)</th>
+                                        <th className="px-6 py-5 text-[11px] font-semibold uppercase tracking-widest text-gray-400">GQA (Llama 3)</th>
+                                        <th className="px-6 py-5 text-[11px] font-semibold uppercase tracking-widest text-gray-400">MLA (DeepSeek)</th>
+                                        <th className="px-6 py-5 text-right text-[11px] font-semibold uppercase tracking-widest text-black">TNSA (TFA)</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-zinc-50">
+                                <tbody className="divide-y divide-gray-100">
                                     <tr>
-                                        <td className="px-10 py-8 font-medium text-gray-800">Latency (ms)</td>
-                                        <td className="px-10 py-8 text-red-500 font-medium">OOM (Crash)</td>
-                                        <td className="px-10 py-8 text-gray-500">35.0 ms</td>
-                                        <td className="px-10 py-8 font-black text-black text-right underline underline-offset-8 decoration-2 decoration-zinc-900">0.26 ms</td>
+                                        <td className="px-6 py-7 font-medium text-gray-900">Latency (ms)</td>
+                                        <td className="px-6 py-7 font-medium text-red-500">OOM (Crash)</td>
+                                        <td className="px-6 py-7 text-gray-500">35.0 ms</td>
+                                        <td className="px-6 py-7 text-right font-semibold text-black"><span className="border-b border-black pb-1">0.26 ms</span></td>
                                     </tr>
                                     <tr>
-                                        <td className="px-10 py-8 font-medium text-gray-800">VRAM Footprint (MB)</td>
-                                        <td className="px-10 py-8 text-gray-500">2,147.5 MB</td>
-                                        <td className="px-10 py-8 text-gray-500">1,073.7 MB</td>
-                                        <td className="px-10 py-8 font-black text-black text-right">0.26 MB</td>
+                                        <td className="px-6 py-7 font-medium text-gray-900">VRAM Footprint (MB)</td>
+                                        <td className="px-6 py-7 text-gray-500">2,147.5 MB</td>
+                                        <td className="px-6 py-7 text-gray-500">1,073.7 MB</td>
+                                        <td className="px-6 py-7 text-right font-semibold text-black">0.26 MB</td>
                                     </tr>
                                     <tr>
-                                        <td className="px-10 py-8 font-medium text-gray-800">Throughput @ 128k</td>
-                                        <td className="px-10 py-8 text-gray-500">18k t/s</td>
-                                        <td className="px-10 py-8 text-gray-500">17k t/s</td>
-                                        <td className="px-10 py-8 font-black text-black text-right">1,183k t/s</td>
+                                        <td className="px-6 py-7 font-medium text-gray-900">Throughput @ 128k</td>
+                                        <td className="px-6 py-7 text-gray-500">18k t/s</td>
+                                        <td className="px-6 py-7 text-gray-500">17k t/s</td>
+                                        <td className="px-6 py-7 text-right font-semibold text-black">1,183k t/s</td>
                                     </tr>
                                 </tbody>
                             </table>
+                            </div>
                             {/* Table Download UI */}
                             <div className="absolute bottom-24 right-6 w-12 h-12 flex items-center justify-center">
                                 <div className="opacity-20 group-hover:opacity-0 transition-opacity duration-300">
@@ -350,7 +361,7 @@ export default function TriFluxAttentionPage() {
                                     <Download className="w-5 h-5 text-black" />
                                 </button>
                             </div>
-                            <div className="px-10 py-6 bg-zinc-50/50 text-xs text-zinc-400 text-center font-medium uppercase tracking-tight">
+                            <div className="border-t border-gray-100 bg-gray-50/60 px-6 py-5 text-center text-[11px] font-medium uppercase tracking-tight text-gray-400">
                                 Table 1: Hardware Benchmarks. TFA achieves a 109x speedup and 8,174x compression ratio compared to industry standards.
                             </div>
                         </div>
@@ -424,7 +435,10 @@ export default function TriFluxAttentionPage() {
                     </section>
 
                 </div>
+                </section>
             </div>
-        </div>
+        </main>
     );
 }
+
+

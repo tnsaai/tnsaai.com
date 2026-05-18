@@ -39,19 +39,19 @@ const researchCards = [
     title: 'Tri-Flux Attention: Constant Memory for LLMs',
     label: 'Research',
     href: '/research/tri-flux-attention',
-    image: 'https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/pexels-diva-32403296.jpg',
+    image: '/tri-flux-attention.png',
   },
   {
     title: 'Understanding Agentic Models',
     label: 'Research',
     href: '/research/agentic-intelligence-ngen39-pro',
-    image: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/mymind-3dmu0gu23uc-unsplash.jpg',
+    image: '/Agentic Intelligence in Large Language Models.png',
   },
   {
     title: 'Adaptive Sparse Transformer Blocks',
     label: 'Research',
     href: '/research/adaptive-sparse-transformer-blocks',
-    image: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/abstral-official-kzTYEGMY4N0-unsplash.jpg',
+    image: '/Adaptive Sparse Transformer Blocks.png',
   },
 ]
 
