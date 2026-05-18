@@ -9,7 +9,7 @@ const papers = [
     date: 'Dec 20, 2025',
     description: 'Breaking the Linear Complexity Barrier via Symmetric Trigonometric State Spaces.',
     href: '/research/tri-flux-attention',
-    backgroundImage: 'https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/pexels-diva-32403296.jpg',
+    backgroundImage: '/tri-flux-attention.png',
     category: 'Research Paper',
   },
   {
@@ -17,7 +17,7 @@ const papers = [
     date: 'May 25, 2025',
     description: 'A Paradigm Shift for Efficient Large Language Models and superintelligence.',
     href: '/research/adaptive-sparse-transformer-blocks',
-    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/abstral-official-kzTYEGMY4N0-unsplash.jpg',
+    backgroundImage: '/Adaptive Sparse Transformer Blocks.png',
     category: 'Research Paper',
   },
   {
@@ -25,7 +25,7 @@ const papers = [
     date: 'Oct 26, 2025',
     description: 'Experimental analysis of agentic capabilities in our latest frontier model NGen3.9-Pro.',
     href: '/research/agentic-intelligence-ngen39-pro',
-    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/mymind-3dmu0gu23uc-unsplash.jpg',
+    backgroundImage: '/Agentic Intelligence in Large Language Models.png',
     category: 'Research Paper',
   },
   {
@@ -49,7 +49,7 @@ const papers = [
     date: 'Jan 15, 2026',
     description: 'Exploring the architectural foundations required for Artificial Superintelligence.',
     href: '/research/advanced-algorithmic-paradigms-asi',
-    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-pixabay-355288.jpg',
+    backgroundImage: '/Advanced Algorithmic Paradigms for Artificial Superintelligence.png',
     category: 'Research Paper',
   },
   {
@@ -89,7 +89,7 @@ const papers = [
     date: 'Jan 5, 2026',
     description: 'Investigating independent creative styles and stylistic autonomy in large language models.',
     href: '/research/llms-can-be-creative-and-independent',
-    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/muhammad-ridwan-imam-fajar-meqxXc9zPGI-unsplash.jpg',
+    backgroundImage: '/llms-can-be-creative-and-independent.png',
     category: 'Intelligence',
   },
 ]
