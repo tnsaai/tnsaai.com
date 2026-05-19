@@ -33,7 +33,7 @@ const papers = [
     date: 'Nov 6, 2025',
     description: 'A comprehensive survey of quantum computing principles applied to language models.',
     href: '/research/quantum-based-language-models-survey',
-    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/boliviainteligente-ybSql-GGUOE-unsplash.jpg',
+    backgroundImage: '/Understanding Quantum Language Models.png',
     category: 'Research Paper',
   },
   {
@@ -41,7 +41,7 @@ const papers = [
     date: 'May 24, 2025',
     description: 'Transforming Raw Attention into Human Readable Explanations.',
     href: '/research/interpretable-attention-visualization-module',
-    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/rini-nur-rohmah-ZkGf87NclJ0-unsplash.jpg',
+    backgroundImage: '/Interpretable Attention Visualization Module.png',
     category: 'Research Paper',
   },
   {
@@ -57,7 +57,7 @@ const papers = [
     date: 'Feb 1, 2026',
     description: 'Sustainable superintelligence through optimized hardware and data foundations.',
     href: '/research/computational-hardware-and-data-foundations-for-sustainable-superintelligence',
-    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-steve-1509534.jpg',
+    backgroundImage: '/Computational Hardware and Data Foundations for Sustainable Superintelligence.png',
     category: 'Infrastructure',
   },
   {
@@ -65,7 +65,7 @@ const papers = [
     date: 'July 10, 2025',
     description: 'Curriculum learning approaches for synchronizing multimodal latent spaces.',
     href: '/research/cross-modal-contrastive-curriculum-learning',
-    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-diva-34592788.jpg',
+    backgroundImage: '/Cross Modal Contrastive Curriculum Learning.png',
     category: 'Research Paper',
   },
   {
@@ -73,7 +73,7 @@ const papers = [
     date: 'Dec 5, 2025',
     description: 'Charting the path toward future AI systems using quantum intelligence principles.',
     href: '/research/quantum-intelligence-and-future-ai-systems',
-    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-falling4utah-1934846.jpg',
+    backgroundImage: '/Quantum Intelligence and Future AI Systems.png',
     category: 'Quantum AI',
   },
   {
@@ -81,7 +81,7 @@ const papers = [
     date: 'Nov 12, 2025',
     description: 'Innovative architectures for next-generation quantum-enhanced language modeling.',
     href: '/research/quantum-language-models',
-    backgroundImage: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/boliviainteligente-ybSql-GGUOE-unsplash.jpg',
+    backgroundImage: '/Quantum Language Models.png',
     category: 'Research Paper',
   },
   {

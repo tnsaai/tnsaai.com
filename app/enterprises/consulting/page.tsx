@@ -1,62 +1,34 @@
-'use client'
-
-import Link from 'next/link'
-import Image from 'next/image'
+import { EnterpriseServicePage } from '@/components/ui/EnterpriseServicePage'
 
 export default function ConsultingPage() {
   return (
-    <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-      <div className="mx-auto max-w-4xl px-6">
-        <div className="text-center">
-          <p className="text-sm text-gray-500">Enterprise Service</p>
-          <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>AI Consulting</h1>
-        </div>
-
-        <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
-          <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-alexant-16738884.jpg"
-            alt="AI Consulting"
-            fill
-            priority
-            className="object-cover rounded-[40px]"
-          />
-        </div>
-      </div>
-
-      <div className="bg-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Overview.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              Strategic AI consulting to help you develop and implement effective AI strategies. Our experts guide you through AI adoption, from strategy development to implementation and optimization.
-            </p>
-          </div>
-
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Key Benefits.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
-              <li>AI strategy development and roadmap planning</li>
-              <li>Use case identification and prioritization</li>
-              <li>Technology assessment and recommendations</li>
-              <li>Implementation guidance and best practices</li>
-            </ul>
-          </div>
-
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Applications.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              Ideal for organizations starting their AI journey, digital transformation initiatives, AI capability assessment, and strategic planning.
-            </p>
-          </div>
-
-          <div className="flex justify-center" style={{ marginBottom: '77px' }}>
-            <Link href="/company/contact" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-              Contact Sales →
-            </Link>
-          </div>
-
-        </div>
-      </div>
-    </div>
+    <EnterpriseServicePage
+      title="AI Consulting"
+      description="Strategic AI consulting for teams planning model adoption, internal AI tools, automation programs, and long-term capability development."
+      image="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-alexant-16738884.jpg"
+      imageAlt="AI Consulting"
+      featuresTitle="Consulting focus"
+      features={[
+        {
+          title: 'AI roadmap',
+          description: 'Identify where models can create value and sequence projects by risk, impact, and readiness.',
+        },
+        {
+          title: 'Use case design',
+          description: 'Shape workflows, evaluation criteria, and product requirements before implementation.',
+        },
+        {
+          title: 'Implementation guidance',
+          description: 'Support architecture, model choice, deployment planning, and operational handoff.',
+        },
+      ]}
+      steps={[
+        { title: 'Discovery', description: 'Understand business goals, constraints, data readiness, and existing systems.' },
+        { title: 'Prioritization', description: 'Rank AI opportunities by value, complexity, safety, and deployment effort.' },
+        { title: 'Prototype', description: 'Build and evaluate focused pilots before scaling investment.' },
+        { title: 'Scale', description: 'Move successful workflows into production with measurement and governance.' },
+      ]}
+      applications="Organizations starting their AI journey, enterprise transformation teams, AI capability assessment, executive planning, and production rollout strategy."
+    />
   )
 }

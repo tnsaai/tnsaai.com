@@ -1,56 +1,54 @@
 'use client'
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { ModelMetaBadge } from '@/components/ui/ModelMetaBadge'
-import { NGen4SystemCard } from '@/components/ui/NGen4SystemCard'
+import { ModelDetailPage } from '@/components/ui/ModelDetailPage'
+import { ModelPlatformDetails } from '@/components/ui/ModelPlatformDetails'
 import { NGen4TeamSection } from '@/components/ui/NGen4TeamSection'
+import { ngen4BlazePlatformProfile } from '@/content/modelPlatformProfiles'
+
+const sections = [
+    {
+        title: 'Overview',
+        body: 'NGen 4 Blaze introduces advanced intelligence mapped for speed and reasoning. It pairs analytical depth with fast generation for teams that want a responsive NGen 4 model without moving to the largest frontier tier.',
+    },
+    {
+        title: 'Context & Specs',
+        specs: [
+            { label: 'Model Priority', value: 'Fast reasoning' },
+            { label: 'Mode', value: 'Reasoning-capable Blaze tier' },
+            { label: 'Best For', value: 'Fast assistant experiences, reasoning workflows, product copilots, and lightweight analysis.' },
+            { label: 'System Card', value: 'NGen 4 system card linked above.' },
+        ],
+    },
+    {
+        title: 'Key Capabilities',
+        bullets: [
+            'Responsive generation for interactive product surfaces.',
+            'Reasoning support for analytical and planning tasks.',
+            'Designed as a middle tier between Lite efficiency and larger NGen 4 capability.',
+            'Works through the same API Platform flow as the rest of the NGen 4 family.',
+        ],
+    },
+]
 
 export default function NGen4BlazePage() {
     return (
-        <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
-            <div className="mx-auto max-w-3xl px-6">
-                <div className="text-center">
-                    <ModelMetaBadge label="Model" />
-                    <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>
-                        NGen 4 Blaze
-                    </h1>
-                </div>
-
-                <div className="relative mx-auto mb-12 aspect-[1028/560] w-full max-w-[860px]">
-                    <Image
-                        src="/model-images/ngen4-blaze.png"
-                        alt="NGen 4 Blaze"
-                        fill
-                        priority
-                        unoptimized={true}
-                        className="rounded-[10px] object-cover"
-                    />
-                </div>
+        <ModelDetailPage
+            date="February 2026"
+            category="Model"
+            title="NGen 4 Blaze"
+            deck="A fast reasoning model in the NGen 4 family for responsive assistants and lightweight analysis."
+            image="/model-images/ngen4-blaze.png"
+            imageAlt="NGen 4 Blaze"
+            actions={[
+    { label: 'Try in API Platform', href: 'https://platform.tnsaai.com', external: true },
+    { label: 'NGen 4 System Card', href: '/NGen-4-System-Card.pdf' },
+]}
+            sections={sections}
+        >
+            <div className="space-y-12">
+                <ModelPlatformDetails profile={ngen4BlazePlatformProfile} />
+                <NGen4TeamSection />
             </div>
-
-            <div className="bg-white">
-                <div className="mx-auto max-w-3xl px-6">
-                    <div className="mb-12">
-                        <p className="text-sm text-gray-700 leading-relaxed text-center">
-                            NGen 4 Blaze introduces advanced intelligence mapped for extreme speed and reasoning. Seamlessly pairing analytical depth with instantaneous generation, it paves the way for a revolutionary reasoning workflow.
-                        </p>
-                    </div>
-
-                    <NGen4SystemCard />
-
-                    <div className="flex flex-wrap justify-center gap-4" style={{ marginBottom: '77px' }}>
-                        <Link href="https://platform.tnsaai.com" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-                            {'Try on API Platform ->'}
-                        </Link>
-                        <Link href="/NGen-4-System-Card.pdf" target="_blank" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-                            Read Model Card
-                        </Link>
-                    </div>
-
-                    <NGen4TeamSection />
-                </div>
-            </div>
-        </div>
+        </ModelDetailPage>
     )
 }

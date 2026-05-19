@@ -1,56 +1,56 @@
 'use client'
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { ModelMetaBadge } from '@/components/ui/ModelMetaBadge'
+import { ModelDetailPage } from '@/components/ui/ModelDetailPage'
+import { ModelPlatformDetails } from '@/components/ui/ModelPlatformDetails'
 import { NGen4ModelEvaluations } from '@/components/ui/NGen4ModelEvaluations'
 import { NGen4TeamSection } from '@/components/ui/NGen4TeamSection'
+import { ngen4LitePlatformProfile } from '@/content/modelPlatformProfiles'
+
+const sections = [
+    {
+        title: 'Overview',
+        body: 'NGen 4 Lite is a fast and efficient reasoning model optimized for real-world interactions. It gives teams a lightweight NGen 4 option with reliable response quality and practical production latency.',
+    },
+    {
+        title: 'Context & Specs',
+        specs: [
+            { label: 'Model Priority', value: 'Lightweight reasoning' },
+            { label: 'Mode', value: 'Reasoning-capable Lite tier' },
+            { label: 'Best For', value: 'High-volume assistants, internal tools, quick reasoning tasks, and cost-aware production systems.' },
+            { label: 'System Card', value: 'NGen 4 system card linked above.' },
+        ],
+    },
+    {
+        title: 'Key Capabilities',
+        bullets: [
+            'Fast and reliable reasoning for daily AI workflows.',
+            'Efficient profile for product teams scaling NGen 4 usage.',
+            'Strong instruction following and multilingual coverage for the Lite tier.',
+            'Benchmark coverage across reasoning, long context, coding, agent, and multilingual tasks.',
+        ],
+    },
+]
 
 export default function NGen4LitePage() {
     return (
-        <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
-            <div className="mx-auto max-w-3xl px-6">
-                <div className="text-center">
-                    <ModelMetaBadge label="Model" />
-                    <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>
-                        NGen 4 Lite
-                    </h1>
-                </div>
-
-                <div className="relative mx-auto mb-12 aspect-[1028/560] w-full max-w-[860px]">
-                    <Image
-                        src="/model-images/ngen4-lite.png"
-                        alt="NGen 4 Lite"
-                        fill
-                        priority
-                        unoptimized={true}
-                        className="rounded-[10px] object-cover"
-                    />
-                </div>
+        <ModelDetailPage
+            date="February 2026"
+            category="Model"
+            title="NGen 4 Lite"
+            deck="A fast, efficient NGen 4 reasoning model for real-world product interactions."
+            image="/model-images/ngen4-lite.png"
+            imageAlt="NGen 4 Lite"
+            actions={[
+    { label: 'Try in API Platform', href: 'https://platform.tnsaai.com', external: true },
+    { label: 'NGen 4 System Card', href: '/NGen-4-System-Card.pdf' },
+]}
+            sections={sections}
+        >
+            <div className="space-y-12">
+                <ModelPlatformDetails profile={ngen4LitePlatformProfile} />
+                <NGen4ModelEvaluations model="lite" />
+                <NGen4TeamSection />
             </div>
-
-            <div className="bg-white">
-                <div className="mx-auto max-w-3xl px-6">
-                    <div className="mb-12">
-                        <p className="text-sm text-gray-700 leading-relaxed text-center">
-                            NGen 4 Lite is a fast and efficient reasoning model optimized for real-world interactions. With rapid response times and consistent reliability, it acts as a lightweight cornerstone for modern AI applications.
-                        </p>
-                    </div>
-
-                    <NGen4ModelEvaluations model="lite" />
-
-                    <div className="flex flex-wrap justify-center gap-4" style={{ marginBottom: '77px' }}>
-                        <Link href="https://platform.tnsaai.com" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-                            {'Try on API Platform ->'}
-                        </Link>
-                        <Link href="/NGen-4-System-Card.pdf" target="_blank" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-                            Read Model Card
-                        </Link>
-                    </div>
-
-                    <NGen4TeamSection />
-                </div>
-            </div>
-        </div>
+        </ModelDetailPage>
     )
 }

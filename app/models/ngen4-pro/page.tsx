@@ -1,55 +1,53 @@
 'use client'
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { ModelMetaBadge } from '@/components/ui/ModelMetaBadge'
+import { ModelDetailPage } from '@/components/ui/ModelDetailPage'
 import { NGen4ModelEvaluations } from '@/components/ui/NGen4ModelEvaluations'
 import { NGen4TeamSection } from '@/components/ui/NGen4TeamSection'
 
+const sections = [
+    {
+        title: 'Overview',
+        body: 'NGen 4 Pro is the flagship frontier model in the NGen 4 family. It combines early-fusion multimodal learning, efficient expert routing, and large-scale reinforcement learning to support difficult reasoning, coding, visual analysis, and creative work.',
+    },
+    {
+        title: 'Context & Specs',
+        specs: [
+            { label: 'Release', value: '26 February 2026' },
+            { label: 'Model Priority', value: 'Flagship frontier reasoning' },
+            { label: 'Best For', value: 'Advanced problem solving, agentic software work, document intelligence, and multimodal reasoning.' },
+            { label: 'System Card', value: 'NGen 4 system card linked above.' },
+        ],
+    },
+    {
+        title: 'Key Capabilities',
+        bullets: [
+            'Flagship reasoning and math performance across difficult benchmark sets.',
+            'Advanced coding and agentic task execution for software-heavy workflows.',
+            'High-fidelity visual, document, spatial, and video understanding.',
+            'Designed for frontier use cases where quality is more important than minimum latency.',
+        ],
+    },
+]
+
 export default function NGen4ProPage() {
     return (
-        <div className="min-h-screen bg-white" style={{ paddingTop: '150px' }}>
-            <div className="mx-auto max-w-3xl px-6">
-                <div className="text-center">
-                    <ModelMetaBadge label={'Model \u2022 26 February, 2026'} />
-                    <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '24px' }}>
-                        NGen 4 Pro
-                    </h1>
-                </div>
-
-                <div className="relative mx-auto mb-12 aspect-[1028/500] w-full max-w-[860px]">
-                    <Image
-                        src="/model-images/ngen4-pro.png"
-                        alt="NGen 4 Pro Banner"
-                        fill
-                        priority
-                        className="rounded-[10px] object-cover"
-                    />
-                </div>
-
+        <ModelDetailPage
+            date="26 February 2026"
+            category="Model"
+            title="NGen 4 Pro"
+            deck="The flagship NGen 4 model for frontier reasoning, coding, visual intelligence, and agentic workflows."
+            image="/model-images/ngen4-pro.png"
+            imageAlt="NGen 4 Pro"
+            actions={[
+    { label: 'Try in API Platform', href: 'https://platform.tnsaai.com', external: true },
+    { label: 'NGen 4 System Card', href: '/NGen-4-System-Card.pdf' },
+]}
+            sections={sections}
+        >
+            <div className="space-y-12">
+                <NGen4ModelEvaluations model="pro" />
+                <NGen4TeamSection />
             </div>
-
-            <div className="bg-white pb-32">
-                <div className="mx-auto max-w-[1380px] px-6">
-                    <div className="mx-auto mb-12 max-w-3xl">
-                        <p className="text-base font-light leading-relaxed text-gray-700">
-                            NGen 4 Pro is our flagship frontier model, representing a significant leap forward in super-intelligence. By integrating breakthroughs in early-fusion multimodal learning, Mixture-of-Experts (MoE) efficiency, and massive-scale reinforcement learning, NGen 4 Pro empowers developers and enterprises with unprecedented reasoning, coding, and creative capabilities.
-                        </p>
-                    </div>
-
-                    <NGen4ModelEvaluations model="pro" />
-
-                    <div className="flex justify-center" style={{ marginBottom: '77px' }}>
-                        <Link href="https://platform.tnsaai.com" className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-gray-100">
-                            {'Try on API Platform \u2192'}
-                        </Link>
-                    </div>
-
-                    <div className="mx-auto max-w-5xl">
-                        <NGen4TeamSection />
-                    </div>
-                </div>
-            </div>
-        </div>
+        </ModelDetailPage>
     )
 }

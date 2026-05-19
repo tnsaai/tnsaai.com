@@ -1,62 +1,41 @@
 'use client'
 
-import Link from 'next/link'
-import Image from 'next/image'
+import { ModelDetailPage } from '@/components/ui/ModelDetailPage'
 
-export default function NGen215MPage() {
-  return (
-    <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
-      <div className="mx-auto max-w-3xl px-6">
-        <div className="text-center">
-          <p className="text-sm text-gray-500">January 2025</p>
-          <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '48px' }}>NGen 2 15M</h1>
-        </div>
+const sections = [
+  {
+    "title": "Overview",
+    "body": "NGen 2 15M is a Micro-Scale research model with 15 million parameters, developed for exploring ultra-efficient AI architectures and minimal resource deployment."
+  },
+  {
+    "title": "Key Capabilities",
+    "bullets": [
+      "15 million parameter research model",
+      "Micro-Scale architecture",
+      "Open research model",
+      "Not available for API use"
+    ]
+  }
+]
 
-        <div className="relative w-full max-w-[860px] mx-auto mb-12 aspect-[1028/560]">
-          <Image
-            src="/model-images/ngen2-15m.png"
-            alt="NGen 2 15M"
-            fill
-            priority
-            className="object-cover rounded-[10px]"
-          />
-        </div>
-      </div>
+const snapshots = []
 
-      <div className="bg-white">
-        <div className="mx-auto max-w-3xl px-6">
-          <div className="mb-12">
-            <h2 className="text-xl text-gray-900 mb-4">Overview.</h2>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              NGen 2 15M is a Micro-Scale research model with 15 million parameters, developed for exploring ultra-efficient AI architectures and minimal resource deployment.
-            </p>
-          </div>
-
-          <div className="mb-12">
-            <h2 className="text-xl text-gray-900 mb-4">Key Capabilities.</h2>
-            <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2">
-              <li>15 million parameter research model</li>
-              <li>Micro-Scale architecture</li>
-              <li>Open research model</li>
-              <li>Not available for API use</li>
-            </ul>
-          </div>
-
-          <div className="mb-12">
-            <h2 className="text-xl text-gray-900 mb-4">Availability.</h2>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              Research model - Not available for API use
-            </p>
-          </div>
-
-          <div className="flex justify-center" style={{ marginBottom: '77px' }}>
-            <Link href="/research" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-              View Research →
-            </Link>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  )
+export default function Ngen215mPage() {
+  return ModelDetailPage({
+    date: "January 2025",
+    category: "Model",
+    title: "NGen 2 15M",
+    deck: "NGen 2 15M is a Micro-Scale research model with 15 million parameters, developed for exploring ultra-efficient AI architectures and minimal resource deployment.",
+    image: "/model-images/ngen2-15m.png",
+    imageAlt: "NGen 2 15M",
+    actions: [
+    {
+        "label": "Try in API Platform",
+        "href": "https://platform.tnsaai.com",
+        "external": true
+    }
+],
+    sections,
+    snapshots,
+  })
 }

@@ -1,79 +1,58 @@
 'use client'
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { NGen3SystemCardLink } from '@/components/ui/NGen3SystemCardLink'
-
+import { ModelDetailPage } from '@/components/ui/ModelDetailPage'
 import { BenchmarkTable } from '@/components/ui/BenchmarkTable'
 
-export default function NGen35LiteChatPage() {
-  const benchmarkRows = [
+const benchmarkRows = [
     { category: 'Knowledge', benchmark: 'MMLU-Pro', value: 70.4, competitorValue: 81.2 },
-    { category: 'Knowledge', benchmark: 'MMLU-Redux', value: 83.7, competitorValue: '—' },
+    { category: 'Knowledge', benchmark: 'MMLU-Redux', value: 83.7, competitorValue: '-' },
     { category: 'Reasoning', benchmark: 'GPQA', value: 55.9, competitorValue: 68.4 },
     { category: 'Reasoning', benchmark: 'AIME 25', value: 65.6, competitorValue: 70.9 },
-  ]
+]
 
-  return (
-    <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
-      <div className="mx-auto max-w-3xl px-6">
-        <div className="text-center">
-          <p className="text-sm text-gray-500">November 2025</p>
-          <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '48px' }}>NGen 3.5 Lite</h1>
-        </div>
+const sections = [
+    {
+        title: 'Overview',
+        body: 'NGen 3.5 Lite provides efficient and fast conversational AI capabilities, optimized for applications that need quick response times, low operating cost, and steady everyday reasoning quality.',
+    },
+    {
+        title: 'Context & Specs',
+        specs: [
+            { label: 'Context Length', value: '128,000 tokens' },
+            { label: 'Model Priority', value: 'Low-latency chat' },
+            { label: 'Best For', value: 'Support flows, product assistants, high-volume messaging, and lightweight content tasks.' },
+            { label: 'Pricing', value: 'Rs 0.30 input / Rs 0.45 output per 1K tokens' },
+        ],
+    },
+    {
+        title: 'Key Capabilities',
+        bullets: [
+            'Fast and efficient conversational model for repeated production use.',
+            'Optimized for quick response times across common chat and support workloads.',
+            'Cost-effective profile for high-volume applications.',
+            'Balanced performance across knowledge, reasoning, and instruction-following tasks.',
+        ],
+    },
+]
 
-        <div className="relative w-full max-w-[860px] mx-auto mb-12 aspect-[1028/560]">
-          <Image
-            src="/model-images/ngen3.5-lite.png"
-            alt="NGen 3.5 Lite"
-            fill
-            priority
-            className="object-cover rounded-[10px]"
-          />
-        </div>
-
-        <div className="mb-12 flex justify-center">
-          <NGen3SystemCardLink />
-        </div>
-      </div>
-
-      <div className="bg-white">
-        <div className="mx-auto max-w-3xl px-6">
-          <div className="mb-12">
-            <h2 className="text-xl text-gray-900 mb-4">Overview.</h2>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              NGen 3.5 Lite provides efficient and fast conversational AI capabilities, optimized for applications requiring quick response times and cost-effective deployment while maintaining strong performance.
-            </p>
-          </div>
-
-          <BenchmarkTable rows={benchmarkRows} />
-
-
-          <div className="mb-12">
-            <h2 className="text-xl text-gray-900 mb-4">Key Capabilities.</h2>
-            <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2">
-              <li>Fast and efficient conversational model</li>
-              <li>Optimized for quick response times</li>
-              <li>Cost-effective solution for high-volume applications</li>
-              <li>Balanced performance across common tasks</li>
-            </ul>
-          </div>
-
-          <div className="mb-12">
-            <h2 className="text-xl text-gray-900 mb-4">Pricing.</h2>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              ₹0.30 input / ₹0.45 output per 1K tokens
-            </p>
-          </div>
-
-          <div className="flex justify-center" style={{ marginBottom: '77px' }}>
-            <Link href="https://platform.tnsaai.com" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-              Try on API Platform →
-            </Link>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  )
+export default function NGen35LiteChatPage() {
+    return (
+        <ModelDetailPage
+            date="November 2025"
+            category="Chat Model"
+            title="NGen 3.5 Lite"
+            deck="Efficient conversational intelligence for high-volume product and support workflows."
+            image="/model-images/ngen3.5-lite.png"
+            imageAlt="NGen 3.5 Lite"
+            actions={[
+    { label: 'Try in API Platform', href: 'https://platform.tnsaai.com', external: true },
+    { label: 'NGen 3 System Card', href: '/NGen3%20System%20Card.pdf' },
+]}
+            sections={sections}
+        >
+            <div className="space-y-12">
+                <BenchmarkTable title="Performance Benchmarks" rows={benchmarkRows} />
+            </div>
+        </ModelDetailPage>
+    )
 }

@@ -1,7 +1,5 @@
 'use client'
 
-import React from 'react'
-
 interface BenchmarkRow {
     category: string
     benchmark: string
@@ -15,33 +13,35 @@ interface BenchmarkTableProps {
     rows: BenchmarkRow[]
 }
 
-export function BenchmarkTable({ title = "Benchmark Performance.", rows }: BenchmarkTableProps) {
+export function BenchmarkTable({ title = 'Benchmark Performance', rows }: BenchmarkTableProps) {
     return (
-        <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">{title}</h2>
-            <div className="overflow-x-auto">
-                <table className="w-full text-sm border-collapse text-gray-900">
-                    <thead>
-                        <tr className="border-b border-gray-300">
-                            <th className="text-left py-3 px-2">Category</th>
-                            <th className="text-left py-3 px-2">Benchmark</th>
-                            <th className="text-right py-3 px-2">Score</th>
-                            <th className="text-right py-3 px-2 text-gray-400">Industry Avg.</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rows.map((row, index) => (
-                            <tr key={index} className="border-b border-gray-100 last:border-none">
-                                <td className="py-3 px-2">{row.category}</td>
-                                <td className="py-3 px-2">{row.benchmark}</td>
-                                <td className="text-right py-3 px-2">{row.value}</td>
-                                <td className="text-right py-3 px-2 text-gray-400">
-                                    {row.competitorValue ?? "—"}
-                                </td>
+        <div>
+            <h2 className="mb-5 text-[22px] font-normal leading-tight text-black">{title}</h2>
+            <div className="overflow-hidden rounded-[10px] border border-gray-200 bg-white">
+                <div className="overflow-x-auto">
+                    <table className="w-full min-w-[640px] border-collapse text-left text-[13px] text-gray-700">
+                        <thead className="bg-gray-50 text-[11px] uppercase tracking-[0.18em] text-gray-500">
+                            <tr>
+                                <th className="px-5 py-4 font-medium">Category</th>
+                                <th className="px-5 py-4 font-medium">Benchmark</th>
+                                <th className="px-5 py-4 text-right font-medium text-black">Score</th>
+                                <th className="px-5 py-4 text-right font-medium">Industry Avg.</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {rows.map((row, index) => (
+                                <tr key={`${row.category}-${row.benchmark}-${index}`} className="border-t border-gray-100">
+                                    <td className="px-5 py-4">{row.category}</td>
+                                    <td className="px-5 py-4 text-black">{row.benchmark}</td>
+                                    <td className="px-5 py-4 text-right font-medium text-black">{row.value}</td>
+                                    <td className="px-5 py-4 text-right text-gray-400">
+                                        {row.competitorValue ?? '-'}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     )

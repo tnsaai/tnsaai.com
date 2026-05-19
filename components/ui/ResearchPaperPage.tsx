@@ -48,7 +48,14 @@ type PaperBlock =
   | {
       type: 'code'
       text: string
+      language: CodeLanguage
     }
+  | {
+      type: 'caption'
+      text: string
+    }
+
+type CodeLanguage = 'python' | 'shell' | 'text'
 
 const defaultRelated = [
   {
@@ -196,6 +203,230 @@ const splitWordRepairPairs: Array<[RegExp, string]> = [
   [/\bof\s+fset/gi, 'offset'],
 ]
 
+const joinedWordDictionary = [
+  'superintelligence',
+  'architecture',
+  'architectural',
+  'methodological',
+  'verification',
+  'validation',
+  'vulnerability',
+  'capabilities',
+  'computational',
+  'interpretability',
+  'interpretable',
+  'responsible',
+  'autonomous',
+  'automation',
+  'automated',
+  'adversarial',
+  'alignment',
+  'algorithmic',
+  'algorithms',
+  'attention',
+  'benchmarking',
+  'capability',
+  'consumption',
+  'continuous',
+  'contrastive',
+  'curriculum',
+  'development',
+  'difficulty',
+  'efficient',
+  'efficiency',
+  'essential',
+  'evaluation',
+  'evaluators',
+  'exhaustively',
+  'foundational',
+  'generation',
+  'generalization',
+  'hierarchical',
+  'information',
+  'instrumental',
+  'intelligence',
+  'intervention',
+  'linguistic',
+  'mechanism',
+  'mechanisms',
+  'monitoring',
+  'multimodal',
+  'necessary',
+  'optimization',
+  'overarching',
+  'paradigms',
+  'performance',
+  'predefined',
+  'proactive',
+  'processing',
+  'quantum',
+  'reasoning',
+  'regulation',
+  'reliability',
+  'representation',
+  'robustness',
+  'security',
+  'semantic',
+  'stability',
+  'technical',
+  'techniques',
+  'throughput',
+  'training',
+  'transition',
+  'transparency',
+  'understanding',
+  'accuracy',
+  'achieving',
+  'against',
+  'analysis',
+  'analyzing',
+  'another',
+  'anticipating',
+  'applied',
+  'applications',
+  'approximates',
+  'auditing',
+  'behavior',
+  'between',
+  'building',
+  'changes',
+  'checks',
+  'claims',
+  'clinical',
+  'code',
+  'complex',
+  'computer',
+  'conscious',
+  'control',
+  'critical',
+  'data',
+  'deceptive',
+  'diagnosis',
+  'directly',
+  'detection',
+  'developers',
+  'domains',
+  'dynamic',
+  'early',
+  'energy',
+  'ensure',
+  'ensuring',
+  'errors',
+  'evolution',
+  'external',
+  'frameworks',
+  'future',
+  'generated',
+  'guidelines',
+  'handling',
+  'hardware',
+  'human',
+  'immediate',
+  'impacts',
+  'include',
+  'includemodel',
+  'incorporating',
+  'inference',
+  'internal',
+  'language',
+  'large',
+  'latent',
+  'learning',
+  'lineage',
+  'major',
+  'massive',
+  'medical',
+  'minimal',
+  'misuse',
+  'models',
+  'modern',
+  'norms',
+  'oversight',
+  'paramount',
+  'plans',
+  'prevent',
+  'preventing',
+  'provides',
+  'purpose',
+  'rapid',
+  'recovering',
+  'refactors',
+  'research',
+  'resilient',
+  'reward',
+  'risk',
+  'safety',
+  'scaling',
+  'scarce',
+  'self',
+  'shaping',
+  'shift',
+  'software',
+  'stronger',
+  'system',
+  'systems',
+  'tasks',
+  'tests',
+  'these',
+  'track',
+  'usage',
+  'user',
+  'values',
+  'water',
+  'where',
+  'which',
+  'while',
+  'with',
+  'without',
+  'and',
+  'are',
+  'as',
+  'at',
+  'by',
+  'for',
+  'from',
+  'in',
+  'into',
+  'is',
+  'of',
+  'or',
+  'that',
+  'the',
+  'to',
+].sort((a, b) => b.length - a.length)
+
+function segmentJoinedLowercaseWord(token: string) {
+  if (token.length < 24 || !/^[a-z]+$/.test(token)) {
+    return token
+  }
+
+  const best: string[][] = Array.from({ length: token.length + 1 }, () => [])
+  const reachable = Array.from({ length: token.length + 1 }, () => false)
+  reachable[0] = true
+
+  for (let index = 0; index < token.length; index += 1) {
+    if (!reachable[index]) {
+      continue
+    }
+
+    joinedWordDictionary.forEach((word) => {
+      if (!token.startsWith(word, index)) {
+        return
+      }
+
+      const nextIndex = index + word.length
+      const candidate = [...best[index], word]
+
+      if (!reachable[nextIndex] || candidate.length < best[nextIndex].length) {
+        reachable[nextIndex] = true
+        best[nextIndex] = candidate
+      }
+    })
+  }
+
+  return reachable[token.length] && best[token.length].length > 1 ? best[token.length].join(' ') : token
+}
+
 function applyManualTextRepairs(text: string) {
   let repaired = text
 
@@ -209,6 +440,10 @@ function applyManualTextRepairs(text: string) {
 
   return repaired
     .replace(/([a-z])-\s+([a-z])/g, '$1$2')
+    .replace(/\b[a-z]{24,}\b/g, segmentJoinedLowercaseWord)
+    .replace(/\bLLM\s+s\b/g, 'LLMs')
+    .replace(/\bGPU\s+s\b/g, 'GPUs')
+    .replace(/\bQLM\s+s\b/g, 'QLMs')
     .replace(/:([A-Z])/g, ': $1')
     .replace(/([.!?])([A-Z])/g, '$1 $2')
     .replace(/\b(LLMs|LLM|GPUs|GPU|QLMs|QLM|AI|CPU|KV|QA|VRAM|RSI)([a-z])/g, '$1 $2')
@@ -346,8 +581,106 @@ function cleanCodeLine(line: string) {
     .trimEnd()
 }
 
+function detectCodeLanguage(code: string): CodeLanguage {
+  if (/^(virtualenv|source|export|pip|mkdir|python|bash|gsutil|tensorboard|\* hard nofile|\* soft nofile|root hard nofile|root soft nofile)\b/im.test(code)) {
+    return 'shell'
+  }
+
+  if (/\b(from|import|def|class|return|if|elif|else|for|while|try|except|with|print|torch|numpy|np\.|qiskit|QuantumCircuit|StatePreparation|load_file|save_file)\b/.test(code)) {
+    return 'python'
+  }
+
+  return 'text'
+}
+
+const codeLanguageLabels: Record<CodeLanguage, string> = {
+  python: 'Python',
+  shell: 'Shell',
+  text: 'Code',
+}
+
+function codeTokenClass(token: string, language: CodeLanguage) {
+  if (/^#/.test(token)) {
+    return 'text-emerald-700'
+  }
+
+  if (/^(['"]).*\1$/.test(token)) {
+    return 'text-amber-700'
+  }
+
+  if (/^\d+(\.\d+)?$/.test(token)) {
+    return 'text-violet-700'
+  }
+
+  if (language === 'shell' && /^--?[A-Za-z0-9_-]+$/.test(token)) {
+    return 'text-slate-500'
+  }
+
+  if (
+    (language === 'python' && /^(from|import|as|def|class|return|if|elif|else|for|in|while|try|except|with|None|True|False|lambda)$/.test(token)) ||
+    (language === 'shell' && /^(virtualenv|source|export|pip|mkdir|python|bash|gsutil|tensorboard|root)$/.test(token))
+  ) {
+    return 'text-blue-700'
+  }
+
+  if (/^(torch|numpy|np|qiskit|QuantumCircuit|StatePreparation|load_file|save_file|community_louvain)$/.test(token)) {
+    return 'text-fuchsia-700'
+  }
+
+  if (/^[=()[\]{}.,:+\-*/<>|&]+$/.test(token)) {
+    return 'text-gray-400'
+  }
+
+  return 'text-gray-800'
+}
+
+function renderHighlightedCodeLine(line: string, language: CodeLanguage) {
+  const tokenPattern =
+    language === 'shell'
+      ? /(#.*$|".*?"|'.*?'|\b(?:virtualenv|source|export|pip|mkdir|python|bash|gsutil|tensorboard|root|hard|soft|nofile)\b|--?[A-Za-z0-9_-]+|\d+(?:\.\d+)?|[=()[\]{}.,:+\-*/<>|&])/g
+      : /(#.*$|".*?"|'.*?'|\b(?:from|import|as|def|class|return|if|elif|else|for|in|while|try|except|with|None|True|False|lambda|print|torch|numpy|np|qiskit|QuantumCircuit|StatePreparation|load_file|save_file|community_louvain)\b|\d+(?:\.\d+)?|[=()[\]{}.,:+\-*/<>|&])/g
+  const parts = line.split(tokenPattern).filter((part) => part.length > 0)
+
+  return parts.map((part, index) => (
+    <span key={`${part}-${index}`} className={codeTokenClass(part, language)}>
+      {part}
+    </span>
+  ))
+}
+
+function CodeBlock({ text, language }: { text: string; language: CodeLanguage }) {
+  return (
+    <div className="overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
+      <div className="flex h-9 items-center justify-between border-b border-gray-200 bg-white px-4">
+        <span className="text-[11px] font-normal uppercase tracking-normal text-gray-500">{codeLanguageLabels[language]}</span>
+      </div>
+      <pre className="overflow-x-auto whitespace-pre p-5 font-mono text-[12px] leading-6 tracking-normal">
+        <code>
+          {text.split('\n').map((line, index) => (
+            <span key={index} className="block min-h-6">
+              {renderHighlightedCodeLine(line, language)}
+            </span>
+          ))}
+        </code>
+      </pre>
+    </div>
+  )
+}
+
 function looksLikeTableOfContentsLine(line: string) {
   return /^\d+(\.\d+)*\s+.+\s\d+$/.test(line)
+}
+
+function looksLikeHeadingContinuation(line: string) {
+  if (line.length > 84 || isLikelyCodeLine(line) || isListItem(line) || isHeading(line)) {
+    return false
+  }
+
+  if (/^(for|in|and|of|with)\s+[A-Z0-9][A-Za-z0-9-]*(?:\s+[A-Z0-9][A-Za-z0-9-]*){0,6}$/i.test(line)) {
+    return true
+  }
+
+  return /^[A-Z][A-Za-z0-9-]*(?:\s+[A-Z][A-Za-z0-9-]*){0,6}$/.test(line)
 }
 
 function parsePaperContent(pages: readonly string[]) {
@@ -376,7 +709,8 @@ function parsePaperContent(pages: readonly string[]) {
       return
     }
 
-    blocks.push({ type: 'code', text: codeLines.join('\n').trim() })
+    const text = codeLines.join('\n').trim()
+    blocks.push({ type: 'code', text, language: detectCodeLanguage(text) })
     codeLines = []
   }
 
@@ -430,6 +764,11 @@ function parsePaperContent(pages: readonly string[]) {
         return
       }
 
+      if (looksLikeHeadingContinuation(line)) {
+        pendingHeading.text = `${pendingHeading.text} ${line}`
+        return
+      }
+
       flushHeading()
     }
 
@@ -446,6 +785,14 @@ function parsePaperContent(pages: readonly string[]) {
         return
       }
       skippingContents = false
+    }
+
+    if (/^(Listing|Table|Figure)\s+\d+:/i.test(line)) {
+      flushParagraph()
+      flushList()
+      flushCode()
+      blocks.push({ type: 'caption', text: applyManualTextRepairs(line) })
+      return
     }
 
     if (isLikelyCodeLine(line)) {
@@ -465,13 +812,7 @@ function parsePaperContent(pages: readonly string[]) {
       flushList()
       flushCode()
       const text = applyManualTextRepairs(line)
-
-      if (/-$/.test(text)) {
-        pendingHeading = { level: headingLevel(line), text }
-        return
-      }
-
-      blocks.push({ type: 'heading', level: headingLevel(line), text })
+      pendingHeading = { level: headingLevel(line), text }
       return
     }
 
@@ -510,7 +851,7 @@ function PaperBody({ pages }: { pages: readonly string[] }) {
           <h2 className="text-[22px] font-normal leading-tight text-black">Paper content</h2>
         </div>
         <p className="text-[13px] leading-6 text-gray-500">
-          Extracted from the source PDF and organized into continuous sections for reading on the web.
+          Formatted from the source paper with structured headings, lists, captions, and highlighted code.
         </p>
       </div>
 
@@ -538,12 +879,16 @@ function PaperBody({ pages }: { pages: readonly string[] }) {
             )
           }
 
-          if (block.type === 'code') {
+          if (block.type === 'caption') {
             return (
-              <pre key={index} className="overflow-x-auto whitespace-pre rounded-lg border border-gray-200 bg-gray-50 p-5 font-mono text-[12px] leading-6 tracking-normal text-gray-800">
-                <code>{block.text}</code>
-              </pre>
+              <p key={index} className="pt-2 text-[12px] font-normal uppercase tracking-normal text-gray-500">
+                {block.text}
+              </p>
             )
+          }
+
+          if (block.type === 'code') {
+            return <CodeBlock key={index} text={block.text} language={block.language} />
           }
 
           return (

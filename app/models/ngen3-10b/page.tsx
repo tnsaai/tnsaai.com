@@ -1,67 +1,49 @@
 'use client'
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { NGen3SystemCardLink } from '@/components/ui/NGen3SystemCardLink'
+import { ModelDetailPage } from '@/components/ui/ModelDetailPage'
 
-export default function NGen310BPage() {
-  return (
-    <div className="bg-white min-h-screen" style={{ paddingTop: '150px' }}>
-      <div className="mx-auto max-w-3xl px-6">
-        <div className="text-center">
-          <p className="text-sm text-gray-500">January 2025</p>
-          <h1 className="text-3xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '48px' }}>NGen 3 10B</h1>
-        </div>
+const sections = [
+  {
+    "title": "Overview",
+    "body": "NGen 3 10B is a frontier model with 10 billion parameters, delivering powerful AI capabilities for complex tasks and advanced applications."
+  },
+  {
+    "title": "Key Capabilities",
+    "bullets": [
+      "10 billion parameter frontier model",
+      "Advanced reasoning and problem-solving",
+      "High-performance language understanding",
+      "Suitable for complex AI applications"
+    ]
+  },
+  {
+    "title": "Pricing",
+    "body": "$0.80 per 1K tokens"
+  }
+]
 
-        <div className="relative w-full max-w-[860px] mx-auto mb-12 aspect-[1028/560]">
-          <Image
-            src="/model-images/ngen3-10b.png"
-            alt="NGen 3 10B"
-            fill
-            priority
-            className="object-cover rounded-[10px]"
-          />
-        </div>
+const snapshots = []
 
-        <div className="mb-12 flex justify-center">
-          <NGen3SystemCardLink />
-        </div>
-      </div>
-
-      <div className="bg-white">
-        <div className="mx-auto max-w-3xl px-6">
-          <div className="mb-12">
-            <h2 className="text-xl text-gray-900 mb-4">Overview.</h2>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              NGen 3 10B is a frontier model with 10 billion parameters, delivering powerful AI capabilities for complex tasks and advanced applications.
-            </p>
-          </div>
-
-          <div className="mb-12">
-            <h2 className="text-xl text-gray-900 mb-4">Key Capabilities.</h2>
-            <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2">
-              <li>10 billion parameter frontier model</li>
-              <li>Advanced reasoning and problem-solving</li>
-              <li>High-performance language understanding</li>
-              <li>Suitable for complex AI applications</li>
-            </ul>
-          </div>
-
-          <div className="mb-12">
-            <h2 className="text-xl text-gray-900 mb-4">Pricing.</h2>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              $0.80 per 1K tokens
-            </p>
-          </div>
-
-          <div className="flex justify-center" style={{ marginBottom: '77px' }}>
-            <Link href="https://platform.tnsaai.com" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-              Try on API Platform →
-            </Link>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  )
+export default function Ngen310bPage() {
+  return ModelDetailPage({
+    date: "January 2025",
+    category: "Model",
+    title: "NGen 3 10B",
+    deck: "NGen 3 10B is a frontier model with 10 billion parameters, delivering powerful AI capabilities for complex tasks and advanced applications.",
+    image: "/model-images/ngen3-10b.png",
+    imageAlt: "NGen 3 10B",
+    actions: [
+    {
+        "label": "Try in API Platform",
+        "href": "https://platform.tnsaai.com",
+        "external": true
+    },
+    {
+        "label": "NGen 3 System Card",
+        "href": "/NGen3%20System%20Card.pdf"
+    }
+],
+    sections,
+    snapshots,
+  })
 }

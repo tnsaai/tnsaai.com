@@ -1,72 +1,67 @@
-'use client'
+import { NewsArticlePage } from '@/components/ui/NewsArticlePage'
 
-import Link from 'next/link'
-import Image from 'next/image'
-
-export default function PaperPage() {
+export default function TNSAPartnershipNewsPost() {
   return (
-    <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-      <div className="mx-auto max-w-4xl px-6">
-        <div className="text-center">
-          <p className="text-sm text-gray-500">10 January, 2025</p>
-          <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>TNSA X Microsoft for Startups & Google TPU Research Cloud</h1>
-        </div>
-
-        <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
-          <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-steve-1509534.jpg"
-            alt="TNSA Partnerships"
-            fill
-            priority
-            className="object-cover rounded-[40px]"
-          />
-        </div>
-      </div>
-
-      <div className="bg-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Partnership Announcement.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              TNSA is excited to announce our collaboration with Microsoft for Startups and our acceptance into the Google TPU Research Cloud program. These partnerships mark a significant milestone in our mission to advance AI research and development.
-            </p>
-          </div>
-
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Microsoft for Startups.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
-              <li>Access to Azure cloud infrastructure and services</li>
-              <li>Technical support and mentorship from Microsoft experts</li>
-              <li>Collaboration opportunities with the Microsoft ecosystem</li>
-              <li>Resources to scale AI development and deployment</li>
-            </ul>
-          </div>
-
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Google TPU Research Cloud.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
-              <li>Access to cutting-edge TPU hardware for AI research</li>
-              <li>Accelerated model training and experimentation</li>
-              <li>Support for large-scale AI research projects</li>
-              <li>Collaboration with the global AI research community</li>
-            </ul>
-          </div>
-
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Impact on TNSA.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              These partnerships will significantly accelerate our AI research capabilities, enabling us to develop more powerful models, conduct cutting-edge research, and deliver better AI solutions to our users and partners worldwide.
-            </p>
-          </div>
-
-          <div className="flex justify-center" style={{ marginBottom: '77px' }}>
-            <Link href="/company/news" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-              View All News →
-            </Link>
-          </div>
-
-        </div>
-      </div>
-    </div>
+    <NewsArticlePage
+      date="January 10, 2025"
+      category="Company"
+      title="TNSA X Microsoft for Startups & Google TPU Research Cloud"
+      deck="TNSA joins major startup and research infrastructure programs to accelerate model training, experimentation, and product delivery."
+      image="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-steve-1509534.jpg"
+      imageAlt="TNSA Partnerships"
+      readTime="3 min read"
+      author="TNSA"
+      sections={[
+        {
+          title: 'Partnership announcement',
+          content: [
+            'TNSA joined Microsoft for Startups and Google TPU Research Cloud to accelerate AI research, model training, and infrastructure development.',
+            'These programs give the team access to cloud support, compute resources, technical guidance, and a stronger foundation for scaling model experiments.',
+          ],
+        },
+        {
+          title: 'Microsoft for Startups',
+          content: 'The Microsoft for Startups program helps young companies build and scale products with cloud infrastructure, technical resources, and ecosystem support.',
+          bullets: [
+            'Access to Azure cloud infrastructure and services.',
+            'Technical support and mentorship from Microsoft experts.',
+            'Collaboration opportunities across the Microsoft ecosystem.',
+            'A path to enterprise-ready deployment patterns as products mature.',
+          ],
+        },
+        {
+          title: 'Google TPU Research Cloud',
+          content: 'The Google TPU Research Cloud program supports AI research teams with access to TPU resources for large-scale experimentation.',
+          bullets: [
+            'Access to TPU hardware for AI research.',
+            'Support for large-scale training and experimentation.',
+            'Participation in a global AI research infrastructure program.',
+            'More room to test architecture ideas, scaling behavior, and evaluation runs.',
+          ],
+        },
+        {
+          title: 'Impact on TNSA',
+          content: [
+            'These partnerships help TNSA train stronger models, conduct deeper experiments, and deliver better AI systems to users and partners.',
+            'The most immediate impact is speed: more experiments can run in parallel, failures can be studied earlier, and promising systems can move toward product readiness faster.',
+          ],
+        },
+        {
+          title: 'What this enables',
+          content: 'Infrastructure access matters because frontier AI work depends on repeated testing. More compute does not automatically create better models, but it gives researchers the ability to compare ideas with more evidence.',
+          bullets: [
+            'Larger training and evaluation jobs.',
+            'More frequent ablation studies.',
+            'Better infrastructure for model serving and developer products.',
+            'Stronger foundations for future NGen releases.',
+          ],
+        },
+        {
+          title: 'Looking ahead',
+          content: 'TNSA will continue using partnerships like these to connect research velocity with product reliability, especially for models and tools designed around Indian language and enterprise use cases.',
+        },
+      ]}
+      cta={{ label: 'View All News', href: '/company/news' }}
+    />
   )
 }

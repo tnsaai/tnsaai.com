@@ -1,85 +1,76 @@
-'use client'
+import { NewsArticlePage } from '@/components/ui/NewsArticlePage'
 
-import Link from 'next/link'
-import Image from 'next/image'
-
-export default function PaperPage() {
+export default function GovernmentServicesNewsPost() {
   return (
-    <div className="bg-white min-h-screen" style={{ paddingTop: '186px' }}>
-      <div className="mx-auto max-w-4xl px-6">
-        <div className="text-center">
-          <p className="text-sm text-gray-500">15 January, 2025</p>
-          <h1 className="text-4xl font-normal text-black" style={{ marginTop: '0px', marginBottom: '72px' }}>Transforming Government Services with Large Language Models</h1>
-        </div>
-
-        <div className="relative w-full max-w-[1028px] mx-auto mb-16 aspect-[1028/560]">
-          <Image
-            src="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-artempodrez-7233314.jpg"
-            alt="Research for India"
-            fill
-            priority
-            className="object-cover rounded-[40px]"
-          />
-        </div>
-      </div>
-
-      <div className="bg-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Abstract.</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              This research explores the transformative potential of Large Language Models (LLMs) in revolutionizing government services across India. We examine how AI-powered systems can enhance citizen engagement, streamline administrative processes, and improve service delivery at scale. The paper presents a comprehensive framework for implementing LLM-based solutions in government sectors, addressing challenges of multilingual support, data privacy, and accessibility while ensuring inclusive digital governance for all citizens.
-            </p>
-          </div>
-
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Core Innovations.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
-              <li>Multilingual AI Systems: Supporting 22+ Indian languages for inclusive citizen services</li>
-              <li>Automated Query Resolution: Intelligent systems handling citizen queries 24/7 with contextual understanding</li>
-              <li>Document Processing: AI-powered analysis and processing of government documents and applications</li>
-              <li>Privacy-Preserving AI: Secure implementation ensuring citizen data protection and compliance</li>
-            </ul>
-          </div>
-
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Impact Areas.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
-              <li>Citizen Services: Enhanced accessibility and responsiveness of government services</li>
-              <li>Administrative Efficiency: Streamlined processes reducing bureaucratic delays</li>
-              <li>Rural Connectivity: Bridging the digital divide with AI-powered assistance</li>
-              <li>Transparency: Improved information access and government accountability</li>
-            </ul>
-          </div>
-
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Applications Across Sectors.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
-              <li>Healthcare: AI-assisted medical information and appointment systems</li>
-              <li>Education: Personalized learning support and administrative automation</li>
-              <li>Agriculture: Real-time advisory services for farmers in local languages</li>
-              <li>Public Safety: Intelligent emergency response and citizen alert systems</li>
-            </ul>
-          </div>
-
-          <div className="mb-16">
-            <h2 className="text-2xl text-gray-900 mb-4">Future Vision.</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 leading-relaxed space-y-2">
-              <li>Building AI infrastructure for nationwide government service transformation</li>
-              <li>Developing India-specific models trained on local context and requirements</li>
-              <li>Creating frameworks for ethical AI deployment in public sector</li>
-              <li>Fostering digital literacy and AI adoption across all demographics</li>
-            </ul>
-          </div>
-
-          <div className="flex justify-center" style={{ marginBottom: '77px' }}>
-            <Link href="/research" className="px-6 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-              View All Research →
-            </Link>
-          </div>
-
-        </div>
-      </div>
-    </div>
+    <NewsArticlePage
+      date="January 15, 2025"
+      category="Company"
+      title="Transforming Government Services with Large Language Models"
+      deck="Large language models can help public institutions make information easier to access, services easier to navigate, and administration more responsive across languages."
+      image="https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/pexels-artempodrez-7233314.jpg"
+      imageAlt="Government services with AI"
+      readTime="5 min read"
+      author="TNSA Policy and Research Team"
+      sections={[
+        {
+          title: 'Why public services matter',
+          content: [
+            'Large language models can improve government services by helping citizens access information, streamlining administrative processes, and supporting multilingual public service delivery.',
+            'The biggest opportunity is not replacing institutions. It is reducing friction in everyday interactions: finding the right form, understanding eligibility, translating complex notices, and getting timely guidance.',
+          ],
+        },
+        {
+          title: 'Core innovations',
+          content: 'A public-sector AI system needs more than a general chatbot. It needs grounded information, local language support, auditability, privacy controls, and careful escalation paths.',
+          bullets: [
+            'Multilingual AI systems supporting Indian languages.',
+            'Automated query resolution for citizen services.',
+            'Document processing for applications and public records.',
+            'Privacy-preserving AI for secure public-sector deployment.',
+            'Retrieval systems that cite official sources instead of relying on unsupported model memory.',
+          ],
+        },
+        {
+          title: 'Impact areas',
+          content: 'When designed carefully, AI can make services more accessible for people who face language, geography, literacy, or process barriers.',
+          bullets: [
+            'Citizen services with better accessibility and responsiveness.',
+            'Administrative efficiency through reduced processing delays.',
+            'Rural connectivity through local-language AI assistance.',
+            'Transparency through improved information access.',
+            'Better routing between online help, call centers, and in-person offices.',
+          ],
+        },
+        {
+          title: 'Applications across sectors',
+          content: 'The same foundation can support many departments, but each sector needs its own data boundaries, approvals, escalation rules, and evaluation suite.',
+          bullets: [
+            'Healthcare information and appointment support.',
+            'Education assistance and administrative automation.',
+            'Agriculture advisory services for farmers.',
+            'Public safety alerts and emergency response support.',
+            'Local-language help for schemes, forms, and official notices.',
+          ],
+        },
+        {
+          title: 'Deployment principles',
+          content: 'AI in public services should be built around accountability from the beginning. The system should know when to answer, when to cite, when to ask for more information, and when to send the user to a human official.',
+          bullets: [
+            'Use official, versioned sources for policy and eligibility answers.',
+            'Make uncertainty visible when information is incomplete or changing.',
+            'Protect personal data and minimize what the model sees.',
+            'Audit outcomes across languages, regions, and user groups.',
+          ],
+        },
+        {
+          title: 'Future vision',
+          content: [
+            'The long-term goal is India-specific AI infrastructure that can support public services while respecting privacy, accessibility, and local context.',
+            'Done well, these systems can help people move through complex services with more confidence while giving institutions better tools for scale, consistency, and responsiveness.',
+          ],
+        },
+      ]}
+      cta={{ label: 'View Research', href: '/research' }}
+    />
   )
 }
