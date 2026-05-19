@@ -2,9 +2,9 @@
 
 import { ModelDetailPage } from '@/components/ui/ModelDetailPage'
 
-const sections = []
+const sections: never[] = []
 
-const snapshots = []
+const snapshots: never[] = []
 
 export default function Ngen3MaxPage() {
   return ModelDetailPage({

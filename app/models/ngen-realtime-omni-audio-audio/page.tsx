@@ -26,7 +26,7 @@ const sections = [
   }
 ]
 
-const snapshots = []
+const snapshots: never[] = []
 
 export default function NgenRealtimeOmniAudioAudioPage() {
   return ModelDetailPage({

@@ -18,7 +18,7 @@ const sections = [
   }
 ]
 
-const snapshots = []
+const snapshots: never[] = []
 
 export default function Ngen2170mPage() {
   return ModelDetailPage({

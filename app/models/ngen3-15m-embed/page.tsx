@@ -22,7 +22,7 @@ const sections = [
   }
 ]
 
-const snapshots = []
+const snapshots: never[] = []
 
 export default function Ngen315mEmbedPage() {
   return ModelDetailPage({

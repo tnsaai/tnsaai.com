@@ -22,7 +22,7 @@ const sections = [
   }
 ]
 
-const snapshots = []
+const snapshots: never[] = []
 
 export default function Ngen37b0625ChatPage() {
   return ModelDetailPage({
