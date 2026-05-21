@@ -3,7 +3,7 @@
 import { Bar } from 'recharts'
 import { BenchmarkBase } from './BenchmarkChart'
 
-type SupportedModel = 'pro' | 'mini' | 'lite' | 'ngen4'
+type SupportedModel = 'pro' | 'mini' | 'lite' | 'ngen4' | 'ngen41lite' | 'ngen41mini'
 
 type BenchmarkPoint = {
     name: string
@@ -959,6 +959,107 @@ const ngen4VisionData: BenchmarkPoint[] = [
     },
 ]
 
+// NGen-4.1 Lite Preview data (from benchmark image)
+const ngen41LiteKnowledgeData: BenchmarkPoint[] = [
+    { name: 'MMLU-Pro', ngen41lite: 88.2, gptoss120b: 80.8, claude45haiku: 78.5, gpt5_nano: 77.2, gemini3_flash_lite: 79.8 },
+    { name: 'MMLU-Redux', ngen41lite: 94.7, gptoss120b: 91.0, claude45haiku: 89.5, gpt5_nano: 88.9, gemini3_flash_lite: 90.2 },
+    { name: 'C-Eval', ngen41lite: 92.3, gptoss120b: 76.2, claude45haiku: 83.0, gpt5_nano: 82.4, gemini3_flash_lite: 84.5 },
+]
+
+const ngen41LiteCapabilityData: BenchmarkPoint[] = [
+    { name: 'GPQA Diamond', ngen41lite: 84.5, gptoss120b: 80.1, claude45haiku: 75.8, gpt5_nano: 74.6, gemini3_flash_lite: 77.0 },
+    { name: 'IFEval', ngen41lite: 94.1, gptoss120b: 88.9, claude45haiku: 90.5, gpt5_nano: 89.9, gemini3_flash_lite: 91.0 },
+    { name: 'MultiChallenge', ngen41lite: 55.2, gptoss120b: 45.3, claude45haiku: 50.2, gpt5_nano: 48.8, gemini3_flash_lite: 51.0 },
+]
+
+// NGen-4.1 Mini data
+const ngen41MiniKnowledgeData: BenchmarkPoint[] = [
+    { name: 'MMLU-Pro', ngen41mini: 88.4, gpt55: 92.1, claude_opus_47: 91.3, gemini31_pro: 90.2 },
+    { name: 'MMLU-Redux', ngen41mini: 96.0, gpt55: 97.5, claude_opus_47: 96.8, gemini31_pro: 95.4 },
+    { name: 'C-Eval', ngen41mini: 93.8, gpt55: 95.0, claude_opus_47: 93.4, gemini31_pro: 94.8 },
+    { name: 'SuperGPQA', ngen41mini: 64.5, gpt55: 72.4, claude_opus_47: 70.6, gemini31_pro: 67.2 },
+    { name: 'GPQA Diamond', ngen41mini: 87.2, gpt55: 93.6, claude_opus_47: 94.2, gemini31_pro: 94.3 },
+]
+
+const ngen41MiniInstructionData: BenchmarkPoint[] = [
+    { name: 'IFEval', ngen41mini: 95.0, gpt55: 92.4, claude_opus_47: 91.8, gemini31_pro: 90.6 },
+    { name: 'IFBench', ngen41mini: 71.0, gpt55: 79.8, claude_opus_47: 76.3, gemini31_pro: 72.0 },
+    { name: 'MultiChallenge', ngen41mini: 60.8, gpt55: 70.5, claude_opus_47: 68.2, gemini31_pro: 64.7 },
+    { name: 'MAXIFE', ngen41mini: 89.1, gpt55: 94.3, claude_opus_47: 92.2, gemini31_pro: 90.1 },
+]
+
+const ngen41MiniMathData: BenchmarkPoint[] = [
+    { name: 'HMMT Feb 25', ngen41mini: 89.4, gpt55: 95.2, claude_opus_47: 91.1, gemini31_pro: 88.0 },
+    { name: 'HMMT Nov 25', ngen41mini: 88.8, gpt55: 94.4, claude_opus_47: 90.7, gemini31_pro: 87.2 },
+    { name: 'FrontierMath T1-3', ngen41mini: 41.2, gpt55: 51.7, claude_opus_47: 43.8, gemini31_pro: 36.9 },
+    { name: 'FrontierMath T4', ngen41mini: 22.5, gpt55: 35.4, claude_opus_47: 22.9, gemini31_pro: 16.7 },
+    { name: "HLE (tools)", ngen41mini: 43.0, gpt55: 52.2, claude_opus_47: 54.7, gemini31_pro: 51.4 },
+    { name: 'ARC-AGI-1', ngen41mini: 89.1, gpt55: 95.0, claude_opus_47: 93.5, gemini31_pro: 98.0 },
+    { name: 'ARC-AGI-2', ngen41mini: 69.5, gpt55: 85.0, claude_opus_47: 75.8, gemini31_pro: 77.1 },
+]
+
+const ngen41MiniCodingData: BenchmarkPoint[] = [
+    { name: 'LiveCodeBench v6', ngen41mini: 72.5, gpt55: 85.5, claude_opus_47: 78.4, gemini31_pro: 74.8 },
+    { name: 'OJBench', ngen41mini: 35.4, gpt55: 49.2, claude_opus_47: 43.1, gemini31_pro: 37.0 },
+    { name: 'SWE-Bench Pro', ngen41mini: 48.5, gpt55: 58.6, claude_opus_47: 64.3, gemini31_pro: 54.2 },
+    { name: 'Terminal-Bench 2.0', ngen41mini: 74.2, gpt55: 82.7, claude_opus_47: 69.4, gemini31_pro: 68.5 },
+    { name: 'Expert-SWE', ngen41mini: 60.1, gpt55: 73.1, claude_opus_47: 69.0, gemini31_pro: 61.4 },
+]
+
+const ngen41MiniAgentData: BenchmarkPoint[] = [
+    { name: 'BFCL-V4', ngen41mini: 72.0, gpt55: 82.0, claude_opus_47: 79.0, gemini31_pro: 74.0 },
+    { name: 'TAU2-Bench', ngen41mini: 84.6, gpt55: 98.0, claude_opus_47: 88.2, gemini31_pro: 84.0 },
+    { name: 'VITA-Bench', ngen41mini: 36.0, gpt55: 51.0, claude_opus_47: 46.2, gemini31_pro: 39.5 },
+    { name: 'DeepPlanning', ngen41mini: 24.2, gpt55: 46.5, claude_opus_47: 40.4, gemini31_pro: 31.2 },
+]
+
+const ngen41MiniMultilingualData: BenchmarkPoint[] = [
+    { name: 'MMMLU', ngen41mini: 87.0, gpt55: 91.8, claude_opus_47: 90.1, gemini31_pro: 89.7 },
+    { name: 'MMLU-ProX', ngen41mini: 82.1, gpt55: 88.0, claude_opus_47: 86.4, gemini31_pro: 84.2 },
+    { name: 'NOVA-63', ngen41mini: 61.4, gpt55: 68.8, claude_opus_47: 66.9, gemini31_pro: 64.1 },
+    { name: 'INCLUDE', ngen41mini: 81.7, gpt55: 88.4, claude_opus_47: 85.0, gemini31_pro: 83.6 },
+    { name: 'Global PIQA', ngen41mini: 88.6, gpt55: 92.2, claude_opus_47: 91.5, gemini31_pro: 89.7 },
+    { name: 'PolyMATH', ngen41mini: 63.9, gpt55: 77.0, claude_opus_47: 71.3, gemini31_pro: 66.4 },
+    { name: 'WMT24++', ngen41mini: 78.5, gpt55: 86.2, claude_opus_47: 82.1, gemini31_pro: 80.0 },
+]
+
+const ngen41MiniVisionData: BenchmarkPoint[] = [
+    { name: 'MMMU', ngen41mini: 84.0, gpt55: 75.8, claude_opus_47: 78.0, gemini31_pro: 73.4 },
+    { name: 'MMMU-Pro', ngen41mini: 76.5, gpt55: 81.2, claude_opus_47: 79.0, gemini31_pro: 80.5 },
+    { name: 'MathVision', ngen41mini: 84.8, gpt55: 62.2, claude_opus_47: 70.1, gemini31_pro: 52.1 },
+    { name: 'MathVista mini', ngen41mini: 91.2, gpt55: 71.5, claude_opus_47: 76.0, gemini31_pro: 72.8 },
+    { name: 'DynaMath', ngen41mini: 89.0, gpt55: 78.0, claude_opus_47: 80.0, gemini31_pro: 69.9 },
+    { name: 'RealWorldQA', ngen41mini: 86.0, gpt55: 71.8, claude_opus_47: 74.2, gemini31_pro: 72.2 },
+    { name: 'MMBenchEN', ngen41mini: 95.0, gpt55: 80.3, claude_opus_47: 84.1, gemini31_pro: 82.7 },
+    { name: 'HallusionBench', ngen41mini: 75.4, gpt55: 58.4, claude_opus_47: 63.8, gemini31_pro: 64.5 },
+]
+
+const ngen41MiniDocVideoData: BenchmarkPoint[] = [
+    { name: 'OmniDocBench1.5', ngen41mini: 92.6, gpt55: 55.9, claude_opus_47: 71.5, gemini31_pro: 79.4 },
+    { name: 'OCRBench', ngen41mini: 94.1, gpt55: 75.3, claude_opus_47: 80.2, gemini31_pro: 82.5 },
+    { name: 'VideoMME', ngen41mini: 89.3, gpt55: 71.7, claude_opus_47: 75.0, gemini31_pro: 74.6 },
+    { name: 'MLVU', ngen41mini: 89.0, gpt55: 69.2, claude_opus_47: 73.4, gemini31_pro: 78.5 },
+]
+
+const ngen41MiniAgentVisionData: BenchmarkPoint[] = [
+    { name: 'OSWorld-Verified', ngen41mini: 48.2, gpt55: 78.7, claude_opus_47: 78.0, gemini31_pro: 60.0 },
+    { name: 'AndroidWorld', ngen41mini: 63.6, gpt55: 74.0, claude_opus_47: 69.1, gemini31_pro: 66.0 },
+    { name: 'TIR-Bench', ngen41mini: 52.0, gpt55: 55.6, claude_opus_47: 50.0, gemini31_pro: 48.8 },
+    { name: 'SLAKE', ngen41mini: 84.9, gpt55: 57.0, claude_opus_47: 69.0, gemini31_pro: 65.0 },
+    { name: 'PMC-VQA', ngen41mini: 64.0, gpt55: 37.8, claude_opus_47: 46.2, gemini31_pro: 48.8 },
+    { name: 'MedXpertQA-MM', ngen41mini: 56.4, gpt55: 26.7, claude_opus_47: 38.0, gemini31_pro: 35.3 },
+]
+
+const ngen41MiniLongContextData: BenchmarkPoint[] = [
+    { name: 'AA-LCR', ngen41mini: 69.5, gpt55: 80.0, claude_opus_47: 82.5, gemini31_pro: 71.4 },
+    { name: 'LongBench v2', ngen41mini: 61.7, gpt55: 70.3, claude_opus_47: 72.0, gemini31_pro: 66.1 },
+    { name: 'Graphwalks 256k', ngen41mini: 61.0, gpt55: 73.7, claude_opus_47: 76.9, gemini31_pro: 68.0 },
+    { name: 'Graphwalks 1M', ngen41mini: 34.8, gpt55: 45.4, claude_opus_47: 41.2, gemini31_pro: 36.0 },
+    { name: 'MRCR 128K-256K', ngen41mini: 71.2, gpt55: 87.5, claude_opus_47: 59.2, gemini31_pro: 65.0 },
+    { name: 'MRCR 256K-512K', ngen41mini: 66.5, gpt55: 81.5, claude_opus_47: 46.0, gemini31_pro: 58.0 },
+    { name: 'MRCR 512K-1M', ngen41mini: 58.5, gpt55: 74.0, claude_opus_47: 32.2, gemini31_pro: 44.0 },
+]
+
 const modelSpecs: Record<SupportedModel, ModelSpec> = {
     ngen4: {
         title: 'NGen-4 Evaluations',
@@ -1163,6 +1264,90 @@ const modelSpecs: Record<SupportedModel, ModelSpec> = {
                     'gpt54_nano',
                     'gpt5mini',
                 ],
+            },
+        ],
+    },
+    ngen41lite: {
+        title: 'NGen-4.1 Lite Preview Evaluations',
+        description: 'Benchmark charts for NGen-4.1 Lite Preview compared against gpt-oss-120b, Claude Haiku 4.5, GPT-5 Nano, and Gemini 3 Flash Lite.',
+        charts: [
+            {
+                title: 'NGen-4.1 Lite Preview: Knowledge & Language',
+                description: 'Academic knowledge, Chinese evaluation, and multilingual language understanding benchmarks.',
+                data: ngen41LiteKnowledgeData,
+                bars: ['ngen41lite', 'gptoss120b', 'claude45haiku', 'gpt5_nano', 'gemini3_flash_lite'],
+            },
+            {
+                title: 'NGen-4.1 Lite Preview: Reasoning & Instruction',
+                description: 'Graduate-level science reasoning, instruction following, and multi-turn challenge compliance.',
+                data: ngen41LiteCapabilityData,
+                bars: ['ngen41lite', 'gptoss120b', 'claude45haiku', 'gpt5_nano', 'gemini3_flash_lite'],
+            },
+        ],
+    },
+    ngen41mini: {
+        title: 'NGen-4.1 Mini Evaluations',
+        description: 'Comprehensive benchmark charts for NGen-4.1 Mini compared against OpenAI GPT-5.5, Anthropic Claude Opus 4.7, and Google DeepMind Gemini 3.1 Pro.',
+        charts: [
+            {
+                title: 'NGen-4.1 Mini: Knowledge & Reasoning',
+                description: 'Academic knowledge, Chinese evaluation, graduate-level science reasoning across MMLU and GPQA benchmarks.',
+                data: ngen41MiniKnowledgeData,
+                bars: ['ngen41mini', 'gpt55', 'claude_opus_47', 'gemini31_pro'],
+            },
+            {
+                title: 'NGen-4.1 Mini: Instruction Following',
+                description: 'Instruction adherence, multi-turn challenge compliance, and structured user intent benchmarks.',
+                data: ngen41MiniInstructionData,
+                bars: ['ngen41mini', 'gpt55', 'claude_opus_47', 'gemini31_pro'],
+            },
+            {
+                title: 'NGen-4.1 Mini: Math & Frontier Reasoning',
+                description: 'Contest math, frontier science, abstract reasoning, and humanity-level exam performance.',
+                data: ngen41MiniMathData,
+                bars: ['ngen41mini', 'gpt55', 'claude_opus_47', 'gemini31_pro'],
+            },
+            {
+                title: 'NGen-4.1 Mini: Coding & Engineering',
+                description: 'Software engineering, competitive programming, terminal operations, and code generation benchmarks.',
+                data: ngen41MiniCodingData,
+                bars: ['ngen41mini', 'gpt55', 'claude_opus_47', 'gemini31_pro'],
+            },
+            {
+                title: 'NGen-4.1 Mini: Agent & Tool Use',
+                description: 'Tool calling, agentic task completion, planning, and multi-step agent benchmarks.',
+                data: ngen41MiniAgentData,
+                bars: ['ngen41mini', 'gpt55', 'claude_opus_47', 'gemini31_pro'],
+            },
+            {
+                title: 'NGen-4.1 Mini: Multilingual',
+                description: 'Cross-lingual reasoning, translation quality, and multilingual problem-solving coverage.',
+                data: ngen41MiniMultilingualData,
+                bars: ['ngen41mini', 'gpt55', 'claude_opus_47', 'gemini31_pro'],
+            },
+            {
+                title: 'NGen-4.1 Mini: Vision & Multimodal',
+                description: 'Visual reasoning, math vision, real-world QA, hallucination, and multimodal understanding benchmarks.',
+                data: ngen41MiniVisionData,
+                bars: ['ngen41mini', 'gpt55', 'claude_opus_47', 'gemini31_pro'],
+            },
+            {
+                title: 'NGen-4.1 Mini: OCR, Document & Video',
+                description: 'Document recognition, OCR accuracy, long video understanding, and multi-modal document benchmarks.',
+                data: ngen41MiniDocVideoData,
+                bars: ['ngen41mini', 'gpt55', 'claude_opus_47', 'gemini31_pro'],
+            },
+            {
+                title: 'NGen-4.1 Mini: Agent Vision & Medical',
+                description: 'Computer use, OS interaction, medical visual QA, and agentic environment benchmarks.',
+                data: ngen41MiniAgentVisionData,
+                bars: ['ngen41mini', 'gpt55', 'claude_opus_47', 'gemini31_pro'],
+            },
+            {
+                title: 'NGen-4.1 Mini: Long Context',
+                description: 'Extended context retrieval, graph traversal, and multi-level retrieval challenge benchmarks up to 1M tokens.',
+                data: ngen41MiniLongContextData,
+                bars: ['ngen41mini', 'gpt55', 'claude_opus_47', 'gemini31_pro'],
             },
         ],
     },

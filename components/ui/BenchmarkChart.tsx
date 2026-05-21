@@ -286,6 +286,22 @@ export const chartConfig = {
     label: "MiniMax M2.7",
     color: "#64748b",
   },
+  ngen41lite: {
+    label: "NGen-4.1 Lite Preview",
+    color: "#dc2626",
+  },
+  ngen41mini: {
+    label: "NGen-4.1 Mini",
+    color: "#1d4ed8",
+  },
+  gpt55: {
+    label: "OpenAI GPT-5.5",
+    color: "#10b981",
+  },
+  claude_opus_47: {
+    label: "Claude Opus 4.7",
+    color: "#f97316",
+  },
 } satisfies ChartConfig
 
 export function BenchmarkBase({

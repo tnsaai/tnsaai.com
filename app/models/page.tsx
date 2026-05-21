@@ -19,6 +19,26 @@ const modelImage = (file: string) => `/model-images/${file}`
 
 const sections: ModelSection[] = [
   {
+    title: 'NGen 4.1 Series',
+    description: 'Next-generation NGen models with improved reasoning, vision, and long-context performance.',
+    models: [
+      {
+        title: 'NGen-4.1 Mini Preview',
+        label: 'Preview Model',
+        href: '/models/ngen4.1-mini-preview',
+        image: modelImage('ngen4.1-mini-preview.png'),
+        description: 'Next-generation mini model with leading vision, OCR, long-context, and multimodal reasoning capabilities.',
+      },
+      {
+        title: 'NGen-4.1 Lite Preview',
+        label: 'Preview Model',
+        href: '/models/ngen4.1-lite-preview',
+        image: modelImage('ngen4.1-lite.png'),
+        description: 'Next-generation Lite model with substantially improved knowledge, reasoning, and instruction performance.',
+      },
+    ],
+  },
+  {
     title: 'NGen 4 Series',
     description: 'Frontier NGen systems for reasoning, speed, and general intelligence.',
     models: [

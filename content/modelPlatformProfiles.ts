@@ -220,3 +220,73 @@ export const ngen4BlazePlatformProfile = profile({
         },
     ],
 })
+
+export const ngen41LitePreviewPlatformProfile = profile({
+    name: 'NGen-4.1 Lite Preview',
+    variantCount: '1',
+    reasoningTier: 'Medium',
+    speedTier: 'High',
+    inputPrice: 'Rs 20 / 1M input tokens',
+    cachedInputPrice: 'Rs 5 / 1M cached input tokens',
+    outputPrice: 'Rs 36 / 1M output tokens',
+    inputSupport: 'Text, image, audio, video',
+    outputSupport: 'Text, image, audio, video',
+    overview: 'NGen-4.1 Lite Preview has a 256K context window with a High speed tier. Reasoning tier: Medium. A preview release of the next-generation Lite model with improved benchmark performance across knowledge, reasoning, and instruction tasks.',
+    overviewBullets: [
+        'Context window: 256K (262,144 tokens).',
+        'Speed tier: High.',
+        'Reasoning tier: Medium.',
+        'Preview release — subject to change before general availability.',
+        'Input support: text, image, audio, video. Output support: text, image, audio, video.',
+    ],
+    coreStats: [
+        { label: 'Context window', value: '256K (262,144 tokens)' },
+        { label: 'Max output', value: '64K (65,536 tokens)' },
+        { label: 'Knowledge cutoff', value: 'Mar 2025' },
+        { label: 'Rate limit', value: '1,200 RPM' },
+    ],
+    snapshots: [
+        {
+            name: 'NGen-4.1 Lite Preview',
+            description: '256K context NGen-4.1 Lite preview model with medium reasoning.',
+            badge: 'Preview',
+            id: 'ngen4.1-lite-preview',
+        },
+    ],
+})
+
+export const ngen41MiniPreviewPlatformProfile = profile({
+    name: 'NGen-4.1 Mini Preview',
+    variantCount: '1',
+    reasoningTier: 'High',
+    speedTier: 'Medium',
+    inputPrice: 'Rs 28 / 1M input tokens',
+    cachedInputPrice: 'Rs 7 / 1M cached input tokens',
+    outputPrice: 'Rs 52 / 1M output tokens',
+    inputSupport: 'Text, image, audio, video',
+    outputSupport: 'Text, image, audio, video',
+    overview: 'NGen-4.1 Mini Preview has a 256K context window with a Medium speed tier. Reasoning tier: High. A next-generation mini model with strong multimodal, coding, and long-context performance competitive with frontier-class models.',
+    overviewBullets: [
+        'Context window: 256K (262,144 tokens).',
+        'Speed tier: Medium.',
+        'Reasoning tier: High.',
+        'Preview release — subject to change before general availability.',
+        'Input support: text, image, audio, video. Output support: text, image, audio, video.',
+        'Reasoning levels supported: Low, Medium, High.',
+    ],
+    reasoningLevels: ['Low', 'Medium', 'High'],
+    coreStats: [
+        { label: 'Context window', value: '256K (262,144 tokens)' },
+        { label: 'Max output', value: '64K (65,536 tokens)' },
+        { label: 'Knowledge cutoff', value: 'Mar 2025' },
+        { label: 'Rate limit', value: '1,800 RPM' },
+    ],
+    snapshots: [
+        {
+            name: 'NGen-4.1 Mini Preview',
+            description: '256K context NGen-4.1 Mini preview model with high reasoning.',
+            badge: 'Preview',
+            id: 'ngen4.1-mini-preview',
+        },
+    ],
+})
