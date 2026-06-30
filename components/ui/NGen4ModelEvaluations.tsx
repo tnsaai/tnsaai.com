@@ -3,7 +3,7 @@
 import { Bar } from 'recharts'
 import { BenchmarkBase } from './BenchmarkChart'
 
-type SupportedModel = 'pro' | 'mini' | 'lite' | 'ngen4' | 'ngen41lite' | 'ngen41mini'
+type SupportedModel = 'pro' | 'mini' | 'lite' | 'ngen4' | 'ngen41lite' | 'ngen41mini' | 'ngen41pro' | 'ngen41'
 
 type BenchmarkPoint = {
     name: string
@@ -1060,6 +1060,66 @@ const ngen41MiniLongContextData: BenchmarkPoint[] = [
     { name: 'MRCR 512K-1M', ngen41mini: 58.5, gpt55: 74.0, claude_opus_47: 32.2, gemini31_pro: 44.0 },
 ]
 
+// NGen-4.1 Pro data (updated with corrected benchmark values)
+const ngen41ProKnowledgeData: BenchmarkPoint[] = [
+    { name: 'MMLU Pro', ngen41pro: 95.8, gpt55: 92.1, claude_opus_47: 92.1, gemini31_pro: 96.5, mythos_preview: 94.3 },
+    { name: 'MMLU Redux', ngen41pro: 97.8, gpt55: 96.5, claude_opus_47: 94.6, gemini31_pro: 96.8, mythos_preview: 94.1 },
+    { name: 'MMLU-ProX', ngen41pro: 91.2, gpt55: 84.3, claude_opus_47: 81.2, gemini31_pro: 85.9, mythos_preview: 81.0 },
+    { name: 'MMMLU', ngen41pro: 94.9, gpt55: 89.2, claude_opus_47: 89.3, gemini31_pro: 92.6, mythos_preview: 91.8 },
+    { name: 'C-Eval', ngen41pro: 97.3, gpt55: 94.3, claude_opus_47: 92.1, gemini31_pro: 94.3, mythos_preview: 91.8 },
+]
+
+const ngen41ProInstructionData: BenchmarkPoint[] = [
+    { name: 'IFEval', ngen41pro: 97.9, gpt55: 94.7, claude_opus_47: 89.7, gemini31_pro: 91.2, mythos_preview: 87.6 },
+]
+
+const ngen41ProReasoningData: BenchmarkPoint[] = [
+    { name: 'AIME26', ngen41pro: 98.1, gpt55: 95.4, claude_opus_47: 95.4, gemini31_pro: 96.7, mythos_preview: 92.4 },
+    { name: 'SuperGPQA', ngen41pro: 73.8, gpt55: 68.2, claude_opus_47: 64.2, gemini31_pro: 68.9, mythos_preview: 62.5 },
+    { name: 'GPQA Diamond', ngen41pro: 98.2, gpt55: 95.5, claude_opus_47: 94.2, gemini31_pro: 94.4, mythos_preview: 94.3 },
+]
+
+const ngen41ProEngineeringData: BenchmarkPoint[] = [
+    { name: 'SWE-Bench Verified', ngen41pro: 84.2, gpt55: 80.3, claude_opus_47: 87.6, gemini31_pro: 82.6, mythos_preview: 93.9 },
+    { name: 'SWE Bench Pro', ngen41pro: 60.5, gpt55: 55.2, claude_opus_47: 64.3, gemini31_pro: 58.6, mythos_preview: 77.8 },
+    { name: 'SWE-Bench Multilingual', ngen41pro: 78.3, gpt55: 72.5, claude_opus_47: 80.5 },
+]
+
+const ngen41ProAgentData: BenchmarkPoint[] = [
+    { name: 'Terminal Bench 2.0', ngen41pro: 66.3, gpt55: 60.7, claude_opus_47: 69.4, gemini31_pro: 82.7, mythos_preview: 68.5 },
+    { name: 'MCP-Atlas', ngen41pro: 72.1, gpt55: 68.2, claude_opus_47: 77.3, gemini31_pro: 69.2 },
+]
+
+// NGen-4.1 data (updated with corrected benchmark values)
+const ngen41KnowledgeData: BenchmarkPoint[] = [
+    { name: 'MMLU Pro', ngen41: 92.1, claude_opus_47: 92.1, gpt55: 96.5, gemini31_pro: 94.3, mythos_preview: 94.7 },
+    { name: 'MMLU Redux', ngen41: 96.5, claude_opus_47: 94.6, gpt55: 96.8, gemini31_pro: 94.1, mythos_preview: 95.9 },
+    { name: 'MMLU-ProX', ngen41: 84.3, claude_opus_47: 81.2, gpt55: 85.9, gemini31_pro: 81.0, mythos_preview: 84.8 },
+    { name: 'MMMLU', ngen41: 89.2, claude_opus_47: 89.3, gpt55: 91.4, gemini31_pro: 92.6, mythos_preview: 91.1 },
+    { name: 'C-Eval', ngen41: 94.3, claude_opus_47: 92.1, gpt55: 94.3, gemini31_pro: 91.8, mythos_preview: 95.2 },
+]
+
+const ngen41InstructionData: BenchmarkPoint[] = [
+    { name: 'IFEval', ngen41: 94.7, claude_opus_47: 89.7, gpt55: 91.2, gemini31_pro: 87.6, mythos_preview: 92.8 },
+]
+
+const ngen41ReasoningData: BenchmarkPoint[] = [
+    { name: 'AIME26', ngen41: 95.4, claude_opus_47: 95.4, gpt55: 96.7, gemini31_pro: 92.4, mythos_preview: 95.1 },
+    { name: 'SuperGPQA', ngen41: 68.2, claude_opus_47: 64.2, gpt55: 68.9, gemini31_pro: 62.5, mythos_preview: 69.5 },
+    { name: 'GPQA Diamond', ngen41: 95.5, claude_opus_47: 94.2, gpt55: 94.4, gemini31_pro: 94.3, mythos_preview: 94.6 },
+]
+
+const ngen41EngineeringData: BenchmarkPoint[] = [
+    { name: 'SWE-Bench Verified', ngen41: 80.3, claude_opus_47: 87.6, gpt55: 82.6, gemini31_pro: 80.6, mythos_preview: 93.9 },
+    { name: 'SWE Bench Pro', ngen41: 55.2, claude_opus_47: 64.3, gpt55: 58.6, gemini31_pro: 54.2, mythos_preview: 77.8 },
+    { name: 'SWE-Bench Multilingual', ngen41: 72.5, claude_opus_47: 80.5, gpt55: undefined },
+]
+
+const ngen41AgentData: BenchmarkPoint[] = [
+    { name: 'Terminal Bench 2.0', ngen41: 60.7, claude_opus_47: 69.4, gpt55: 82.7, gemini31_pro: 68.5, mythos_preview: 82.0 },
+    { name: 'MCP-Atlas', ngen41: 68.2, claude_opus_47: 77.3, gpt55: 68.1, gemini31_pro: 69.2 },
+]
+
 const modelSpecs: Record<SupportedModel, ModelSpec> = {
     ngen4: {
         title: 'NGen-4 Evaluations',
@@ -1442,6 +1502,78 @@ const modelSpecs: Record<SupportedModel, ModelSpec> = {
                     'gpt5_nano',
                     'gemini3_flash_lite',
                 ],
+            },
+        ],
+    },
+    ngen41pro: {
+        title: 'NGen-4.1 Pro Evaluations',
+        description: 'Comprehensive benchmark charts for NGen-4.1 Pro compared against GPT-5.5, Claude Opus 4.7, Gemini 3.1 Pro, and Mythos Preview.',
+        charts: [
+            {
+                title: 'NGen-4.1 Pro: Knowledge & Multilingual',
+                description: 'Academic knowledge, multilingual understanding, and Chinese evaluation benchmarks.',
+                data: ngen41ProKnowledgeData,
+                bars: ['ngen41pro', 'gpt55', 'claude_opus_47', 'gemini31_pro', 'mythos_preview'],
+            },
+            {
+                title: 'NGen-4.1 Pro: Instruction Following',
+                description: 'Instruction adherence and compliance benchmarks.',
+                data: ngen41ProInstructionData,
+                bars: ['ngen41pro', 'gpt55', 'claude_opus_47', 'gemini31_pro', 'mythos_preview'],
+            },
+            {
+                title: 'NGen-4.1 Pro: Reasoning & Math',
+                description: 'Advanced mathematical reasoning, graduate-level science, and competition benchmarks.',
+                data: ngen41ProReasoningData,
+                bars: ['ngen41pro', 'gpt55', 'claude_opus_47', 'gemini31_pro', 'mythos_preview'],
+            },
+            {
+                title: 'NGen-4.1 Pro: Engineering & Coding',
+                description: 'Software engineering benchmark performance across verified, pro, and multilingual suites.',
+                data: ngen41ProEngineeringData,
+                bars: ['ngen41pro', 'gpt55', 'claude_opus_47', 'gemini31_pro', 'mythos_preview'],
+            },
+            {
+                title: 'NGen-4.1 Pro: Agent & Tool Use',
+                description: 'Terminal operations, MCP protocol, and agentic tool use benchmarks.',
+                data: ngen41ProAgentData,
+                bars: ['ngen41pro', 'gpt55', 'claude_opus_47', 'gemini31_pro', 'mythos_preview'],
+            },
+        ],
+    },
+    ngen41: {
+        title: 'NGen-4.1 Evaluations',
+        description: 'Comprehensive benchmark charts for NGen-4.1 compared against GPT-5.5, Claude Opus 4.7, Gemini 3.1 Pro, and Mythos Preview.',
+        charts: [
+            {
+                title: 'NGen-4.1: Knowledge & Multilingual',
+                description: 'Academic knowledge, multilingual understanding, and Chinese evaluation benchmarks.',
+                data: ngen41KnowledgeData,
+                bars: ['ngen41', 'gpt55', 'claude_opus_47', 'gemini31_pro', 'mythos_preview'],
+            },
+            {
+                title: 'NGen-4.1: Instruction Following',
+                description: 'Instruction adherence and compliance benchmarks.',
+                data: ngen41InstructionData,
+                bars: ['ngen41', 'gpt55', 'claude_opus_47', 'gemini31_pro', 'mythos_preview'],
+            },
+            {
+                title: 'NGen-4.1: Reasoning & Math',
+                description: 'Advanced mathematical reasoning, graduate-level science, and competition benchmarks.',
+                data: ngen41ReasoningData,
+                bars: ['ngen41', 'gpt55', 'claude_opus_47', 'gemini31_pro', 'mythos_preview'],
+            },
+            {
+                title: 'NGen-4.1: Engineering & Coding',
+                description: 'Software engineering benchmark performance across verified, pro, and multilingual suites.',
+                data: ngen41EngineeringData,
+                bars: ['ngen41', 'gpt55', 'claude_opus_47', 'gemini31_pro', 'mythos_preview'],
+            },
+            {
+                title: 'NGen-4.1: Agent & Tool Use',
+                description: 'Terminal operations, MCP protocol, and agentic tool use benchmarks.',
+                data: ngen41AgentData,
+                bars: ['ngen41', 'gpt55', 'claude_opus_47', 'gemini31_pro', 'mythos_preview'],
             },
         ],
     },

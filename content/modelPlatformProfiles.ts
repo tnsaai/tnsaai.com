@@ -221,8 +221,8 @@ export const ngen4BlazePlatformProfile = profile({
     ],
 })
 
-export const ngen41LitePreviewPlatformProfile = profile({
-    name: 'NGen-4.1 Lite Preview',
+export const ngen41LitePlatformProfile = profile({
+    name: 'NGen-4.1 Lite',
     variantCount: '1',
     reasoningTier: 'Medium',
     speedTier: 'High',
@@ -231,12 +231,11 @@ export const ngen41LitePreviewPlatformProfile = profile({
     outputPrice: 'Rs 36 / 1M output tokens',
     inputSupport: 'Text, image, audio, video',
     outputSupport: 'Text, image, audio, video',
-    overview: 'NGen-4.1 Lite Preview has a 256K context window with a High speed tier. Reasoning tier: Medium. A preview release of the next-generation Lite model with improved benchmark performance across knowledge, reasoning, and instruction tasks.',
+    overview: 'NGen-4.1 Lite has a 256K context window with a High speed tier. Reasoning tier: Medium. The next-generation Lite model with improved benchmark performance across knowledge, reasoning, and instruction tasks.',
     overviewBullets: [
         'Context window: 256K (262,144 tokens).',
         'Speed tier: High.',
         'Reasoning tier: Medium.',
-        'Preview release — subject to change before general availability.',
         'Input support: text, image, audio, video. Output support: text, image, audio, video.',
     ],
     coreStats: [
@@ -247,16 +246,16 @@ export const ngen41LitePreviewPlatformProfile = profile({
     ],
     snapshots: [
         {
-            name: 'NGen-4.1 Lite Preview',
-            description: '256K context NGen-4.1 Lite preview model with medium reasoning.',
-            badge: 'Preview',
-            id: 'ngen4.1-lite-preview',
+            name: 'NGen-4.1 Lite',
+            description: '256K context NGen-4.1 Lite model with medium reasoning.',
+            badge: 'Default',
+            id: 'ngen4.1-lite',
         },
     ],
 })
 
-export const ngen41MiniPreviewPlatformProfile = profile({
-    name: 'NGen-4.1 Mini Preview',
+export const ngen41MiniPlatformProfile = profile({
+    name: 'NGen-4.1 Mini',
     variantCount: '1',
     reasoningTier: 'High',
     speedTier: 'Medium',
@@ -265,12 +264,11 @@ export const ngen41MiniPreviewPlatformProfile = profile({
     outputPrice: 'Rs 52 / 1M output tokens',
     inputSupport: 'Text, image, audio, video',
     outputSupport: 'Text, image, audio, video',
-    overview: 'NGen-4.1 Mini Preview has a 256K context window with a Medium speed tier. Reasoning tier: High. A next-generation mini model with strong multimodal, coding, and long-context performance competitive with frontier-class models.',
+    overview: 'NGen-4.1 Mini has a 256K context window with a Medium speed tier. Reasoning tier: High. A next-generation mini model with strong multimodal, coding, and long-context performance competitive with frontier-class models.',
     overviewBullets: [
         'Context window: 256K (262,144 tokens).',
         'Speed tier: Medium.',
         'Reasoning tier: High.',
-        'Preview release — subject to change before general availability.',
         'Input support: text, image, audio, video. Output support: text, image, audio, video.',
         'Reasoning levels supported: Low, Medium, High.',
     ],
@@ -283,10 +281,80 @@ export const ngen41MiniPreviewPlatformProfile = profile({
     ],
     snapshots: [
         {
-            name: 'NGen-4.1 Mini Preview',
-            description: '256K context NGen-4.1 Mini preview model with high reasoning.',
-            badge: 'Preview',
-            id: 'ngen4.1-mini-preview',
+            name: 'NGen-4.1 Mini',
+            description: '256K context NGen-4.1 Mini model with high reasoning.',
+            badge: 'Default',
+            id: 'ngen4.1-mini',
+        },
+    ],
+})
+
+export const ngen41ProPlatformProfile = profile({
+    name: 'NGen-4.1 Pro',
+    variantCount: '1',
+    reasoningTier: 'Highest',
+    speedTier: 'Low',
+    inputPrice: 'Rs 750 / 1M input tokens',
+    cachedInputPrice: 'Rs 187 / 1M cached input tokens',
+    outputPrice: 'Rs 1,800 / 1M output tokens',
+    inputSupport: 'Text, image, audio, video',
+    outputSupport: 'Text, image, audio, video',
+    overview: 'NGen-4.1 Pro has a 256K context window with a Low speed tier. Reasoning tier: Highest. The most capable NGen model with state-of-the-art performance across knowledge, reasoning, engineering, and agent benchmarks.',
+    overviewBullets: [
+        'Context window: 256K (262,144 tokens).',
+        'Speed tier: Low.',
+        'Reasoning tier: Highest.',
+        'Input support: text, image, audio, video. Output support: text, image, audio, video.',
+        'Reasoning levels supported: Low, Medium, High.',
+    ],
+    reasoningLevels: ['Low', 'Medium', 'High'],
+    coreStats: [
+        { label: 'Context window', value: '256K (262,144 tokens)' },
+        { label: 'Max output', value: '64K (65,536 tokens)' },
+        { label: 'Knowledge cutoff', value: 'Jun 2025' },
+        { label: 'Rate limit', value: '1,800 RPM' },
+    ],
+    snapshots: [
+        {
+            name: 'NGen-4.1 Pro',
+            description: 'Base NGen-4.1 Pro model with the highest reasoning profile and state-of-the-art benchmark performance.',
+            badge: 'Default',
+            id: 'ngen4.1-pro',
+        },
+    ],
+})
+
+export const ngen41PlatformProfile = profile({
+    name: 'NGen-4.1',
+    variantCount: '1',
+    reasoningTier: 'Highest',
+    speedTier: 'Low',
+    inputPrice: 'Rs 500 / 1M input tokens',
+    cachedInputPrice: 'Rs 125 / 1M cached input tokens',
+    outputPrice: 'Rs 1,000 / 1M output tokens',
+    inputSupport: 'Text, image, audio, video',
+    outputSupport: 'Text, image, audio, video',
+    overview: 'NGen-4.1 has a 256K context window with a Low speed tier. Reasoning tier: Highest. The next-generation flagship model with leading performance across knowledge, reasoning, engineering, and agent benchmarks.',
+    overviewBullets: [
+        'Context window: 256K (262,144 tokens).',
+        'Speed tier: Low.',
+        'Reasoning tier: Highest.',
+        'Input support: text, image, audio, video. Output support: text, image, audio, video.',
+        'Reasoning levels supported: Low, Medium, High.',
+    ],
+    reasoningLevels: ['Low', 'Medium', 'High'],
+    coreStats: [
+        { label: 'Context window', value: '256K (262,144 tokens)' },
+        { label: 'Max output', value: '64K (65,536 tokens)' },
+        { label: 'Knowledge cutoff', value: 'Jun 2025' },
+        { label: 'Rate limit', value: '1,800 RPM' },
+    ],
+    snapshots: [
+        {
+            name: 'NGen-4.1',
+            description: 'Base NGen-4.1 model with the highest reasoning profile and leading benchmark performance.',
+            badge: 'Default',
+            id: 'ngen4.1',
         },
     ],
 })

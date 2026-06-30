@@ -287,7 +287,7 @@ export const chartConfig = {
     color: "#64748b",
   },
   ngen41lite: {
-    label: "NGen-4.1 Lite Preview",
+    label: "NGen-4.1 Lite",
     color: "#dc2626",
   },
   ngen41mini: {
@@ -301,6 +301,18 @@ export const chartConfig = {
   claude_opus_47: {
     label: "Claude Opus 4.7",
     color: "#f97316",
+  },
+  ngen41pro: {
+    label: "NGen-4.1 Pro",
+    color: "#eab308",
+  },
+  ngen41: {
+    label: "NGen-4.1",
+    color: "#f59e0b",
+  },
+  mythos_preview: {
+    label: "Mythos Preview",
+    color: "#a78bfa",
   },
 } satisfies ChartConfig
 
