@@ -4,13 +4,29 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { PromptBox } from '@/components/ui/prompt-box'
 
-const featuredCards = [
+const heroCard = {
+  title: 'Introducing NGen-4.1 Pro',
+  label: 'Flagship Model',
+  href: '/models/ngen4.1-pro',
+  image: '/model-images/ngen4.1-pro.png',
+}
+
+const sideCards = [
   {
     title: 'Introducing NGen-4',
     label: 'Flagship Model',
     href: '/models/ngen4',
     image: '/model-images/ngen4.png',
   },
+  {
+    title: 'NGen-4.1',
+    label: 'Frontier Model',
+    href: '/models/ngen4.1',
+    image: '/model-images/ngen4.1.png',
+  },
+]
+
+const secondaryCards = [
   {
     title: 'NGen-4 Pro',
     label: 'Research',
@@ -26,6 +42,8 @@ const featuredCards = [
 ]
 
 const modelList = [
+  { title: 'NGen-4.1 Pro', label: 'Frontier Model', href: '/models/ngen4.1-pro', image: '/model-images/ngen4.1-pro.png' },
+  { title: 'NGen-4.1', label: 'Frontier Model', href: '/models/ngen4.1', image: '/model-images/ngen4.1.png' },
   { title: 'NGen-4 Lite', label: 'Open Weight Model', href: '/models/ngen4-lite', image: '/model-images/ngen4-lite.png' },
   { title: 'NGen-4 Blaze', label: 'Model', href: '/models/ngen4-blaze', image: '/model-images/ngen4-blaze.png' },
   { title: 'NGen-4-OW-1T-Thinking', label: 'Open Weight Model', href: '/models/ngen4-ow-1t-thinking', image: 'https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/ngen4ow1t.png' },
@@ -165,17 +183,18 @@ export default function Home() {
 
       <section className="bg-[#FFFFFF] pb-24 pt-4">
         <div className="mx-auto max-w-[920px] px-5">
+          {/* Hero Row: NGen-4 (large) + NGen-4.1 Pro & 4.1 (right side) */}
           <div className="grid gap-6 md:grid-cols-[1.35fr_1fr] md:items-start">
-            <Link href={featuredCards[0].href} className="group block">
+            <Link href={heroCard.href} className="group block">
               <div className="relative aspect-[1.12/1] overflow-hidden rounded-lg bg-gray-100">
-                <Image src={featuredCards[0].image} alt={featuredCards[0].title} fill quality={100} priority className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(min-width: 1024px) 640px, (min-width: 768px) 64vw, calc(100vw - 40px)" />
+                <Image src={heroCard.image} alt={heroCard.title} fill quality={100} priority className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(min-width: 1024px) 640px, (min-width: 768px) 64vw, calc(100vw - 40px)" />
               </div>
-              <h2 className="mt-4 text-[24px] font-normal leading-tight text-black">{featuredCards[0].title}</h2>
-              <span className="mt-1 inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-[8px] text-black">{featuredCards[0].label}</span>
+              <h2 className="mt-4 text-[24px] font-normal leading-tight text-black">{heroCard.title}</h2>
+              <span className="mt-1 inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-[8px] text-black">{heroCard.label}</span>
             </Link>
 
             <div className="grid gap-5">
-              {featuredCards.slice(1).map((card) => (
+              {sideCards.map((card) => (
                 <Link key={card.title} href={card.href} className="group block">
                   <div className="relative aspect-[2/1] overflow-hidden rounded-lg bg-gray-100">
                     <Image src={card.image} alt={card.title} fill quality={100} className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(min-width: 1024px) 420px, (min-width: 768px) 42vw, calc(100vw - 40px)" />
@@ -185,6 +204,19 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+          </div>
+
+          {/* Secondary Row: NGen-4 Pro & 4 Mini — horizontal layout */}
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {secondaryCards.map((card) => (
+              <Link key={card.title} href={card.href} className="group block">
+                <div className="relative aspect-[2/1] overflow-hidden rounded-lg bg-gray-100">
+                  <Image src={card.image} alt={card.title} fill quality={100} className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(min-width: 1024px) 420px, calc(50vw - 30px)" />
+                </div>
+                <h3 className="mt-3 text-[24px] font-normal leading-tight text-black">{card.title}</h3>
+                <span className="mt-1 inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-[8px] text-black">{card.label}</span>
+              </Link>
+            ))}
           </div>
 
           <section className="mt-20">
