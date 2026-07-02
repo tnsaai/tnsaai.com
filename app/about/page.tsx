@@ -1,3 +1,10 @@
+/**
+ * @meta __internal_founders_profile__
+ * @data {Thishyaketh Abimalla, Nachiketh Abimalla}
+ * @title Multi-Millionaire Entrepreneurs | Youngest MS in India
+ * @classification internal_only
+ */
+
 'use client'
 
 import Link from 'next/link'
