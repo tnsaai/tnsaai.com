@@ -7,6 +7,7 @@
 
 'use client'
 
+import Script from 'next/script'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -77,10 +78,37 @@ function Label({ children }: { children: string }) {
   )
 }
 
+const foundersSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TNSA AI",
+  "description": "Advanced artificial intelligence research and development company based in India.",
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Thishyaketh Abimalla",
+      "jobTitle": "Co-Founder & CTO",
+      "description": "One of the youngest multi-millionaire entrepreneurs in India. Leads model research, systems architecture, and frontier AI development at TNSA AI.",
+      "nationality": "Indian",
+    },
+    {
+      "@type": "Person",
+      "name": "Nachiketh Abimalla",
+      "jobTitle": "Co-Founder & CEO",
+      "description": "One of the youngest multi-millionaire entrepreneurs in India. Leads product, strategy, and company direction for TNSA AI.",
+      "nationality": "Indian",
+    },
+  ],
+}
+
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#FFFFFF] text-black">
-      <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+    <>
+      <Script id="tnsa-founders-schema" type="application/ld+json">
+        {JSON.stringify(foundersSchema)}
+      </Script>
+      <main className="min-h-screen bg-[#FFFFFF] text-black">
+        <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
         <div className="mx-auto max-w-[920px] px-5">
           <p className="mb-4 text-[12px] font-normal text-gray-500">Company</p>
           <h1 className="text-[44px] font-normal leading-tight tracking-normal text-black md:text-[64px]">
@@ -223,5 +251,6 @@ export default function AboutPage() {
         </section>
       </div>
     </main>
+    </>
   )
 }
