@@ -13,16 +13,16 @@ const heroCard = {
 
 const sideCards = [
   {
-    title: 'Introducing NGen-4',
-    label: 'Flagship Model',
-    href: '/models/ngen4',
-    image: '/model-images/ngen4.png',
-  },
-  {
     title: 'NGen-4.1',
     label: 'Frontier Model',
     href: '/models/ngen4.1',
     image: '/model-images/ngen4.1.png',
+  },
+  {
+    title: 'Introducing NGen-4',
+    label: 'Flagship Model',
+    href: '/models/ngen4',
+    image: '/model-images/ngen4.png',
   },
 ]
 

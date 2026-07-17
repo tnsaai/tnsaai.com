@@ -2,6 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="bg-white py-16 border-t border-gray-200 rounded-t-[40px] overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -9,6 +11,7 @@ export default function Footer() {
           {/* Logo */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <Image src="/TNSA.svg" alt="TNSA" width={120} height={40} />
+            <p className="mt-3 text-sm text-gray-500">TNSA Private Limited</p>
           </div>
 
           {/* Research */}
@@ -84,7 +87,9 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-16 pt-8 border-t border-gray-200">
-          <p className="text-center text-sm text-black">TNSA © 2021–2025</p>
+          <p className="text-center text-sm text-black">
+            © 2021–{currentYear} TNSA. TNSA Private Limited. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
