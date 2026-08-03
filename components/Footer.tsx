@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import FooterImageLogo from './FooterImageLogo'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-white py-16 border-t border-gray-200 rounded-t-[40px] overflow-hidden">
+    <footer className="overflow-hidden rounded-t-[40px] border-t border-gray-200 bg-white pt-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Logo */}
@@ -75,21 +76,27 @@ export default function Footer() {
             </ul>
             <h3 className="text-base text-black mt-8 mb-4">Legal</h3>
             <ul className="space-y-3">
-              <li><Link href="/privacy/policy" className="text-sm text-gray-500 hover:text-black transition-colors">Privacy Policies</Link></li>
+              <li><Link href="/privacy/policy" className="text-sm text-gray-500 hover:text-black transition-colors">Privacy Policy</Link></li>
               <li><Link href="/t&c/terms-of-service" className="text-sm text-gray-500 hover:text-black transition-colors">Terms & Conditions</Link></li>
-              <li><Link href="/legal" className="text-sm text-gray-500 hover:text-black transition-colors">OpenWeight Model Licenses</Link></li>
-              <li><Link href="/legal" className="text-sm text-gray-500 hover:text-black transition-colors">Model Complaints</Link></li>
-              <li><Link href="/legal" className="text-sm text-gray-500 hover:text-black transition-colors">Content Moderation</Link></li>
-              <li><Link href="/legal" className="text-sm text-gray-500 hover:text-black transition-colors">Data Issues</Link></li>
+              <li><Link href="/legal/open-weight-model-licenses" className="text-sm text-gray-500 hover:text-black transition-colors">Open-Weight Model Licenses</Link></li>
+              <li><Link href="/legal/model-complaints" className="text-sm text-gray-500 hover:text-black transition-colors">Model Complaints</Link></li>
+              <li><Link href="/legal/content-moderation" className="text-sm text-gray-500 hover:text-black transition-colors">Content Moderation</Link></li>
+              <li><Link href="/legal/data-issues" className="text-sm text-gray-500 hover:text-black transition-colors">Data Issues</Link></li>
+              <li><Link href="/legal/data-processing-addendum" className="text-sm text-gray-500 hover:text-black transition-colors">Data Processing Addendum</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-16 pt-8 border-t border-gray-200">
+        <div className="mt-16 border-t border-gray-200 pt-8">
           <p className="text-center text-sm text-black">
             © 2021–{currentYear} TNSA. TNSA Private Limited. All rights reserved.
           </p>
+        </div>
+
+        {/* Image-filled wordmark */}
+        <div className="mt-20 mb-0">
+          <FooterImageLogo />
         </div>
       </div>
     </footer>

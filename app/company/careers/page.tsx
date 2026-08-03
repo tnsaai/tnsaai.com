@@ -4,22 +4,25 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const jobs = [
-  { title: 'AI Research Scientist', department: 'Research', location: 'Remote / Hybrid' },
-  { title: 'NLP Research Scientist', department: 'Research', location: 'Remote / Hybrid' },
-  { title: 'ML Engineer', department: 'Engineering', location: 'Remote / Hybrid' },
-  { title: 'Full-Stack Engineer', department: 'Engineering', location: 'Remote / Hybrid' },
-  { title: 'DevOps Engineer', department: 'Engineering', location: 'Remote / Hybrid' },
-  { title: 'Computer Vision Engineer', department: 'Engineering', location: 'Remote / Hybrid' },
-  { title: 'Backend Engineer', department: 'Engineering', location: 'Remote / Hybrid' },
-  { title: 'AI Safety Researcher', department: 'Safety', location: 'Remote / Hybrid' },
-  { title: 'AI Ethics Researcher', department: 'Safety', location: 'Remote / Hybrid' },
-  { title: 'Product Manager', department: 'Product', location: 'Remote / Hybrid' },
-  { title: 'Data Scientist', department: 'Data', location: 'Remote / Hybrid' },
-  { title: 'Data Engineer', department: 'Data', location: 'Remote / Hybrid' },
-  { title: 'Technical Writer', department: 'Documentation', location: 'Remote / Hybrid' },
-  { title: 'Business Development Manager', department: 'Sales', location: 'Remote / Hybrid' },
-  { title: 'UI/UX Designer', department: 'Design', location: 'Remote / Hybrid' },
+  { title: 'Senior Full-Stack Engineer', department: 'Development', count: 2, location: 'Chennai' },
+  { title: 'Backend/API Engineer', department: 'Development', count: 2, location: 'Chennai' },
+  { title: 'Frontend Engineer (Web + Mobile)', department: 'Development', count: 1, location: 'Chennai' },
+  { title: 'Frontend Engineer (Web + Mobile)', department: 'Development', count: 1, location: 'Remote' },
+  { title: 'UI/UX Designer', department: 'Development', count: 1, location: 'Remote' },
+  { title: 'ML Infrastructure Engineer', department: 'MLOps', count: 1, location: 'Chennai' },
+  { title: 'AI Platform Engineer', department: 'MLOps', count: 1, location: 'Remote' },
+  { title: 'Site Reliability Engineer (SRE)', department: 'MLOps', count: 1, location: 'Remote' },
+  { title: 'LLM Research Scientist', department: 'Research', count: 2, location: 'Chennai' },
+  { title: 'Multimodal Research Scientist', department: 'Research', count: 1, location: 'Chennai' },
+  { title: 'RL Research Engineer', department: 'Research', count: 1, location: 'Chennai' },
+  { title: 'Training Systems & Evaluation Engineer', department: 'Research', count: 1, location: 'Chennai' },
+  { title: 'Technology & Corporate Lawyer', department: 'Legal (Consultants)', count: 1, location: 'Remote' },
+  { title: 'IP, Privacy & Compliance Lawyer', department: 'Legal (Consultants)', count: 1, location: 'Remote' },
+  { title: 'Chartered Accountant', department: 'CA Team (Consultants)', count: 1, location: 'Chennai' },
+  { title: 'Financial & Audit Consultant', department: 'CA Team (Consultants)', count: 1, location: 'Remote' },
 ]
+
+const totalOpenings = jobs.reduce((total, job) => total + job.count, 0)
 
 const benefits = [
   { title: 'Frontier Research', description: 'Work on cutting-edge AI research and development at scale.' },
@@ -87,27 +90,41 @@ export default function CareersPage() {
         <div className="border-t border-gray-100 pt-16">
           <div className="mb-12">
             <h2 className="text-[32px] font-normal leading-tight text-black">Open positions</h2>
-            <p className="mt-3 text-[15px] text-gray-500">Find your next role at TNSA.</p>
+            <p className="mt-3 text-[15px] text-gray-500">
+              {totalOpenings} openings across engineering, research, legal, and finance.
+            </p>
           </div>
 
           <div className="space-y-16">
             {Object.entries(groupedJobs).map(([department, deptJobs]) => (
               <div key={department}>
-                <h3 className="mb-6 text-[20px] font-medium text-black border-b border-gray-100 pb-4">{department}</h3>
+                <div className="mb-6 flex items-end justify-between border-b border-gray-100 pb-4">
+                  <h3 className="text-[20px] font-medium text-black">{department}</h3>
+                  <span className="text-[11px] text-gray-400">
+                    {deptJobs.reduce((total, job) => total + job.count, 0)} open
+                  </span>
+                </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {deptJobs.map((job, index) => (
                     <div key={index} className="group relative rounded-xl border border-gray-200 bg-white p-6 transition-all hover:border-black hover:shadow-sm">
                       <div className="flex flex-col justify-between h-full">
                         <div>
                           <h4 className="text-[16px] font-medium text-black transition-colors">{job.title}</h4>
-                          <span className="mt-2 inline-block rounded-full bg-gray-50 px-3 py-1 text-[11px] text-gray-600">
-                            {job.location}
-                          </span>
+                          <div className="mt-5 grid grid-cols-2 gap-4 border-t border-gray-100 pt-4">
+                            <div>
+                              <p className="text-[10px] uppercase tracking-[0.08em] text-gray-400">Location</p>
+                              <p className="mt-1 text-[12px] text-gray-700">{job.location}</p>
+                            </div>
+                            <div>
+                              <p className="text-[10px] uppercase tracking-[0.08em] text-gray-400">Openings</p>
+                              <p className="mt-1 text-[12px] text-gray-700">{job.count}</p>
+                            </div>
+                          </div>
                         </div>
                         <div className="mt-6 flex items-center justify-between">
                           <span className="text-[12px] text-gray-400 font-mono tracking-wide">{department.toUpperCase()}</span>
                           <Link 
-                            href="mailto:careers@tnsaai.com"
+                            href={`mailto:careers@tnsaai.com?subject=${encodeURIComponent(`Application — ${job.title} (${job.location})`)}`}
                             className="inline-flex h-8 items-center justify-center rounded-full bg-black px-4 text-[12px] text-white transition-transform group-hover:scale-105"
                           >
                             Apply
