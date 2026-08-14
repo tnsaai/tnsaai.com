@@ -3,7 +3,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
+const SHOW_ASTRA = false
+
 const coreProducts = [
+  {
+    title: 'Astra',
+    subtitle: 'A unified agentic workspace for models, knowledge, connected apps, and enterprise work.',
+    category: 'Agentic Workspace',
+    imageUrl: '/astra-work-poster.png',
+    imageAlt: 'Astra agentic workspace',
+    href: '/astra',
+  },
   {
     title: 'TNSA Platform',
     subtitle: 'The unified API platform for building world-class AI applications.',
@@ -136,7 +146,7 @@ export default function ProductsPage() {
             <p className="mt-3 text-[15px] text-gray-500">Making AI accessible to all humanity.</p>
           </div>
           <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-            {coreProducts.map((product, index) => (
+            {coreProducts.filter((product) => SHOW_ASTRA || product.title !== 'Astra').map((product, index) => (
               <ProductCard
                 key={product.title}
                 product={product}
