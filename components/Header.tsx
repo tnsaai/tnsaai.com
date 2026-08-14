@@ -17,6 +17,7 @@ const navigation = [
 
 const searchItems = [
   // Models
+  { name: 'NGen-4.3 Pro', href: '/models/ngen4.3-pro', category: 'Model', date: 'August 2026', description: 'Frontier agentic intelligence with a 1,048,576-token context window and 248,320-token maximum output.', image: '/model-images/ngen4.3-pro-preview.svg' },
   { name: 'Model Index', href: '/models', category: 'Models', date: 'April 2026', description: 'Explore our full suite of foundational AI models.', image: '/model-images/ngen4.png' },
   { name: 'NGen-4', href: '/models/ngen4', category: 'Model', date: 'April 15, 2026', description: 'Frontier intelligence for advanced reasoning and multi-modal tasks.', image: '/model-images/ngen4.png' },
   { name: 'NGen-4 Pro', href: '/models/ngen4-pro', category: 'Model', date: 'April 15, 2026', description: 'Frontier reasoning model for complex workflows and advanced problem solving.', image: '/model-images/ngen4-pro.png' },
@@ -62,9 +63,9 @@ const megaMenus = {
     eyebrow: 'Explore Models',
     links: [
       { name: 'Model Index', href: '/models' },
+      { name: 'NGen 4.3 Pro', href: '/models/ngen4.3-pro' },
       { name: 'NGen 4', href: '/models/ngen4' },
       { name: 'NGen 4 Pro', href: '/models/ngen4-pro' },
-      { name: 'NGen 4 Mini', href: '/models/ngen4-mini' },
     ],
     sideTitle: 'Latest Models',
     sideLinks: [

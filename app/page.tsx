@@ -5,10 +5,10 @@ import Image from 'next/image'
 import { PromptBox } from '@/components/ui/prompt-box'
 
 const heroCard = {
-  title: 'Introducing NGen-4.1 Pro',
+  title: 'Introducing NGen-4.3 Pro',
   label: 'Flagship Model',
-  href: '/models/ngen4.1-pro',
-  image: '/model-images/ngen4.1-pro.png',
+  href: '/models/ngen4.3-pro',
+  image: '/model-images/ngen4.3-pro-preview.svg',
 }
 
 const sideCards = [
@@ -42,6 +42,7 @@ const secondaryCards = [
 ]
 
 const modelList = [
+  { title: 'NGen-4.3 Pro', label: 'Frontier Model', href: '/models/ngen4.3-pro', image: '/model-images/ngen4.3-pro-preview.svg' },
   { title: 'NGen-4.1 Pro', label: 'Frontier Model', href: '/models/ngen4.1-pro', image: '/model-images/ngen4.1-pro.png' },
   { title: 'NGen-4.1', label: 'Frontier Model', href: '/models/ngen4.1', image: '/model-images/ngen4.1.png' },
   { title: 'NGen-4 Lite', label: 'Open Weight Model', href: '/models/ngen4-lite', image: '/model-images/ngen4-lite.png' },
@@ -49,7 +50,6 @@ const modelList = [
   { title: 'NGen-4-OW-1T-Thinking', label: 'Open Weight Model', href: '/models/ngen4-ow-1t-thinking', image: 'https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/ngen4ow1t.png' },
   { title: 'NGen-4 Flash', label: 'Model', href: '/models/ngen4-flash', image: '/model-images/ngen4-blaze-1.png' },
   { title: 'NGen 3 10B', label: 'Model', href: '/models/ngen3-10b', image: '/model-images/ngen3-10b.png' },
-  { title: 'NGen-3.9 Pro', label: 'Open Weight Model', href: '/models/ngen3.9-pro-chat', image: '/model-images/ngen3.9-pro.png' },
 ]
 
 const researchCards = [

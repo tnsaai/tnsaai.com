@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     url: 'https://tnsaai.com',
     siteName: 'TNSA AI',
     type: 'website',
+    images: ['/og.png'],
   },
 }
 

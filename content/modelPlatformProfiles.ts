@@ -324,6 +324,41 @@ export const ngen41ProPlatformProfile = profile({
     ],
 })
 
+export const ngen43ProPlatformProfile = profile({
+    name: 'NGen-4.3 Pro',
+    variantCount: '1',
+    reasoningTier: 'Highest',
+    speedTier: 'Low',
+    inputPrice: 'Rs 750 / 1M input tokens',
+    cachedInputPrice: 'Rs 187 / 1M cached input tokens',
+    outputPrice: 'Rs 1,800 / 1M output tokens',
+    inputSupport: 'Text, image, audio, video',
+    outputSupport: 'Text, image, audio, video',
+    overview: 'NGen-4.3 Pro is the newest frontier model in the NGen family, designed for long-horizon reasoning, software engineering, computer use, and multimodal agentic work.',
+    overviewBullets: [
+        'Context window: 1M (1,048,576 tokens).',
+        'Maximum output: 248,320 tokens.',
+        'Reasoning tier: Highest.',
+        'Input support: text, image, audio, video. Output support: text, image, audio, video.',
+        'Reasoning levels supported: Low, Medium, High, Extended.',
+    ],
+    reasoningLevels: ['Low', 'Medium', 'High', 'Extended'],
+    coreStats: [
+        { label: 'Context window', value: '1M (1,048,576 tokens)' },
+        { label: 'Max output', value: '248,320 tokens' },
+        { label: 'Knowledge cutoff', value: 'Jun 2025' },
+        { label: 'Rate limit', value: '1,800 RPM' },
+    ],
+    snapshots: [
+        {
+            name: 'NGen-4.3 Pro',
+            description: 'Million-token frontier model with the highest reasoning profile and extended output generation.',
+            badge: 'Default',
+            id: 'ngen-4.3-pro',
+        },
+    ],
+})
+
 export const ngen41PlatformProfile = profile({
     name: 'NGen-4.1',
     variantCount: '1',

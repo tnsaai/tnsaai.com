@@ -98,6 +98,46 @@ export const benchmarkData = [
 ]
 
 export const chartConfig = {
+  ngen43pro: {
+    label: "NGen-4.3 Pro",
+    color: "#111827",
+  },
+  qwen38_27b: {
+    label: "Qwen3.8-27B",
+    color: "#8b5cf6",
+  },
+  kimi_k3: {
+    label: "Kimi K3",
+    color: "#22c55e",
+  },
+  gpt56_sol: {
+    label: "GPT-5.6 Sol",
+    color: "#10b981",
+  },
+  gpt56_terra: {
+    label: "GPT-5.6 Terra",
+    color: "#34d399",
+  },
+  claude_fable_5: {
+    label: "Claude Fable 5",
+    color: "#fb923c",
+  },
+  claude_opus_48: {
+    label: "Claude Opus 4.8",
+    color: "#f97316",
+  },
+  claude_opus_5: {
+    label: "Claude Opus 5",
+    color: "#ea580c",
+  },
+  glm52: {
+    label: "GLM-5.2",
+    color: "#0ea5e9",
+  },
+  gemini37_flash: {
+    label: "Gemini 3.7 Flash",
+    color: "#14b8a6",
+  },
   ngen4: {
     label: "NGen-4",
     color: "#111827",

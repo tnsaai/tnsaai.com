@@ -19,6 +19,19 @@ const modelImage = (file: string) => `/model-images/${file}`
 
 const sections: ModelSection[] = [
   {
+    title: 'NGen 4.3 Series',
+    description: 'Frontier intelligence for long-horizon reasoning, agentic work, and million-token context.',
+    models: [
+      {
+        title: 'NGen-4.3 Pro',
+        label: 'Frontier Model',
+        href: '/models/ngen4.3-pro',
+        image: '/model-images/ngen4.3-pro-preview.svg',
+        description: 'Our newest flagship model with a 1,048,576-token context window and up to 248,320 output tokens.',
+      },
+    ],
+  },
+  {
     title: 'NGen 4.1 Series',
     description: 'Next-generation NGen models with improved reasoning, vision, and long-context performance.',
     models: [
