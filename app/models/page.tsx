@@ -182,6 +182,19 @@ const sections: ModelSection[] = [
     ],
   },
   {
+    title: 'Speech Recognition Series',
+    description: 'Speech-to-Text models built for Indian languages, accents, and telephony audio.',
+    models: [
+      {
+        title: 'NGenSTT V2 Indic',
+        label: 'Speech-to-Text Model',
+        href: '/models/ngenstt-v2-indic',
+        image: '/model-images/ngenstt-v2-indic.svg',
+        description: 'Our flagship Speech-to-Text model for India, covering 27 languages with code-mixed transcription and three output modes.',
+      },
+    ],
+  },
+  {
     title: 'Omni and Audio Series',
     description: 'Real-time multimodal interaction, audio understanding, and text-to-speech models.',
     models: [
@@ -234,6 +247,7 @@ function ModelCard({ model, priority = false }: { model: ModelCard; priority?: b
           fill
           priority={priority}
           quality={100}
+          unoptimized={model.image.endsWith('.svg')}
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(min-width: 1200px) 300px, (min-width: 768px) 33vw, calc(100vw - 40px)"
         />

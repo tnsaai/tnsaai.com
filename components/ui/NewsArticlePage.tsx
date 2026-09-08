@@ -115,6 +115,7 @@ export function NewsArticlePage({
               fill
               priority
               quality={100}
+              unoptimized={image.endsWith('.svg')}
               className={imageFit === 'contain' ? 'object-contain' : 'object-cover'}
               sizes="(min-width: 1024px) 920px, calc(100vw - 40px)"
             />

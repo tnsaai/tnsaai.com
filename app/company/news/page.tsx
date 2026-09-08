@@ -5,6 +5,12 @@ import Image from 'next/image'
 
 const papers = [
   {
+    title: 'Introducing NGenSTT V2 Indic',
+    description: 'Our most capable Speech-to-Text model, built specifically for India: 27 languages, code-mixed transcription, three output modes, and support for telephony audio.',
+    href: '/company/news/ngenstt-v2-indic-launch',
+    backgroundImage: '/model-images/ngenstt-v2-indic.svg',
+  },
+  {
     title: 'NGen 4 System Card',
     description: 'A comprehensive overview of the architecture, training methodologies, and benchmark evaluations for the NGen 4 model series.',
     href: '/company/news/ngen-4-system-card',
@@ -86,6 +92,7 @@ function NewsCard({ paper, priority = false }: { paper: any; priority?: boolean 
           priority={priority}
           quality={100}
           className={`rounded-[10px] transition-transform duration-500 group-hover:scale-105 ${paper.imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
+          unoptimized={typeof paper.backgroundImage === 'string' && paper.backgroundImage.endsWith('.svg')}
           sizes="(min-width: 1200px) 300px, (min-width: 768px) 33vw, calc(100vw - 40px)"
         />
       </div>
@@ -117,6 +124,7 @@ export default function NewsPage() {
           <div className="rounded-lg bg-gray-50 p-4 flex flex-col sm:flex-row items-center justify-between gap-4 border border-gray-100">
             <div className="text-[13px] text-gray-700">Featured: Explore our latest research and tools.</div>
             <div className="flex gap-3">
+              <Link href="/company/news/ngenstt-v2-indic-launch" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-[12px] text-black transition-colors hover:bg-gray-50">NGenSTT V2 Indic</Link>
               <Link href="/research/tri-flux-attention" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-[12px] text-black transition-colors hover:bg-gray-50">Tri‑Flux Attention</Link>
               <Link href="/company/news/ngen-4-k2-1t-thinking-open-source" className="inline-flex items-center px-3 py-2 bg-white border border-gray-200 rounded-md text-[12px] text-black transition-colors hover:bg-gray-50">NGen-4-K2-1T</Link>
             </div>

@@ -43,6 +43,7 @@ const secondaryCards = [
 
 const modelList = [
   { title: 'NGen-4.3 Pro', label: 'Frontier Model', href: '/models/ngen4.3-pro', image: '/model-images/ngen4.3-pro-preview.svg' },
+  { title: 'NGenSTT V2 Indic', label: 'Speech-to-Text Model', href: '/models/ngenstt-v2-indic', image: '/model-images/ngenstt-v2-indic.svg' },
   { title: 'NGen-4.1 Pro', label: 'Frontier Model', href: '/models/ngen4.1-pro', image: '/model-images/ngen4.1-pro.png' },
   { title: 'NGen-4.1', label: 'Frontier Model', href: '/models/ngen4.1', image: '/model-images/ngen4.1.png' },
   { title: 'NGen-4 Lite', label: 'Open Weight Model', href: '/models/ngen4-lite', image: '/model-images/ngen4-lite.png' },
@@ -187,7 +188,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-[1.35fr_1fr] md:items-start">
             <Link href={heroCard.href} className="group block">
               <div className="relative aspect-[1.12/1] overflow-hidden rounded-lg bg-gray-100">
-                <Image src={heroCard.image} alt={heroCard.title} fill quality={100} priority className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(min-width: 1024px) 640px, (min-width: 768px) 64vw, calc(100vw - 40px)" />
+                <Image src={heroCard.image} alt={heroCard.title} fill quality={100} priority unoptimized={heroCard.image.endsWith('.svg')} className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(min-width: 1024px) 640px, (min-width: 768px) 64vw, calc(100vw - 40px)" />
               </div>
               <h2 className="mt-4 text-[24px] font-normal leading-tight text-black">{heroCard.title}</h2>
               <span className="mt-1 inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-[8px] text-black">{heroCard.label}</span>
@@ -229,7 +230,7 @@ export default function Home() {
               {modelList.map((model) => (
                 <Link key={model.title} href={model.href} className="group flex items-center gap-4">
                   <div className="relative h-[58px] w-[58px] shrink-0 overflow-hidden rounded-lg bg-gray-100">
-                    <Image src={model.image} alt={model.title} fill quality={100} className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="96px" />
+                    <Image src={model.image} alt={model.title} fill quality={100} unoptimized={model.image.endsWith('.svg')} className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="96px" />
                   </div>
                   <div>
                     <h3 className="text-[16px] font-normal leading-tight text-black transition-colors group-hover:text-gray-500">{model.title}</h3>

@@ -18,6 +18,7 @@ const navigation = [
 const searchItems = [
   // Models
   { name: 'NGen-4.3 Pro', href: '/models/ngen4.3-pro', category: 'Model', date: 'August 2026', description: 'Frontier agentic intelligence with a 1,048,576-token context window and 248,320-token maximum output.', image: '/model-images/ngen4.3-pro-preview.svg' },
+  { name: 'NGenSTT V2 Indic', href: '/models/ngenstt-v2-indic', category: 'Model', date: 'September 2026', description: 'Our flagship Speech-to-Text model for India: 27 languages, code-mixed transcription, and three output modes.', image: '/model-images/ngenstt-v2-indic.svg' },
   { name: 'Model Index', href: '/models', category: 'Models', date: 'April 2026', description: 'Explore our full suite of foundational AI models.', image: '/model-images/ngen4.png' },
   { name: 'NGen-4', href: '/models/ngen4', category: 'Model', date: 'April 15, 2026', description: 'Frontier intelligence for advanced reasoning and multi-modal tasks.', image: '/model-images/ngen4.png' },
   { name: 'NGen-4 Pro', href: '/models/ngen4-pro', category: 'Model', date: 'April 15, 2026', description: 'Frontier reasoning model for complex workflows and advanced problem solving.', image: '/model-images/ngen4-pro.png' },
@@ -49,6 +50,7 @@ const searchItems = [
   // Company
   { name: 'Company Overview', href: '/company', category: 'Company', date: '2026', description: 'The company building superintelligence for India and the world.' },
   { name: 'About TNSA', href: '/about', category: 'Company', date: '2026', description: 'Learn about our mission to build superintelligence for India.', image: '/about.png' },
+  { name: 'Introducing NGenSTT V2 Indic', href: '/company/news/ngenstt-v2-indic-launch', category: 'News', date: 'September 8, 2026', description: 'Our most capable Speech-to-Text model, built specifically for India across 27 languages.', image: '/model-images/ngenstt-v2-indic.svg' },
   { name: 'News', href: '/company/news', category: 'Company', date: '2026', description: 'Latest news, announcements, and research updates.' },
   { name: 'Careers', href: '/company/careers', category: 'Company', date: '2026', description: 'Join us in shaping the future of AI. View open roles across engineering and research.', image: '/Careers.png' },
   { name: 'Safety', href: '/safety', category: 'Company', date: '2026', description: 'Our approach to responsible AI development and deployment.', image: '/ai-safety.png' },
@@ -69,6 +71,7 @@ const megaMenus = {
     ],
     sideTitle: 'Latest Models',
     sideLinks: [
+      { name: 'NGenSTT V2 Indic', href: '/models/ngenstt-v2-indic' },
       { name: 'NGen-4-K2-1T', href: '/models/ngen4-k2-1t' },
       { name: 'NGen 4 Blaze', href: '/models/ngen4-blaze' },
       { name: 'NGen 4 Flash', href: '/models/ngen4-flash' },
@@ -263,7 +266,7 @@ export default function Header() {
                     </div>
                     {item.image && (
                       <div className="relative shrink-0 w-[180px] aspect-[4/3] md:w-[260px] overflow-hidden rounded-xl bg-gray-50">
-                        <Image src={item.image} alt={item.name} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(min-width: 768px) 260px, 180px" />
+                        <Image src={item.image} alt={item.name} fill unoptimized={item.image.endsWith('.svg')} className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(min-width: 768px) 260px, 180px" />
                       </div>
                     )}
                   </div>

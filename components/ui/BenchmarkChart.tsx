@@ -354,6 +354,42 @@ export const chartConfig = {
     label: "Mythos Preview",
     color: "#a78bfa",
   },
+  ngenstt_v2_indic: {
+    label: "NGenSTT V2 Indic",
+    color: "#111827",
+  },
+  stt_core: {
+    label: "Indic-Transcribe-core",
+    color: "#8b5cf6",
+  },
+  stt_saaras_v3: {
+    label: "Saaras V3",
+    color: "#22c55e",
+  },
+  stt_indic_conformer: {
+    label: "Indic Conformer",
+    color: "#0ea5e9",
+  },
+  stt_gemini3_pro: {
+    label: "Gemini 3 Pro",
+    color: "#14b8a6",
+  },
+  stt_gemini3_flash: {
+    label: "Gemini 3 Flash",
+    color: "#7ec8e3",
+  },
+  stt_gemma_e4b: {
+    label: "Gemma E4B",
+    color: "#f59e0b",
+  },
+  stt_omniasr_llm_7b: {
+    label: "OmniASR LLM 7B",
+    color: "#fb923c",
+  },
+  stt_omniasr_ctc_7b: {
+    label: "OmniASR CTC 7B",
+    color: "#ef4444",
+  },
 } satisfies ChartConfig
 
 export function BenchmarkBase({
@@ -362,6 +398,9 @@ export function BenchmarkBase({
   description,
   yAxisLabel = "Accuracy (%)",
   isElo = false,
+  yDomain,
+  footerHeadline = "New massive-scale benchmarks released",
+  footerNote = "Comparative analysis against industry-leading models",
   children
 }: {
   data: any[],
@@ -369,6 +408,9 @@ export function BenchmarkBase({
   description: string,
   yAxisLabel?: string,
   isElo?: boolean,
+  yDomain?: [number, number],
+  footerHeadline?: string,
+  footerNote?: string,
   children: React.ReactNode
 }) {
   const chartId = `benchmark-chart-${title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`
@@ -548,7 +590,7 @@ export function BenchmarkBase({
                     tickLine={false}
                     axisLine={false}
                     tick={{ fill: '#666', fontSize: 12 }}
-                    domain={isElo ? [0, 3000] : [0, 100]}
+                    domain={yDomain ?? (isElo ? [0, 3000] : [0, 100])}
                   />
                   <ChartTooltip
                     cursor={false}
@@ -576,10 +618,10 @@ export function BenchmarkBase({
 
       <CardFooter className="flex-col items-start gap-2 text-sm px-0 pt-6">
         <div className="flex gap-2 leading-none text-black">
-          New massive-scale benchmarks released <TrendingUp className="h-4 w-4" />
+          {footerHeadline} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="text-gray-500 leading-none">
-          Comparative analysis against industry-leading models
+          {footerNote}
         </div>
       </CardFooter>
     </Card>
