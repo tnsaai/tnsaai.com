@@ -71,7 +71,7 @@ export const ProductCard = ({
             <div>
                 <button
                     onClick={handleButtonClick}
-                    className="w-full bg-[#1a1a1a] hover:bg-gray-800 text-white text-[15px] py-[15px] px-8 rounded-full transition-all"
+                    className="w-full bg-black hover:bg-gray-800 text-white text-[15px] py-[15px] px-8 rounded-full transition-all"
                 >
                     {buttonText}
                 </button>

@@ -3,12 +3,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { PromptBox } from '@/components/ui/prompt-box'
+import { SHOW_ASTRA } from '@/lib/features'
 
 const heroCard = {
-  title: 'Introducing NGen-4.3 Pro',
+  title: 'Introducing NGen-4.5 Vayu',
   label: 'Flagship Model',
-  href: '/models/ngen4.3-pro',
-  image: '/model-images/ngen4.3-pro-preview.svg',
+  href: '/models/ngen4.5-vayu',
+  image: '/model-images/ngen4.5-vayu-preview.svg',
 }
 
 const sideCards = [
@@ -42,6 +43,7 @@ const secondaryCards = [
 ]
 
 const modelList = [
+  { title: 'NGen-4.5 Vayu', label: 'Flagship Model', href: '/models/ngen4.5-vayu', image: '/model-images/ngen4.5-vayu-preview.svg' },
   { title: 'NGen-4.3 Pro', label: 'Frontier Model', href: '/models/ngen4.3-pro', image: '/model-images/ngen4.3-pro-preview.svg' },
   { title: 'NGenSTT V2 Indic', label: 'Speech-to-Text Model', href: '/models/ngenstt-v2-indic', image: '/model-images/ngenstt-v2-indic.svg' },
   { title: 'NGen-4.1 Pro', label: 'Frontier Model', href: '/models/ngen4.1-pro', image: '/model-images/ngen4.1-pro.png' },
@@ -73,6 +75,14 @@ const researchCards = [
     image: '/Adaptive Sparse Transformer Blocks.png',
   },
 ]
+
+const astraProductCard = {
+  title: 'Astra',
+  label: 'Agentic Workspace',
+  href: '/astra',
+  image: '/astra-work-poster.png',
+  description: 'A unified workspace for models, agents, knowledge, and connected work.',
+}
 
 const productCards = [
   {
@@ -152,8 +162,8 @@ export default function Home() {
   }
 
   return (
-    <div className="relative bg-[#FFFFFF]">
-      <section className="flex min-h-screen items-center justify-center bg-[#FFFFFF] px-6 pt-16">
+    <div className="relative bg-white">
+      <section className="flex min-h-screen items-center justify-center bg-white px-6 pt-16">
         <div className="mx-auto w-full max-w-[560px] text-center">
           <h1 className="mb-5 text-[28px] font-normal leading-tight text-black md:text-[34px]">
             Building Super-Intelligence
@@ -166,23 +176,23 @@ export default function Home() {
           />
 
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-            <Link href="https://platform.tnsaai.com" className="flex h-9 min-w-[100px] items-center justify-center rounded-full border border-[#e5e5e5] bg-white px-4 text-[12px] text-black shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-colors hover:bg-gray-50">
+            <Link href="https://platform.tnsaai.com" className="flex h-9 min-w-[100px] items-center justify-center rounded-full border border-gray-200 bg-white px-4 text-[12px] text-black shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-colors hover:bg-gray-50">
               API Platform
             </Link>
-            <Link href="https://chat.tnsaai.com" className="flex h-9 min-w-[100px] items-center justify-center rounded-full border border-[#e5e5e5] bg-white px-4 text-[12px] text-black shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-colors hover:bg-gray-50">
+            <Link href="https://chat.tnsaai.com" className="flex h-9 min-w-[100px] items-center justify-center rounded-full border border-gray-200 bg-white px-4 text-[12px] text-black shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-colors hover:bg-gray-50">
               GensChat
             </Link>
-            <Link href="/models" className="flex h-9 min-w-[100px] items-center justify-center rounded-full border border-[#e5e5e5] bg-white px-4 text-[12px] text-black shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-colors hover:bg-gray-50">
+            <Link href="/models" className="flex h-9 min-w-[100px] items-center justify-center rounded-full border border-gray-200 bg-white px-4 text-[12px] text-black shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-colors hover:bg-gray-50">
               Models
             </Link>
-            <Link href="/research" className="flex h-9 min-w-[100px] items-center justify-center rounded-full border border-[#e5e5e5] bg-white px-4 text-[12px] text-black shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-colors hover:bg-gray-50">
+            <Link href="/research" className="flex h-9 min-w-[100px] items-center justify-center rounded-full border border-gray-200 bg-white px-4 text-[12px] text-black shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-colors hover:bg-gray-50">
               Research
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#FFFFFF] pb-24 pt-4">
+      <section className="bg-white pb-24 pt-4">
         <div className="mx-auto max-w-[920px] px-5">
           {/* Hero Row: NGen-4 (large) + NGen-4.1 Pro & 4.1 (right side) */}
           <div className="grid gap-6 md:grid-cols-[1.35fr_1fr] md:items-start">
@@ -246,6 +256,34 @@ export default function Home() {
               <h2 className="text-[16px] font-normal text-black">Research</h2>
               <Link href="/research" className="text-[10px] text-black transition-colors hover:text-gray-500">View All</Link>
             </div>
+
+            {SHOW_ASTRA ? (
+              <Link
+                href={astraProductCard.href}
+                className="group mb-8 grid overflow-hidden rounded-lg bg-gray-100 md:grid-cols-[1.35fr_1fr]"
+              >
+                <div className="relative min-h-[260px] overflow-hidden md:min-h-[340px]">
+                  <Image
+                    src={astraProductCard.image}
+                    alt={astraProductCard.title}
+                    fill
+                    quality={100}
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.025]"
+                    sizes="(min-width: 1024px) 560px, calc(100vw - 40px)"
+                  />
+                </div>
+                <div className="flex flex-col justify-end p-6 md:p-9">
+                  <span className="mb-4 text-[10px] text-gray-500">{astraProductCard.label}</span>
+                  <h3 className="text-[30px] font-normal leading-tight text-black md:text-[38px]">
+                    {astraProductCard.title}
+                  </h3>
+                  <p className="mt-3 max-w-[280px] text-[13px] leading-6 text-gray-500">
+                    {astraProductCard.description}
+                  </p>
+                  <span className="mt-7 text-[12px] text-black">Explore Astra&nbsp; →</span>
+                </div>
+              </Link>
+            ) : null}
 
             <div className="grid gap-8 md:grid-cols-3">
               {researchCards.map((card) => (
@@ -329,19 +367,19 @@ export default function Home() {
                 className="object-cover"
                 sizes="(min-width: 1024px) 920px, calc(100vw - 40px)"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-10">
+              <div className="absolute inset-0 bg-gradient-to-t from-fixed-black/70 via-fixed-black/20 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-6 text-fixed-white md:p-10">
                 <h2 className="max-w-[560px] text-[32px] font-normal leading-tight md:text-[44px]">
                   Build intelligence for India
                 </h2>
-                <p className="mt-3 max-w-[480px] text-[13px] leading-6 text-white/80">
+                <p className="mt-3 max-w-[480px] text-[13px] leading-6 text-fixed-white/80">
                   Explore models, research, and developer tools built for real-world scale.
                 </p>
                 <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <Link href="https://platform.tnsaai.com" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-white px-4 text-[12px] text-black transition-colors hover:bg-gray-100">
+                  <Link href="https://platform.tnsaai.com" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-fixed-white px-4 text-[12px] text-fixed-black transition-colors hover:bg-fixed-white/90">
                     Open Platform
                   </Link>
-                  <Link href="/developers" className="flex h-9 min-w-[120px] items-center justify-center rounded-full border border-white/40 bg-white/10 px-4 text-[12px] text-white backdrop-blur-sm transition-colors hover:bg-white/20">
+                  <Link href="/developers" className="flex h-9 min-w-[120px] items-center justify-center rounded-full border border-fixed-white/40 bg-fixed-white/10 px-4 text-[12px] text-fixed-white backdrop-blur-sm transition-colors hover:bg-fixed-white/20">
                     Developers
                   </Link>
                 </div>

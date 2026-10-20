@@ -51,10 +51,13 @@ const teamMembers = [
     { name: 'Akash', department: 6 },
 ]
 
-export function NGen4TeamSection() {
+export function NGen4TeamSection({ tone = 'default' }: { tone?: 'default' | 'platform' }) {
+    const nameColor = tone === 'platform' ? 'text-p-fg' : 'text-gray-700'
+    const labelColor = tone === 'platform' ? 'text-p-muted-fg' : 'text-gray-500'
+
     return (
         <section className="mb-12 mt-8 text-center">
-            <div className="mb-7 flex flex-wrap justify-center gap-x-8 gap-y-4 text-base font-medium text-gray-700 md:text-lg">
+            <div className={`mb-7 flex flex-wrap justify-center gap-x-8 gap-y-4 text-base font-medium md:text-lg ${nameColor}`}>
                 {teamMembers.map((member) => (
                     <span key={`${member.name}-${member.department}`}>
                         {member.name}
@@ -63,7 +66,7 @@ export function NGen4TeamSection() {
                 ))}
             </div>
 
-            <div className="flex flex-wrap justify-center gap-y-2 text-sm text-gray-500">
+            <div className={`flex flex-wrap justify-center gap-y-2 text-sm ${labelColor}`}>
                 {departmentLabels.map((label, index) => (
                     <span key={label}>
                         <sup>{index + 1}</sup> {label}

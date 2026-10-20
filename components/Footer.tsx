@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { SHOW_ASTRA } from '@/lib/features'
 import Image from 'next/image'
 import FooterImageLogo from './FooterImageLogo'
 
@@ -11,7 +12,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Logo */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
-            <Image src="/TNSA.svg" alt="TNSA" width={120} height={40} />
+            <Image src="/TNSA.svg" alt="TNSA" width={120} height={40} className="dark:invert" />
             <p className="mt-3 text-sm text-gray-500">TNSA Private Limited</p>
           </div>
 
@@ -25,17 +26,18 @@ export default function Footer() {
             </ul>
             <h3 className="text-base text-black mt-8 mb-4">Models</h3>
             <ul className="space-y-3">
-              <li><Link href="/models" className="text-sm text-gray-500 hover:text-black transition-colors">NGen 3.5</Link></li>
-              <li><Link href="/models" className="text-sm text-gray-500 hover:text-black transition-colors">NGen 3.9</Link></li>
-              <li><Link href="/models/ngen3.1-pro" className="text-sm text-gray-500 hover:text-black transition-colors">NGen 3.1</Link></li>
-              <li><Link href="/models" className="text-sm text-gray-500 hover:text-black transition-colors">NGen 3</Link></li>
-              <li><Link href="/models" className="text-sm text-gray-500 hover:text-black transition-colors">NGen 2</Link></li>
-              <li><Link href="/models/ngen1" className="text-sm text-gray-500 hover:text-black transition-colors">NGen 1</Link></li>
+              <li><Link href="/models" className="text-sm text-gray-500 hover:text-black transition-colors">Model Index</Link></li>
+              <li><Link href="/models/ngen4.5-vayu" className="text-sm text-gray-500 hover:text-black transition-colors">NGen-4.5 Vayu</Link></li>
+              <li><Link href="/models/ngen4.3-pro" className="text-sm text-gray-500 hover:text-black transition-colors">NGen-4.3 Pro</Link></li>
+              <li><Link href="/models/ngen4.1-pro" className="text-sm text-gray-500 hover:text-black transition-colors">NGen-4.1 Pro</Link></li>
+              <li><Link href="/models/ngen4.1" className="text-sm text-gray-500 hover:text-black transition-colors">NGen-4.1</Link></li>
+              <li><Link href="/models/ngen4" className="text-sm text-gray-500 hover:text-black transition-colors">NGen-4</Link></li>
+              <li><Link href="/models/ngen4-pro" className="text-sm text-gray-500 hover:text-black transition-colors">NGen-4 Pro</Link></li>
+              <li><Link href="/models/ngen4-mini" className="text-sm text-gray-500 hover:text-black transition-colors">NGen-4 Mini</Link></li>
+              <li><Link href="/models/ngen4-k2-1t" className="text-sm text-gray-500 hover:text-black transition-colors">NGen-4-K2-1T</Link></li>
               <li><Link href="/models/igen-1-image" className="text-sm text-gray-500 hover:text-black transition-colors">IGen 1</Link></li>
-              <li><Link href="/models" className="text-sm text-gray-500 hover:text-black transition-colors">Audio-Text-Speech</Link></li>
-              <li><Link href="/models" className="text-sm text-gray-500 hover:text-black transition-colors">NGen-Realtime-Omni</Link></li>
-              <li><Link href="/models" className="text-sm text-gray-500 hover:text-black transition-colors">ToolModels</Link></li>
-              <li><Link href="/models" className="text-sm text-gray-500 hover:text-black transition-colors">Agent-QRL</Link></li>
+              <li><Link href="/models/ngen3.1-pro" className="text-sm text-gray-500 hover:text-black transition-colors">NGen 3.1</Link></li>
+              <li><Link href="/models/ngen1" className="text-sm text-gray-500 hover:text-black transition-colors">NGen 1</Link></li>
             </ul>
           </div>
 
@@ -43,9 +45,13 @@ export default function Footer() {
           <div>
             <h3 className="text-base text-black mb-4">Products</h3>
             <ul className="space-y-3">
+              {SHOW_ASTRA ? <li><Link href="/astra" className="text-sm text-gray-500 hover:text-black transition-colors">Astra</Link></li> : null}
+              <li><Link href="/products/platform" className="text-sm text-gray-500 hover:text-black transition-colors">TNSA Platform</Link></li>
               <li><Link href="https://platform.tnsaai.com" className="text-sm text-gray-500 hover:text-black transition-colors">API Platform</Link></li>
               <li><Link href="/products/genchat" className="text-sm text-gray-500 hover:text-black transition-colors">GensChat</Link></li>
               <li><Link href="/products/edgechat" className="text-sm text-gray-500 hover:text-black transition-colors">EdgeChat</Link></li>
+              <li><Link href="/developers" className="text-sm text-gray-500 hover:text-black transition-colors">Developers</Link></li>
+              <li><Link href="/status" className="text-sm text-gray-500 hover:text-black transition-colors">Status</Link></li>
             </ul>
             <h3 className="text-base text-black mt-8 mb-4">Business</h3>
             <ul className="space-y-3">

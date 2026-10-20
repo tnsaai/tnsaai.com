@@ -40,9 +40,9 @@ export default function CareersPage() {
   }, {} as Record<string, typeof jobs>)
 
   return (
-    <main className="min-h-screen bg-[#FFFFFF] text-black">
+    <main className="min-h-screen bg-white text-black">
       {/* Header Section */}
-      <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+      <section className="bg-white pb-10 pt-[136px] md:pt-[152px]">
         <div className="mx-auto max-w-[920px] px-5">
           <p className="mb-4 text-[12px] font-normal text-gray-500">Company</p>
           <h1 className="text-[44px] font-normal leading-tight tracking-normal text-black md:text-[64px]">

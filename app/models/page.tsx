@@ -19,6 +19,19 @@ const modelImage = (file: string) => `/model-images/${file}`
 
 const sections: ModelSection[] = [
   {
+    title: 'NGen 4.5 Series',
+    description: 'Flagship frontier intelligence at 400 tokens per second.',
+    models: [
+      {
+        title: 'NGen-4.5 Vayu',
+        label: 'Flagship Model',
+        href: '/models/ngen4.5-vayu',
+        image: '/model-images/ngen4.5-vayu-preview.svg',
+        description: 'Our new flagship frontier model, matching NGen-4.3 Pro at 400 tokens/s. Available in India South, India Central, and US East-1.',
+      },
+    ],
+  },
+  {
     title: 'NGen 4.3 Series',
     description: 'Frontier intelligence for long-horizon reasoning, agentic work, and million-token context.',
     models: [
@@ -227,6 +240,15 @@ const sections: ModelSection[] = [
       },
     ],
   },
+  {
+    title: 'Stellar Series',
+    description: 'Reasoning models from enterprise scale down to edge devices.',
+    models: [
+      { title: 'Stellar Large', label: 'Reasoning Model', href: '/models/stellar-large', image: modelImage('image-banner.jpg') },
+      { title: 'Stellar Mini', label: 'Reasoning Model', href: '/models/stellar-mini', image: modelImage('image-banner.jpg') },
+      { title: 'Stellar Nano', label: 'Edge Model', href: '/models/stellar-nano', image: modelImage('image-banner.jpg') },
+    ],
+  },
 ]
 
 function Label({ children }: { children: string }) {
@@ -265,8 +287,8 @@ function ModelCard({ model, priority = false }: { model: ModelCard; priority?: b
 
 export default function ModelsPage() {
   return (
-    <main className="min-h-screen bg-[#FFFFFF] text-black">
-      <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+    <main className="min-h-screen bg-white text-black">
+      <section className="bg-white pb-10 pt-[136px] md:pt-[152px]">
         <div className="mx-auto max-w-[920px] px-5">
           <p className="mb-4 text-[12px] font-normal text-gray-500">Explore Models</p>
           <h1 className="text-[44px] font-normal leading-tight tracking-normal text-black md:text-[64px]">
@@ -309,19 +331,19 @@ export default function ModelsPage() {
               className="object-cover"
               sizes="(min-width: 1024px) 920px, calc(100vw - 40px)"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-10">
+            <div className="absolute inset-0 bg-gradient-to-t from-fixed-black/70 via-fixed-black/20 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-fixed-white md:p-10">
               <h2 className="max-w-[560px] text-[32px] font-normal leading-tight md:text-[44px]">
                 Build intelligence for India
               </h2>
-              <p className="mt-3 max-w-[480px] text-[13px] leading-6 text-white/80">
+              <p className="mt-3 max-w-[480px] text-[13px] leading-6 text-fixed-white/80">
                 Explore models, research, and developer tools built for real-world scale.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Link href="https://platform.tnsaai.com" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-white px-4 text-[12px] text-black transition-colors hover:bg-gray-100">
+                <Link href="https://platform.tnsaai.com" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-fixed-white px-4 text-[12px] text-fixed-black transition-colors hover:bg-fixed-white/90">
                   Open Platform
                 </Link>
-                <Link href="/developers" className="flex h-9 min-w-[120px] items-center justify-center rounded-full border border-white/40 bg-white/10 px-4 text-[12px] text-white backdrop-blur-sm transition-colors hover:bg-white/20">
+                <Link href="/developers" className="flex h-9 min-w-[120px] items-center justify-center rounded-full border border-fixed-white/40 bg-fixed-white/10 px-4 text-[12px] text-fixed-white backdrop-blur-sm transition-colors hover:bg-fixed-white/20">
                   Developers
                 </Link>
               </div>

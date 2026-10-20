@@ -359,6 +359,43 @@ export const ngen43ProPlatformProfile = profile({
     ],
 })
 
+export const ngen45VayuPlatformProfile = profile({
+    name: 'NGen-4.5 Vayu',
+    variantCount: '1',
+    reasoningTier: 'Highest',
+    speedTier: 'Highest · 400 tokens/s',
+    inputPrice: '$3.65 / 1M input tokens',
+    cachedInputPrice: 'Not included in standard pricing',
+    outputPrice: '$11.35 / 1M output tokens',
+    inputSupport: 'Text, image, audio, video',
+    outputSupport: 'Text, audio',
+    overview: 'NGen-4.5 Vayu is our new flagship frontier model. It matches NGen-4.3 Pro intelligence while generating up to 400 tokens per second, and is served from TNSA regions India South, India Central, and US East-1.',
+    overviewBullets: [
+        'Output speed: up to 400 tokens per second.',
+        'Intelligence: matches NGen-4.3 Pro.',
+        'Context window: 128K (131,072 tokens), extendable up to 1M (1,048,576 tokens).',
+        'Maximum output: 131,072 tokens.',
+        'Rate limits: up to 1,000 requests/minute and 250,000 tokens/minute.',
+        'Available regions: India South, India Central, US East-1.',
+        'Reasoning levels supported: Low, Medium, High, Extended.',
+    ],
+    reasoningLevels: ['Low', 'Medium', 'High', 'Extended'],
+    coreStats: [
+        { label: 'Output speed', value: '400 tokens/s' },
+        { label: 'Context window', value: '131,072 tokens (extendable to 1,048,576)' },
+        { label: 'Max output', value: '131,072 tokens' },
+        { label: 'Rate limit', value: '1,000 RPM · 250,000 TPM' },
+    ],
+    snapshots: [
+        {
+            name: 'NGen-4.5 Vayu',
+            description: 'Flagship frontier model with NGen-4.3 Pro intelligence at 400 tokens per second.',
+            badge: 'Default',
+            id: 'ngen-4.5-vayu',
+        },
+    ],
+})
+
 export const ngen41PlatformProfile = profile({
     name: 'NGen-4.1',
     variantCount: '1',

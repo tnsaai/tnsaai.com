@@ -28,11 +28,11 @@ type ScatterPoint = {
 const scatterChartConfig = {
     ngen4: {
         label: 'NGen-4',
-        color: '#111827',
+        color: '#2563eb',
     },
     gemini31_pro: {
         label: 'Gemini 3.1 Pro',
-        color: '#7bc47f',
+        color: '#10b981',
     },
     claude_opus_46: {
         label: 'Claude Opus 4.6',
@@ -40,11 +40,11 @@ const scatterChartConfig = {
     },
     gpt54: {
         label: 'GPT-5.4',
-        color: '#fb7185',
+        color: '#ec4899',
     },
     claude_sonnet_45: {
         label: 'Claude Sonnet 4.5',
-        color: '#fdba74',
+        color: '#f59e0b',
     },
     qwen35_122b: {
         label: 'Qwen3.5-122B',
@@ -52,11 +52,11 @@ const scatterChartConfig = {
     },
     qwen35_35b: {
         label: 'Qwen3.5-35B',
-        color: '#a78bfa',
+        color: '#94a3b8',
     },
     glm5: {
         label: 'GLM-5',
-        color: '#3b82f6',
+        color: '#0ea5e9',
     },
     deepseek_v32: {
         label: 'DeepSeek-V3.2',
@@ -64,11 +64,11 @@ const scatterChartConfig = {
     },
     kimi_k25: {
         label: 'Kimi K2.5',
-        color: '#22c55e',
+        color: '#84cc16',
     },
     gptoss120b: {
         label: 'gpt-oss-120b',
-        color: '#8b5cf6',
+        color: '#e11d48',
     },
 } satisfies ChartConfig
 
@@ -98,7 +98,7 @@ function ScatterTooltip({ active, payload }: { active?: boolean; payload?: Array
     }
 
     return (
-        <div className="min-w-[14rem] rounded-xl border border-zinc-200 bg-white px-3 py-2 text-xs text-zinc-900 shadow-lg">
+        <div className="min-w-[14rem] rounded-lg border border-zinc-200 bg-white px-3 py-2 text-xs text-zinc-900 shadow-md">
             <div className="mb-2 text-sm font-medium text-black">{point.name}</div>
             <div className="grid gap-1 text-zinc-600">
                 <div className="flex items-center justify-between gap-4">
@@ -132,7 +132,7 @@ function ScatterPointShape(props: {
             r={payload.size}
             fill={`var(--color-${payload.series})`}
             fillOpacity={0.92}
-            stroke="#ffffff"
+            stroke="rgb(var(--c-white))"
             strokeWidth={2}
         />
     )
@@ -181,7 +181,7 @@ export function NGen4IntelligencePriceChart() {
     return (
         <Card className="w-full border-none bg-white shadow-none">
             <CardHeader className="px-0 text-center">
-                <CardTitle className="text-xl font-semibold text-zinc-800">Intelligence vs Price Analysis</CardTitle>
+                <CardTitle className="text-sm font-medium text-black">Intelligence vs Price Analysis</CardTitle>
                 <CardDescription className="text-sm text-zinc-500">
                     Top-tier models breaking into the Frontier Zone.
                 </CardDescription>
@@ -200,19 +200,19 @@ export function NGen4IntelligencePriceChart() {
                                 height={460}
                                 margin={{ top: 20, right: 104, bottom: 38, left: 24 }}
                             >
-                                <CartesianGrid vertical={false} stroke="#eef2f7" />
+                                <CartesianGrid vertical={false} stroke="rgb(var(--g-200))" strokeDasharray="3 3" />
                                 <ReferenceArea
                                     x1={5}
                                     x2={2000}
                                     y1={88}
                                     y2={92}
-                                    fill="#f5f7fb"
+                                    fill="rgb(var(--g-50))"
                                     fillOpacity={1}
                                     strokeOpacity={0}
                                     label={{
                                         value: 'Frontier Zone',
                                         position: 'insideTopLeft',
-                                        fill: '#cfd6df',
+                                        fill: 'rgb(var(--g-300))',
                                         fontSize: 14,
                                         fontWeight: 600,
                                     }}
@@ -231,12 +231,12 @@ export function NGen4IntelligencePriceChart() {
                                     }}
                                     tickLine={false}
                                     axisLine={false}
-                                    tick={{ fill: '#9ca3af', fontSize: 12 }}
+                                    tick={{ fill: 'rgb(var(--g-500))', fontSize: 11 }}
                                     label={{
                                         value: 'Average Cost per 1M Tokens (INR, Log Scale)',
                                         position: 'insideBottom',
                                         offset: -10,
-                                        fill: '#8b8f97',
+                                        fill: 'rgb(var(--g-500))',
                                         fontSize: 12,
                                     }}
                                 />
@@ -247,13 +247,13 @@ export function NGen4IntelligencePriceChart() {
                                     ticks={[75, 77.5, 80, 82.5, 85, 87.5, 90, 92.5]}
                                     tickLine={false}
                                     axisLine={false}
-                                    tick={{ fill: '#9ca3af', fontSize: 12 }}
+                                    tick={{ fill: 'rgb(var(--g-500))', fontSize: 11 }}
                                     label={{
                                         value: 'MMLU-Pro Intelligence',
                                         angle: -90,
                                         position: 'insideLeft',
                                         offset: -6,
-                                        fill: '#8b8f97',
+                                        fill: 'rgb(var(--g-500))',
                                         fontSize: 12,
                                     }}
                                 />

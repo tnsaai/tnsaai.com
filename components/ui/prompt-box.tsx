@@ -16,7 +16,7 @@ const DialogPortal = DialogPrimitive.Portal;
 const DialogTrigger = DialogPrimitive.Trigger;
 const DialogOverlay = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Overlay>, React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>>(({ className, ...props }, ref) => (<DialogPrimitive.Overlay ref={ref} className={cn("fixed inset-0 z-50 bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", className)} {...props} />));
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
-const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Content>, React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>>(({ className, children, ...props }, ref) => (<DialogPortal><DialogOverlay /><DialogPrimitive.Content ref={ref} className={cn("fixed left-[50%] top-[50%] z-50 grid w-full max-w-[90vw] md:max-w-[800px] translate-x-[-50%] translate-y-[-50%] gap-4 border-none bg-transparent p-0 shadow-none duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95", className)} {...props}><div className="relative bg-card dark:bg-[#303030] rounded-[28px] overflow-hidden shadow-2xl p-1">{children}<DialogPrimitive.Close className="absolute right-3 top-3 z-10 rounded-full bg-background/50 dark:bg-[#303030] p-1 hover:bg-accent dark:hover:bg-[#515151] transition-all"><XIcon className="h-5 w-5 text-muted-foreground dark:text-gray-200 hover:text-foreground dark:hover:text-white" /><span className="sr-only">Close</span></DialogPrimitive.Close></div></DialogPrimitive.Content></DialogPortal>));
+const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Content>, React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>>(({ className, children, ...props }, ref) => (<DialogPortal><DialogOverlay /><DialogPrimitive.Content ref={ref} className={cn("fixed left-[50%] top-[50%] z-50 grid w-full max-w-[90vw] md:max-w-[800px] translate-x-[-50%] translate-y-[-50%] gap-4 border-none bg-transparent p-0 shadow-none duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95", className)} {...props}><div className="relative bg-card rounded-[28px] overflow-hidden shadow-2xl p-1">{children}<DialogPrimitive.Close className="absolute right-3 top-3 z-10 rounded-full bg-background/50 p-1 hover:bg-accent transition-all"><XIcon className="h-5 w-5 text-muted-foreground dark:text-gray-200 hover:text-foreground dark:hover:text-white" /><span className="sr-only">Close</span></DialogPrimitive.Close></div></DialogPrimitive.Content></DialogPortal>));
 DialogContent.displayName = DialogPrimitive.Content.displayName;
 
 const ArrowUpRightIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -83,7 +83,7 @@ export const PromptBox = React.forwardRef<HTMLTextAreaElement, PromptBoxProps>(
     };
 
     return (
-      <div className={cn("flex h-[46px] items-center rounded-full border border-[#e6e6e6] bg-white py-[6px] pl-4 pr-[6px] shadow-[0_1px_5px_rgba(0,0,0,0.08)] transition-colors", className)}>
+      <div className={cn("flex h-[46px] items-center rounded-full border border-gray-200 bg-white py-[6px] pl-4 pr-[6px] shadow-[0_1px_5px_rgba(0,0,0,0.08)] transition-colors", className)}>
         <textarea
           ref={internalTextareaRef}
           rows={1}
@@ -97,14 +97,14 @@ export const PromptBox = React.forwardRef<HTMLTextAreaElement, PromptBoxProps>(
           }}
           placeholder={placeholder || "Ask anything..."}
           disabled={disabled}
-          className="h-8 min-h-8 flex-1 resize-none overflow-hidden border-0 bg-transparent py-[7px] pr-3 text-[14px] leading-[18px] text-black placeholder:text-[#b8b8b8] focus:ring-0 focus-visible:outline-none"
+          className="h-8 min-h-8 flex-1 resize-none overflow-hidden border-0 bg-transparent py-[7px] pr-3 text-[14px] leading-[18px] text-black placeholder:text-gray-400 focus:ring-0 focus-visible:outline-none"
         />
 
         <button
           type="button"
           disabled={!hasValue || uploading}
           onClick={handleSend}
-          className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full bg-black text-white transition-colors hover:bg-gray-900 focus-visible:outline-none disabled:cursor-default disabled:bg-[#c8c8c8] disabled:text-white"
+          className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full bg-black text-white transition-colors hover:bg-gray-900 focus-visible:outline-none disabled:cursor-default disabled:bg-gray-300 disabled:text-white"
         >
           <ArrowUpRightIcon className="h-[18px] w-[18px]" />
           <span className="sr-only">Send message</span>

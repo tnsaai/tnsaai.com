@@ -50,7 +50,7 @@ const ChartContainer = React.forwardRef<
                 ref={ref}
                 data-chart={chartId}
                 className={cn(
-                    "relative min-w-0 text-xs [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid-concentric-polygon]:stroke-border [&_.recharts-polar-grid-concentric-circle]:stroke-border [&_.recharts-polar-radius-axis_line]:stroke-border [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
+                    "relative min-w-0 text-xs [&_.recharts-cartesian-axis-tick_text]:fill-gray-500 [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-gray-200 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-gray-200 [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid-concentric-polygon]:stroke-border [&_.recharts-polar-grid-concentric-circle]:stroke-border [&_.recharts-polar-radius-axis_line]:stroke-border [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
                     className
                 )}
                 {...props}
@@ -167,7 +167,7 @@ const ChartTooltipContent = React.forwardRef<
             <div
                 ref={ref}
                 className={cn(
-                    "grid min-w-[12rem] w-max items-start gap-1.5 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-xs shadow-xl text-zinc-900 font-sans",
+                    "grid min-w-44 w-max items-start gap-1.5 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-xs shadow-md text-zinc-900",
                     className
                 )}
             >
@@ -196,7 +196,7 @@ const ChartTooltipContent = React.forwardRef<
                                             !hideIndicator && (
                                                 <div
                                                     className={cn(
-                                                        "shrink-0 rounded-[2px] border-[--color-border] bg-[--color-bg]",
+                                                        "shrink-0 rounded-sm border-[--color-border] bg-[--color-bg]",
                                                         {
                                                             "h-2.5 w-2.5": indicator === "dot",
                                                             "w-1": indicator === "line",
@@ -227,7 +227,7 @@ const ChartTooltipContent = React.forwardRef<
                                                 </span>
                                             </div>
                                             {item.value !== undefined && (
-                                                <span className="font-mono tabular-nums text-zinc-900">
+                                                <span className="tabular-nums text-zinc-900">
                                                     {item.value.toLocaleString()}
                                                 </span>
                                             )}

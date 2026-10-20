@@ -17,7 +17,7 @@ const BenchmarkImage = ({ src, alt, title, caption }: { src: string; alt: string
             />
             {/* TNSA Logo Overlay - Minimalist corner placement */}
             <div className="absolute top-8 left-8 w-16 h-8 opacity-20 pointer-events-none transition-opacity group-hover:opacity-40">
-                <Image src="/TNSA.svg" alt="TNSA Logo" fill className="object-contain" />
+                <Image src="/TNSA.svg" alt="TNSA Logo" fill className="object-contain dark:invert" />
             </div>
             {/* Top Right Download Button */}
             <a
@@ -48,7 +48,7 @@ export function NGen4SystemCard() {
                 <Link 
                     href="/NGen-4-System-Card.pdf" 
                     target="_blank" 
-                    className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium text-white bg-[#1a1a1a] border border-transparent rounded-full hover:bg-black transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium text-white bg-black border border-transparent rounded-full hover:bg-black transition-all"
                 >
                     Read the System Card <span className="text-gray-400 font-sans opacity-70">↗</span>
                 </Link>

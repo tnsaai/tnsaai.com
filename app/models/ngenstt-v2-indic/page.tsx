@@ -6,6 +6,7 @@ import {
   NGenSTTIndicEvaluations,
 } from '@/components/ui/NGenSTTIndicEvaluations'
 import { asrAverage, asrRows, asrSystems, bestIndex } from '@/content/ngensttIndicBenchmarks'
+import { ModelRegions } from '@/components/ui/ModelRegions'
 
 export const metadata: Metadata = {
   title: 'NGenSTT V2 Indic | TNSA',
@@ -201,6 +202,14 @@ export default function NGenSTTV2IndicPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto grid max-w-[1180px] gap-8 border-t border-gray-100 px-5 py-20 md:grid-cols-[0.9fr_1.1fr] md:px-8 md:py-24">
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.16em] text-gray-500">Availability</p>
+          <h2 className="mt-4 text-[34px] font-normal leading-tight tracking-[-0.03em] md:text-[44px]">Served from TNSA regions.</h2>
+        </div>
+        <ModelRegions slug="ngenstt-v2-indic" />
       </section>
 
       <section className="mx-auto max-w-[1180px] border-t border-gray-100 px-5 py-20 md:px-8 md:py-28">

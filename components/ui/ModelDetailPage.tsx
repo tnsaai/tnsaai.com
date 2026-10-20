@@ -3,6 +3,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
+import { isModalityList, ModalityIcons } from './ModalityIcons'
+import { ModelRegions } from './ModelRegions'
 
 type ModelAction = {
   label: string
@@ -70,8 +72,8 @@ export function ModelDetailPage({
   children,
 }: ModelDetailPageProps) {
   return (
-    <main className="min-h-screen bg-[#FFFFFF] text-black">
-      <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+    <main className="min-h-screen bg-white text-black">
+      <section className="bg-white pb-10 pt-[136px] md:pt-[152px]">
         <div className="mx-auto max-w-[920px] px-5">
           {date ? <p className="mb-4 text-[12px] font-normal text-gray-500">{date}</p> : null}
           <p className="mb-4 text-[12px] font-normal text-black">{category}</p>
@@ -148,7 +150,11 @@ export function ModelDetailPage({
                     {section.specs.map((spec) => (
                       <div key={`${spec.label}-${spec.value}`} className="border-t border-gray-100 pt-4">
                         <p className="text-[12px] text-gray-500">{spec.label}</p>
-                        <p className="mt-1 text-[14px] leading-6 text-black">{spec.value}</p>
+                        {isModalityList(spec.value) ? (
+                          <ModalityIcons value={spec.value} className="mt-2" />
+                        ) : (
+                          <p className="mt-1 text-[14px] leading-6 text-black">{spec.value}</p>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -183,6 +189,13 @@ export function ModelDetailPage({
           </section>
         ) : null}
 
+        <section className="border-t border-gray-100 py-12">
+          <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr]">
+            <h2 className="text-[22px] font-normal leading-tight text-black">Availability</h2>
+            <ModelRegions />
+          </div>
+        </section>
+
         {children ? <section className="border-t border-gray-100 py-12">{children}</section> : null}
 
         <section className="mt-8 overflow-hidden rounded-[10px]">
@@ -195,19 +208,19 @@ export function ModelDetailPage({
               className="object-cover"
               sizes="(min-width: 1024px) 920px, calc(100vw - 40px)"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-10">
+            <div className="absolute inset-0 bg-gradient-to-t from-fixed-black/70 via-fixed-black/20 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-fixed-white md:p-10">
               <h2 className="max-w-[560px] text-[32px] font-normal leading-tight md:text-[44px]">
                 Build with TNSA models
               </h2>
-              <p className="mt-3 max-w-[480px] text-[13px] leading-6 text-white/80">
+              <p className="mt-3 max-w-[480px] text-[13px] leading-6 text-fixed-white/80">
                 Explore model families, snapshots, and developer tools for production AI systems.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Link href="https://platform.tnsaai.com" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-white px-4 text-[12px] text-black transition-colors hover:bg-gray-100">
+                <Link href="https://platform.tnsaai.com" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-fixed-white px-4 text-[12px] text-fixed-black transition-colors hover:bg-fixed-white/90">
                   API Platform
                 </Link>
-                <Link href="/models" className="flex h-9 min-w-[120px] items-center justify-center rounded-full border border-white/40 bg-white/10 px-4 text-[12px] text-white backdrop-blur-sm transition-colors hover:bg-white/20">
+                <Link href="/models" className="flex h-9 min-w-[120px] items-center justify-center rounded-full border border-fixed-white/40 bg-fixed-white/10 px-4 text-[12px] text-fixed-white backdrop-blur-sm transition-colors hover:bg-fixed-white/20">
                   Model Index
                 </Link>
               </div>
