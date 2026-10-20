@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NGen-Realtime — TNSA Product Brief</title>
+<style>
+  @font-face { font-family: 'OpenAI Sans'; font-weight: 300; src: url('../fonts/OpenAISans-Light.ttf'); }
+  @font-face { font-family: 'OpenAI Sans'; font-weight: 400; src: url('../fonts/OpenAISans-Regular.ttf'); }
+  @font-face { font-family: 'OpenAI Sans'; font-weight: 500; src: url('../fonts/OpenAISans-Medium.ttf'); }
+  @font-face { font-family: 'OpenAI Sans'; font-weight: 600; src: url('../fonts/OpenAISans-Semibold.ttf'); }
+
+  @page { size: A4; margin: 0; }
+  :root {
+    --ink: #252525;
+    --muted: #6b6b6b;
+    --faint: #a3a3a3;
+    --line: #e7e7e7;
+    --soft: #f5f5f5;
+    --accent: #2563eb;
+    --accent-soft: #eef3fe;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'OpenAI Sans', system-ui, sans-serif; color: var(--ink); font-size: 9pt; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+  .page { width: 210mm; height: 297mm; padding: 13mm 16mm 11mm; display: flex; flex-direction: column; page-break-after: always; overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  /* Running header and footer */
+  .top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 4mm; border-bottom: 1px solid var(--line); }
+  .top img { height: 4.2mm; }
+  .top .meta { display: flex; gap: 7mm; font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .foot { margin-top: auto; padding-top: 4mm; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-size: 7pt; color: var(--faint); letter-spacing: .04em; }
+
+  .eyebrow { font-size: 7pt; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .eyebrow.accent { color: var(--accent); }
+
+  /* Page 1 title */
+  .hero { padding: 8mm 0 6mm; }
+  .hero h1 { font-size: 34pt; font-weight: 500; letter-spacing: -.035em; line-height: 1; margin-top: 4mm; }
+  .hero .sub { font-size: 12.5pt; font-weight: 400; color: var(--muted); margin-top: 3mm; letter-spacing: -.01em; }
+  .hero .tags { display: flex; gap: 2mm; margin-top: 4.5mm; }
+  .tag { font-size: 7pt; letter-spacing: .1em; text-transform: uppercase; font-weight: 500; color: var(--ink); background: var(--soft); border-radius: 99px; padding: 1.4mm 3.2mm; }
+
+  /* Sections */
+  section { margin-top: 5.5mm; }
+  .sec-head { display: flex; align-items: baseline; gap: 3mm; margin-bottom: 2.6mm; }
+  .sec-head .num { font-size: 8pt; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .sec-head h2 { font-size: 12pt; font-weight: 500; letter-spacing: -.015em; }
+  p { color: #3d3d3d; }
+  p + p { margin-top: 2.5mm; }
+  .lede { font-size: 9.6pt; line-height: 1.55; color: var(--ink); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm; }
+  .two > p + p { margin-top: 0; }
+
+  /* Architecture diagram */
+  .arch { display: grid; grid-template-columns: 1fr 50mm; gap: 7mm; align-items: start; }
+  .stack { display: flex; flex-direction: column; }
+  .layer { display: grid; grid-template-columns: 8mm 1fr; align-items: center; gap: 3mm; background: var(--soft); border-radius: 3mm; padding: 2.4mm 4mm; }
+  .layer.edge { background: var(--ink); color: #fff; }
+  .layer.edge .detail { color: #bdbdbd; }
+  .layer.core { background: var(--accent-soft); }
+  .layer.core .idx { color: var(--accent); }
+  .layer .idx { font-size: 7.5pt; font-weight: 600; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .layer.edge .idx { color: #8a8a8a; }
+  .layer .name { font-size: 10pt; font-weight: 500; }
+  .layer .detail { font-size: 8pt; color: var(--muted); margin-top: .4mm; }
+  .flow { height: 3mm; display: flex; justify-content: center; }
+  .flow svg { height: 3mm; }
+  .note { font-size: 7.6pt; color: var(--muted); line-height: 1.5; border-left: 2px solid var(--line); padding-left: 3mm; }
+
+  /* Execution cycle */
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.5mm; }
+  .step { border-top: 2px solid var(--ink); padding-top: 3mm; }
+  .step:nth-child(3) { border-top-color: var(--accent); }
+  .step .n { font-size: 7.5pt; font-weight: 600; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .step h3 { font-size: 9.2pt; font-weight: 500; margin: 1.2mm 0 1.2mm; letter-spacing: -.005em; }
+  .step p { font-size: 7.6pt; line-height: 1.5; color: var(--muted); }
+  .objective { margin-top: 3.5mm; display: flex; gap: 3mm; align-items: flex-start; background: var(--soft); border-radius: 3mm; padding: 2.8mm 4mm; font-size: 8.4pt; }
+  .objective b { font-weight: 500; }
+
+  /* Page 2 */
+  .page2-title { padding: 6mm 0 0; }
+  .page2-title h1 { font-size: 21pt; font-weight: 500; letter-spacing: -.03em; line-height: 1.05; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+  .card { background: var(--soft); border-radius: 3mm; padding: 3.4mm 4.2mm; }
+  .card h3 { font-size: 10pt; font-weight: 500; margin-bottom: 1.6mm; display: flex; align-items: center; gap: 2.2mm; }
+  .card h3 svg { width: 3.8mm; height: 3.8mm; stroke: var(--accent); }
+  .card p { font-size: 8pt; line-height: 1.55; color: #4a4a4a; }
+
+  .integration { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; }
+  .int { border: 1px solid var(--line); border-radius: 3mm; padding: 3.4mm 4.2mm; }
+  .int .k { font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .int h3 { font-size: 10pt; font-weight: 500; margin: 1.6mm 0 1.4mm; }
+  .int p { font-size: 7.9pt; color: var(--muted); line-height: 1.5; }
+
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+  .metric { padding: 4mm 4mm 0 0; }
+  .metric + .metric { padding-left: 4mm; border-left: 1px solid var(--line); }
+  .metric h3 { font-size: 10pt; font-weight: 500; }
+  .metric p { font-size: 7.8pt; color: var(--muted); margin-top: 1.4mm; line-height: 1.5; }
+
+  .closing { margin-top: 6mm; background: var(--ink); color: #fff; border-radius: 4mm; padding: 5.5mm 7mm; display: flex; justify-content: space-between; align-items: flex-end; gap: 8mm; }
+  .closing h2 { font-size: 15pt; font-weight: 500; letter-spacing: -.02em; }
+  .closing p { color: #c4c4c4; font-size: 9pt; margin-top: 2mm; max-width: 105mm; }
+  .closing .sign { text-align: right; font-size: 8pt; color: #c4c4c4; white-space: nowrap; }
+  .closing .sign b { display: block; color: #fff; font-weight: 500; font-size: 9pt; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="top">
+    <img src="../public/TNSA.svg" alt="TNSA">
+  </div>
+
+  <div class="hero">
+    <p class="eyebrow accent">Product brief</p>
+    <h1>NGen-Realtime</h1>
+    <p class="sub">Real-Time Conversational AI System</p>
+    <div class="tags"><span class="tag">Product overview</span><span class="tag">System architecture</span><span class="tag">Interaction model</span></div>
+  </div>
+
+  <section style="margin-top:0">
+    <div class="sec-head"><span class="num">01</span><h2>Overview</h2></div>
+    <div class="two">
+      <p class="lede">NGen-Realtime is TNSA’s conversational AI system for building interactive, low-latency AI experiences. It is designed to support communication between users and AI through a real-time interaction pipeline, enabling applications to process incoming conversational input and deliver model-generated responses as the interaction progresses.</p>
+      <p>Unlike conventional request-response interfaces that treat each exchange as a discrete transaction, a real-time conversational system manages an ongoing interaction. Input processing, model inference, response delivery and conversation state must operate together to maintain continuity.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">02</span><h2>System architecture</h2></div>
+    <div class="arch">
+      <div class="stack">
+        <div class="layer edge"><span class="idx">L1</span><div><div class="name">Client / Application Layer</div><div class="detail">Microphone · Audio stream · Text input · Application events</div></div></div>
+        <div class="flow"><svg viewBox="0 0 10 16"><path d="M5 1v12M1.5 9.5 5 13l3.5-3.5" fill="none" stroke="#a3a3a3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="layer"><span class="idx">L2</span><div><div class="name">Input Processing</div><div class="detail">Audio ingestion, encoding and turn detection</div></div></div>
+        <div class="flow"><svg viewBox="0 0 10 16"><path d="M5 1v12M1.5 9.5 5 13l3.5-3.5" fill="none" stroke="#a3a3a3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="layer core"><span class="idx">L3</span><div><div class="name">Conversational Inference</div><div class="detail">Context management, model inference and response generation</div></div></div>
+        <div class="flow"><svg viewBox="0 0 10 16"><path d="M5 1v12M1.5 9.5 5 13l3.5-3.5" fill="none" stroke="#a3a3a3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="layer"><span class="idx">L4</span><div><div class="name">Streaming Output</div><div class="detail">Incremental response delivery · Audio or text rendering</div></div></div>
+      </div>
+      <div>
+        <p>NGen-Realtime can be described through four functional layers, with the exact implementation depending on the deployed configuration.</p>
+        <p class="note" style="margin-top:4mm">Conceptual functional architecture. This diagram does not assert that NGen-Realtime uses a native speech-to-speech model or any particular transport protocol.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">03</span><h2>Conversational execution</h2></div>
+    <p style="margin-bottom:3mm">A real-time interaction follows a continuous execution cycle:</p>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><h3>Input acquisition</h3><p>The client captures and transmits the user’s supported input.</p></div>
+      <div class="step"><span class="n">02</span><h3>Input interpretation</h3><p>The system identifies the content and determines when input is ready for processing.</p></div>
+      <div class="step"><span class="n">03</span><h3>Contextual inference</h3><p>The model processes the available conversational context and generates a response.</p></div>
+      <div class="step"><span class="n">04</span><h3>Incremental delivery</h3><p>Response content is transmitted to the client as it becomes available, where supported.</p></div>
+      <div class="step"><span class="n">05</span><h3>State continuation</h3><p>The conversation advances with the relevant interaction history and session state.</p></div>
+    </div>
+    <div class="objective"><b>Objective</b><span>Coordinate these stages without introducing unnecessary waiting between the user’s input and the system’s response.</span></div>
+  </section>
+
+  <div class="foot"><span>TNSA · NGen-Realtime · Technical Product Brief</span><span>tnsaai.com</span></div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="top">
+    <img src="../public/TNSA.svg" alt="TNSA">
+  </div>
+
+  <div class="page2-title">
+    <h1>Runtime capabilities and integration</h1>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="num">04</span><h2>Real-time interaction capabilities</h2></div>
+    <div class="cards">
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h12M12 6l6 6-6 6"/><path d="M4 6v12" opacity=".45"/></svg>Streaming inference</h3>
+        <p>Incremental output delivery allows client applications to begin rendering a response before the complete response has been generated. This supports more responsive interfaces than workflows that wait for a complete response before displaying or playing it.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10l-3-3M17 17H7l3 3"/></svg>Turn management</h3>
+        <p>Conversational turn management determines when user input begins, when it is complete, and when the system should respond. Depending on the implementation, voice activity detection and interruption handling can help coordinate overlapping user and assistant activity.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>Conversation state</h3>
+        <p>Session-level state can maintain relevant interaction history, instructions and runtime configuration across successive turns. Context policies determine which prior information is retained and supplied to the model.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg>Audio processing</h3>
+        <p>Voice-enabled configurations may use either a direct speech-to-speech model or a composed pipeline involving speech recognition, language-model inference and speech synthesis. These approaches differ in latency, component boundaries and control over intermediate representations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">05</span><h2>Integration model</h2></div>
+    <p style="margin-bottom:2.6mm">NGen-Realtime can be integrated into conversational products through the interfaces supported by its deployment.</p>
+    <div class="integration">
+      <div class="int"><span class="k">Client</span><h3>Client applications</h3><p>Web, mobile or other supported client interfaces for capturing input, presenting responses and managing user interaction.</p></div>
+      <div class="int"><span class="k">Transport</span><h3>Streaming transport</h3><p>A persistent or streaming connection for transferring input, response data and relevant session events, according to the deployed API.</p></div>
+      <div class="int"><span class="k">Backend</span><h3>Backend services and tools</h3><p>Application-side business logic, authorized tool execution and external service integrations where configured.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">06</span><h2>Engineering considerations</h2></div>
+    <p style="margin-bottom:2.6mm">Production deployments should be evaluated against measurable system properties:</p>
+    <div class="metrics">
+      <div class="metric"><h3>Latency</h3><p>Time to first response, time to first audio and end-to-end interaction latency.</p></div>
+      <div class="metric"><h3>Reliability</h3><p>Connection stability, stream completion, error handling and session recovery.</p></div>
+      <div class="metric"><h3>Security and control</h3><p>Authentication, access control, protected credentials and appropriate data-handling policies.</p></div>
+      <div class="metric"><h3>Scalability</h3><p>Concurrent sessions, throughput, resource utilization and cost per interaction.</p></div>
+    </div>
+  </section>
+
+  <div class="closing">
+    <div>
+      <h2>NGen-Realtime by TNSA</h2>
+      <p>A conversational AI system for developers and enterprises building real-time interactive applications.</p>
+    </div>
+    <div class="sign"><b>TNSA Research</b>tnsaai.com</div>
+  </div>
+
+  <div class="foot"><span>TNSA · NGen-Realtime · Technical Product Brief</span><span>tnsaai.com</span></div>
+</div>
+
+</body>
+</html>
