@@ -1,23 +1,29 @@
 "use client"
 
-import { TrendingUp, Download } from "lucide-react"
+import { Download } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import React from "react"
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+
+// Chart palette: mid-tone hues that read on both light and dark backgrounds.
+// The featured NGen model is always NGEN_COLOR; competitors cycle through SERIES_COLORS.
+export const NGEN_COLOR = "#2563eb"
+export const SERIES_COLORS = [
+  "#f97316",
+  "#10b981",
+  "#f59e0b",
+  "#ec4899",
+  "#8b5cf6",
+  "#06b6d4",
+  "#84cc16",
+  "#94a3b8",
+]
 
 export const benchmarkData = [
   {
@@ -101,6 +107,10 @@ export const chartConfig = {
   ngen43pro: {
     label: "NGen-4.3 Pro",
     color: "#111827",
+  },
+  ngen45vayu: {
+    label: "NGen-4.5 Vayu",
+    color: "#2563eb",
   },
   qwen38_27b: {
     label: "Qwen3.8-27B",
@@ -399,8 +409,8 @@ export function BenchmarkBase({
   yAxisLabel = "Accuracy (%)",
   isElo = false,
   yDomain,
-  footerHeadline = "New massive-scale benchmarks released",
-  footerNote = "Comparative analysis against industry-leading models",
+  footerHeadline,
+  footerNote,
   children
 }: {
   data: any[],
@@ -426,12 +436,38 @@ export function BenchmarkBase({
   const perCategoryWidth = Math.max(150, seriesCount * 28)
   const chartWidth = Math.max(860, data.length * perCategoryWidth)
 
+  // Platform series palette: the first series (the featured NGen model) uses the
+  // foreground color, the rest cycle through the platform slot colors.
+  const legendKeys = seriesOrder.length > 0
+    ? seriesOrder
+    : data.length > 0 ? Object.keys(data[0]).filter((key) => key !== 'name') : []
+  const themedConfig = Object.fromEntries(
+    legendKeys.map((key, index) => [
+      key,
+      {
+        label: (chartConfig as any)[key]?.label ?? key,
+        color: index === 0 ? NGEN_COLOR : SERIES_COLORS[(index - 1) % SERIES_COLORS.length],
+      },
+    ])
+  ) satisfies ChartConfig
+  const bars = React.Children.map(children, (child) =>
+    React.isValidElement(child) ? React.cloneElement(child as React.ReactElement<any>, { radius: [4, 4, 0, 0], maxBarSize: 34 }) : child
+  )
+
   const downloadChart = () => {
     const container = document.getElementById(chartId)
     const svgElement = container?.querySelector('svg')
     if (!svgElement || !container) return
 
     const clonedSvg = svgElement.cloneNode(true) as SVGSVGElement
+    // Custom properties come back with var() references substituted, so the export gets real colors.
+    const chartStyles = getComputedStyle(container.querySelector('[data-chart]') ?? container)
+    const resolveColor = (varName: string) => chartStyles.getPropertyValue(varName).trim()
+
+    // Grid and axis colors use theme variables, which don't exist outside the page
+    clonedSvg.querySelectorAll('line').forEach((el) => {
+      if (el.getAttribute('stroke')?.includes('var(')) el.setAttribute('stroke', '#e5e5e5')
+    })
 
     // Get all bars and resolve their colors
     const allBars = clonedSvg.querySelectorAll('rect, path')
@@ -440,8 +476,7 @@ export function BenchmarkBase({
       if (fill && fill.includes("var(")) {
         const varName = fill.match(/var\((--[^)]+)\)/)?.[1]
         if (varName) {
-          const configKey = varName.replace('--color-', '')
-          const colorValue = (chartConfig as any)[configKey]?.color
+          const colorValue = resolveColor(varName)
           if (colorValue) {
             el.setAttribute("fill", colorValue)
           }
@@ -462,21 +497,12 @@ export function BenchmarkBase({
     const svgWidth = parseFloat(svgElement.getAttribute('width') || '800')
     const svgHeight = parseFloat(svgElement.getAttribute('height') || '400')
 
-    // Create legend items from chartConfig
-    const legendItems = Object.entries(chartConfig).map(([key, val]) => ({
+    // Legend in series order, colors resolved from the rendered chart
+    const relevantLegend = legendKeys.map((key) => ({
       key,
-      label: val.label,
-      color: val.color
+      label: themedConfig[key].label,
+      color: themedConfig[key].color,
     }))
-
-    // Only show legend items that have data in this chart
-    const dataKeys = seriesOrder.length > 0
-      ? seriesOrder
-      : data.length > 0
-        ? Object.keys(data[0]).filter(k => k !== 'name')
-        : []
-    const relevantLegend = legendItems.filter(item => dataKeys.includes(item.key))
-    relevantLegend.sort((a, b) => dataKeys.indexOf(a.key) - dataKeys.indexOf(b.key))
 
     // Create a new SVG with extra space for legend
     const legendHeight = Math.ceil(relevantLegend.length / 4) * 24 + 40
@@ -559,72 +585,76 @@ export function BenchmarkBase({
   }
 
   return (
-    <Card className="w-full bg-white border-none shadow-none relative group">
-      <CardHeader className="px-0">
-        <CardTitle className="text-xl font-normal text-black">{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardContent className="px-0 relative">
-        <div className="overflow-x-auto overflow-y-hidden pb-3">
-          <div id={chartId} style={{ width: `${chartWidth}px`, minWidth: `${chartWidth}px` }}>
-              <ChartContainer id={chartId} config={chartConfig} className="h-[320px] w-full min-w-full">
-                <BarChart
-                  accessibilityLayer
-                  width={chartWidth}
-                  height={320}
-                  data={data}
-                  barCategoryGap="8%"
-                  barGap={3}
-                  maxBarSize={34}
-                >
-                  <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#f0f0f0" />
-                  <XAxis
-                    dataKey="name"
-                    tickLine={false}
-                    tickMargin={10}
-                    axisLine={false}
-                    tick={{ fill: '#666', fontSize: 12 }}
-                  />
-                  <YAxis
-                    label={{ value: yAxisLabel, angle: -90, position: 'insideLeft', offset: 10, fill: '#666', fontSize: 12 }}
-                    tickLine={false}
-                    axisLine={false}
-                    tick={{ fill: '#666', fontSize: 12 }}
-                    domain={yDomain ?? (isElo ? [0, 3000] : [0, 100])}
-                  />
-                  <ChartTooltip
-                    cursor={false}
-                    content={<ChartTooltipContent />}
-                  />
-                  {children}
-                </BarChart>
-              </ChartContainer>
-          </div>
+    <section className="group relative w-full rounded-xl border border-gray-200 p-5">
+      <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-3 pr-10">
+        <div className="space-y-1">
+          <h3 className="text-sm font-medium text-black">{title}</h3>
+          <p className="max-w-2xl text-xs leading-5 text-gray-500">{description}</p>
         </div>
+        <ul className="flex flex-wrap gap-x-4 gap-y-1">
+          {legendKeys.map((key) => (
+            <li key={key} className="flex items-center gap-1.5 text-xs text-gray-500">
+              <span className="h-2.5 w-2.5 rounded-sm" style={{ background: themedConfig[key].color }} />
+              {themedConfig[key].label}
+            </li>
+          ))}
+        </ul>
+      </div>
 
-        <div className="absolute top-0 right-0 w-12 h-12 flex items-center justify-center">
-          <div className="opacity-20 group-hover:opacity-0 transition-opacity duration-300">
-            <img src="/favicon.svg" alt="TNSA Logo" className="w-8 h-8" />
-          </div>
-          <button
-            onClick={downloadChart}
-            className="absolute inset-0 flex items-center justify-center bg-white/90 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 active:scale-95"
-            title="Download Chart (SVG)"
-          >
-            <Download className="w-5 h-5 text-black" />
-          </button>
+      <div className="mt-5 overflow-x-auto overflow-y-hidden pb-2">
+        <div id={chartId} style={{ width: `${chartWidth}px`, minWidth: `${chartWidth}px` }}>
+          <ChartContainer id={chartId} config={themedConfig} className="h-[320px] w-full min-w-full">
+            <BarChart
+              accessibilityLayer
+              width={chartWidth}
+              height={320}
+              data={data}
+              barCategoryGap="12%"
+              barGap={3}
+              margin={{ top: 4, right: 0, left: 0, bottom: 0 }}
+            >
+              <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="rgb(var(--g-200))" />
+              <XAxis
+                dataKey="name"
+                tickLine={false}
+                tickMargin={10}
+                axisLine={false}
+                tick={{ fill: 'rgb(var(--g-500))', fontSize: 11 }}
+              />
+              <YAxis
+                label={{ value: yAxisLabel, angle: -90, position: 'insideLeft', offset: 10, fill: 'rgb(var(--g-500))', fontSize: 11 }}
+                tickLine={false}
+                axisLine={false}
+                width={52}
+                tick={{ fill: 'rgb(var(--g-500))', fontSize: 11 }}
+                domain={yDomain ?? (isElo ? [0, 3000] : [0, 100])}
+              />
+              <ChartTooltip
+                cursor={{ fill: 'rgb(var(--g-100))', opacity: 0.5 }}
+                content={<ChartTooltipContent />}
+              />
+              {bars}
+            </BarChart>
+          </ChartContainer>
         </div>
-      </CardContent>
+      </div>
 
-      <CardFooter className="flex-col items-start gap-2 text-sm px-0 pt-6">
-        <div className="flex gap-2 leading-none text-black">
-          {footerHeadline} <TrendingUp className="h-4 w-4" />
+      {footerHeadline || footerNote ? (
+        <div className="mt-4 space-y-1 border-t border-gray-200 pt-4 text-xs">
+          {footerHeadline ? <p className="font-medium text-black">{footerHeadline}</p> : null}
+          {footerNote ? <p className="leading-5 text-gray-500">{footerNote}</p> : null}
         </div>
-        <div className="text-gray-500 leading-none">
-          {footerNote}
-        </div>
-      </CardFooter>
-    </Card>
+      ) : null}
+
+      <button
+        onClick={downloadChart}
+        className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 opacity-0 transition-opacity hover:bg-gray-100 hover:text-black group-hover:opacity-100 focus-visible:opacity-100"
+        title="Download chart (SVG)"
+        aria-label={`Download ${title} chart as SVG`}
+      >
+        <Download className="h-4 w-4" />
+      </button>
+    </section>
   )
 }
 

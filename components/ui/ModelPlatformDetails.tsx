@@ -1,5 +1,7 @@
 'use client'
 
+import { isModalityList, ModalityIcons } from './ModalityIcons'
+
 type LabelValue = {
     label: string
     value: string
@@ -46,7 +48,11 @@ function DetailStat({ label, value }: LabelValue) {
     return (
         <div className="border-t border-gray-100 pt-4">
             <p className="text-[12px] text-gray-500">{label}</p>
-            <p className="mt-1 text-[15px] leading-6 text-black">{value}</p>
+            {isModalityList(value) ? (
+                <ModalityIcons value={value} className="mt-2" />
+            ) : (
+                <p className="mt-1 text-[15px] leading-6 text-black">{value}</p>
+            )}
         </div>
     )
 }

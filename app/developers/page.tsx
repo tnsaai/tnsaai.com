@@ -83,8 +83,8 @@ function DeveloperCard({ resource, priority = false }: { resource: any; priority
 
 export default function DevelopersPage() {
   return (
-    <main className="min-h-screen bg-[#FFFFFF] text-black">
-      <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+    <main className="min-h-screen bg-white text-black">
+      <section className="bg-white pb-10 pt-[136px] md:pt-[152px]">
         <div className="mx-auto max-w-[920px] px-5">
           <p className="mb-4 text-[12px] font-normal text-gray-500">Explore Developers</p>
           <h1 className="text-[44px] font-normal leading-tight tracking-normal text-black md:text-[64px]">
@@ -120,13 +120,13 @@ export default function DevelopersPage() {
               className="object-cover rounded-[10px]"
               sizes="(min-width: 1024px) 920px, calc(100vw - 40px)"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-[10px]" />
-            <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-10">
+            <div className="absolute inset-0 bg-gradient-to-t from-fixed-black/70 via-fixed-black/20 to-transparent rounded-[10px]" />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-fixed-white md:p-10">
               <h2 className="max-w-[560px] text-[32px] font-normal leading-tight md:text-[44px]">
                 Start building with TNSA today
               </h2>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Link href="https://platform.tnsaai.com" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-white px-4 text-[12px] text-black transition-colors hover:bg-gray-100">
+                <Link href="https://platform.tnsaai.com" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-fixed-white px-4 text-[12px] text-fixed-black transition-colors hover:bg-fixed-white/90">
                   API Platform
                 </Link>
               </div>

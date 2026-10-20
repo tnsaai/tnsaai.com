@@ -1,14 +1,9 @@
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400'],
-  variable: '--font-poppins'
-})
+import { openAISans } from '@/lib/openai-sans'
+import { themeInitScript } from '@/lib/theme'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://tnsaai.com'),
@@ -35,8 +30,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>
+    <html lang="en" className={openAISans.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="font-sans">
         <Header />
         <main className="min-h-screen">
           {children}

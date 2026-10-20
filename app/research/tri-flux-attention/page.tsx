@@ -9,9 +9,9 @@ import { Download } from 'lucide-react';
 
 export default function TriFluxAttentionPage() {
     return (
-        <main className="min-h-screen bg-[#FFFFFF] font-sans text-black">
+        <main className="min-h-screen bg-white font-sans text-black">
 
-            <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+            <section className="bg-white pb-10 pt-[136px] md:pt-[152px]">
             <div className="mx-auto max-w-[920px] px-5">
                 <div>
                     <p className="mb-4 text-[12px] font-normal text-gray-500">December 20, 2025</p>
@@ -219,7 +219,7 @@ export default function TriFluxAttentionPage() {
                         <h3 className="text-xl text-black font-semibold mt-24 mb-10">3.2 Algorithm 2: Tri-Flux (Recurrent Inference)</h3>
                         <p className="mb-10">During generation, the model collapses into a bit-perfect <InlineMath math="O(1)" /> step.</p>
 
-                        <div className="mb-20 overflow-x-auto rounded-lg border border-gray-200 bg-[#fafafa] p-6 shadow-sm md:p-10">
+                        <div className="mb-20 overflow-x-auto rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-sm md:p-10">
                             <div className="font-sans font-bold text-sm mb-12 uppercase tracking-widest text-zinc-400">Algorithm 1: Tri-Flux Recurrent Update (O(1) Serving)</div>
                             <div className="space-y-6 font-serif text-lg">
                                 <div className="flex gap-8"><span className="text-zinc-300 font-mono text-sm pt-1">1:</span> <InlineMath math="\text{procedure GenerateNextToken}(x_t, S_{t-1}, Z_{t-1})" /></div>

@@ -129,8 +129,8 @@ function ResearchCard({ paper, priority = false }: { paper: any; priority?: bool
 
 export default function ResearchPage() {
   return (
-    <main className="min-h-screen bg-[#FFFFFF] text-black">
-      <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+    <main className="min-h-screen bg-white text-black">
+      <section className="bg-white pb-10 pt-[136px] md:pt-[152px]">
         <div className="mx-auto max-w-[920px] px-5">
           <p className="mb-4 text-[12px] font-normal text-gray-500">Explore Research</p>
           <h1 className="text-[44px] font-normal leading-tight tracking-normal text-black md:text-[64px]">

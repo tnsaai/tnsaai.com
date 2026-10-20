@@ -107,8 +107,8 @@ export default function AboutPage() {
       <Script id="tnsa-founders-schema" type="application/ld+json">
         {JSON.stringify(foundersSchema)}
       </Script>
-      <main className="min-h-screen bg-[#FFFFFF] text-black">
-        <section className="bg-[#FFFFFF] pb-10 pt-[136px] md:pt-[152px]">
+      <main className="min-h-screen bg-white text-black">
+        <section className="bg-white pb-10 pt-[136px] md:pt-[152px]">
         <div className="mx-auto max-w-[920px] px-5">
           <p className="mb-4 text-[12px] font-normal text-gray-500">Company</p>
           <h1 className="text-[44px] font-normal leading-tight tracking-normal text-black md:text-[64px]">
@@ -230,19 +230,19 @@ export default function AboutPage() {
               className="object-cover"
               sizes="(min-width: 1024px) 920px, calc(100vw - 40px)"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-10">
+            <div className="absolute inset-0 bg-gradient-to-t from-fixed-black/70 via-fixed-black/20 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-fixed-white md:p-10">
               <h2 className="max-w-[560px] text-[32px] font-normal leading-tight md:text-[44px]">
                 Build intelligence from India
               </h2>
-              <p className="mt-3 max-w-[480px] text-[13px] leading-6 text-white/80">
+              <p className="mt-3 max-w-[480px] text-[13px] leading-6 text-fixed-white/80">
                 Explore the models, research, and safety work behind TNSA AI.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Link href="/models" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-white px-4 text-[12px] text-black transition-colors hover:bg-gray-100">
+                <Link href="/models" className="flex h-9 min-w-[120px] items-center justify-center rounded-full bg-fixed-white px-4 text-[12px] text-fixed-black transition-colors hover:bg-fixed-white/90">
                   View Models
                 </Link>
-                <Link href="/company/contact" className="flex h-9 min-w-[120px] items-center justify-center rounded-full border border-white/40 bg-white/10 px-4 text-[12px] text-white backdrop-blur-sm transition-colors hover:bg-white/20">
+                <Link href="/company/contact" className="flex h-9 min-w-[120px] items-center justify-center rounded-full border border-fixed-white/40 bg-fixed-white/10 px-4 text-[12px] text-fixed-white backdrop-blur-sm transition-colors hover:bg-fixed-white/20">
                   Contact
                 </Link>
               </div>

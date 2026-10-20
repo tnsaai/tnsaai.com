@@ -1,11 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-import { Search } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ThemeToggle } from '@/components/ThemeToggle'
+import { SiteSearch, type SearchItem } from '@/components/SiteSearch'
+import { SHOW_ASTRA } from '@/lib/features'
 
 const navigation = [
   { name: 'Models', href: '/models' },
@@ -15,16 +17,17 @@ const navigation = [
   { name: 'Company', href: '/company' },
 ]
 
-const searchItems = [
+const searchItems: SearchItem[] = [
   // Models
+  { name: 'NGen-4.5 Vayu', href: '/models/ngen4.5-vayu', category: 'Model', date: 'October 2026', description: 'Flagship frontier model matching NGen-4.3 Pro at 400 tokens/s. Available in India South, India Central, and US East-1.', image: '/model-images/ngen4.5-vayu-preview.svg' },
   { name: 'NGen-4.3 Pro', href: '/models/ngen4.3-pro', category: 'Model', date: 'August 2026', description: 'Frontier agentic intelligence with a 1,048,576-token context window and 248,320-token maximum output.', image: '/model-images/ngen4.3-pro-preview.svg' },
   { name: 'NGenSTT V2 Indic', href: '/models/ngenstt-v2-indic', category: 'Model', date: 'September 2026', description: 'Our flagship Speech-to-Text model for India: 27 languages, code-mixed transcription, and three output modes.', image: '/model-images/ngenstt-v2-indic.svg' },
   { name: 'Model Index', href: '/models', category: 'Models', date: 'April 2026', description: 'Explore our full suite of foundational AI models.', image: '/model-images/ngen4.png' },
   { name: 'NGen-4', href: '/models/ngen4', category: 'Model', date: 'April 15, 2026', description: 'Frontier intelligence for advanced reasoning and multi-modal tasks.', image: '/model-images/ngen4.png' },
   { name: 'NGen-4 Pro', href: '/models/ngen4-pro', category: 'Model', date: 'April 15, 2026', description: 'Frontier reasoning model for complex workflows and advanced problem solving.', image: '/model-images/ngen4-pro.png' },
   { name: 'NGen-4 Mini', href: '/models/ngen4-mini', category: 'Model', date: 'April 15, 2026', description: 'High performance conversational intelligence with lower latency.', image: '/model-images/ngen4-mini.png' },
-  { name: 'NGen-4-K2-1T', href: '/models/ngen4-k2-1t', category: 'Model', date: 'Q3 2026', description: 'Massive scale 1 trillion parameter model for complex, long-horizon reasoning.', image: '/model-images/ngen4-k2.png' },
-  { name: 'IGen 1 Image', href: '/models/igen-1-image', category: 'Model', date: 'March 2026', description: 'High-fidelity, photorealistic text-to-image generation.', image: '/model-images/igen-1.png' },
+  { name: 'NGen-4-K2-1T', href: '/models/ngen4-k2-1t', category: 'Model', date: 'Q3 2026', description: 'Massive scale 1 trillion parameter model for complex, long-horizon reasoning.', image: 'https://raw.githubusercontent.com/tnsaai/images-urls/refs/heads/main/ngen4ow1t.png' },
+  { name: 'IGen 1 Image', href: '/models/igen-1-image', category: 'Model', date: 'March 2026', description: 'High-fidelity, photorealistic text-to-image generation.', image: '/model-images/igen1.png' },
   { name: 'NGen 4 Blaze', href: '/models/ngen4-blaze', category: 'Model', date: 'Coming Soon', description: 'Ultra-fast intelligence optimized for low-latency edge deployment.' },
   { name: 'NGen 4 Flash', href: '/models/ngen4-flash', category: 'Model', date: 'Coming Soon', description: 'High-throughput reasoning for real-time applications.' },
 
@@ -39,6 +42,7 @@ const searchItems = [
 
   // Products
   { name: 'Products Overview', href: '/products', category: 'Products', date: '2026', description: 'Discover products built on TNSA foundational models.' },
+  ...(SHOW_ASTRA ? [{ name: 'Astra', href: '/astra', category: 'Product', date: '2026', description: 'A unified agentic workspace for models, knowledge, connected apps, and enterprise work.', image: '/astra-work-poster.png' }] : []),
   { name: 'GensChat', href: '/products/genchat', category: 'Product', date: '2026', description: 'The intelligent assistant powered by NGen 4.', image: 'https://raw.githubusercontent.com/TnsaAi/images-urls/refs/heads/main/omid-armin-Nsn9FY4JGMs-unsplash.jpg' },
   { name: 'EdgeChat', href: '/products/edgechat', category: 'Product', date: '2026', description: 'Privacy-focused local models running directly on your devices.' },
 
@@ -65,6 +69,7 @@ const megaMenus = {
     eyebrow: 'Explore Models',
     links: [
       { name: 'Model Index', href: '/models' },
+      { name: 'NGen 4.5 Vayu', href: '/models/ngen4.5-vayu' },
       { name: 'NGen 4.3 Pro', href: '/models/ngen4.3-pro' },
       { name: 'NGen 4', href: '/models/ngen4' },
       { name: 'NGen 4 Pro', href: '/models/ngen4-pro' },
@@ -98,9 +103,9 @@ const megaMenus = {
     eyebrow: 'Explore Products',
     links: [
       { name: 'Products Overview', href: '/products' },
+      ...(SHOW_ASTRA ? [{ name: 'Astra', href: '/astra' }] : []),
       { name: 'TNSA Platform', href: 'https://platform.tnsaai.com' },
       { name: 'GensChat', href: '/products/genchat' },
-      { name: 'EdgeChat', href: '/products/edgechat' },
     ],
     sideTitle: 'Build With TNSA',
     sideLinks: [
@@ -145,39 +150,26 @@ const megaMenus = {
 }
 
 export default function Header() {
-  const router = useRouter()
+  const pathname = usePathname()
+  const isAstraPage = pathname === '/astra'
+  const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [searchOpen, setSearchOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState('')
-  const normalizedSearch = searchQuery.trim().toLowerCase()
-  const searchResults = (normalizedSearch
-    ? searchItems.filter((item) => `${item.name} ${item.category} ${item.description}`.toLowerCase().includes(normalizedSearch))
-    : searchItems.slice(0, 4)
-  ).slice(0, 5)
 
-  const openSearch = () => {
-    setSearchOpen(true)
-  }
+  useEffect(() => {
+    const updateHeader = () => setIsScrolled(window.scrollY > 24)
 
-  const closeSearch = () => {
-    setSearchOpen(false)
-    setSearchQuery('')
-  }
-
-  const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const firstResult = searchResults[0]
-    if (firstResult) {
-      closeSearch()
-      router.push(firstResult.href)
-    }
-  }
+    updateHeader()
+    window.addEventListener('scroll', updateHeader, { passive: true })
+    return () => window.removeEventListener('scroll', updateHeader)
+  }, [pathname])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-[#FFFFFF]">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-200 hover:bg-white ${isAstraPage && !isScrolled ? 'bg-transparent' : 'bg-white'}`}
+    >
       <div className="mx-auto flex h-12 items-center justify-between px-5 md:h-16 md:max-w-[1440px] md:justify-start md:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label="TNSA home">
-          <Image src="/TNSA.svg" alt="TNSA" width={55} height={17} className="h-auto w-[52px] md:w-[55px]" priority />
+          <Image src="/TNSA.svg" alt="TNSA" width={55} height={17} className="h-auto w-[52px] md:w-[55px] dark:invert" priority />
         </Link>
 
         <nav className="ml-12 hidden items-center gap-6 md:flex" aria-label="Primary navigation">
@@ -185,13 +177,12 @@ export default function Header() {
             <div
               key={item.name}
               className="group flex h-16 items-center"
-              onMouseEnter={() => setSearchOpen(false)}
             >
               <Link href={item.href} className="text-[12px] font-normal leading-none text-black transition-colors hover:text-gray-600">
                 {item.name}
               </Link>
 
-              <div className="pointer-events-none invisible fixed inset-x-0 top-16 z-50 bg-[#FFFFFF] opacity-0 shadow-[0_18px_45px_rgba(0,0,0,0.035)] transition-opacity duration-150 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100">
+              <div className="pointer-events-none invisible fixed inset-x-0 top-16 z-50 bg-white opacity-0 shadow-[0_18px_45px_rgba(0,0,0,0.035)] transition-opacity duration-150 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100">
                 <div className="mx-auto grid max-w-[1440px] grid-cols-[minmax(0,1fr)_360px] gap-20 px-8 pb-12 pt-8">
                   <div>
                     <p className="mb-4 text-[12px] font-medium text-gray-500">{megaMenus[item.name as keyof typeof megaMenus].eyebrow}</p>
@@ -221,66 +212,21 @@ export default function Header() {
         </nav>
 
         <div className="ml-auto hidden items-center gap-3 md:flex">
-          <button type="button" className="flex h-8 w-8 items-center justify-center text-black transition-colors hover:text-gray-600" aria-label="Search" onClick={openSearch}>
-            <Search className="h-4 w-4" strokeWidth={2} />
-          </button>
+          <SiteSearch items={searchItems} />
+          <ThemeToggle />
           <Link href="https://platform.tnsaai.com" className="flex h-8 items-center rounded-full bg-black px-4 text-[12px] font-semibold text-white transition-colors hover:bg-gray-800">
             Platform
           </Link>
         </div>
 
-        <button type="button" className="md:hidden p-2 text-black" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
-          <Bars3Icon className="h-6 w-6" />
-        </button>
-      </div>
-
-      {searchOpen && (
-        <div className="fixed inset-0 z-[100] bg-white overflow-y-auto">
-          <div className="mx-auto max-w-[920px] px-5 pb-20 pt-8 md:px-8">
-            <div className="flex items-center justify-between mb-16">
-              <form onSubmit={handleSearchSubmit} className="flex-1 max-w-[600px]">
-                <input
-                  value={searchQuery}
-                  onChange={(event) => setSearchQuery(event.target.value)}
-                  autoFocus
-                  placeholder="Search..."
-                  className="w-full bg-transparent text-[36px] md:text-[56px] text-black outline-none placeholder:text-gray-300 font-light"
-                />
-              </form>
-              <button type="button" onClick={closeSearch} className="p-2 text-gray-400 hover:text-black rounded-full transition-colors">
-                <XMarkIcon className="h-10 w-10" />
-              </button>
-            </div>
-
-            <div className="flex flex-col">
-              {searchResults.map((item) => (
-                <Link key={`${item.category}-${item.href}`} href={item.href} className="group block border-t border-gray-100 py-10 first:border-t-0" onClick={closeSearch}>
-                  <div className="flex items-start justify-between gap-8">
-                    <div className="flex-1 pt-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="text-[15px] font-medium text-black">{item.category}</span>
-                        {item.date && <span className="text-[15px] text-gray-500">{item.date}</span>}
-                      </div>
-                      <h3 className="text-[28px] md:text-[32px] font-medium leading-tight text-black transition-colors group-hover:text-gray-500">{item.name}</h3>
-                      {item.description && <p className="mt-4 text-[16px] leading-relaxed text-gray-600 max-w-[600px]">{item.description}</p>}
-                    </div>
-                    {item.image && (
-                      <div className="relative shrink-0 w-[180px] aspect-[4/3] md:w-[260px] overflow-hidden rounded-xl bg-gray-50">
-                        <Image src={item.image} alt={item.name} fill unoptimized={item.image.endsWith('.svg')} className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(min-width: 768px) 260px, 180px" />
-                      </div>
-                    )}
-                  </div>
-                </Link>
-              ))}
-              {searchResults.length === 0 && (
-                <div className="py-12 border-t border-gray-100">
-                  <p className="text-[24px] text-gray-400 font-light">No results found for &quot;{searchQuery}&quot;</p>
-                </div>
-              )}
-            </div>
-          </div>
+        <div className="flex items-center gap-1 md:hidden">
+          <SiteSearch items={searchItems} />
+          <ThemeToggle />
+          <button type="button" className="p-2 text-black" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
+            <Bars3Icon className="h-6 w-6" />
+          </button>
         </div>
-      )}
+      </div>
 
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 z-[60]">
@@ -297,10 +243,6 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-              <button type="button" className="flex items-center gap-2 py-2 text-left text-[12px] font-medium text-gray-900 hover:text-gray-600" onClick={() => { setMobileMenuOpen(false); openSearch() }}>
-                <Search className="h-4 w-4" strokeWidth={2} />
-                Search
-              </button>
               <Link href="https://platform.tnsaai.com" className="mt-2 flex h-9 items-center justify-center rounded-full bg-black px-4 text-[12px] font-semibold text-white hover:bg-gray-800" onClick={() => setMobileMenuOpen(false)}>
                 Platform
               </Link>
